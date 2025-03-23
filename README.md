@@ -46,10 +46,6 @@ ITALIAPIZZA_DB_PASSWORD = Contraseña del usuario
 
 > 📝 **Nota:** Asegúrate de que el usuario creado en SQL Server coincida con los datos definidos en las variables de entorno.
 
-### 2. Definir las variables de entorno del sistema
-Debes guardar las siguientes variables de entorno en tu sistema operativo. Estas serán utilizadas por la aplicación para construir la cadena de conexión:
-
-
 ## Requisitos para el desarrollo
 - Sistema operativo Windows 2010 o 2011 (Para WPF)
 - .Net core SDK 9
