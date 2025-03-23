@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "1fMY3bIVbTFfPDs1AwK0V0TGdXAtqhPCKBBV1/MiyJI=",
+  "Source": "ItaliaPizza.Server",
+  "BasePath": "_content/ItaliaPizza.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
