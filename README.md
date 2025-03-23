@@ -31,6 +31,25 @@ dotnet ef database update NombreDeLaMigracionAnterior --project ItaliaPizza.Serv
 
 ```
 
+## 🗃️ Uso de la base de datos
+
+Para crear la base de datos utilizando la metodología **Code First**, se deben seguir los siguientes pasos:
+
+- 1) Crear un usuario en Sql Server. Asegúrate de darle permisos para crear y adminitrar la base de datos.
+- 2) Defnir las siguientes variables del sistema.
+```
+ITALIAPIZZA_DB_SERVER = Nombre de tu servidor en SqlServer
+ITALIAPIZZA_DB_NAME = Nombre de la base de datos
+ITALIAPIZZA_DB_USER = Usuario de la base de datos
+ITALIAPIZZA_DB_PASSWORD = Contraseña del usuario
+```
+
+> 📝 **Nota:** Asegúrate de que el usuario creado en SQL Server coincida con los datos definidos en las variables de entorno.
+
+### 2. Definir las variables de entorno del sistema
+Debes guardar las siguientes variables de entorno en tu sistema operativo. Estas serán utilizadas por la aplicación para construir la cadena de conexión:
+
+
 ## Requisitos para el desarrollo
 - Sistema operativo Windows 2010 o 2011 (Para WPF)
 - .Net core SDK 9
