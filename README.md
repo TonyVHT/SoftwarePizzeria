@@ -46,6 +46,11 @@ ITALIAPIZZA_DB_PASSWORD = Contraseña del usuario
 
 > 📝 **Nota:** Asegúrate de que el usuario creado en SQL Server coincida con los datos definidos en las variables de entorno.
 
+- 3) **Ejutar** el siguiente comando para crear la DB por primera vez
+```
+  dotnet ef database update --project ItaliaPizza.Server
+```
+
 ## Requisitos para el desarrollo
 - Sistema operativo Windows 2010 o 2011 (Para WPF)
 - .Net core SDK 9
