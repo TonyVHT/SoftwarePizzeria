@@ -46,7 +46,7 @@ ITALIAPIZZA_DB_PASSWORD = Contraseña del usuario
 
 > 📝 **Nota:** Asegúrate de que el usuario creado en SQL Server coincida con los datos definidos en las variables de entorno.
 
-- 3) **Ejutar** el siguiente comando para crear la DB por primera vez
+- 3) **Ejutar** el siguiente comando para crear la DB por primera vez si has clonado el repositorio.
 ```
   dotnet ef database update --project ItaliaPizza.Server
 ```
