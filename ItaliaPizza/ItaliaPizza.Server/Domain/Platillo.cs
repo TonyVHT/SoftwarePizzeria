@@ -21,9 +21,6 @@ namespace ItaliaPizza.Server.Domain
         [Required]
         public int CategoriaId { get; set; }
 
-        [ForeignKey("CategoriaId")]
-        public CategoriaPlatillo Categoria { get; set; } = null!;
-
         public string? Descripcion { get; set; }
 
         [Required]
@@ -38,6 +35,9 @@ namespace ItaliaPizza.Server.Domain
 
         [Column(TypeName = "NVARCHAR(MAX)")]
         public string? Instrucciones { get; set; }
+
+        [ForeignKey("CategoriaId")]
+        public CategoriaProducto Categoria { get; set; } = null!;
 
     }
 }

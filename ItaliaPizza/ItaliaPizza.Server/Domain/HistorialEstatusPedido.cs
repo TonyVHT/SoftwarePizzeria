@@ -19,10 +19,6 @@ namespace ItaliaPizza.Server.Domain
 
         [Required]
         [MaxLength(20)]
-        public string EstatusAnterior { get; set; } = string.Empty;
-
-        [Required]
-        [MaxLength(20)]
         public string EstatusNuevo { get; set; } = string.Empty;
 
         [Required]

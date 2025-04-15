@@ -1,6 +1,7 @@
 ﻿using ItaliaPizza.Server.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Emit;
 
 namespace ItaliaPizza.Server.Settings.DatabaseSettings
 {
@@ -54,7 +55,10 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
                 .HasMaxLength(20);
 
             builder.Property(usuario => usuario.Estatus)
-                .HasDefaultValue(true);
+            .HasDefaultValue(true);
+
+            builder.HasIndex(u => u.Curp)
+            .IsUnique();
         }
     }
 }

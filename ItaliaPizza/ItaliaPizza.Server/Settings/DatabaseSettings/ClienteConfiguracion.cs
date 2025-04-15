@@ -34,18 +34,6 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
                 .HasMaxLength(100)
                 .IsRequired(false);
 
-            builder.Property(cliente => cliente.Direccion)
-                .IsRequired()
-                .HasMaxLength(255);
-
-            builder.Property(cliente => cliente.CodigoPostal)
-                .IsRequired()
-                .HasMaxLength(10);
-
-            builder.Property(cliente => cliente.Ciudad)
-                .IsRequired()
-                .HasMaxLength(50);
-
             builder.Property(cliente => cliente.Estatus)
                 .HasDefaultValue(true);
         }

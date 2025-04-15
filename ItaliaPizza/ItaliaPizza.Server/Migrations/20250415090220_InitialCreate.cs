@@ -6,26 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ItaliaPizza.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class PrimeraMigracion : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "CategoriasPlatillos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Descripcion = table.Column<string>(type: "NVARCHAR(MAX)", nullable: true),
-                    Estatus = table.Column<bool>(type: "bit", nullable: false, defaultValue: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CategoriasPlatillos", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "CategoriasProductos",
                 columns: table => new
@@ -50,9 +35,6 @@ namespace ItaliaPizza.Server.Migrations
                     Apellidos = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Telefono = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    Direccion = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    CodigoPostal = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    Ciudad = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Estatus = table.Column<bool>(type: "bit", nullable: false, defaultValue: true)
                 },
                 constraints: table =>
@@ -98,6 +80,7 @@ namespace ItaliaPizza.Server.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Curp = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Apellidos = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Telefono = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
@@ -132,11 +115,36 @@ namespace ItaliaPizza.Server.Migrations
                 {
                     table.PrimaryKey("PK_Platillos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Platillos_CategoriasPlatillos_CategoriaId",
+                        name: "FK_Platillos_CategoriasProductos_CategoriaId",
                         column: x => x.CategoriaId,
-                        principalTable: "CategoriasPlatillos",
+                        principalTable: "CategoriasProductos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DireccionesClientes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ClienteId = table.Column<int>(type: "int", nullable: false),
+                    Direccion = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Referencias = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CodigoPostal = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Ciudad = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Estatus = table.Column<bool>(type: "bit", nullable: false),
+                    EsPrincipal = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DireccionesClientes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DireccionesClientes_Clientes_ClienteId",
+                        column: x => x.ClienteId,
+                        principalTable: "Clientes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -153,7 +161,8 @@ namespace ItaliaPizza.Server.Migrations
                     CantidadMinima = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Precio = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Estatus = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
-                    ObservacionesInventario = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true)
+                    ObservacionesInventario = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    EsIngrediente = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -279,6 +288,37 @@ namespace ItaliaPizza.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ReportesInventario",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductoId = table.Column<int>(type: "int", nullable: false),
+                    CantidadEsperada = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    CantidadReal = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Diferencia = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Comentario = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    FechaRegistro = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UsuarioId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReportesInventario", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ReportesInventario_Productos_ProductoId",
+                        column: x => x.ProductoId,
+                        principalTable: "Productos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ReportesInventario_Usuarios_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Pedidos",
                 columns: table => new
                 {
@@ -399,7 +439,6 @@ namespace ItaliaPizza.Server.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PedidoId = table.Column<int>(type: "int", nullable: false),
-                    EstatusAnterior = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     EstatusNuevo = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     FechaCambio = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
                     UsuarioId = table.Column<int>(type: "int", nullable: false)
@@ -523,12 +562,6 @@ namespace ItaliaPizza.Server.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CategoriasPlatillos_Nombre",
-                table: "CategoriasPlatillos",
-                column: "Nombre",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_CategoriasProductos_Nombre",
                 table: "CategoriasProductos",
                 column: "Nombre",
@@ -571,6 +604,11 @@ namespace ItaliaPizza.Server.Migrations
                 name: "IX_DetallesPedidoProveedores_ProductoId",
                 table: "DetallesPedidoProveedores",
                 column: "ProductoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DireccionesClientes_ClienteId",
+                table: "DireccionesClientes",
+                column: "ClienteId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Finanzas_UsuarioId",
@@ -708,6 +746,22 @@ namespace ItaliaPizza.Server.Migrations
                 column: "PlatilloId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ReportesInventario_ProductoId",
+                table: "ReportesInventario",
+                column: "ProductoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReportesInventario_UsuarioId",
+                table: "ReportesInventario",
+                column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Usuarios_Curp",
+                table: "Usuarios",
+                column: "Curp",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_Email",
                 table: "Usuarios",
                 column: "Email",
@@ -733,6 +787,9 @@ namespace ItaliaPizza.Server.Migrations
                 name: "DetallesPedidoProveedores");
 
             migrationBuilder.DropTable(
+                name: "DireccionesClientes");
+
+            migrationBuilder.DropTable(
                 name: "HistorialEstatusPedidos");
 
             migrationBuilder.DropTable(
@@ -746,6 +803,9 @@ namespace ItaliaPizza.Server.Migrations
 
             migrationBuilder.DropTable(
                 name: "Recetas");
+
+            migrationBuilder.DropTable(
+                name: "ReportesInventario");
 
             migrationBuilder.DropTable(
                 name: "PedidosProveedores");
@@ -770,9 +830,6 @@ namespace ItaliaPizza.Server.Migrations
 
             migrationBuilder.DropTable(
                 name: "Productos");
-
-            migrationBuilder.DropTable(
-                name: "CategoriasPlatillos");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");

@@ -25,18 +25,8 @@ namespace ItaliaPizza.Server.Domain
         [MaxLength(100)]
         public string? Email { get; set; }
 
-        [Required]
-        [MaxLength(255)]
-        public string Direccion { get; set; } = string.Empty;
-
-        [Required]
-        [MaxLength(10)]
-        public string CodigoPostal { get; set; } = string.Empty;
-
-        [Required]
-        [MaxLength(50)]
-        public string Ciudad { get; set; } = string.Empty;
-
         public bool Estatus { get; set; } = true;
+
+        public ICollection<DireccionCliente> Direcciones { get; set; } = new List<DireccionCliente>();
     }
 }
