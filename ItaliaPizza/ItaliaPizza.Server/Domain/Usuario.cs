@@ -13,6 +13,7 @@ namespace ItaliaPizza.Server.Domain
         [Required]
         [MaxLength(50)]
         public string Nombre { get; set; } = string.Empty;
+        public string Curp { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(50)]

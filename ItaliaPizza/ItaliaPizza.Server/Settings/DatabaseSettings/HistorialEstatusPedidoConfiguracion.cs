@@ -25,10 +25,6 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
                 .HasForeignKey(historialEstatusPedido => historialEstatusPedido.UsuarioId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Property(historialEstatusPedido => historialEstatusPedido.EstatusAnterior)
-                .IsRequired()
-                .HasMaxLength(20);
-
             builder.Property(historialEstatusPedido => historialEstatusPedido.EstatusNuevo)
                 .IsRequired()
                 .HasMaxLength(20);
