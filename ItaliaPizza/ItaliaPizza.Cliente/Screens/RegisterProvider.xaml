@@ -1,0 +1,149 @@
+﻿<Window x:Class="ItaliaPizza.Cliente.Screens.RegisterProvider"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens"
+        mc:Ignorable="d"
+        Title="Register Provider"
+        Height="450"
+        Width="800"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        Background="#d9dce1">
+
+    <Border Margin="300,40,300,40" Background="White" CornerRadius="20" BorderThickness="20">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="300,0,300,0" Orientation="Vertical">
+
+                <!-- Título -->
+                <TextBlock Text="Register Provider"
+                   FontSize="46"
+                   FontWeight="Bold"
+                   Foreground="#2c3e50"
+                   Margin="0,40,0,20"
+                   HorizontalAlignment="Center"
+                   FontFamily="Segoe UI"/>
+
+                <!-- Información del Proveedor -->
+                <GroupBox Header="Provider Information" Margin="0,10,0,0" FontWeight="Bold" Foreground="#2c3e50" FontFamily="Segoe UI">
+                    <Grid Margin="10" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Name:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2" Margin="5" Grid.Row="0" Grid.Column="1" Height="30">
+                            <TextBox Background="Transparent" BorderThickness="0" Padding="4" Height="30"/>
+                        </Border>
+
+                        <Label Content="First lastname:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"/>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2" Margin="5" Grid.Column="1" Grid.Row="1" Height="30">
+                            <TextBox Background="Transparent" BorderThickness="0" Padding="4" Height="30"/>
+                        </Border>
+
+                        <Label Content="Second lastname:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"/>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2" Margin="5" Grid.Row="2" Grid.Column="1" Height="30">
+                            <TextBox Background="Transparent" BorderThickness="0" Padding="4" Height="30"/>
+                        </Border>
+
+                        <Label Content="Type of item supplied:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"/>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2" Margin="5" Grid.Row="3" Grid.Column="1" Height="30">
+                            <TextBox Background="Transparent" BorderThickness="0" Padding="4" Height="30"/>
+                        </Border>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Contacto -->
+                <GroupBox Header="Contact" Margin="0,10,0,0" FontWeight="Bold" Foreground="#2c3e50" FontFamily="Segoe UI">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Phone number:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"/>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2" Margin="5" Grid.Row="0" Grid.Column="1" Height="30">
+                            <TextBox Background="Transparent" BorderThickness="0" Padding="4" Height="30"/>
+                        </Border>
+
+                        <Label Content="E-mail:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2" Margin="5" Grid.Row="1" Grid.Column="1" Height="30">
+                            <TextBox Background="Transparent" BorderThickness="0" Padding="4" Height="30"/>
+                        </Border>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Dirección -->
+                <GroupBox Header="Address" Margin="0,10,0,0" FontWeight="Bold" Foreground="#2c3e50" FontFamily="Segoe UI">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="City:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2" Margin="5" Grid.Row="0" Grid.Column="1" Height="30">
+                            <TextBox Background="Transparent" BorderThickness="0" Padding="4" Height="30"/>
+                        </Border>
+
+                        <Label Content="Street:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"/>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2" Margin="5" Grid.Row="1" Grid.Column="1" Height="30">
+                            <TextBox Background="Transparent" BorderThickness="0" Padding="4" Height="30"/>
+                        </Border>
+
+                        <Label Content="House number:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"/>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2" Margin="5" Grid.Row="2" Grid.Column="1" Height="30">
+                            <TextBox Background="Transparent" BorderThickness="0" Padding="4" Height="30"/>
+                        </Border>
+
+                        <Label Content="Postal code:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"/>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="1" Background="White" Padding="2" Margin="5" Grid.Row="3" Grid.Column="1" Height="30">
+                            <TextBox Background="Transparent" BorderThickness="0" Padding="4" Height="30"/>
+                        </Border>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Botones centrados -->
+                <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,150,0,10">
+                    <Button Content="Save"
+                    Width="120"
+                    Height="35"
+                    Background="#3498db"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    Margin="10"
+                    Cursor="Hand"/>
+                    <Button Content="Cancel"
+                    Width="120"
+                    Height="35"
+                    Background="#e74c3c"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    Margin="10"
+                    Cursor="Hand"/>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</Window>

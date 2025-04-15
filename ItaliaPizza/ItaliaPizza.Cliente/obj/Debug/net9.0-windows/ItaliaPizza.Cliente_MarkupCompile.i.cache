@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\
 ItaliaPizza.Cliente
 none
 false
-TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\App.xaml
-11407045341
+TRACE;DEBUG;NET;NET9_0;NETCOREAPP
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\App.xaml
+2435149856
 
-6253324434
-203-682361476
-MainWindow.xaml;
+71910265548
+223-1574967524
+MainWindow.xaml;Screens\RegisterProvider.xaml;
 
-False
+True
 
