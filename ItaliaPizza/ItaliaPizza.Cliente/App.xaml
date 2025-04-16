@@ -10,7 +10,7 @@
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Style.Triggers>
-                <Trigger Property="IsEnabled" Value="True">
+                <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" Value="#CCE9D6"/>
                     <Setter Property="Foreground" Value="#21A725"/>
                     <Setter Property="BorderBrush" Value="Transparent"/>
