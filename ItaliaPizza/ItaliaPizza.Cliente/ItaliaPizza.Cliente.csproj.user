@@ -5,9 +5,27 @@
     <Compile Update="Screens\RegisterProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\UCManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Screens\RegisterProvider.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCCook.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCWaiter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCCashier.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCManager.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
