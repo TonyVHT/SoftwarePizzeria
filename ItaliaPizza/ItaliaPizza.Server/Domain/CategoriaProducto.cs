@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ItaliaPizza.Server.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ItaliaPizza.Server.Domain
@@ -15,5 +16,8 @@ namespace ItaliaPizza.Server.Domain
         public string Nombre { get; set; } = string.Empty;
 
         public bool Estatus { get; set; } = true;
+
+        [Required]
+        public TipoDeUso TipoDeUso { get; set; } = TipoDeUso.Producto;
     }
 }
