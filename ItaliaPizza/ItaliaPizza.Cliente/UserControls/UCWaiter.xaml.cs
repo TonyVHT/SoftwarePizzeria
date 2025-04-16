@@ -18,9 +18,9 @@ namespace ItaliaPizza.Cliente.UserControls
     /// <summary>
     /// Lógica de interacción para UCManager.xaml
     /// </summary>
-    public partial class UCManager : UserControl
+    public partial class UCWaiter : UserControl
     {
-        public UCManager()
+        public UCWaiter()
         {
             InitializeComponent();
         }
