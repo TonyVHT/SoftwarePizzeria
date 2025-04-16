@@ -414,4 +414,7 @@ FodyWeavers.xsd
 *.runtimeconfig.json
 *.g.cs
 *.g.i.cs
+# Ignorar archivos de información de ensamblado generados por .NET
+**/AssemblyInfo.cs
+**/AssemblyInfoInputs.cache
 
