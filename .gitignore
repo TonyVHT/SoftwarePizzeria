@@ -11,6 +11,46 @@
 *.userosscache
 *.sln.docstates
 
+## Build results
+bin/
+obj/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## DotNet-generated files
+*.dbmdl
+*.bak
+*.cache
+*.log
+*.pdb
+
+## Project-specific caches
+*.AssemblyReference.cache
+*.AssemblyInfoInputs.cache
+*.i.cache
+*.i.ref
+*.g.cs
+*.g.i.cs
+*.g.br.cs
+*.Designer.cs
+*.runtimeconfig.json
+
+# VS Code
+.vscode/
+
+# JetBrains Rider
+.idea/
+
+# Others
+*.vs/
+
 
 Server/.sonarqube/
 .sonarqube/
