@@ -441,3 +441,17 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Archivos adicionales de .NET que causan conflictos y no deben versionarse
+**/obj/
+**/bin/
+*.i.cache
+*.i.ref
+*.lref
+*.assets.cache
+*.AssemblyReference.cache
+*.AssemblyInfoInputs.cache
+*.runtimeconfig.json
+*.g.cs
+*.g.i.cs
+
