@@ -4,16 +4,18 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+## Build results
+**/bin/
+**/obj/
+[Bb]uild/
+[Bb]uilds/
+
 # User-specific files
 *.rsuser
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
-
-## Build results
-bin/
-obj/
 
 ## User-specific files
 *.user

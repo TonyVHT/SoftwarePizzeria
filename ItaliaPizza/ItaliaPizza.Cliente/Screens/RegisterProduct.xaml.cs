@@ -26,7 +26,6 @@ namespace ItaliaPizza.Cliente.Screens
                 var proveedores = await _http.GetFromJsonAsync<List<Proveedor>>("api/proveedor");
 
                 cmbCategoria.ItemsSource = categorias;
-                cmbProveedor.ItemsSource = proveedores;
             }
             catch (Exception ex)
             {
@@ -60,7 +59,6 @@ namespace ItaliaPizza.Cliente.Screens
                 {
                     Nombre = txtNombre.Text,
                     CategoriaId = cmbCategoria.SelectedValue is int catId ? catId : 0,
-                    ProveedorId = cmbProveedor.SelectedValue is int provId ? provId : 0,
                     UnidadMedida = txtUnidadMedida.Text,
                     CantidadActual = cantidadActual,
                     CantidadMinima = cantidadMinima,
