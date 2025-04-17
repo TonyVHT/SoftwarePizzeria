@@ -6,5 +6,6 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
     {
         Task<CredencialUsuario?> GetByNombreUsuarioAsync(string nombreUsuario);
         Task<bool> ValidarCredencialesAsync(string nombreUsuario, byte[] hashContraseña);
+        Task<CredencialUsuario?> GetUserIdByUsername(int userId);
     }
 }

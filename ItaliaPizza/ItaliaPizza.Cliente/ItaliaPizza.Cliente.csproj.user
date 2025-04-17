@@ -2,6 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Screens\LogIn.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\RegisterProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -10,6 +13,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Screens\LogIn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\RegisterProvider.xaml">
       <SubType>Designer</SubType>
     </Page>

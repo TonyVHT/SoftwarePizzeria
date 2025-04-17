@@ -14,14 +14,25 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             return await _dbSet.FirstOrDefaultAsync(usuario => usuario.Email == email);
         }
 
-        public async Task<IEnumerable<Usuario>> GetByRolAsync(string rol)
+        
+        public async Task<String?> GetByRolByIdAsync(int userId)
         {
-            return await _dbSet.Where(usuario => usuario.Rol == rol).ToListAsync();
+                            return await _context.Usuarios
+                           .Where(u => u.Id == userId)
+                           .Select(u => u.Rol.ToString())
+                           .FirstOrDefaultAsync();
+            
         }
+
+        
 
         public async Task<IEnumerable<Usuario>> GetUsuariosActivosAsync()
         {
             return await _dbSet.Where(usuario => usuario.Estatus).ToListAsync();
         }
+
+
+
+        
     }
 }
