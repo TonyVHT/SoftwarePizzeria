@@ -560,9 +560,6 @@ namespace ItaliaPizza.Server.Migrations
                     b.Property<decimal>("Precio")
                         .HasColumnType("decimal(10,2)");
 
-                    b.Property<int>("ProveedorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UnidadMedida")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -574,8 +571,6 @@ namespace ItaliaPizza.Server.Migrations
 
                     b.HasIndex("Nombre")
                         .IsUnique();
-
-                    b.HasIndex("ProveedorId");
 
                     b.ToTable("Productos", (string)null);
                 });
@@ -1013,15 +1008,7 @@ namespace ItaliaPizza.Server.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ItaliaPizza.Server.Domain.Proveedor", "Proveedor")
-                        .WithMany()
-                        .HasForeignKey("ProveedorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("Categoria");
-
-                    b.Navigation("Proveedor");
                 });
 
             modelBuilder.Entity("ItaliaPizza.Server.Domain.Receta", b =>
