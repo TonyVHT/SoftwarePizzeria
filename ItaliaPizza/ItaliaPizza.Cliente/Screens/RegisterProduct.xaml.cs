@@ -23,7 +23,6 @@ namespace ItaliaPizza.Cliente.Screens
             try
             {
                 var categorias = await _http.GetFromJsonAsync<List<CategoriaProducto>>("api/categoria");
-                var proveedores = await _http.GetFromJsonAsync<List<Proveedor>>("api/proveedor");
 
                 cmbCategoria.ItemsSource = categorias;
             }
