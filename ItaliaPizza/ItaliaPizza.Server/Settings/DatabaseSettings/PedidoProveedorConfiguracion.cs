@@ -10,43 +10,50 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
         {
             builder.ToTable("PedidosProveedores");
 
-            builder.HasKey(pedidoProveedor => pedidoProveedor.Id);
+            builder.HasKey(p => p.Id);
 
-            builder.Property(pedidoProveedor => pedidoProveedor.Id)
+            builder.Property(p => p.Id)
                 .ValueGeneratedOnAdd();
 
-            builder.HasOne(pedidoProveedor => pedidoProveedor.Proveedor)
+            builder.HasOne(p => p.Proveedor)
                 .WithMany()
-                .HasForeignKey(pedidoProveedor => pedidoProveedor.ProveedorId)
+                .HasForeignKey(p => p.ProveedorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(pedidoProveedor => pedidoProveedor.UsuarioSolicita)
+            builder.HasOne(p => p.Producto)
                 .WithMany()
-                .HasForeignKey(pedidoProveedor => pedidoProveedor.UsuarioSolicitaId)
+                .HasForeignKey(p => p.ProductoId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(pedidoProveedor => pedidoProveedor.UsuarioRecibe)
-                .WithMany()
-                .HasForeignKey(pedidoProveedor => pedidoProveedor.UsuarioRecibeId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasMany(pedidoProveedor => pedidoProveedor.Detalles)
-                .WithOne(detalle => detalle.PedidoProveedor)
-                .HasForeignKey(detalle => detalle.PedidoProveedorId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.Property(pedidoProveedor => pedidoProveedor.FechaPedido)
-                .IsRequired()
-                .HasDefaultValueSql("GETDATE()");
-
-            builder.Property(pedidoProveedor => pedidoProveedor.Total)
+            builder.Property(p => p.Cantidad)
                 .IsRequired()
                 .HasColumnType("decimal(10,2)");
 
-            builder.Property(pedidoProveedor => pedidoProveedor.Estatus)
+            builder.Property(p => p.Total)
+                .IsRequired()
+                .HasColumnType("decimal(10,2)");
+
+            builder.Property(p => p.FechaPedido)
+                .IsRequired()
+                .HasDefaultValueSql("GETDATE()");
+
+            builder.Property(p => p.FechaLlegada)
+                .IsRequired(false);
+
+            builder.Property(p => p.EstadoDePedido)
                 .IsRequired()
                 .HasMaxLength(20)
                 .HasDefaultValue("Pendiente");
+
+            builder.Property(p => p.EstadoEliminacion)
+                .IsRequired()
+                .HasDefaultValue(false);
+
+            builder.Property(p => p.UsuarioSolicita)
+                .IsRequired();
+
+            builder.Property(p => p.UsuarioRecibe)
+                .IsRequired(false);
         }
     }
 }
