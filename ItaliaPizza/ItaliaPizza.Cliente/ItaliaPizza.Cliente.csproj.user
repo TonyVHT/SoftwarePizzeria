@@ -2,7 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Screens\ConsultProviders.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\EditProductModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\EditProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\RegisterProduct.xaml.cs">
@@ -19,6 +25,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Screens\ConsultProviders.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\EditProvider.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\RegisterProvider.xaml">
       <SubType>Designer</SubType>
     </Page>
