@@ -2,7 +2,16 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Screens\Admin\AddUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Admin\HomePageAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Admin\UserSearch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Admin\UserUpdate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Cashier\HomePageCashier.xaml.cs">
@@ -46,7 +55,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Screens\Admin\AddUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\Admin\HomePageAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Admin\UserSearch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Admin\UserUpdate.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Cashier\HomePageCashier.xaml">

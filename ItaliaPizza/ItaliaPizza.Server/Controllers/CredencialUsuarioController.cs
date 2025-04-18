@@ -41,11 +41,30 @@ namespace ItaliaPizza.Server.Controllers
             return Ok(userId);
         }
 
+        [HttpPost("registrar")]
+        public async Task<IActionResult> RegistrarCredencial([FromBody] CredencialRegistroDTO dto)
+        {
+            await _credencialUsuarioService.RegistrarCredencialAsync(dto);
+            return Ok(new { message = "Credencial registrada correctamente" });
+        }
+
         [HttpGet("ping")]
         public IActionResult Ping()
         {
             return Ok("Ping en Usuario");
         }
+
+        [HttpPut("cambiar-contrasena")]
+        public async Task<IActionResult> CambiarContrasena([FromBody] CambioContrasenaDTO dto)
+        {
+            var actualizado = await _credencialUsuarioService.CambiarContrasenaAsync(dto);
+
+            if (!actualizado)
+                return NotFound(new { message = "Credencial no encontrada" });
+
+            return Ok(new { message = "Contraseña actualizada correctamente" });
+        }
+
 
     }
 }

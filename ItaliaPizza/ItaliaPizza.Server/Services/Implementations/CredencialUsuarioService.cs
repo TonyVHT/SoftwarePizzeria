@@ -31,8 +31,7 @@ namespace ItaliaPizza.Server.Services.Implementations
                     if (credencial == null)
                         return (false, "Usuario no encontrado.");
 
-                    // Hashear la contraseña ingresada + el salt
-                    var hashIngresado = HashearContrasena(loginDTO.Contrasena, credencial.Salt);
+                    var hashIngresado = Hashear(loginDTO.Contrasena, credencial.Salt);
 
                     if (!hashIngresado.SequenceEqual(credencial.HashContraseña))
                         return (false, "Contraseña incorrecta.");
@@ -40,14 +39,51 @@ namespace ItaliaPizza.Server.Services.Implementations
                     return (true, "Inicio de sesión correcto.");
         }
 
-        public static byte[] HashearContrasena(string contrasena, byte[] salt)
+        public async Task RegistrarCredencialAsync(CredencialRegistroDTO dto)
+        {
+            byte[] salt = RandomNumberGenerator.GetBytes(32);
+
+            byte[] hash = Hashear(dto.Contrasena, salt);
+
+            var credencial = new CredencialUsuario
+            {
+                UsuarioId = dto.UsuarioId,
+                NombreUsuario = dto.NombreUsuario,
+                HashContraseña = hash,
+                Salt = salt
+            };
+
+            await _credencialRepository.RegistrarCredencialAsync(credencial);
+        }
+
+        public async Task<bool> CambiarContrasenaAsync(CambioContrasenaDTO dto)
+        {
+            var credencial = await _credencialRepository.GetByUsuarioIdAsync(dto.UsuarioId);
+
+            if (credencial == null)
+                return false;
+
+            byte[] nuevoSalt = RandomNumberGenerator.GetBytes(32);
+            byte[] nuevoHash = Hashear(dto.NuevaContrasena, nuevoSalt);
+
+            credencial.Salt = nuevoSalt;
+            credencial.HashContraseña = nuevoHash;
+
+            return await _credencialRepository.SaveChangesAsync() > 0;
+        }
+
+        
+
+
+        private byte[] Hashear(string password, byte[] salt)
         {
             using var sha256 = SHA256.Create();
-            var bytesContrasena = Encoding.UTF8.GetBytes(contrasena);
-            var combinado = salt.Concat(bytesContrasena).ToArray();
+            var passwordBytes = Encoding.UTF8.GetBytes(password);
+            var combinado = salt.Concat(passwordBytes).ToArray();
             return sha256.ComputeHash(combinado);
         }
 
+        
 
     }
 

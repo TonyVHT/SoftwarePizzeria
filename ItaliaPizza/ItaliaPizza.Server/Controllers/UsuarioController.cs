@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.DTOs;
 using ItaliaPizza.Server.Services.Implementations;
 using ItaliaPizza.Server.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,45 @@ namespace ItaliaPizza.Server.Controllers
 
             return Ok(new { rol });
         }
+
+        [HttpPost("registrar")]
+        public async Task<IActionResult> RegistrarUsuario([FromBody] Usuario usuario)
+        {
+            var id = await _usuarioService.RegistrarUsuarioAsync(usuario);
+            return Ok(new { id });
+        }
+
+        [HttpPut("modificar")]
+        public async Task<IActionResult> ModificarUsuario([FromBody] UsuarioActualizadoDTO dto)
+        {
+            var actualizado = await _usuarioService.ActualizarUsuarioAsync(dto);
+
+            if (!actualizado)
+                return NotFound(new { message = "Usuario no encontrado" });
+
+            return Ok(new { message = "Usuario actualizado correctamente" });
+        }
+
+        [HttpGet("buscar")]
+        public async Task<IActionResult> BuscarUsuarios([FromQuery] string? nombre, [FromQuery] string? nombreUsuario, [FromQuery] string? rol)
+        {
+            var usuarios = await _usuarioService.BuscarUsuariosAsync(nombre, nombreUsuario, rol);
+            return Ok(usuarios);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> ObtenerPorId(int id)
+        {
+            var usuario = await _usuarioService.ObtenerUsuarioPorIdAsync(id);
+
+            if (usuario == null)
+                return NotFound(new { message = "Usuario no encontrado" });
+
+            return Ok(usuario);
+        }
+
+
+
 
 
 

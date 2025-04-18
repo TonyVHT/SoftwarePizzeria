@@ -1,6 +1,8 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.DTOs;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using ItaliaPizza.Server.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace ItaliaPizza.Server.Services.Implementations
 {
@@ -18,8 +20,47 @@ namespace ItaliaPizza.Server.Services.Implementations
             return await _usuarioRepository.GetByRolByIdAsync(userId);
         }
 
-        
+        public async Task<int> RegistrarUsuarioAsync(Usuario usuario)
+        {
+            return await _usuarioRepository.AgregarUsuarioAsync(usuario);
+        }
 
-        
+        public async Task<bool> ActualizarUsuarioAsync(UsuarioActualizadoDTO dto)
+        {
+            var usuario = await _usuarioRepository.GetByIdAsync(dto.Id);
+            if (usuario == null)
+                return false;
+
+            usuario.Nombre = dto.Nombre;
+            usuario.Apellidos = dto.Apellidos;
+            usuario.Telefono = dto.Telefono;
+            usuario.Email = dto.Email;
+            usuario.Direccion = dto.Direccion;
+            usuario.Ciudad = dto.Ciudad;
+            usuario.CodigoPostal = dto.CodigoPostal;
+            usuario.Rol = dto.Rol;
+            usuario.Curp = dto.Curp;
+
+            return await _usuarioRepository.SaveChangesAsync() > 0;
+        }
+
+        public async Task<IEnumerable<UsuarioConsultaDTO>> BuscarUsuariosAsync(string? nombre, string? nombreUsuario, string? rol)
+        {
+            return await _usuarioRepository.BuscarUsuariosAsync(nombre, nombreUsuario, rol);
+        }
+
+        public async Task<UsuarioEdicionDTO?> ObtenerUsuarioPorIdAsync(int id)
+        {
+            return await _usuarioRepository.GetUsuarioConCredencialByIdAsync(id);
+        }
+
+
+
+
+
+
+
+
+
     }
 }

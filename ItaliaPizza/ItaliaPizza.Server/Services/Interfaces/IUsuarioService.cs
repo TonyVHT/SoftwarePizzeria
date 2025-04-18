@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.DTOs;
 
 namespace ItaliaPizza.Server.Services.Interfaces
 {
@@ -7,6 +8,13 @@ namespace ItaliaPizza.Server.Services.Interfaces
 
         
         Task<string?> GetRolById(int userId);
+        Task<int> RegistrarUsuarioAsync(Usuario usuario);
+        Task<bool> ActualizarUsuarioAsync(UsuarioActualizadoDTO dto);
+        Task<IEnumerable<UsuarioConsultaDTO>> BuscarUsuariosAsync(string? nombre, string? nombreUsuario, string? rol);
+        Task<UsuarioEdicionDTO?> ObtenerUsuarioPorIdAsync(int id);
+
+
+
 
     }
 }
