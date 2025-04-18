@@ -23,7 +23,6 @@ namespace ItaliaPizza.Cliente.Screens
             try
             {
                 var categorias = await _http.GetFromJsonAsync<List<CategoriaProducto>>("api/categoria");
-
                 cmbCategoria.ItemsSource = categorias;
             }
             catch (Exception ex)
@@ -78,8 +77,8 @@ namespace ItaliaPizza.Cliente.Screens
 
                 if (response.IsSuccessStatusCode)
                 {
-                    await ShowToastAsync("Producto registrado correctamente.");
-                    Close();
+                    await ShowToastAsync(producto.EsIngrediente ? "Ingrediente registrado correctamente." : "Producto registrado correctamente.");
+                    LimpiarCampos();
                 }
                 else
                 {
@@ -109,6 +108,19 @@ namespace ItaliaPizza.Cliente.Screens
 
             await Task.Delay(500);
             toastMessage.Visibility = Visibility.Collapsed;
+        }
+
+        private void LimpiarCampos()
+        {
+            txtNombre.Clear();
+            txtUnidadMedida.Clear();
+            txtCantidadActual.Clear();
+            txtCantidadMinima.Clear();
+            txtPrecio.Clear();
+            txtObservaciones.Clear();
+            chkEstatus.IsChecked = true;
+            chkEsIngrediente.IsChecked = false;
+            cmbCategoria.SelectedIndex = -1;
         }
     }
 }
