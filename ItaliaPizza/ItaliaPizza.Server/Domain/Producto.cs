@@ -21,12 +21,6 @@ namespace ItaliaPizza.Server.Domain
         public CategoriaProducto Categoria { get; set; } = null!;
 
         [Required]
-        public int ProveedorId { get; set; }
-
-        [ForeignKey("ProveedorId")]
-        public Proveedor Proveedor { get; set; } = null!;
-
-        [Required]
         [MaxLength(20)]
         public string UnidadMedida { get; set; } = string.Empty;
 

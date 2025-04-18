@@ -6,6 +6,5 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
     {
         Task<IEnumerable<PedidoProveedor>> GetPedidosPendientesAsync();
         Task<IEnumerable<PedidoProveedor>> GetPedidosPorProveedorAsync(int proveedorId);
-        Task<PedidoProveedor?> GetPedidoConDetallesAsync(int pedidoId);
     }
 }

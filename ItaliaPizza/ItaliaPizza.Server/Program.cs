@@ -4,6 +4,8 @@ using ItaliaPizza.Server.Services.Interfaces;
 using ItaliaPizza.Server.Settings.URI;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using ItaliaPizza.Server.Repositories.Implementations;
+using ItaliaPizza.Server.Repositories.Interfaces;
 
 Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()
@@ -24,6 +26,8 @@ builder.Services.AddDbContext<ItaliaPizzaDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IPlatilloService, PlatilloService>();
+builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
