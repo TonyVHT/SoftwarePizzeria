@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\
 ItaliaPizza.Cliente
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\App.xaml
-7-423043647
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\App.xaml
+8-1702408672
 
-121813156624
-223-9794686
-MainWindow.xaml;Screens\RegisterProvider.xaml;UserControls\UCAdmin.xaml;UserControls\UCCashier.xaml;UserControls\UCCook.xaml;UserControls\UCManager.xaml;UserControls\UCWaiter.xaml;
+13335854765
+223-11407120
+MainWindow.xaml;Platillos\PlatillosVista.xaml;Screens\RegisterProvider.xaml;UserControls\UCAdmin.xaml;UserControls\UCCashier.xaml;UserControls\UCCook.xaml;UserControls\UCManager.xaml;UserControls\UCWaiter.xaml;
 
 True
 
