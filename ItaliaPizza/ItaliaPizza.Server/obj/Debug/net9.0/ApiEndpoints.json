@@ -1,8 +1,102 @@
 [
   {
+    "ContainingType": "ItaliaPizza.Server.Controllers.CredencialUsuarioController",
+    "Method": "GetIdByUsername",
+    "RelativePath": "api/CredencialUsuario/getid",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.CredencialUsuarioController",
+    "Method": "LogIn",
+    "RelativePath": "api/CredencialUsuario/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ItaliaPizza.Server.DTOs.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.CredencialUsuarioController",
+    "Method": "Ping",
+    "RelativePath": "api/CredencialUsuario/ping",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ItaliaPizza.Server.Controllers.PlatilloController",
     "Method": "Ping",
     "RelativePath": "api/Platillo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.ProductoController",
+    "Method": "RegistrarProducto",
+    "RelativePath": "api/Producto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "producto",
+        "Type": "ItaliaPizza.Server.Domain.Producto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.ProductoController",
+    "Method": "Ping",
+    "RelativePath": "api/Producto/ping",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.UsuarioController",
+    "Method": "GetRolById",
+    "RelativePath": "api/Usuario/getrol",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.UsuarioController",
+    "Method": "Ping",
+    "RelativePath": "api/Usuario/ping",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

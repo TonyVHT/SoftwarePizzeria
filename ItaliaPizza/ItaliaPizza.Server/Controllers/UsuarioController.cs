@@ -16,16 +16,17 @@ namespace ItaliaPizza.Server.Controllers
             _usuarioService = usuarioService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> GetRolById([FromBody] Usuario usuario)
+        [HttpPost("getrol")]
+        public async Task<IActionResult> GetRolById([FromBody] int id)
         {
-            var rol = await _usuarioService.GetRolById(usuario.Id);
+            var rol = await _usuarioService.GetRolById(id);
 
             if (rol == null)
                 return NotFound(new { message = "No se encontró el rol para el usuario." });
 
             return Ok(new { rol });
         }
+
 
 
         [HttpGet("ping")]

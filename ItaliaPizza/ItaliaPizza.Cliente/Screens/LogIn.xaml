@@ -49,15 +49,15 @@
                         <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
                     </Image.Clip>
                 </Image>
-                <TextBox Style="{StaticResource textboxStyle}" Grid.Row="2" Grid.Column="0" >
+                <TextBox x:Name="txtUsuario" Style="{StaticResource textboxStyle}" Grid.Row="2" Grid.Column="0" >
                     Usuario
                 </TextBox>
 
-                <PasswordBox Style="{StaticResource passwordboxStyle}" Grid.Column="0" Grid.Row="4">
+                <PasswordBox x:Name="pswContra" Style="{StaticResource passwordboxStyle}" Grid.Column="0" Grid.Row="4">
 
                 </PasswordBox>
 
-                <Button Style="{StaticResource buttonsStyle}" Grid.Column="0" Grid.Row="6" Margin="10px">
+                <Button Style="{StaticResource buttonsStyle}" Grid.Column="0" Grid.Row="6" Margin="10px" Click="LogIn_Click">
                     Iniciar Sesión
                 </Button>
 

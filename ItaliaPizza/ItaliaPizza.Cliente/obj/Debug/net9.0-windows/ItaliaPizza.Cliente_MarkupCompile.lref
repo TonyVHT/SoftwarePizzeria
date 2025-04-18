@@ -1,10 +1,22 @@
 ﻿
-FC:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\App.xaml;;
-FC:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\MainWindow.xaml;;
-FC:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterProvider.xaml;;
-FC:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCAdmin.xaml;;
-FC:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCCashier.xaml;;
-FC:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCCook.xaml;;
-FC:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCManager.xaml;;
-FC:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCWaiter.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\App.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\MainWindow.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\LogIn.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterProduct.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterProvider.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCAdmin.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCCashier.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCCook.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCManager.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCWaiter.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Admin\HomePageAdmin.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Admin\LogOutAdmin.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Cashier\HomePageCashier.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Cashier\LogOutCashier.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Cook\HomePageCook.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Cook\LogOutCook.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Manager\HomePageManager.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Manager\LogOutManager.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Waiter\HomePageWaiter.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Waiter\LogOutWaiter.xaml;;
 

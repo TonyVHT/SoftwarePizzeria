@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using ItaliaPizza.Cliente.Screens.Admin;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -23,6 +24,15 @@ namespace ItaliaPizza.Cliente.UserControls
         public UCAdmin()
         {
             InitializeComponent();
+        }
+
+
+        
+
+        private void buttonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            var closeSessionWindow = new LogOutAdmin();
+            closeSessionWindow.Show();
         }
     }
 }

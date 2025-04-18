@@ -1,4 +1,8 @@
-﻿using System;
+﻿using ItaliaPizza.Cliente.Screens.Admin;
+using ItaliaPizza.Cliente.Screens.Cook;
+using ItaliaPizza.Cliente.Screens.Manager;
+using ItaliaPizza.Cliente.Screens.Waiter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,23 +20,25 @@ namespace ItaliaPizza.Cliente.Utils
             switch (rol.ToLower())
             {
                 case "gerente":
-                    //ventana = new VentanaGerente();
+                    ventana = new HomePageManager();
+                   
                     break;
 
                 case "mesero":
-                   // ventana = new VentanaMesero();
+                   ventana = new HomePageWaiter();
+                    
                     break;
 
                 case "cajero":
-                    //ventana = new VentanaCajero();
+                    ventana = new HomePageWaiter();
                     break;
 
                 case "cocinero":
-                    //ventana = new VentanaCocinero();
+                    ventana = new HomePageCook();
                     break;
 
                 case "administrador":
-                    //ventana = new VentanaAdministrador();
+                    ventana = new HomePageAdmin();
                     break;
 
                 default:
@@ -40,7 +46,7 @@ namespace ItaliaPizza.Cliente.Utils
                     return;
             }
 
-            //ventana.Show();
+            ventana.Show();
 
         }
     }

@@ -2,7 +2,31 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Screens\Admin\HomePageAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Cashier\HomePageCashier.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Cashier\LogOutCashier.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Cook\HomePageCook.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Cook\LogOutCook.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\LogIn.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Admin\LogOutAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Manager\HomePageManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Manager\LogOutManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\RegisterProduct.xaml.cs">
@@ -11,15 +35,51 @@
     <Compile Update="Screens\RegisterProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Waiter\HomePageWaiter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Waiter\LogOutWaiter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\UCManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Screens\Admin\HomePageAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Cashier\HomePageCashier.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Cashier\LogOutCashier.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Cook\HomePageCook.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Cook\LogOutCook.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\LogIn.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Screens\Admin\LogOutAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Manager\HomePageManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Manager\LogOutManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\RegisterProvider.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Waiter\HomePageWaiter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Waiter\LogOutWaiter.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\UCAdmin.xaml">
