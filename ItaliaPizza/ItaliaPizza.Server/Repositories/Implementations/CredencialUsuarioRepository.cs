@@ -14,18 +14,18 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             return await _dbSet.FirstOrDefaultAsync(c => c.NombreUsuario == nombreUsuario);
         }
 
-        public async Task<CredencialUsuario?> GetUserIdByUsername(int userId)
+        public async Task<int?> GetUserIdByUsername(string username)
         {
-            return await _dbSet.FirstOrDefaultAsync(c => c.Id == userId);
+            return await _dbSet
+                .Where(c => c.NombreUsuario == username)
+                .Select(c => (int?)c.UsuarioId) 
+                .FirstOrDefaultAsync();
         }
 
         public async Task<bool> ValidarCredencialesAsync(string nombreUsuario, byte[] hashContraseña)
         {
             return await _dbSet.AnyAsync(c => c.NombreUsuario == nombreUsuario && c.HashContraseña == hashContraseña);
-        }   
-
-
-
+        }
 
     }
 }

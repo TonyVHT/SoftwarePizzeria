@@ -28,6 +28,11 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IPlatilloService, PlatilloService>();
 builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<ICredencialUsuarioService, CredencialUsuarioService>();
+builder.Services.AddScoped<ICredencialUsuarioRepository,  CredencialUsuarioRepository>();
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
