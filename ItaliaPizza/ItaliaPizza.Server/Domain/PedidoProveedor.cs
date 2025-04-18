@@ -18,27 +18,33 @@ namespace ItaliaPizza.Server.Domain
         public Proveedor Proveedor { get; set; } = null!;
 
         [Required]
-        public DateTime FechaPedido { get; set; } = DateTime.Now;
+        public int ProductoId { get; set; }
+
+        [ForeignKey("ProductoId")]
+        public Producto Producto { get; set; } = null!;
+
+        [Required]
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal Cantidad { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(10,2)")]
         public decimal Total { get; set; }
 
         [Required]
-        [MaxLength(20)]
-        public string Estatus { get; set; } = "Pendiente";
+        public DateTime FechaPedido { get; set; } = DateTime.Now;
+
+        public DateTime? FechaLlegada { get; set; }
 
         [Required]
-        public int UsuarioSolicitaId { get; set; }
+        [MaxLength(20)]
+        public string EstadoDePedido { get; set; } = "Pendiente";
 
-        [ForeignKey("UsuarioSolicitaId")]
-        public Usuario UsuarioSolicita { get; set; } = null!;
+        public bool EstadoEliminacion { get; set; } = false;
 
-        public int? UsuarioRecibeId { get; set; }
+        [Required]
+        public string UsuarioSolicita { get; set; } = string.Empty;
 
-        [ForeignKey("UsuarioRecibeId")]
-        public Usuario? UsuarioRecibe { get; set; }
-
-        public ICollection<DetallePedidoProveedor> Detalles { get; set; } = new List<DetallePedidoProveedor>();
+        public string? UsuarioRecibe { get; set; }
     }
 }

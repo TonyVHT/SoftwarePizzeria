@@ -434,17 +434,31 @@ namespace ItaliaPizza.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Estatus")
+                    b.Property<decimal>("Cantidad")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<string>("EstadoDePedido")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)")
                         .HasDefaultValue("Pendiente");
 
+                    b.Property<bool>("EstadoEliminacion")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<DateTime?>("FechaLlegada")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("FechaPedido")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProveedorId")
                         .HasColumnType("int");
@@ -452,19 +466,18 @@ namespace ItaliaPizza.Server.Migrations
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(10,2)");
 
-                    b.Property<int?>("UsuarioRecibeId")
-                        .HasColumnType("int");
+                    b.Property<string>("UsuarioRecibe")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UsuarioSolicitaId")
-                        .HasColumnType("int");
+                    b.Property<string>("UsuarioSolicita")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductoId");
+
                     b.HasIndex("ProveedorId");
-
-                    b.HasIndex("UsuarioRecibeId");
-
-                    b.HasIndex("UsuarioSolicitaId");
 
                     b.ToTable("PedidosProveedores", (string)null);
                 });
@@ -560,9 +573,6 @@ namespace ItaliaPizza.Server.Migrations
                     b.Property<decimal>("Precio")
                         .HasColumnType("decimal(10,2)");
 
-                    b.Property<int>("ProveedorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UnidadMedida")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -575,8 +585,6 @@ namespace ItaliaPizza.Server.Migrations
                     b.HasIndex("Nombre")
                         .IsUnique();
 
-                    b.HasIndex("ProveedorId");
-
                     b.ToTable("Productos", (string)null);
                 });
 
@@ -588,15 +596,30 @@ namespace ItaliaPizza.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ApellidoMaterno")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("ApellidoPaterno")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Calle")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<string>("Ciudad")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Direccion")
+                    b.Property<string>("CodigoPostal")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(100)
@@ -612,15 +635,22 @@ namespace ItaliaPizza.Server.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("NumeroDomicilio")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
                     b.Property<string>("Telefono")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("TipoArticulo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-                    b.HasIndex("Nombre")
-                        .IsUnique();
+                    b.HasKey("Id");
 
                     b.ToTable("Proveedores", (string)null);
                 });
@@ -840,7 +870,7 @@ namespace ItaliaPizza.Server.Migrations
             modelBuilder.Entity("ItaliaPizza.Server.Domain.DetallePedidoProveedor", b =>
                 {
                     b.HasOne("ItaliaPizza.Server.Domain.PedidoProveedor", "PedidoProveedor")
-                        .WithMany("Detalles")
+                        .WithMany()
                         .HasForeignKey("PedidoProveedorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -970,28 +1000,21 @@ namespace ItaliaPizza.Server.Migrations
 
             modelBuilder.Entity("ItaliaPizza.Server.Domain.PedidoProveedor", b =>
                 {
+                    b.HasOne("ItaliaPizza.Server.Domain.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("ItaliaPizza.Server.Domain.Proveedor", "Proveedor")
                         .WithMany()
                         .HasForeignKey("ProveedorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ItaliaPizza.Server.Domain.Usuario", "UsuarioRecibe")
-                        .WithMany()
-                        .HasForeignKey("UsuarioRecibeId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("ItaliaPizza.Server.Domain.Usuario", "UsuarioSolicita")
-                        .WithMany()
-                        .HasForeignKey("UsuarioSolicitaId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                    b.Navigation("Producto");
 
                     b.Navigation("Proveedor");
-
-                    b.Navigation("UsuarioRecibe");
-
-                    b.Navigation("UsuarioSolicita");
                 });
 
             modelBuilder.Entity("ItaliaPizza.Server.Domain.Platillo", b =>
@@ -1013,15 +1036,7 @@ namespace ItaliaPizza.Server.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ItaliaPizza.Server.Domain.Proveedor", "Proveedor")
-                        .WithMany()
-                        .HasForeignKey("ProveedorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("Categoria");
-
-                    b.Navigation("Proveedor");
                 });
 
             modelBuilder.Entity("ItaliaPizza.Server.Domain.Receta", b =>
@@ -1108,11 +1123,6 @@ namespace ItaliaPizza.Server.Migrations
                 });
 
             modelBuilder.Entity("ItaliaPizza.Server.Domain.Pedido", b =>
-                {
-                    b.Navigation("Detalles");
-                });
-
-            modelBuilder.Entity("ItaliaPizza.Server.Domain.PedidoProveedor", b =>
                 {
                     b.Navigation("Detalles");
                 });

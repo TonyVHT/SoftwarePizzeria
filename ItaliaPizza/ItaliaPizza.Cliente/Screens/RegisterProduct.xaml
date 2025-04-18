@@ -37,10 +37,6 @@
                             <ComboBox x:Name="cmbCategoria" Margin="0,5,0,15" Height="30"
                                       DisplayMemberPath="Nombre" SelectedValuePath="Id" />
 
-                            <TextBlock Text="Proveedor:"/>
-                            <ComboBox x:Name="cmbProveedor" Margin="0,5,0,15" Height="30"
-                                      DisplayMemberPath="Nombre" SelectedValuePath="Id" />
-
                             <TextBlock Text="Unidad de Medida:"/>
                             <TextBox x:Name="txtUnidadMedida" Margin="0,5,0,15" Height="30"/>
                         </StackPanel>

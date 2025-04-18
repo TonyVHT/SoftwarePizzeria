@@ -17,9 +17,6 @@ namespace ItaliaPizza.Cliente.Utils
             if (producto.CategoriaId <= 0)
                 return (false, "Debes seleccionar una categoría válida.");
 
-            if (producto.ProveedorId <= 0)
-                return (false, "Debes seleccionar un proveedor válido.");
-
             if (string.IsNullOrWhiteSpace(producto.UnidadMedida))
                 return (false, "La unidad de medida es obligatoria.");
 

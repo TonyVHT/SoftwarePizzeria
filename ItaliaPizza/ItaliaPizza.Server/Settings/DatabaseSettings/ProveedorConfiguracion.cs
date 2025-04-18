@@ -10,34 +10,51 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
         {
             builder.ToTable("Proveedores");
 
-            builder.HasKey(proveedor => proveedor.Id);
+            builder.HasKey(p => p.Id);
 
-            builder.Property(proveedor => proveedor.Id)
+            builder.Property(p => p.Id)
                 .ValueGeneratedOnAdd();
 
-            builder.Property(proveedor => proveedor.Nombre)
+            builder.Property(p => p.Nombre)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.HasIndex(proveedor => proveedor.Nombre)
-                .IsUnique();
+            builder.Property(p => p.ApellidoPaterno)
+                .IsRequired()
+                .HasMaxLength(100);
 
-            builder.Property(proveedor => proveedor.Telefono)
+            builder.Property(p => p.ApellidoMaterno)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            builder.Property(p => p.Telefono)
                 .IsRequired()
                 .HasMaxLength(20);
 
-            builder.Property(proveedor => proveedor.Email)
+            builder.Property(p => p.Email)
                 .HasMaxLength(100);
 
-            builder.Property(proveedor => proveedor.Direccion)
+            builder.Property(p => p.Calle)
                 .IsRequired()
                 .HasMaxLength(255);
 
-            builder.Property(proveedor => proveedor.Ciudad)
+            builder.Property(p => p.Ciudad)
                 .IsRequired()
                 .HasMaxLength(50);
 
-            builder.Property(proveedor => proveedor.Estatus)
+            builder.Property(p => p.NumeroDomicilio)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            builder.Property(p => p.CodigoPostal)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            builder.Property(p => p.TipoArticulo)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            builder.Property(p => p.Estatus)
                 .HasDefaultValue(true);
         }
     }
