@@ -23,5 +23,16 @@ namespace ItaliaPizza.Server.Repositories.Implementations
         {
             return await _dbSet.Where(p => p.Ciudad == ciudad).ToListAsync();
         }
+
+        public async Task AddProveedorAsync(Proveedor proveedor)
+        {
+            await _dbSet.AddAsync(proveedor);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Proveedor>> GetAllProveedoresAsync()
+        {
+            return await _dbSet.ToListAsync();
+        }
     }
 }

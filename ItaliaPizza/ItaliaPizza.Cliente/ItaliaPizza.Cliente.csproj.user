@@ -8,5 +8,52 @@
     <Compile Update="PlatillosModulo\Screens\PlatillosScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\ConsultProviders.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\EditProductModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\EditProvider.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\RegisterProduct.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\RegisterProvider.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\SearchProduct.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\UCManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Screens\ConsultProviders.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\EditProvider.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\RegisterProvider.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCCook.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCWaiter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCCashier.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

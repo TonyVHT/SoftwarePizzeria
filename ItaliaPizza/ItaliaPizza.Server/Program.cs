@@ -26,16 +26,14 @@ if (string.IsNullOrEmpty(connectionString))
 builder.Services.AddDbContext<ItaliaPizzaDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddScoped<IPlatilloService, PlatilloService>();
-builder.Services.AddScoped<IProductoService, ProductoService>();
-
 builder.Services.AddScoped<IPlatilloRepository, PlatilloRepository>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<ICategoriaProductoRepository, CategoriaProductoRepository>();
 
-////
 builder.Services.AddControllers();
 builder.Services.AddAuthorization();
+builder.Services.AddScoped<IProvedorService, ProveedorService>();
+builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
