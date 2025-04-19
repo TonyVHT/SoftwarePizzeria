@@ -69,5 +69,9 @@ namespace ItaliaPizza.Cliente.Screens
                 MessageBox.Show("Paso algo");
             }
         }
+        private async void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

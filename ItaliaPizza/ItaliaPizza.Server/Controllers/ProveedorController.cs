@@ -34,5 +34,19 @@ namespace ItaliaPizza.Server.Controllers
         {
             return Ok("Esto es directo sin servicio, rápido pero desordenado.");
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutProveedor(int id, [FromBody] Proveedor proveedor)
+        {
+            if (id != proveedor.Id)
+                return BadRequest("ID del proveedor no coincide.");
+
+            var actualizado = await _proveedorService.ActualizarProveedorAsync(proveedor);
+
+            if (!actualizado)
+                return NotFound("Proveedor no encontrado.");
+
+            return NoContent();
+        }
     }
 }

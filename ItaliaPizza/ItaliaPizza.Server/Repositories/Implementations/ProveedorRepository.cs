@@ -34,5 +34,15 @@ namespace ItaliaPizza.Server.Repositories.Implementations
         {
             return await _dbSet.ToListAsync();
         }
+
+        public async Task<Proveedor?> ObtenerPorIdAsync(int id)
+        {
+            return await _context.Proveedores.FindAsync(id);
+        }
+
+        public async Task GuardarCambiosAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }
