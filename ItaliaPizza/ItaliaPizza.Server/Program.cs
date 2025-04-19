@@ -21,13 +21,21 @@ if (string.IsNullOrEmpty(connectionString))
     throw new InvalidOperationException("No se encontró la cadena de conexión en variables de entorno.");
 }
 
+//Tony services
+
 builder.Services.AddDbContext<ItaliaPizzaDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddControllers();
 builder.Services.AddScoped<IPlatilloService, PlatilloService>();
 builder.Services.AddScoped<IProductoService, ProductoService>();
+
+builder.Services.AddScoped<IPlatilloRepository, PlatilloRepository>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+builder.Services.AddScoped<ICategoriaProductoRepository, CategoriaProductoRepository>();
+
+////
+builder.Services.AddControllers();
+builder.Services.AddAuthorization();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();

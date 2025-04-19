@@ -1,8 +1,8 @@
 ﻿<Application x:Class="ItaliaPizza.Cliente.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ItaliaPizza.Cliente"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:ItaliaPizza.Cliente">
+    <!--StartupUri="MainWindow.xaml"-->
     <Application.Resources>
         <Style x:Key="buttonMenus" TargetType="Button">
             <Setter Property="Background" Value="#E6F4EA"/>

@@ -2,44 +2,11 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-<<<<<<< HEAD
-    <Compile Update="Platillos\PlatillosVista.xaml.cs">
-=======
-    <Compile Update="Screens\EditProductModal.xaml.cs">
+    <Compile Update="PlatillosModulo\Screens\InformacionPlatillo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Screens\RegisterProduct.xaml.cs">
->>>>>>> main
+    <Compile Update="PlatillosModulo\Screens\PlatillosScreen.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Screens\RegisterProvider.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Screens\SearchProduct.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UserControls\UCManager.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Screens\RegisterProvider.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\UCAdmin.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\UCCook.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\UCWaiter.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\UCCashier.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserControls\UCManager.xaml">
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
 </Project>

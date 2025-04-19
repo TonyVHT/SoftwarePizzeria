@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ItaliaPizza.Cliente.Platillos
+namespace ItaliaPizza.Cliente.Platillos.Screens
 {
     /// <summary>
-    /// Interaction logic for PlatillosVista.xaml
+    /// Interaction logic for InformacionPlatillo.xaml
     /// </summary>
-    public partial class PlatillosVista : Window
+    public partial class InformacionPlatillo : Window
     {
-        public PlatillosVista()
+        public InformacionPlatillo()
         {
             InitializeComponent();
         }
