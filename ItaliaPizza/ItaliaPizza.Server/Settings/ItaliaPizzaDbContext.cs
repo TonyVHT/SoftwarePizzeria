@@ -1,6 +1,7 @@
 ﻿using ItaliaPizza.Server.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace ItaliaPizza.Server.Settings
@@ -23,6 +24,8 @@ namespace ItaliaPizza.Server.Settings
         public DbSet<HistorialEstatusPedido> HistorialEstatusPedidos { get; set; }
         public DbSet<ReporteInventario> ReportesInventario { get; set; }
         public DbSet<DireccionCliente> direccionClientes { get; set; }
+        public DbSet<ProductoProveedor> ProductoProveedores { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

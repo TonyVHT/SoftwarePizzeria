@@ -49,6 +49,12 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
             builder.Property(producto => producto.ObservacionesInventario)
                .HasMaxLength(500)
                .IsRequired(false);
+           
+            builder.HasMany(p => p.Proveedores)
+               .WithOne(pp => pp.Producto)
+               .HasForeignKey(pp => pp.ProductoId)
+               .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }
