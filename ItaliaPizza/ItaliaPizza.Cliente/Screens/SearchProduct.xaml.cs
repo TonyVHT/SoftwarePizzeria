@@ -26,6 +26,30 @@ namespace ItaliaPizza.Cliente.Screens
         {
             try
             {
+                _categorias = new List<CategoriaProducto>
+        {
+            new() { Id = 1, Nombre = "Verduras frescas" },
+            new() { Id = 2, Nombre = "Carnes frías" },
+            new() { Id = 3, Nombre = "Quesos" },
+            new() { Id = 4, Nombre = "Salsas y bases" },
+            new() { Id = 5, Nombre = "Ingredientes gourmet" }
+        };
+
+                cmbCategoriaFiltro.ItemsSource = _categorias;
+                cmbCategoriaFiltro.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar categorías: {ex.Message}");
+            }
+        }
+
+
+        /*
+        private async Task CargarCategoriasAsync()
+        {
+            try
+            {
                 _categorias = await _http.GetFromJsonAsync<List<CategoriaProducto>>("api/categoria") ?? new();
                 cmbCategoriaFiltro.ItemsSource = _categorias;
             }
@@ -34,6 +58,7 @@ namespace ItaliaPizza.Cliente.Screens
                 MessageBox.Show($"Error al cargar categorías: {ex.Message}");
             }
         }
+        */
 
         private void TxtBuscarNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -100,5 +125,16 @@ namespace ItaliaPizza.Cliente.Screens
                 DebouncedActualizarResultados();
             }
         }
+
+        private void BtnRegistrarMerma_Click(object sender, RoutedEventArgs e)
+        {
+            var producto = (sender as Button)?.Tag as Producto;
+            if (producto == null) return;
+
+            var modal = new RegisterMermaModal(producto);
+            modal.Owner = this;
+            modal.ShowDialog();
+        }
+
     }
 }

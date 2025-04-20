@@ -13,5 +13,13 @@ namespace ItaliaPizza.Server.Repositories.Implementations
         {
             return await _dbSet.FirstOrDefaultAsync(m => m.Descripcion == descripcion);
         }
+
+        public async Task<MotivoMerma> AddWithDescripcionAsync(string descripcion)
+        {
+            var motivo = new MotivoMerma { Descripcion = descripcion };
+            await _dbSet.AddAsync(motivo);
+            await _context.SaveChangesAsync();
+            return motivo;
+        }
     }
 }

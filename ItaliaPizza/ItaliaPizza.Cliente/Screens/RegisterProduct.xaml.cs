@@ -17,7 +17,7 @@ namespace ItaliaPizza.Cliente.Screens
             InitializeComponent();
             _ = CargarCategoriasYProveedoresAsync();
         }
-
+        /*
         private async Task CargarCategoriasYProveedoresAsync()
         {
             try
@@ -30,6 +30,31 @@ namespace ItaliaPizza.Cliente.Screens
                 await ShowToastAsync($"Error al cargar combos: {ex.Message}", false);
             }
         }
+        */
+
+        private async Task CargarCategoriasYProveedoresAsync()
+        {
+            try
+            {
+                // ⚠️ Simulación local (solo para pruebas)
+                var categorias = new List<CategoriaProducto>
+        {
+            new CategoriaProducto { Id = 1, Nombre = "Verduras frescas" },
+            new CategoriaProducto { Id = 2, Nombre = "Carnes frías" },
+            new CategoriaProducto { Id = 3, Nombre = "Quesos" },
+            new CategoriaProducto { Id = 4, Nombre = "Salsas y bases" },
+            new CategoriaProducto { Id = 5, Nombre = "Ingredientes gourmet" }
+        };
+
+                cmbCategoria.ItemsSource = categorias;
+                cmbCategoria.SelectedIndex = 0; // Selecciona la primera por default (opcional)
+            }
+            catch (Exception ex)
+            {
+                await ShowToastAsync($"Error al cargar combos: {ex.Message}", false);
+            }
+        }
+
 
         private async void BtnRegistrar_Click(object sender, RoutedEventArgs e)
         {
@@ -66,7 +91,7 @@ namespace ItaliaPizza.Cliente.Screens
                     ObservacionesInventario = txtObservaciones.Text
                 };
 
-                var (esValido, mensaje) = ProductValidator.Validar(producto);
+                var (esValido, mensaje) = ProductValidator.ValidatorWhenCreate(producto);
                 if (!esValido)
                 {
                     await ShowToastAsync(mensaje, false);

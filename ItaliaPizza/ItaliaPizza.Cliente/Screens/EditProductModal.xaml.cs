@@ -36,7 +36,7 @@ namespace ItaliaPizza.Cliente.Screens
         {
             try
             {
-                var (esValido, mensaje) = ProductValidator.Validar(_producto);
+                var (esValido, mensaje) = ProductValidator.ValidatorWhenUpdate(_producto);
                 if (!esValido)
                 {
                     MessageBox.Show(mensaje, "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);

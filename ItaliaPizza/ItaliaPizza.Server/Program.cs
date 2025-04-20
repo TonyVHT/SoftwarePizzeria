@@ -28,6 +28,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IPlatilloService, PlatilloService>();
 builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+builder.Services.AddScoped<IIngredienteRepository, IngredienteRepository>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
