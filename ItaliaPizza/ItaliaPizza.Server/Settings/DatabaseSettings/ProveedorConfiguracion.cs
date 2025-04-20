@@ -56,6 +56,11 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
 
             builder.Property(p => p.Estatus)
                 .HasDefaultValue(true);
+
+            builder.HasMany(p => p.Productos)
+               .WithOne(pp => pp.Proveedor)
+               .HasForeignKey(pp => pp.ProveedorId)
+               .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

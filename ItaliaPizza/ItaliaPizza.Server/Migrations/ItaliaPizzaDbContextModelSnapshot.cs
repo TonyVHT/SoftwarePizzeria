@@ -588,6 +588,21 @@ namespace ItaliaPizza.Server.Migrations
                     b.ToTable("Productos", (string)null);
                 });
 
+            modelBuilder.Entity("ItaliaPizza.Server.Domain.ProductoProveedor", b =>
+                {
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProveedorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductoId", "ProveedorId");
+
+                    b.HasIndex("ProveedorId");
+
+                    b.ToTable("ProductosProveedores", (string)null);
+                });
+
             modelBuilder.Entity("ItaliaPizza.Server.Domain.Proveedor", b =>
                 {
                     b.Property<int>("Id")
@@ -1039,6 +1054,25 @@ namespace ItaliaPizza.Server.Migrations
                     b.Navigation("Categoria");
                 });
 
+            modelBuilder.Entity("ItaliaPizza.Server.Domain.ProductoProveedor", b =>
+                {
+                    b.HasOne("ItaliaPizza.Server.Domain.Producto", "Producto")
+                        .WithMany("Proveedores")
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ItaliaPizza.Server.Domain.Proveedor", "Proveedor")
+                        .WithMany("Productos")
+                        .HasForeignKey("ProveedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Producto");
+
+                    b.Navigation("Proveedor");
+                });
+
             modelBuilder.Entity("ItaliaPizza.Server.Domain.Receta", b =>
                 {
                     b.HasOne("ItaliaPizza.Server.Domain.Ingrediente", "Ingrediente")
@@ -1125,6 +1159,16 @@ namespace ItaliaPizza.Server.Migrations
             modelBuilder.Entity("ItaliaPizza.Server.Domain.Pedido", b =>
                 {
                     b.Navigation("Detalles");
+                });
+
+            modelBuilder.Entity("ItaliaPizza.Server.Domain.Producto", b =>
+                {
+                    b.Navigation("Proveedores");
+                });
+
+            modelBuilder.Entity("ItaliaPizza.Server.Domain.Proveedor", b =>
+                {
+                    b.Navigation("Productos");
                 });
 #pragma warning restore 612, 618
         }
