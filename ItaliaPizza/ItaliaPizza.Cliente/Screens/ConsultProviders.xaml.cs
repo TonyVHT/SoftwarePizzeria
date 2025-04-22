@@ -36,13 +36,16 @@ namespace ItaliaPizza.Cliente.Screens
 
         private void lvProveedores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //lol
+            if (lvProveedores.SelectedItem is Proveedor proveedorSeleccionado)
+            {
+                var consultarProveedor = new ConsultProvider(proveedorSeleccionado);
+                consultarProveedor.ShowDialog();
+            }
         }
         private void BtnRegistrarProveedor_Click(object sender, RoutedEventArgs e)
         {
             var RegisterProvider = new RegisterProvider();
-            RegisterProvider.Show();
-            this.Close();
+            RegisterProvider.ShowDialog();
         }
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
@@ -64,7 +67,7 @@ namespace ItaliaPizza.Cliente.Screens
 
         public async Task<List<Proveedor>> ObtenerProveedoresAsync()
         {
-            var response = await _httpClient.GetAsync("proveedor");
+            var response = await _httpClient.GetAsync("api/proveedor");
 
             if (response.IsSuccessStatusCode)
             {
@@ -74,7 +77,6 @@ namespace ItaliaPizza.Cliente.Screens
                     PropertyNameCaseInsensitive = true
                 })!;
             }
-
             return new List<Proveedor>();
         }
     }
