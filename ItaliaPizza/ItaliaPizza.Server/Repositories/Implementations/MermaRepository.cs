@@ -36,5 +36,31 @@ namespace ItaliaPizza.Server.Repositories.Implementations
                 .Include(m => m.Usuario)
                 .ToListAsync();
         }
+
+        public async Task<bool> RegistrarConMotivoAsync(Merma merma, string motivoDescripcion)
+        {
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                var motivo = new MotivoMerma { Descripcion = motivoDescripcion };
+                _context.MotivosMermas.Add(motivo);
+                await _context.SaveChangesAsync();
+
+                merma.MotivoMermaId = motivo.Id;
+
+                _context.Mermas.Add(merma);
+                await _context.SaveChangesAsync();
+
+                await transaction.CommitAsync();
+                return true;
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                return false;
+            }
+        }
+
     }
 }

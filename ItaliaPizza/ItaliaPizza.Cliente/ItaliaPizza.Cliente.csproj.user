@@ -14,10 +14,16 @@
     <Compile Update="Screens\EditProductModal.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\RegisterHomeDeliveryOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\RegisterMermaModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\EditProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Screens\RegisterProduct.xaml.cs">
+    <Compile Update="Screens\RegisterOrder.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\RegisterProvider.xaml.cs">

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ItaliaPizza.Cliente.Models
+﻿namespace ItaliaPizza.Server.Dto
 {
-    public class Producto
+    public class ProductoCreateDto
     {
-        public int Id { get; set; }
         public string Nombre { get; set; } = string.Empty;
         public int CategoriaId { get; set; }
         public string UnidadMedida { get; set; } = string.Empty;

@@ -6,5 +6,6 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
     {
         Task<IEnumerable<Producto>> GetProductosActivosAsync();
         Task<IEnumerable<Producto>> GetProductosPorCategoriaAsync(int categoriaId);
+        Task<IEnumerable<Producto>> GetAllWithCategoriaAsync();
     }
 }

@@ -432,7 +432,8 @@ namespace ItaliaPizza.Server.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PedidoId = table.Column<int>(type: "int", nullable: false),
-                    PlatilloId = table.Column<int>(type: "int", nullable: false),
+                    PlatilloId = table.Column<int>(type: "int", nullable: true),
+                    ProductoId = table.Column<int>(type: "int", nullable: true),
                     Cantidad = table.Column<int>(type: "int", nullable: false, defaultValue: 1),
                     Subtotal = table.Column<decimal>(type: "decimal(10,2)", nullable: false)
                 },
@@ -449,6 +450,12 @@ namespace ItaliaPizza.Server.Migrations
                         name: "FK_DetallesPedido_Platillos_PlatilloId",
                         column: x => x.PlatilloId,
                         principalTable: "Platillos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_DetallesPedido_Productos_ProductoId",
+                        column: x => x.ProductoId,
+                        principalTable: "Productos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -615,6 +622,11 @@ namespace ItaliaPizza.Server.Migrations
                 name: "IX_DetallesPedido_PlatilloId",
                 table: "DetallesPedido",
                 column: "PlatilloId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DetallesPedido_ProductoId",
+                table: "DetallesPedido",
+                column: "ProductoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DetallesPedidoProveedores_PedidoProveedorId",

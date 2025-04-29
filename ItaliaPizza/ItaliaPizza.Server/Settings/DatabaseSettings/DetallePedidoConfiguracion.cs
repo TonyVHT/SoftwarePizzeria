@@ -10,26 +10,37 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
         {
             builder.ToTable("DetallesPedido");
 
-            builder.HasKey(detallePedido => detallePedido.Id);
+            builder.HasKey(d => d.Id);
 
-            builder.Property(detallePedido => detallePedido.Id)
+            builder.Property(d => d.Id)
                 .ValueGeneratedOnAdd();
 
-            builder.HasOne(detallePedido => detallePedido.Pedido)
-                .WithMany(pedido => pedido.Detalles)
-                .HasForeignKey(detallePedido => detallePedido.PedidoId)
+            builder.HasOne(d => d.Pedido)
+                .WithMany(p => p.Detalles)
+                .HasForeignKey(d => d.PedidoId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(detallePedido => detallePedido.Platillo)
+            builder.HasOne(d => d.Platillo)
                 .WithMany()
-                .HasForeignKey(detallePedido => detallePedido.PlatilloId)
+                .HasForeignKey(d => d.PlatilloId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Property(detallePedido => detallePedido.Cantidad)
+            builder.HasOne(d => d.Producto)
+                .WithMany()
+                .HasForeignKey(d => d.ProductoId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Property(d => d.PlatilloId)
+                .IsRequired(false);
+
+            builder.Property(d => d.ProductoId)
+                .IsRequired(false);
+
+            builder.Property(d => d.Cantidad)
                 .IsRequired()
                 .HasDefaultValue(1);
 
-            builder.Property(detallePedido => detallePedido.Subtotal)
+            builder.Property(d => d.Subtotal)
                 .IsRequired()
                 .HasColumnType("decimal(10,2)");
         }
