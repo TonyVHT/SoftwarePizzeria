@@ -10,23 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ItaliaPizza.Cliente.UserControls
+namespace ItaliaPizza.Cliente.Screens
 {
     /// <summary>
-    /// Lógica de interacción para UCManager.xaml
+    /// Interaction logic for RegisterHomeDeliveryOrder.xaml
     /// </summary>
-    public partial class UCAdmin : UserControl
+    public partial class RegisterHomeDeliveryOrder : Window
     {
-        public UCAdmin()
+        public RegisterHomeDeliveryOrder()
         {
             InitializeComponent();
-        }
-        private void buttonSettings_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("¡Se hizo clic en el botón de Settings!", "Configuración");
         }
     }
 }

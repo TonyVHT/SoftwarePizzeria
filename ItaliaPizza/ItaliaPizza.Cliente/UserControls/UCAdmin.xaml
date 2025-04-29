@@ -5,8 +5,66 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ItaliaPizza.Cliente.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="450" d:DesignWidth="800"
+              Width="Auto"
+             Height="Auto"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch">
+    <Grid >
+
+        <Grid Width="130" HorizontalAlignment="Left" Background="#E6F4EA">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="logo" Height="90" Width="90" VerticalAlignment="Top" Margin="15" Grid.Row="0">
+                <Image Source="/Resources/Images/logo.jpeg">
+
+                </Image>
+
+            </Grid>
+            <Button Style="{StaticResource buttonMenus}" x:Name="buttonHomePage" Grid.Row="1" >
+                <Button.Content>
+                    ۩ Inicio
+                </Button.Content>
+            </Button>
+            <Button Style="{StaticResource buttonMenus}" x:Name="buttonOrders" Grid.Row="2" >
+                <Button.Content>
+                    ✎ Orders
+                </Button.Content>
+            </Button>
+
+            <Button Style="{StaticResource buttonMenus}" x:Name="buttonMenu" Grid.Row="3">
+                <Button.Content>
+                    𝄚 Menu
+                </Button.Content>
+            </Button>
+
+            <Button Style="{StaticResource buttonMenus}" x:Name="buttonCustomers" Grid.Row="4">
+                <Button.Content>
+                    ☺ Customers
+                </Button.Content>
+            </Button>
+
+            <Button Style="{StaticResource buttonMenus}" x:Name="buttonAnalytics" Grid.Row="5">
+                <Button.Content>
+                    ⌨ Analytics
+                </Button.Content>
+            </Button>
+
+            <Button Style="{StaticResource buttonMenus}" x:Name="buttonSettings" Grid.Row="6" Click="buttonSettings_Click">
+                <Button.Content>
+                    ֍ Settings
+                </Button.Content>
+
+            </Button>
+        </Grid>
+
     </Grid>
 </UserControl>
