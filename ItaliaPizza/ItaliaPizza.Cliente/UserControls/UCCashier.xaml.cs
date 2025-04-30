@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ItaliaPizza.Cliente.Screens.Admin;
+using ItaliaPizza.Cliente.Screens.Cashier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,12 @@ namespace ItaliaPizza.Cliente.UserControls
         public UCCashier()
         {
             InitializeComponent();
+        }
+
+        private void buttonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            var closeSessionWindow = new LogOutCashier();
+            closeSessionWindow.Show();
         }
     }
 }

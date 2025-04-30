@@ -1,0 +1,97 @@
+﻿<Window x:Class="ItaliaPizza.Cliente.Screens.Admin.UserUpdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Admin"
+        xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
+        mc:Ignorable="d"
+        Title="UserUpdate" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <controls:UCAdmin></controls:UCAdmin>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="131*"/>
+                <ColumnDefinition Width="669*"/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="1">
+                <StackPanel Margin="20">
+
+                    <!-- Datos personales -->
+                    <GroupBox Header="Datos del usuario" Margin="0 0 0 20">
+                        <StackPanel Margin="10">
+                            <Label Content="CURP:"/>
+                            <TextBox x:Name="txtCurp" Style="{StaticResource textboxStyle}" />
+
+                            <Label Content="Nombre(s):"/>
+                            <TextBox x:Name="txtNombre" Style="{StaticResource textboxStyle}" />
+
+                            <Label Content="Apellidos:"/>
+                            <TextBox x:Name="txtApellidos" Style="{StaticResource textboxStyle}" />
+
+                            <Label Content="Nombre de usuario:"/>
+                            <TextBox x:Name="txtNombreUsuario" Style="{StaticResource textboxStyle}" IsReadOnly="True"/>
+
+                            <Label Content="Tipo de usuario:"/>
+                            <ComboBox x:Name="cmbTipoUsuario" Style="{StaticResource comboBoxStyle}">
+                                <ComboBoxItem Content="Administrador"/>
+                                <ComboBoxItem Content="Mesero"/>
+                                <ComboBoxItem Content="Cocinero"/>
+                                <ComboBoxItem Content="Gerente"/>
+                                <ComboBoxItem Content="Cajero"/>
+                            </ComboBox>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <!-- Dirección -->
+                    <GroupBox Header="Dirección" Margin="0 0 0 20">
+                        <StackPanel Margin="10">
+                            <Label Content="Dirección:"/>
+                            <TextBox x:Name="txtDireccion" Style="{StaticResource textboxStyle}" />
+
+                            <Label Content="Ciudad:"/>
+                            <TextBox x:Name="txtCiudad" Style="{StaticResource textboxStyle}" />
+
+                            <Label Content="Código Postal:"/>
+                            <TextBox x:Name="txtCodigoPostal" Style="{StaticResource textboxStyle}" />
+                        </StackPanel>
+                    </GroupBox>
+
+                    <!-- Contacto -->
+                    <GroupBox Header="Contacto" Margin="0 0 0 20">
+                        <StackPanel Margin="10">
+                            <Label Content="Teléfono:"/>
+                            <TextBox x:Name="txtTelefono" Style="{StaticResource textboxStyle}"/>
+
+                            <Label Content="Email:"/>
+                            <TextBox x:Name="txtEmail" Style="{StaticResource textboxStyle}"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <!-- Contraseña -->
+                    <GroupBox Header="Cambiar contraseña (opcional)" Margin="0 0 0 20">
+                        <StackPanel Margin="10">
+                            <Label Content="Nueva contraseña:"/>
+                            <PasswordBox x:Name="pswNueva" Style="{StaticResource passwordboxStyle}"/>
+
+                            <Label Content="Confirmar contraseña:"/>
+                            <PasswordBox x:Name="pswConfirmar" Style="{StaticResource passwordboxStyle}"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <!-- Botón guardar -->
+                    <Button Content="Guardar cambios"
+                    HorizontalAlignment="Right"
+                    Width="150"
+                    Margin="0 10 0 0"
+                    Click="BtnGuardar_Click"
+                    Style="{StaticResource buttonsStyle}"/>
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+
+    </Grid>
+</Window>

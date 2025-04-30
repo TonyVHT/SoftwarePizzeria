@@ -34,6 +34,11 @@ builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
 builder.Services.AddScoped<IMermaService, MermaService>();
 builder.Services.AddScoped<IMermaRepository, MermaRepository>();
 builder.Services.AddScoped<IMotivoMermaRepository, MotivoMermaRepository>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<ICredencialUsuarioService, CredencialUsuarioService>();
+builder.Services.AddScoped<ICredencialUsuarioRepository,  CredencialUsuarioRepository>();
+
 builder.Services.AddScoped<IProductoProveedorRepository, ProductoProveedorRepository>();
 builder.Services.AddScoped<IProductoProveedorService, ProductoProveedorService>();
 builder.Services.AddOpenApi();

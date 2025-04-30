@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using ItaliaPizza.Cliente.Screens.Admin;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ItaliaPizza.Cliente.Utils;
 
 namespace ItaliaPizza.Cliente.UserControls
 {
@@ -24,9 +26,15 @@ namespace ItaliaPizza.Cliente.UserControls
         {
             InitializeComponent();
         }
+
+
+        
+
         private void buttonSettings_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("¡Se hizo clic en el botón de Settings!", "Configuración");
+            SessionManagerHelper.CerrarSesionUniversal();
+            
+            
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.DTOs;
 
 namespace ItaliaPizza.Server.Repositories.Interfaces
 {
@@ -6,5 +7,6 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
     {
         Task<IEnumerable<Cliente>> GetClientesActivosAsync();
         Task<Cliente?> GetByTelefonoAsync(string telefono);
+        Task<IEnumerable<ClienteConsultaDTO>> BuscarClientesAsync(string? nombre);
     }
 }

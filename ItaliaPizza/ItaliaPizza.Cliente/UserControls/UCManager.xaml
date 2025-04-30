@@ -53,13 +53,11 @@
                 </Button.Content>
             </Button>
 
-            <Button Style="{StaticResource buttonMenus}" x:Name="buttonSettings" Grid.Row="6" >
+            <Button Style="{StaticResource buttonMenus}" x:Name="buttonSettings" Grid.Row="6" Click="buttonSettings_Click">
                 <Button.Content>
                     ֍ Settings
                 </Button.Content>
-                <Button.Effect>
-                    <DropShadowEffect Color="#00B050" Direction="320" ShadowDepth="5" BlurRadius="10" />
-                </Button.Effect>
+              
             </Button>
         </Grid>
 
