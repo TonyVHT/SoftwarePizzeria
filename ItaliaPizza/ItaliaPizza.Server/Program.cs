@@ -30,6 +30,8 @@ builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<IProvedorService, ProveedorService>();
 builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
+builder.Services.AddScoped<IProductoProveedorRepository, ProductoProveedorRepository>();
+builder.Services.AddScoped<IProductoProveedorService, ProductoProveedorService>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();

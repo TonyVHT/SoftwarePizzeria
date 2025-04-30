@@ -42,5 +42,10 @@ namespace ItaliaPizza.Server.Services.Implementations
             await _proveedorRepository.GuardarCambiosAsync();
             return true;
         }
+        public async Task<List<string>> ObtenerProductosDeProveedorAsync(int idProveedor)
+        {
+            return await _proveedorRepository.ObtenerNombresProductosPorProveedorAsync(idProveedor);
+        }
+
     }
 }

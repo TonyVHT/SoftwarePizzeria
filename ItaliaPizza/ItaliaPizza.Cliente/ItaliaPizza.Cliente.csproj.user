@@ -17,6 +17,9 @@
     <Compile Update="Screens\EditProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\RegisterOrderToProvider.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\RegisterProduct.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -41,6 +44,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\EditProvider.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\RegisterOrderToProvider.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\RegisterProvider.xaml">

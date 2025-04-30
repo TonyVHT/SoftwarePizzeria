@@ -1,0 +1,53 @@
+﻿<Window x:Class="ItaliaPizza.Cliente.Screens.RegisterOrderToProvider"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens"
+        mc:Ignorable="d"
+        Title="RegisterOrderToProvider" Height="500" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#f4f6f8">
+    <Grid Margin="20">
+        <Border Background="White" CornerRadius="15" Padding="20" >
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" >
+
+                <TextBlock Text="Registrar Pedido a Proveedor"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="#2c3e50"
+                       Margin="0,0,0,20"
+                       HorizontalAlignment="Center"/>
+
+                <!-- Combo de Producto -->
+                <TextBlock Text="Producto:" Margin="0,5,0,2" FontWeight="Bold"/>
+                <ComboBox x:Name="cmbProducto" Height="30" Margin="0,0,0,10"/>
+
+                <!-- Combo de Proveedor -->
+                <TextBlock Text="Proveedor:" Margin="0,5,0,2" FontWeight="Bold"/>
+                <ComboBox x:Name="cmbProveedor" Height="30" Margin="0,0,0,10"/>
+
+                <!-- Cantidad -->
+                <TextBlock Text="Cantidad:" Margin="0,5,0,2" FontWeight="Bold"/>
+                <TextBox x:Name="txtCantidad" Height="30" Margin="0,0,0,10"/>
+
+                <!-- Total a pagar -->
+                <TextBlock Text="Total a pagar:" Margin="0,5,0,2" FontWeight="Bold"/>
+                <TextBox x:Name="txtTotal" Height="30" Margin="0,0,0,10"/>
+
+                <!-- Estado del pedido -->
+                <CheckBox x:Name="chkLlegado" Content="¿Ya llegó el pedido?" Margin="0,10" FontWeight="Bold"/>
+
+                <!-- Botones -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <Button Content="Registrar" Width="120" Height="35" Margin="10"
+                        Background="#27ae60" Foreground="White" FontWeight="Bold"
+                        Click="BtnRegistrar_Click"/>
+                    <Button Content="Cancelar" Width="100" Height="35" Margin="10"
+                        Background="#e74c3c" Foreground="White" FontWeight="Bold"
+                        Click="BtnCancelar_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
