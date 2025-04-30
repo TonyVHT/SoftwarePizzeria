@@ -47,9 +47,6 @@
     <Compile Update="Screens\Manager\LogOutManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Screens\RegisterProduct.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Screens\RegisterProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
