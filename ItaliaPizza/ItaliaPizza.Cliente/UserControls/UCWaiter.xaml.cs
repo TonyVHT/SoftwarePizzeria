@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ItaliaPizza.Cliente.Screens.Admin;
+using ItaliaPizza.Cliente.Screens.Waiter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,13 @@ namespace ItaliaPizza.Cliente.UserControls
         public UCWaiter()
         {
             InitializeComponent();
+        }
+
+        private void buttonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            var closeSessionWindow = new LogOutWaiter();
+            closeSessionWindow.Show();
+
         }
     }
 }

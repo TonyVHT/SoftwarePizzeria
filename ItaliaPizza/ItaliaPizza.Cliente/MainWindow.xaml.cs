@@ -1,4 +1,7 @@
 ﻿using ItaliaPizza.Cliente.Screens;
+using ItaliaPizza.Cliente.Screens.Admin;
+using ItaliaPizza.Cliente.Screens.Cashier;
+using ItaliaPizza.Cliente.Screens;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
