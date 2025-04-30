@@ -10,26 +10,26 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
         {
             builder.ToTable("DetallesPedidoProveedores");
 
-            builder.HasKey(detallePedidoProveedor => detallePedidoProveedor.Id);
+            builder.HasKey(d => d.Id);
 
-            builder.Property(detallePedidoProveedor => detallePedidoProveedor.Id)
+            builder.Property(d => d.Id)
                 .ValueGeneratedOnAdd();
 
-            builder.HasOne(detallePedidoProveedor => detallePedidoProveedor.PedidoProveedor)
-                .WithMany(pedidoProveedor => pedidoProveedor.Detalles)
-                .HasForeignKey(detallePedidoProveedor => detallePedidoProveedor.PedidoProveedorId)
+            builder.HasOne(d => d.PedidoProveedor)
+                .WithMany()
+                .HasForeignKey(d => d.PedidoProveedorId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(detallePedidoProveedor => detallePedidoProveedor.Producto)
+            builder.HasOne(d => d.Producto)
                 .WithMany()
-                .HasForeignKey(detallePedidoProveedor => detallePedidoProveedor.ProductoId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .HasForeignKey(d => d.ProductoId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Property(detallePedidoProveedor => detallePedidoProveedor.Cantidad)
+            builder.Property(d => d.Cantidad)
                 .IsRequired()
                 .HasColumnType("decimal(10,2)");
 
-            builder.Property(detallePedidoProveedor => detallePedidoProveedor.Subtotal)
+            builder.Property(d => d.Subtotal)
                 .IsRequired()
                 .HasColumnType("decimal(10,2)");
         }

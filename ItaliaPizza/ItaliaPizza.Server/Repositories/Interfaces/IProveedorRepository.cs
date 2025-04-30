@@ -7,5 +7,10 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
         Task<IEnumerable<Proveedor>> GetProveedoresActivosAsync();
         Task<Proveedor?> GetProveedorByNombreAsync(string nombre);
         Task<IEnumerable<Proveedor>> GetProveedoresPorCiudadAsync(string ciudad);
+        Task AddProveedorAsync(Proveedor proveedor);
+        Task<IEnumerable<Proveedor>> GetAllProveedoresAsync();
+        Task<Proveedor?> ObtenerPorIdAsync(int id);
+        Task GuardarCambiosAsync();
+
     }
 }

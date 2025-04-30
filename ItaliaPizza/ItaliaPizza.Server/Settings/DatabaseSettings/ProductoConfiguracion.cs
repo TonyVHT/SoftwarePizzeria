@@ -20,11 +20,6 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
                 .HasForeignKey(producto => producto.CategoriaId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(producto => producto.Proveedor)
-                .WithMany()
-                .HasForeignKey(producto => producto.ProveedorId)
-                .OnDelete(DeleteBehavior.Restrict);
-
             builder.Property(producto => producto.Nombre)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -54,6 +49,12 @@ namespace ItaliaPizza.Server.Settings.DatabaseSettings
             builder.Property(producto => producto.ObservacionesInventario)
                .HasMaxLength(500)
                .IsRequired(false);
+           
+            builder.HasMany(p => p.Proveedores)
+               .WithOne(pp => pp.Producto)
+               .HasForeignKey(pp => pp.ProductoId)
+               .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

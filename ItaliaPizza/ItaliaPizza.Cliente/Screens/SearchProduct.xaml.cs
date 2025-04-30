@@ -1,0 +1,140 @@
+﻿using ItaliaPizza.Cliente.Models;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+
+namespace ItaliaPizza.Cliente.Screens
+{
+    public partial class SearchProduct : Window
+    {
+        private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
+        private List<CategoriaProducto> _categorias = new();
+        private CancellationTokenSource _cancellationTokenSource;
+
+        public SearchProduct()
+        {
+            InitializeComponent();
+            _ = CargarCategoriasAsync();
+        }
+
+        private async Task CargarCategoriasAsync()
+        {
+            try
+            {
+                _categorias = new List<CategoriaProducto>
+        {
+            new() { Id = 1, Nombre = "Verduras frescas" },
+            new() { Id = 2, Nombre = "Carnes frías" },
+            new() { Id = 3, Nombre = "Quesos" },
+            new() { Id = 4, Nombre = "Salsas y bases" },
+            new() { Id = 5, Nombre = "Ingredientes gourmet" }
+        };
+
+                cmbCategoriaFiltro.ItemsSource = _categorias;
+                cmbCategoriaFiltro.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar categorías: {ex.Message}");
+            }
+        }
+
+
+        /*
+        private async Task CargarCategoriasAsync()
+        {
+            try
+            {
+                _categorias = await _http.GetFromJsonAsync<List<CategoriaProducto>>("api/categoria") ?? new();
+                cmbCategoriaFiltro.ItemsSource = _categorias;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar categorías: {ex.Message}");
+            }
+        }
+        */
+
+        private void TxtBuscarNombre_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DebouncedActualizarResultados();
+        }
+
+        private void CmbCategoriaFiltro_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DebouncedActualizarResultados();
+        }
+
+        private void DebouncedActualizarResultados()
+        {
+            _cancellationTokenSource?.Cancel();
+            _cancellationTokenSource = new CancellationTokenSource();
+
+            _ = Task.Delay(300, _cancellationTokenSource.Token)
+                .ContinueWith(async task =>
+                {
+                    if (task.IsCanceled) return;
+                    await Dispatcher.InvokeAsync(() => ActualizarResultadosAsync());
+                });
+        }
+
+        private async Task ActualizarResultadosAsync()
+        {
+            string filtroNombre = txtBuscarNombre.Text.ToLower();
+            int? categoriaId = cmbCategoriaFiltro.SelectedValue as int?;
+
+            if (string.IsNullOrWhiteSpace(filtroNombre) && !categoriaId.HasValue)
+            {
+                cardsContainer.ItemsSource = null;
+                return;
+            }
+
+            string endpoint = "api/producto/filtrar?";
+            if (!string.IsNullOrWhiteSpace(filtroNombre))
+                endpoint += $"nombre={Uri.EscapeDataString(filtroNombre)}";
+
+            if (categoriaId.HasValue)
+                endpoint += $"{(endpoint.Contains("=") ? "&" : "")}categoriaId={categoriaId.Value}";
+
+            try
+            {
+                var productosFiltrados = await _http.GetFromJsonAsync<List<Producto>>(endpoint) ?? new();
+                cardsContainer.ItemsSource = productosFiltrados;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener productos: {ex.Message}");
+            }
+        }
+
+        private void BtnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            var producto = (sender as Button)?.Tag as Producto;
+            if (producto == null) return;
+
+            var modal = new EditProductModal(producto);
+            modal.Owner = this;
+
+            if (modal.ShowDialog() == true)
+            {
+                DebouncedActualizarResultados();
+            }
+        }
+
+        private void BtnRegistrarMerma_Click(object sender, RoutedEventArgs e)
+        {
+            var producto = (sender as Button)?.Tag as Producto;
+            if (producto == null) return;
+
+            var modal = new RegisterMermaModal(producto);
+            modal.Owner = this;
+            modal.ShowDialog();
+        }
+
+    }
+}

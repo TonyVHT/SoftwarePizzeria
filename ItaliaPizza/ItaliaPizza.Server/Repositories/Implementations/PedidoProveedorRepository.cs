@@ -11,23 +11,12 @@ namespace ItaliaPizza.Server.Repositories.Implementations
 
         public async Task<IEnumerable<PedidoProveedor>> GetPedidosPendientesAsync()
         {
-            return await _dbSet.Where(p => p.Estatus == "Pendiente").ToListAsync();
+            return await _dbSet.Where(p => p.EstadoDePedido == "Pendiente").ToListAsync();
         }
 
         public async Task<IEnumerable<PedidoProveedor>> GetPedidosPorProveedorAsync(int proveedorId)
         {
             return await _dbSet.Where(p => p.ProveedorId == proveedorId).ToListAsync();
-        }
-
-        public async Task<PedidoProveedor?> GetPedidoConDetallesAsync(int pedidoId)
-        {
-            return await _dbSet
-                .Include(p => p.Proveedor)
-                .Include(p => p.UsuarioSolicita)
-                .Include(p => p.UsuarioRecibe)
-                .Include(p => p.Detalles)
-                    .ThenInclude(d => d.Producto)
-                .FirstOrDefaultAsync(p => p.Id == pedidoId);
         }
     }
 }

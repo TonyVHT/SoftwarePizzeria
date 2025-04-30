@@ -19,17 +19,11 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             return await _dbSet.Where(p => p.CategoriaId == categoriaId).ToListAsync();
         }
 
-        public async Task<IEnumerable<Producto>> GetProductosPorProveedorAsync(int proveedorId)
-        {
-            return await _dbSet.Where(p => p.ProveedorId == proveedorId).ToListAsync();
-        }
-
-        public async Task<Producto?> GetProductoConDetallesAsync(int productoId)
+        public async Task<IEnumerable<Producto>> GetAllWithCategoriaAsync()
         {
             return await _dbSet
                 .Include(p => p.Categoria)
-                .Include(p => p.Proveedor)
-                .FirstOrDefaultAsync(p => p.Id == productoId);
+                .ToListAsync();
         }
     }
 }

@@ -12,7 +12,15 @@ namespace ItaliaPizza.Server.Domain
 
         [Required]
         [MaxLength(100)]
-        public string Nombre { get; set; } = string.Empty; 
+        public string Nombre { get; set; } = string.Empty;
+
+        [Required]
+        [MaxLength(100)]
+        public string ApellidoPaterno { get; set; } = string.Empty;
+
+        [Required]
+        [MaxLength(100)]
+        public string ApellidoMaterno { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(20)]
@@ -23,12 +31,24 @@ namespace ItaliaPizza.Server.Domain
 
         [Required]
         [MaxLength(255)]
-        public string Direccion { get; set; } = string.Empty;
+        public string Calle { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(50)]
-        public string Ciudad { get; set; } = string.Empty; 
+        public string Ciudad { get; set; } = string.Empty;
 
-        public bool Estatus { get; set; } = true; 
+        [Required, MaxLength(10)]
+        public string NumeroDomicilio { get; set; } = string.Empty;
+
+        [Required, MaxLength(10)]
+        public string CodigoPostal { get; set; } = string.Empty;
+
+        [Required]
+        [MaxLength(100)]
+        public string TipoArticulo { get; set; } = string.Empty;
+
+        public bool Estatus { get; set; } = true;
+        public ICollection<ProductoProveedor> Productos { get; set; } = new List<ProductoProveedor>();
+
     }
 }
