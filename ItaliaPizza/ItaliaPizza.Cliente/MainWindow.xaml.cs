@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using ItaliaPizza.Cliente.Screens;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,6 +19,8 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
+        RegisterOrder registerOrder = new RegisterOrder();
+        registerOrder.Show();
         InitializeComponent();
     }
 }
