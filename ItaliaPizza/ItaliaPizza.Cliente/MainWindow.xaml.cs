@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Screens;
 using ItaliaPizza.Cliente.Screens.Admin;
+using ItaliaPizza.Cliente.Screens.Cashier;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,15 +21,9 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        /*
+        
         var logIn = new LogIn();
         logIn.Show();
-        this.Close();*/
-
-        /*var addUser = new AddUser();
-        addUser.Show();*/
-        var searchUser = new UserSearch();
-        searchUser.Show();
         this.Close();
     }
 }

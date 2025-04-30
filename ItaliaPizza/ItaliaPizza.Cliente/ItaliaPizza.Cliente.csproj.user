@@ -5,13 +5,22 @@
     <Compile Update="Screens\Admin\AddUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Admin\AllUsersSearch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Admin\HomePageAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Admin\PeopleSearcher.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Admin\UserSearch.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Admin\UserUpdate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Cashier\ClientSearcher.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Cashier\HomePageCashier.xaml.cs">
@@ -58,13 +67,22 @@
     <Page Update="Screens\Admin\AddUser.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Screens\Admin\AllUsersSearch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\Admin\HomePageAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Admin\PeopleSearcher.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Admin\UserSearch.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Admin\UserUpdate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Cashier\ClientSearcher.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Cashier\HomePageCashier.xaml">

@@ -12,7 +12,7 @@
              VerticalAlignment="Stretch">
     <Grid >
         
-        <Grid Width="130" HorizontalAlignment="Left" Background="#E6F4EA">
+        <Grid Width="130" HorizontalAlignment="Left" Background="WhiteSmoke">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
@@ -24,7 +24,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Grid x:Name="logo" Height="90" Width="90" VerticalAlignment="Top" Margin="15" Grid.Row="0">
-                <Image Source="/Resources/Images/logo.jpeg">
+                <Image Source="../Resources/Images/logo.jpeg">
 
                 </Image>
 
@@ -60,7 +60,7 @@
 
             <Button Style="{StaticResource buttonMenus}" x:Name="buttonSettings" Grid.Row="6" Click="buttonSettings_Click">
                 <Button.Content>
-                    ֍ Settings
+                    ֍ Cerrar Sesión
                 </Button.Content>
                 
             </Button>

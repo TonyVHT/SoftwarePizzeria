@@ -24,6 +24,7 @@ namespace ItaliaPizza.Server.Settings
         public DbSet<ReporteInventario> ReportesInventario { get; set; }
         public DbSet<DireccionCliente> direccionClientes { get; set; }
         public DbSet<CredencialUsuario> CredencialesUsuarios { get; set; } = null!;
+        public DbSet<Cliente> Cliente { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

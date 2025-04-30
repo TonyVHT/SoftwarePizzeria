@@ -44,7 +44,7 @@
                     <RowDefinition Height="57*"/>
                     <RowDefinition Height="17*"/>
                 </Grid.RowDefinitions>
-                <Image x:Name="logInLogo" Source="/Resources/Images/logo.jpeg" Grid.Column="0" Grid.Row="0">
+                <Image x:Name="logInLogo" Source="../Resources/Images/logo.jpeg" Grid.Column="0" Grid.Row="0">
                     <Image.Clip>
                         <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
                     </Image.Clip>

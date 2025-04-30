@@ -1,0 +1,103 @@
+﻿<Window x:Class="ItaliaPizza.Cliente.Screens.Admin.PeopleSearcher"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Admin"
+        xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
+        mc:Ignorable="d"
+        Title="PeopleSearcher" Height="600" Width="950"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid>
+            <controls:UCAdmin />
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*" />
+                <ColumnDefinition Width="167*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="20" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Filtros -->
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+
+                    <!-- TextBox con Placeholder -->
+                    <Grid Width="250">
+                        <TextBox x:Name="txtBusqueda" Width="250" />
+                        <TextBlock Text="Buscar por nombre o usuario"
+                                   Foreground="Gray"
+                                   IsHitTestVisible="False"
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Visibility="{Binding Text.IsEmpty, ElementName=txtBusqueda, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </Grid>
+
+                    <!-- ComboBox -->
+                    <ComboBox x:Name="cmbTipo" Width="200" Margin="10,0,0,0">
+                        <ComboBoxItem Content=""/>
+                        <ComboBoxItem Content="Cliente"/>
+                        <ComboBoxItem Content="Administrador"/>
+                        <ComboBoxItem Content="Gerente"/>
+                        <ComboBoxItem Content="Supervisor"/>
+                        <ComboBoxItem Content="Cajero"/>
+                        <ComboBoxItem Content="Mesero"/>
+                        <ComboBoxItem Content="Jefe de Meseros"/>
+                        <ComboBoxItem Content="Jefe de Cocina"/>
+                        <ComboBoxItem Content="Cocinero"/>
+                        <ComboBoxItem Content="Repartidor"/>
+                    </ComboBox>
+
+                    <!-- Botón Buscar -->
+                    <Button x:Name="btnBuscar" Content="Buscar" Width="100" Margin="10,0,0,0"
+                            Click="BtnBuscar_Click" Style="{StaticResource buttonsStyle}" />
+                </StackPanel>
+
+                <!-- Contenedor de resultados -->
+                <Grid Grid.Row="1">
+
+                    <!-- Loading -->
+                    <TextBlock x:Name="txtLoading" Text="Buscando..." 
+                               Visibility="Collapsed"
+                               FontSize="18" 
+                               Foreground="Gray"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+
+                    <!-- No resultados -->
+                    <TextBlock x:Name="txtNoResultados" Text="No se encontraron resultados"
+                               Visibility="Collapsed"
+                               FontSize="16"
+                               Foreground="Gray"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                    <!-- DataGrid -->
+                    <DataGrid x:Name="dgPersonas" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
+                              Visibility="Visible">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre completo" Binding="{Binding NombreCompleto}" Width="*"/>
+                            <DataGridTextColumn Header="Nombre de usuario" Binding="{Binding NombreUsuario}" Width="*"/>
+                            <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>

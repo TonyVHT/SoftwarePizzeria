@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ItaliaPizza.Cliente.Utils;
 
 namespace ItaliaPizza.Cliente.UserControls
 {
@@ -31,8 +32,9 @@ namespace ItaliaPizza.Cliente.UserControls
 
         private void buttonSettings_Click(object sender, RoutedEventArgs e)
         {
-            var closeSessionWindow = new LogOutAdmin();
-            closeSessionWindow.Show();
+            SessionManagerHelper.CerrarSesionUniversal();
+            
+            
         }
     }
 }

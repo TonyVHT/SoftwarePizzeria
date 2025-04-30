@@ -5,23 +5,55 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style x:Key="buttonMenus" TargetType="Button">
+            <Setter Property="Foreground" Value="#444"/>
             <Setter Property="Background" Value="#E6F4EA"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Style.Triggers>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#CCE9D6"/>
-                    <Setter Property="Foreground" Value="#21A725"/>
-                    <Setter Property="BorderBrush" Value="Transparent"/>
-                    <Setter Property="BorderThickness" Value="5,0,0,0"/>
-                    <Setter Property="BorderBrush" Value="#00B050"/>
-                    <Setter Property="FontWeight" Value="Bold"/>
-                </Trigger>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10 6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                        CornerRadius="6"
+                        Background="{TemplateBinding Background}"
+                        SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Margin="5,0,5,0"
+                                      RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
 
-            </Style.Triggers>
+                            <!-- Hover suave -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#D1EEDD"/>
+                                <Setter Property="Foreground" Value="#188038"/>
+                            </Trigger>
 
+                            <!-- Presionado -->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#B2D8C2"/>
+                                <Setter Property="Foreground" Value="#0B8043"/>
+                            </Trigger>
+
+                            <!-- Activo (estado seleccionado) -->
+                            <Trigger Property="Tag" Value="Active">
+                                <Setter TargetName="border" Property="Background" Value="#28C76F"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
+
+
+
 
         <Style x:Key="imagesLogIn" TargetType="Image">
             <Setter Property="Margin"  Value="10px"/>
@@ -249,6 +281,9 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
 
 

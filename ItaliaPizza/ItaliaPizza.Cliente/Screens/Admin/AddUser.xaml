@@ -16,44 +16,42 @@
                 <ColumnDefinition Width="127*"/>
                 <ColumnDefinition Width="673*"/>
             </Grid.ColumnDefinitions>
-            
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" >
-                <StackPanel Margin="20" Grid.Row="1" Grid.Column="1">
-                    
-                        
-                        <GroupBox Header="Información personal" Margin="0 0 0 20" >
-                            
-                            <StackPanel Margin="10">
-                                <Label Content="Nombre(s):"/>
-                                <TextBox Style="{StaticResource textboxStyle}" x:Name="txtNombre" />
 
-                                <Label Content="Apellidos:"/>
-                                <TextBox x:Name="txtApellidos" Style="{StaticResource textboxStyle}" />
-                                <Label Content="CURP:"/>
-                                <TextBox x:Name="txtCurp" Style="{StaticResource textboxStyle}"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1">
+                <StackPanel Margin="20" Grid.Row="1" Grid.Column="1">
+
+                    <!-- Información personal -->
+                    <Expander Header="Información personal" Margin="0 0 0 20" IsExpanded="True">
+                        <StackPanel Margin="10">
+                            <Label Content="Nombre(s):"/>
+                            <TextBox Style="{StaticResource textboxStyle}" x:Name="txtNombre" />
+
+                            <Label Content="Apellidos:"/>
+                            <TextBox x:Name="txtApellidos" Style="{StaticResource textboxStyle}" />
+
+                            <Label Content="CURP:"/>
+                            <TextBox x:Name="txtCurp" Style="{StaticResource textboxStyle}"/>
 
                             <Label Content="Nombre de usuario:"/>
-                                <TextBox x:Name="txtNombreUsuario" Style="{StaticResource textboxStyle}" />
+                            <TextBox x:Name="txtNombreUsuario" Style="{StaticResource textboxStyle}" />
 
-                                <Label Content="Contraseña:"/>
-                                <PasswordBox x:Name="pswContra" Style="{StaticResource passwordboxStyle}" />
+                            <Label Content="Contraseña:"/>
+                            <PasswordBox x:Name="pswContra" Style="{StaticResource passwordboxStyle}" />
 
-                                <Label Content="Tipo de usuario:"/>
-                                <ComboBox x:Name="cmbTipoUsuario" Style="{StaticResource comboBoxStyle}" MaxDropDownHeight="150" Margin="0 0 0 20">
-                                    <ComboBoxItem Content="Mesero"/>
-                                    <ComboBoxItem Content="Administrador"/>
-                                    <ComboBoxItem Content="Cocinero"/>
-                                    <ComboBoxItem Content="Gerente"/>
-                                    <ComboBoxItem Content="Cajero"/>
-                                </ComboBox>
-                            </StackPanel>
-                        </GroupBox>
-                  
-            
-                    
+                            <Label Content="Tipo de usuario:"/>
+                            <ComboBox x:Name="cmbTipoUsuario" Style="{StaticResource comboBoxStyle}" MaxDropDownHeight="150" Margin="0 0 0 20">
+                                <ComboBoxItem Content="Mesero"/>
+                                <ComboBoxItem Content="Administrador"/>
+                                <ComboBoxItem Content="Cocinero"/>
+                                <ComboBoxItem Content="Gerente"/>
+                                <ComboBoxItem Content="Cajero"/>
+                                <ComboBoxItem Content="Repartidor"/>
+                            </ComboBox>
+                        </StackPanel>
+                    </Expander>
 
                     <!-- Dirección -->
-                    <GroupBox Header="Dirección" Margin="0 0 0 10">
+                    <Expander Header="Dirección" Margin="0 0 0 10">
                         <Grid Margin="10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*"/>
@@ -66,26 +64,22 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <!-- Calle -->
                             <Label Content="Calle:" Grid.Row="0" Grid.Column="0"/>
                             <TextBox x:Name="txtCalle" Grid.Row="0" Grid.Column="0" Margin="60,0,0,0" Style="{StaticResource textboxStyle}" />
 
-                            <!-- Número -->
                             <Label Content="Número:" Grid.Row="0" Grid.Column="1"/>
                             <TextBox x:Name="txtNumero" Grid.Row="0" Grid.Column="1" Margin="60,0,0,0" Style="{StaticResource textboxStyle}" />
 
-                            <!-- Código postal -->
                             <Label Content="C.P.:" Grid.Row="0" Grid.Column="2"/>
                             <TextBox x:Name="txtCodigoPostal" Grid.Row="0" Grid.Column="2" Margin="40,0,0,0" Style="{StaticResource textboxStyle}" />
 
-                            <!-- Ciudad -->
                             <Label Content="Ciudad:" Grid.Row="1" Grid.Column="0"/>
                             <TextBox x:Name="txtCiudad" Grid.Row="1" Grid.Column="0" Margin="60,0,0,0" Style="{StaticResource textboxStyle}"/>
                         </Grid>
-                    </GroupBox>
+                    </Expander>
 
                     <!-- Contacto -->
-                    <GroupBox Header="Contacto" Margin="0 0 0 10">
+                    <Expander Header="Contacto" Margin="0 0 0 10">
                         <StackPanel Margin="10">
                             <Label Content="Teléfono:"/>
                             <TextBox x:Name="txtTelefono" Style="{StaticResource textboxStyle}"/>
@@ -93,22 +87,17 @@
                             <Label Content="Email:"/>
                             <TextBox x:Name="txtEmail" Style="{StaticResource textboxStyle}"/>
                         </StackPanel>
-                    </GroupBox>
+                    </Expander>
 
                     <!-- Botón registrar -->
                     <Button Content="Registrar"
-                        HorizontalAlignment="Right"
-                        Width="100"
-                        Margin="0 10 0 0"
-                        Click="BtnRegistrar_Click" Style="{StaticResource buttonsStyle}"/>
+                            HorizontalAlignment="Right"
+                            Width="100"
+                            Margin="0 10 0 0"
+                            Click="BtnRegistrar_Click"
+                            Style="{StaticResource buttonsStyle}"/>
                 </StackPanel>
-
             </ScrollViewer>
-            
-            
-
-
         </Grid>
-
     </Grid>
 </Window>
