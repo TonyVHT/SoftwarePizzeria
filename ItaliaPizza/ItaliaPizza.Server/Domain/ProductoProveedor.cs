@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ItaliaPizza.Server.Domain
@@ -12,7 +13,7 @@ namespace ItaliaPizza.Server.Domain
         [ForeignKey("ProductoId")]
         public Producto Producto { get; set; } = null!;
 
-        [Key]
+        [Required]
         public int ProveedorId { get; set; }
 
         [ForeignKey("ProveedorId")]

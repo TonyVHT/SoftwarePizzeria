@@ -22,7 +22,7 @@ namespace ItaliaPizza.Server.Repositories.Implementations
 
         public async Task<IEnumerable<ClienteConsultaDTO>> BuscarClientesAsync(string? nombre)
         {
-            var query = _context.Cliente.AsQueryable();
+            var query = _context.Clientes.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(nombre))
                 query = query.Where(c => (c.Nombre + " " + c.Apellidos).Contains(nombre));
@@ -36,6 +36,13 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             }).OrderBy(c => c.NombreCompleto).ToListAsync();
         }
 
-        
+        public async Task<int> AddClienteAsync(Cliente cliente)
+        {
+            _context.Set<Cliente>().Add(cliente);
+            await _context.SaveChangesAsync();
+            return cliente.Id; 
+        }
+
+
     }
 }

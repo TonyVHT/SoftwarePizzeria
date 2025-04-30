@@ -20,10 +20,10 @@
             <Grid Margin="20" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <!-- Filtros de búsqueda -->
                 <StackPanel Orientation="Horizontal"  Grid.Row="0" Margin="0 0 0 10">
                     <TextBox x:Name="txtNombre" Width="180" 
              />
@@ -43,7 +43,6 @@
             Style="{StaticResource buttonsStyle}" />
                 </StackPanel>
 
-                <!-- Tabla de resultados -->
                 <DataGrid x:Name="dgUsuarios" Grid.Row="1"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
@@ -54,12 +53,38 @@
                   RowHeaderWidth="0">
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Usuario" Binding="{Binding NombreUsuario}" Width="*"/>
-                        <DataGridTextColumn Header="Nombre completo" Binding="{Binding NombreCompleto}" Width="*"/>
-                        <DataGridTextColumn Header="Rol" Binding="{Binding Rol}" Width="*"/>
+                        <DataGridTextColumn Header="Usuario" Binding="{Binding NombreUsuario}" Width="*">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="ToolTip" Value="{Binding NombreCompleto, StringFormat='Doble clic para editar'}"/>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Nombre completo" Binding="{Binding NombreCompleto}" Width="*">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="ToolTip" Value="{Binding NombreCompleto, StringFormat='Doble clic para editar'}"/>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Rol" Binding="{Binding Rol}" Width="*">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="ToolTip" Value="{Binding NombreCompleto, StringFormat='Doble clic para editar'}"/>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
+                <Label Grid.Row="2" Grid.Column="1">
+                    <Label.Content>
+                        * Doble clic en el usuario para editar
+                    </Label.Content>
+                </Label>
             </Grid>
+            
 
         </Grid>
 

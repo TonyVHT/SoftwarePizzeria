@@ -1,4 +1,5 @@
-﻿using ItaliaPizza.Server.DTOs;
+﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.DTOs;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using ItaliaPizza.Server.Services.Interfaces;
 
@@ -16,6 +17,11 @@ namespace ItaliaPizza.Server.Services.Implementations
         public async Task<IEnumerable<ClienteConsultaDTO>> BuscarClientesAsync(string? nombre)
         {
             return await _clienteRepository.BuscarClientesAsync(nombre);
+        }
+
+        public async Task<int> AddClienteAsync(Cliente cliente)
+        {
+            return await _clienteRepository.AddClienteAsync(cliente);
         }
     }
         

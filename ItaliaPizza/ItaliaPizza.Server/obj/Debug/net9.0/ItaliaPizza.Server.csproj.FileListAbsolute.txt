@@ -864,10 +864,10 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.ItaliaPizza.Server.props
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.ItaliaPizza.Server.props
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\staticwebassets.pack.json
-C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\ItaliaPi.3BB1545F.Up2Date
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\ItaliaPizza.Server.dll
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\refint\ItaliaPizza.Server.dll
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\ItaliaPizza.Server.pdb
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\ItaliaPizza.Server.genruntimeconfig.cache
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\ref\ItaliaPizza.Server.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

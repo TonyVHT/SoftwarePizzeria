@@ -20,6 +20,9 @@
     <Compile Update="Screens\Admin\UserUpdate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Cashier\ClientAdder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Cashier\ClientSearcher.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -45,9 +48,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Manager\LogOutManager.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Screens\RegisterProduct.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\RegisterProvider.xaml.cs">
@@ -80,6 +80,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Admin\UserUpdate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Cashier\ClientAdder.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Cashier\ClientSearcher.xaml">

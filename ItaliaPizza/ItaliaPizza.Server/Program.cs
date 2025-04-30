@@ -38,6 +38,10 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ICredencialUsuarioService, CredencialUsuarioService>();
 builder.Services.AddScoped<ICredencialUsuarioRepository,  CredencialUsuarioRepository>();
+builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IDireccionClienteService, DireccionClienteService>();
+builder.Services.AddScoped<IDireccionClienteRepository, DireccionClienteRepository>();
 
 builder.Services.AddOpenApi();
 

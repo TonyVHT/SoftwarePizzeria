@@ -51,8 +51,12 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                 string url = $"api/usuario/buscar?nombre={textoBusqueda}&nombreUsuario={textoBusqueda}&rol={tipo}";
                 var lista = await _http.GetFromJsonAsync<List<PersonaConsultaDTO>>(url);
                 string url2 = $"api/cliente/buscar?nombre={textoBusqueda}";
-                var lista2 =  await _http.GetFromJsonAsync<List<PersonaConsultaDTO>>(url);
-                var lista3 = lista.Concat(lista2).ToList();
+                var lista2 =  await _http.GetFromJsonAsync<List<PersonaConsultaDTO>>(url2);
+                var lista3 = lista.Concat(lista2)
+                  .GroupBy(p => p.Id)
+                  .Select(g => g.First())
+                  .ToList();
+
 
 
                 // Ocultar loading

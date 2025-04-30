@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\App.xaml
-19880491324
+34750665570
 
-32929744359
-223-72889337
-MainWindow.xaml;Screens\Admin\HomePageAdmin.xaml;Screens\Admin\LogOutAdmin.xaml;Screens\Cashier\HomePageCashier.xaml;Screens\Cashier\LogOutCashier.xaml;Screens\Cook\HomePageCook.xaml;Screens\Cook\LogOutCook.xaml;Screens\LogIn.xaml;Screens\Manager\HomePageManager.xaml;Screens\Manager\LogOutManager.xaml;Screens\RegisterProduct.xaml;Screens\RegisterProvider.xaml;Screens\Waiter\HomePageWaiter.xaml;Screens\Waiter\LogOutWaiter.xaml;UserControls\UCAdmin.xaml;UserControls\UCCashier.xaml;UserControls\UCCook.xaml;UserControls\UCManager.xaml;UserControls\UCWaiter.xaml;
+59-1975300590
+225342198511
+MainWindow.xaml;Screens\Admin\AddUser.xaml;Screens\Admin\AllUsersSearch.xaml;Screens\Admin\HomePageAdmin.xaml;Screens\Admin\LogOutAdmin.xaml;Screens\Admin\PeopleSearcher.xaml;Screens\Admin\UserSearch.xaml;Screens\Admin\UserUpdate.xaml;Screens\Cashier\ClientAdder.xaml;Screens\Cashier\ClientSearcher.xaml;Screens\Cashier\HomePageCashier.xaml;Screens\Cashier\LogOutCashier.xaml;Screens\ConsultOrdersProvider.xaml;Screens\ConsultProvider.xaml;Screens\ConsultProviders.xaml;Screens\Cook\HomePageCook.xaml;Screens\Cook\LogOutCook.xaml;Screens\EditProductModal.xaml;Screens\EditProvider.xaml;Screens\LogIn.xaml;Screens\Manager\HomePageManager.xaml;Screens\Manager\LogOutManager.xaml;Screens\RegisterHomeDeliveryOrder.xaml;Screens\RegisterMermaModal.xaml;Screens\RegisterOrder.xaml;Screens\RegisterProvider.xaml;Screens\SearchProduct.xaml;Screens\Waiter\HomePageWaiter.xaml;Screens\Waiter\LogOutWaiter.xaml;UserControls\UCAdmin.xaml;UserControls\UCCashier.xaml;UserControls\UCCook.xaml;UserControls\UCManager.xaml;UserControls\UCWaiter.xaml;
 
 False
 

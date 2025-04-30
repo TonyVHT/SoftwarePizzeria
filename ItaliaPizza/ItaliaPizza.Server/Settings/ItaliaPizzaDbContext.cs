@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ItaliaPizza.Server.Settings
 {
@@ -27,13 +28,19 @@ namespace ItaliaPizza.Server.Settings
         public DbSet<ProductoProveedor> ProductoProveedores { get; set; }
 
         public DbSet<CredencialUsuario> CredencialesUsuarios { get; set; } = null!;
-        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<DireccionCliente>()
+            .HasOne(d => d.Cliente)  // Relación con Cliente
+            .WithMany(v => v.Direcciones)  // Un Cliente puede tener muchas Direcciones
+            .HasForeignKey(d => d.ClienteId).
+            HasConstraintName("fk_cliente_direccion")  // La clave foránea es ClienteId
+            .OnDelete(DeleteBehavior.Cascade);  // Comportamiento de eliminación en cascada
+
+           
         }
     }
 }
