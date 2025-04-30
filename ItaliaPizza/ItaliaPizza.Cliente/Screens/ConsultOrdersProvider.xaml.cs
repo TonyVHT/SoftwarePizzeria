@@ -28,14 +28,23 @@ namespace ItaliaPizza.Cliente.Screens
             this.proveedor = proveedor;
         }
 
-        private async void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        private void BtnAgregarPedido_Click(object sender, RoutedEventArgs e)
+        {
+            var RegisterOrder = new RegisterOrderToProvider();
+            RegisterOrder.ShowDialog();
+        }
+
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
-        private async void BtnRegistrar_Click(object sender, RoutedEventArgs e)
+        private void lvPedidos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Close();
+            if (lvPedidos.SelectedItem is Proveedor proveedorSeleccionado)
+            {
+                var consultarProveedor = new ConsultProvider(proveedorSeleccionado);
+                consultarProveedor.ShowDialog();
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ namespace ItaliaPizza.Server.Services.Interfaces
         Task CrearProveedorAsync(Proveedor proveedor);
         Task<IEnumerable<Proveedor>> ObtenerTodosAsync();
         Task<bool> ActualizarProveedorAsync(Proveedor proveedor);
+        Task<List<string>> ObtenerProductosDeProveedorAsync(int idProveedor);
 
     }
 }

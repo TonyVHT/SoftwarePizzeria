@@ -118,7 +118,9 @@ namespace ItaliaPizza.Server.Services.Implementations
 
             return productos;
         }
-
-
+        public async Task<IEnumerable<Producto>> GetAllProductosAsync()
+        {
+            return await _productoRepository.GetProductosActivosAsync();
+        }
     }
 }

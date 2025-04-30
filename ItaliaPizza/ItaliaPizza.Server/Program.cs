@@ -34,6 +34,8 @@ builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
 builder.Services.AddScoped<IMermaService, MermaService>();
 builder.Services.AddScoped<IMermaRepository, MermaRepository>();
 builder.Services.AddScoped<IMotivoMermaRepository, MotivoMermaRepository>();
+builder.Services.AddScoped<IProductoProveedorRepository, ProductoProveedorRepository>();
+builder.Services.AddScoped<IProductoProveedorService, ProductoProveedorService>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
