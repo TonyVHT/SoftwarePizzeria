@@ -2,14 +2,7 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-<<<<<<< HEAD
-    <Compile Update="PlatillosModulo\Screens\InformacionPlatillo.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="PlatillosModulo\Screens\PlatillosScreen.xaml.cs">
-=======
     <Compile Update="Screens\ConsultProvider.xaml.cs">
->>>>>>> main
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\ConsultProviders.xaml.cs">
@@ -19,9 +12,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\EditProvider.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Screens\RegisterProduct.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\RegisterProvider.xaml.cs">

@@ -16,5 +16,5 @@ C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente
 223-11407120
 MainWindow.xaml;PlatillosModulo\Screens\InformacionPlatillo.xaml;PlatillosModulo\Screens\PlatillosScreen.xaml;Screens\ConsultProvider.xaml;Screens\ConsultProviders.xaml;Screens\EditProductModal.xaml;Screens\EditProvider.xaml;Screens\RegisterProduct.xaml;Screens\RegisterProvider.xaml;Screens\SearchProduct.xaml;UserControls\UCAdmin.xaml;UserControls\UCCashier.xaml;UserControls\UCCook.xaml;UserControls\UCManager.xaml;UserControls\UCWaiter.xaml;
 
-True
+False
 
