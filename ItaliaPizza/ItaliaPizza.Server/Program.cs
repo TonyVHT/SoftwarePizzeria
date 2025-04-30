@@ -29,11 +29,14 @@ builder.Services.AddDbContext<ItaliaPizzaDbContext>(options =>
 builder.Services.AddScoped<IPlatilloRepository, PlatilloRepository>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<ICategoriaProductoRepository, CategoriaProductoRepository>();
-
 builder.Services.AddControllers();
 builder.Services.AddAuthorization();
+builder.Services.AddScoped<IIngredienteRepository, IngredienteRepository>();
 builder.Services.AddScoped<IProvedorService, ProveedorService>();
 builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
+builder.Services.AddScoped<IMermaService, MermaService>();
+builder.Services.AddScoped<IMermaRepository, MermaRepository>();
+builder.Services.AddScoped<IMotivoMermaRepository, MotivoMermaRepository>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();

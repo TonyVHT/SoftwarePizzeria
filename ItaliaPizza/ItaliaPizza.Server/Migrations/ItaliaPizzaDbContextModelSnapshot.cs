@@ -142,7 +142,10 @@ namespace ItaliaPizza.Server.Migrations
                     b.Property<int>("PedidoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PlatilloId")
+                    b.Property<int?>("PlatilloId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductoId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Subtotal")
@@ -153,6 +156,8 @@ namespace ItaliaPizza.Server.Migrations
                     b.HasIndex("PedidoId");
 
                     b.HasIndex("PlatilloId");
+
+                    b.HasIndex("ProductoId");
 
                     b.ToTable("DetallesPedido", (string)null);
                 });
@@ -874,12 +879,18 @@ namespace ItaliaPizza.Server.Migrations
                     b.HasOne("ItaliaPizza.Server.Domain.Platillo", "Platillo")
                         .WithMany()
                         .HasForeignKey("PlatilloId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ItaliaPizza.Server.Domain.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Pedido");
 
                     b.Navigation("Platillo");
+
+                    b.Navigation("Producto");
                 });
 
             modelBuilder.Entity("ItaliaPizza.Server.Domain.DetallePedidoProveedor", b =>

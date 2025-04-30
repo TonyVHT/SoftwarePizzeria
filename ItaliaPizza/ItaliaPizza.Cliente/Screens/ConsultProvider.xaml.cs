@@ -41,7 +41,8 @@ namespace ItaliaPizza.Cliente.Screens
         }
         private void BtnConsultarPedido_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            var consultOrders = new ConsultOrdersProvider(this.proveedor);
+            consultOrders.ShowDialog();
         }
         private void BtnModificar_Click(object sender, RoutedEventArgs e)
         {
