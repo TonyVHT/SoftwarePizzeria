@@ -3,6 +3,8 @@ using Org.BouncyCastle.Bcpg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,8 @@ namespace ItaliaPizza.Cliente.Screens
     public partial class ConsultProvider : Window
     {
         private Proveedor proveedor;
+        private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
+
 
         public ConsultProvider(Proveedor proveedorSeleccionado)
         {
@@ -38,6 +42,8 @@ namespace ItaliaPizza.Cliente.Screens
             txtCalle.Text = proveedor.Calle;
             txtNumeroCasa.Text = proveedor.NumeroDomicilio;
             txtCodigoPostal.Text = proveedor.CodigoPostal;
+            CargarProductosProveedorAsync();
+
         }
         private void BtnConsultarPedido_Click(object sender, RoutedEventArgs e)
         {
@@ -56,6 +62,28 @@ namespace ItaliaPizza.Cliente.Screens
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private async void CargarProductosProveedorAsync()
+        {
+            try
+            {
+                var response = await _http.GetAsync($"api/proveedor/{proveedor.Id}/productos");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var nombresProductos = await response.Content.ReadFromJsonAsync<List<string>>();
+                    lstProductosAdicionales.ItemsSource = nombresProductos;
+                }
+                else
+                {
+                    MessageBox.Show("Error al cargar productos del proveedor.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error de conexión: {ex.Message}");
+            }
         }
     }
 }

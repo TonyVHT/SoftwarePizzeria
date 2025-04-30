@@ -19,7 +19,7 @@ namespace ItaliaPizza.Server.Controllers
         public async Task<IActionResult> CrearProveedor([FromBody] Proveedor proveedor)
         {
             await _proveedorService.CrearProveedorAsync(proveedor);
-            return Ok("Proveedor creado con éxito.");
+            return Ok(proveedor);
         }
 
         [HttpGet]
@@ -48,5 +48,17 @@ namespace ItaliaPizza.Server.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("{id}/productos")]
+        public async Task<IActionResult> ObtenerProductosDeProveedor(int id)
+        {
+            var productos = await _proveedorService.ObtenerProductosDeProveedorAsync(id);
+
+            if (productos == null || productos.Count == 0)
+                return NotFound("Este proveedor no tiene productos asociados.");
+
+            return Ok(productos);
+        }
+
     }
 }

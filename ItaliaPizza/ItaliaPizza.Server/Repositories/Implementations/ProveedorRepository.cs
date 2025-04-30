@@ -44,5 +44,14 @@ namespace ItaliaPizza.Server.Repositories.Implementations
         {
             await _context.SaveChangesAsync();
         }
+        public async Task<List<string>> ObtenerNombresProductosPorProveedorAsync(int idProveedor)
+        {
+            return await _context.ProductoProveedores
+                .Where(pp => pp.ProveedorId == idProveedor)
+                .Include(pp => pp.Producto) // Asegúrate de tener navegación configurada
+                .Select(pp => pp.Producto.Nombre)
+                .ToListAsync();
+        }
+
     }
 }

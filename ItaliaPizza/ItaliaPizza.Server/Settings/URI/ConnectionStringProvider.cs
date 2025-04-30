@@ -8,10 +8,17 @@
             {
                 var connectionString = new Microsoft.Data.SqlClient.SqlConnectionStringBuilder
                 {
+                    
                     DataSource = GetEnvironmentVariable("ITALIAPIZZA_DB_SERVER"),
                     InitialCatalog = GetEnvironmentVariable("ITALIAPIZZA_DB_NAME"),
                     UserID = GetEnvironmentVariable("ITALIAPIZZA_DB_USER"),
                     Password = GetEnvironmentVariable("ITALIAPIZZA_DB_PASSWORD"),
+                    
+                    /*
+                    DataSource = "LAPTOP-K9APEC4I\\SQLEXPRESS",
+                    InitialCatalog = "ItaliaPizzaDB",
+                    UserID = "jp",
+                    Password = "12345",*/
                     ConnectTimeout = 10,
                     TrustServerCertificate = true,
                     MultipleActiveResultSets = true

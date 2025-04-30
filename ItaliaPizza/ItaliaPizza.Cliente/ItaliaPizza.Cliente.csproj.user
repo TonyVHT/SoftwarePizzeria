@@ -50,6 +50,12 @@
     <Compile Update="Screens\Manager\LogOutManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Update="Screens\RegisterOrderToProvider.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+>>>>>>> origin/main
     <Compile Update="Screens\RegisterProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -110,6 +116,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Manager\LogOutManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\RegisterOrderToProvider.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\RegisterProvider.xaml">
