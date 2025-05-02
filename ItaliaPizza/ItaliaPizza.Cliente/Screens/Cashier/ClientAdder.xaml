@@ -27,8 +27,9 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
 
-                    <RowDefinition Height="11*"/>
-                    <RowDefinition Height="135*"/>
+                    <RowDefinition Height="44*"/>
+                    <RowDefinition Height="495*"/>
+                    <RowDefinition Height="45*"/>
 
                 </Grid.RowDefinitions>
                 <!-- Botón de Cancelar (esquina superior izquierda) -->
@@ -42,57 +43,62 @@ Click="BtnCancelar_Click"
 Style="{StaticResource buttonsStyle}"  />
 
                 <!-- Columna 1: Formulario Cliente -->
-                <Grid Grid.Column="0" Margin="20,20,20,20" Grid.Row="1">
-                    <GroupBox Header="Registrar Cliente" Margin="0 0 0 20">
+                <Grid Grid.Column="0" Margin="20,20,20,20" Grid.Row="1" >
+                    <GroupBox Header="Registrar Cliente" Margin="0 0 0 10">
                         <StackPanel Margin="10">
                             <Label Content="Nombre:"/>
-                            <TextBox x:Name="txtNombre" Width="300" Margin="0,5" />
+                            <TextBox x:Name="txtNombre" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtNombreError" Foreground="Red" Margin="0,2" />
 
                             <Label Content="Apellidos:"/>
-                            <TextBox x:Name="txtApellidos" Width="300" Margin="0,5" />
+                            <TextBox x:Name="txtApellidos" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtApellidosError" Foreground="Red" Margin="0,2" />
 
                             <Label Content="Teléfono:"/>
-                            <TextBox x:Name="txtTelefono" Width="300" Margin="0,5" />
+                            <TextBox x:Name="txtTelefono" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtTelefonoError" Foreground="Red" Margin="0,2" />
 
                             <Label Content="Email:"/>
-                            <TextBox x:Name="txtEmail" Width="300" Margin="0,5" />
+                            <TextBox x:Name="txtEmail" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtEmailError" Foreground="Red" Margin="0,2" />
                         </StackPanel>
                     </GroupBox>
                 </Grid>
 
                 <!-- Columna 2: Formulario Dirección -->
-                <Grid Grid.Column="1" Margin="20,20,20,20" Grid.Row="1">
+                <Grid Grid.Column="1" Margin="20,20,20,20" Grid.Row="1" >
                     <GroupBox Header="Registrar Dirección" Margin="0 0 0 20">
                         <StackPanel Margin="10">
                             <Label Content="Dirección:"/>
-                            <TextBox x:Name="txtDireccion" Width="300" Margin="0,5" />
+                            <TextBox x:Name="txtDireccion" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtDireccionError" Foreground="Red" Margin="0,2" />
 
                             <Label Content="Código Postal:"/>
-                            <TextBox x:Name="txtCodigoPostal" Width="300" Margin="0,5" />
+                            <TextBox x:Name="txtCodigoPostal" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtCodigoPostalError" Foreground="Red" Margin="0,2" />
 
                             <Label Content="Ciudad:"/>
-                            <TextBox x:Name="txtCiudad" Width="300" Margin="0,5" />
-                            <Label Content="Referencias:"/>
-                            <TextBox x:Name="txtReferencias" Width="300" Margin="0,5" />
+                            <TextBox x:Name="txtCiudad" Width="300" Margin="0,5"  Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtCiudadError" Foreground="Red" Margin="0,2" />
 
-                            <CheckBox x:Name="chkEsPrincipal" Content="¿Es dirección principal?" Margin="0,10,0,0"/>
+                            <Label Content="Referencias:"/>
+                            <TextBox x:Name="txtReferencias" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtReferenciasError" Foreground="Red" Margin="0,2" />
+
+                            <CheckBox x:Name="chkEsPrincipal" Content="¿Es dirección principal?" Margin="0,5,0,0"/>
                         </StackPanel>
                     </GroupBox>
-                    <Button Content="Registrar Cliente y Dirección"
+                </Grid>
+                <Button Content="Registrar Cliente y Dirección" Grid.Column="1" Grid.Row="2" Padding="2"
 Width="200"
 Height="40"
-HorizontalAlignment="Right"
-VerticalAlignment="Bottom"
-Margin="0,0,20,20"
+HorizontalAlignment="Left"
+VerticalAlignment="Center"
+Margin="198,0,5,2"
 Click="BtnRegistrarClienteYDireccion_Click"
-Style="{StaticResource buttonsStyle}" />
-                    
-                    
-                    
-                    
-                </Grid>
+Style="{StaticResource buttonsStyle}"  />
 
-               
+
 
                 <!-- Botón de Registrar (esquina inferior derecha) -->
             </Grid>

@@ -50,12 +50,10 @@
     <Compile Update="Screens\Manager\LogOutManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
-=======
     <Compile Update="Screens\RegisterOrderToProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
->>>>>>> origin/main
+
     <Compile Update="Screens\RegisterProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

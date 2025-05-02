@@ -645,3 +645,9 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.genruntimeconfig.cache
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ref\ItaliaPizza.Cliente.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\InformacionPlatillo.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\PlatillosScreen.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrderToProvider.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\InformacionPlatillo.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\PlatillosScreen.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrderToProvider.baml

@@ -2,11 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ItaliaPizza.Cliente"
-<<<<<<< HEAD
              StartupUri="Screens/Cashier/ClientAdder.xaml">
-=======
-             StartupUri="Screens/RegisterOrder.xaml">
->>>>>>> origin/main
+
     <Application.Resources>
         <Style x:Key="buttonMenus" TargetType="Button">
             <Setter Property="Foreground" Value="#444"/>
@@ -91,7 +88,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Padding" Value="10"/>
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="2"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
@@ -288,6 +285,38 @@
 
 
         <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
+        <Style TargetType="GroupBox">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GroupBox">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="5" Margin="0,10,0,0">
+                            <StackPanel>
+                                <Border Background="#199D54" Margin="0,-10,0,5" CornerRadius="5">
+                                    <Border.Effect>
+                                        <DropShadowEffect Color="#199D54" Direction="270" ShadowDepth="5" Opacity="0.5" BlurRadius="15"/>
+                                    </Border.Effect>
+                                    <TextBlock Text="{Binding Header, RelativeSource={RelativeSource TemplatedParent}}"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               FontWeight="Bold" Padding="10"
+                                               Foreground="WhiteSmoke"/>
+                                </Border>
+                                <ContentPresenter VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
 
