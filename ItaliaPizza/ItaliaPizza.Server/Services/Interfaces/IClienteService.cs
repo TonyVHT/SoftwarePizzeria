@@ -7,5 +7,9 @@ namespace ItaliaPizza.Server.Services.Interfaces
     {
         Task<IEnumerable<ClienteConsultaDTO>> BuscarClientesAsync(string? nombre);
         Task<int> AddClienteAsync(Cliente cliente);
+        Task<int?> ObtenerIdClientePorNumeroAsync(string numero);
+        Task ActualizarClienteAsync(Cliente cliente);
+        Task<ClienteDTO?> ObtenerClientePorIdAsync(int id);
+
     }
 }

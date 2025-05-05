@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.DTOs;
 
 namespace ItaliaPizza.Server.Repositories.Interfaces
 {
@@ -7,6 +8,11 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
         Task<List<DireccionCliente>> GetDireccionesByClienteIdAsync(int clienteId);
         Task<DireccionCliente> GetDireccionByIdAsync(int id);
         Task<int> AddDireccionAsync(DireccionCliente direccionCliente);
+        Task<DireccionCliente?> GetByIdAsync(int id);
+        Task UpdateDireccionPrincipalAsync(UpdateDireccionPrincipalDTO dto);
+        Task<DireccionCliente?> GetDireccionPrincipalByClienteIdAsync(int clienteId);
+        Task<DireccionCliente?> ObtenerDireccionPrincipalPorClienteIdAsync(int clienteId);
+
     }
-   
+
 }

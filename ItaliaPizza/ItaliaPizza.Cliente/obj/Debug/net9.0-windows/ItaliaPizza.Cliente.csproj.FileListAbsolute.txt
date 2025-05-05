@@ -565,6 +565,8 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrder.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\SearchProduct.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\InformacionPlatillo.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\PlatillosScreen.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\AddUser.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\AllUsersSearch.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\HomePageAdmin.g.cs
@@ -572,8 +574,10 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\PeopleSearcher.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\UserSearch.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\UserUpdate.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\AddAddress.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\ClientAdder.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\ClientSearcher.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\EditCustomer.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\HomePageCashier.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\LogOutCashier.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultOrdersProvider.g.cs
@@ -589,6 +593,7 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterHomeDeliveryOrder.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterMermaModal.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrder.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrderToProvider.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\SearchProduct.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Waiter\HomePageWaiter.g.cs
@@ -604,6 +609,8 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.lref
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\App.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\InformacionPlatillo.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\PlatillosScreen.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\AddUser.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\AllUsersSearch.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\HomePageAdmin.baml
@@ -611,8 +618,10 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\PeopleSearcher.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\UserSearch.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\UserUpdate.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\AddAddress.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\ClientAdder.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\ClientSearcher.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\EditCustomer.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\HomePageCashier.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\LogOutCashier.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultOrdersProvider.baml
@@ -625,6 +634,7 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Manager\HomePageManager.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Manager\LogOutManager.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterHomeDeliveryOrder.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrderToProvider.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Waiter\HomePageWaiter.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Waiter\LogOutWaiter.baml
@@ -645,9 +655,3 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.genruntimeconfig.cache
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ref\ItaliaPizza.Cliente.dll
-C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\InformacionPlatillo.g.cs
-C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\PlatillosScreen.g.cs
-C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrderToProvider.g.cs
-C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\InformacionPlatillo.baml
-C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\PlatillosScreen.baml
-C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrderToProvider.baml

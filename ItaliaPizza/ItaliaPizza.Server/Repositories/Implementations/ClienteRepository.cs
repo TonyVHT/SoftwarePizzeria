@@ -43,6 +43,36 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             return cliente.Id; 
         }
 
+        public async Task<int?> GetClienteIdByNumeroAsync(string numero)
+        {
+            return await _context.Set<Cliente>()
+                .Where(c => c.Telefono == numero)
+                .Select(c => c.Id)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task UpdateClienteAsync(Cliente clienteActualizado)
+        {
+            var clienteExistente = await _context.Clientes.FindAsync(clienteActualizado.Id);
+            if (clienteExistente == null)
+                throw new Exception("Cliente no encontrado.");
+
+            // Actualiza campos individualmente para evitar conflictos de tracking
+            clienteExistente.Nombre = clienteActualizado.Nombre;
+            clienteExistente.Apellidos = clienteActualizado.Apellidos;
+            clienteExistente.Telefono = clienteActualizado.Telefono;
+            clienteExistente.Email = clienteActualizado.Email;
+            clienteExistente.Estatus = clienteActualizado.Estatus;
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Cliente?> ObtenerPorIdAsync(int id)
+        {
+            return await _context.Clientes.FindAsync(id);
+        }
+
+
 
     }
 }

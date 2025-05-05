@@ -4,6 +4,7 @@ namespace ItaliaPizza.Server.DTOs
 {
     public class DireccionClienteDTO
     {
+        public int Id { get; set; }
         public int ClienteId { get; set; }  
 
         public string Direccion { get; set; }
