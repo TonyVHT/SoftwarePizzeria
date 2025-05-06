@@ -38,6 +38,11 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ICredencialUsuarioService, CredencialUsuarioService>();
 builder.Services.AddScoped<ICredencialUsuarioRepository,  CredencialUsuarioRepository>();
+builder.Services.AddScoped<IPedidoService, PedidoService>();
+builder.Services.AddScoped<IPedidoDomicilioRepository, PedidoDomicilioRepository>();
+builder.Services.AddScoped<IPedidoLocalRepository, PedidoLocalRepository>();
+builder.Services.AddScoped<IFinanzaRepository, FinanzaRepository>();
+
 
 builder.Services.AddScoped<IProductoProveedorRepository, ProductoProveedorRepository>();
 builder.Services.AddScoped<IProductoProveedorService, ProductoProveedorService>();
