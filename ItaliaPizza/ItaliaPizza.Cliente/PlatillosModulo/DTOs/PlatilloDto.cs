@@ -19,5 +19,4 @@ namespace ItaliaPizza.Cliente.Platillos.DTOs
         public string? Instrucciones { get; set; }
         public string CategoriaNombre { get; set; } = string.Empty;
     }
-
 }
