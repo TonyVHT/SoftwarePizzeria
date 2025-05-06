@@ -20,7 +20,16 @@
     <Compile Update="Screens\Admin\UserUpdate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Cashier\AddAddress.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Cashier\ClientAdder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Cashier\ClientSearcher.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Cashier\EditCustomer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Cashier\HomePageCashier.xaml.cs">
@@ -82,7 +91,16 @@
     <Page Update="Screens\Admin\UserUpdate.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Screens\Cashier\AddAddress.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Cashier\ClientAdder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\Cashier\ClientSearcher.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Cashier\EditCustomer.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Cashier\HomePageCashier.xaml">

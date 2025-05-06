@@ -59,7 +59,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             {
                 var ventana = new UserUpdate(seleccionado.Id);
                 ventana.ShowDialog();
-                BtnBuscar_Click(null, null); // refrescar
+                BtnBuscar_Click(null, null); 
             }
         }
 

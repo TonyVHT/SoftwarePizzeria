@@ -1,0 +1,657 @@
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.exe
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.deps.json
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.runtimeconfig.json
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.dll
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.dll
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.Sinks.Console.dll
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.Sinks.File.dll
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.csproj.AssemblyReference.cache
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.cache
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.lref
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.baml
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.g.resources
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.AssemblyInfoInputs.cache
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.AssemblyInfo.cs
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.csproj.CoreCompileInputs.cache
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.sourcelink.json
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPi.4143373B.Up2Date
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.dll
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\refint\ItaliaPizza.Cliente.dll
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.genruntimeconfig.cache
+C:\Users\gearh\Desktop\Pizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ref\ItaliaPizza.Cliente.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.exe
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.deps.json
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.runtimeconfig.json
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Google.Protobuf.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Humanizer.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Compression.LZ4.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Hash.xxHash.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Build.Locator.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyModel.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Mono.TextTemplating.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\MySql.Data.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\MySql.EntityFrameworkCore.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.Sinks.Console.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.Sinks.File.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.AttributedModel.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Convention.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Hosting.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Runtime.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.TypedParts.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Text.Json.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ZstdSharp.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.csproj.AssemblyReference.cache
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.g.cs
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.cache
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.lref
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.baml
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.baml
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.g.resources
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.AssemblyInfoInputs.cache
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.AssemblyInfo.cs
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.csproj.CoreCompileInputs.cache
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.sourcelink.json
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPi.4143373B.Up2Date
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\refint\ItaliaPizza.Cliente.dll
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.genruntimeconfig.cache
+C:\Users\juant\Desktop\ItaliaPizza\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ref\ItaliaPizza.Cliente.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.exe
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.deps.json
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.runtimeconfig.json
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Google.Protobuf.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Humanizer.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Compression.LZ4.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Hash.xxHash.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Build.Locator.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyModel.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Mono.TextTemplating.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\MySql.Data.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\MySql.EntityFrameworkCore.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.Sinks.Console.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.Sinks.File.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.AttributedModel.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Convention.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Hosting.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Runtime.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.TypedParts.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Text.Json.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ZstdSharp.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.csproj.AssemblyReference.cache
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.g.cs
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.cache
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.lref
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.baml
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.baml
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.g.resources
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.AssemblyInfoInputs.cache
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.AssemblyInfo.cs
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.csproj.CoreCompileInputs.cache
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.sourcelink.json
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPi.4143373B.Up2Date
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\refint\ItaliaPizza.Cliente.dll
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.genruntimeconfig.cache
+C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ref\ItaliaPizza.Cliente.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.csproj.AssemblyReference.cache
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.g.cs
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCAdmin.g.cs
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCCashier.g.cs
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCCook.g.cs
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCManager.g.cs
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCWaiter.g.cs
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.cache
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.lref
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\refint\ItaliaPizza.Cliente.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.exe
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.deps.json
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.runtimeconfig.json
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Google.Protobuf.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Humanizer.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Compression.LZ4.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Hash.xxHash.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Build.Locator.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyModel.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Mono.TextTemplating.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\MySql.Data.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\MySql.EntityFrameworkCore.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.Sinks.Console.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.Sinks.File.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.AttributedModel.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Convention.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Hosting.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Runtime.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.TypedParts.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ZstdSharp.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\App.baml
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.baml
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.baml
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCAdmin.baml
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCCashier.baml
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCCook.baml
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCManager.baml
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCWaiter.baml
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.g.resources
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.AssemblyInfoInputs.cache
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.AssemblyInfo.cs
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.csproj.CoreCompileInputs.cache
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.sourcelink.json
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPi.4143373B.Up2Date
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.genruntimeconfig.cache
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ref\ItaliaPizza.Cliente.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.exe
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.deps.json
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.runtimeconfig.json
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\FontAwesome.WPF.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Google.Protobuf.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Humanizer.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Compression.LZ4.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\K4os.Hash.xxHash.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Build.Locator.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyModel.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Mono.TextTemplating.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\MySql.Data.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\MySql.EntityFrameworkCore.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.Sinks.Console.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\Serilog.Sinks.File.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.AttributedModel.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Convention.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Hosting.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.Runtime.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\System.Composition.TypedParts.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ZstdSharp.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.csproj.AssemblyReference.cache
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\EditProductModal.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterMermaModal.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrder.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\SearchProduct.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\InformacionPlatillo.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\PlatillosScreen.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\AddUser.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\AllUsersSearch.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\HomePageAdmin.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\LogOutAdmin.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\PeopleSearcher.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\UserSearch.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\UserUpdate.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\AddAddress.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\ClientAdder.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\ClientSearcher.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\EditCustomer.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\HomePageCashier.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\LogOutCashier.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultOrdersProvider.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultProvider.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultProviders.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cook\HomePageCook.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cook\LogOutCook.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\EditProductModal.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\EditProvider.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\LogIn.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Manager\HomePageManager.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Manager\LogOutManager.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterHomeDeliveryOrder.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterMermaModal.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrder.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrderToProvider.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\SearchProduct.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Waiter\HomePageWaiter.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Waiter\LogOutWaiter.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCAdmin.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCCashier.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCCook.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCManager.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCWaiter.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.cache
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente_MarkupCompile.lref
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\App.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\MainWindow.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\InformacionPlatillo.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\PlatillosScreen.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\AddUser.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\AllUsersSearch.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\HomePageAdmin.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\LogOutAdmin.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\PeopleSearcher.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\UserSearch.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Admin\UserUpdate.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\AddAddress.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\ClientAdder.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\ClientSearcher.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\EditCustomer.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\HomePageCashier.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\LogOutCashier.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultOrdersProvider.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultProvider.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultProviders.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cook\HomePageCook.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cook\LogOutCook.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\EditProvider.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\LogIn.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Manager\HomePageManager.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Manager\LogOutManager.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterHomeDeliveryOrder.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrderToProvider.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Waiter\HomePageWaiter.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Waiter\LogOutWaiter.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCAdmin.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCCashier.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCCook.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCManager.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCWaiter.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.g.resources
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.AssemblyInfoInputs.cache
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.AssemblyInfo.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.csproj.CoreCompileInputs.cache
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.sourcelink.json
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPi.4143373B.Up2Date
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\refint\ItaliaPizza.Cliente.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.genruntimeconfig.cache
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ref\ItaliaPizza.Cliente.dll

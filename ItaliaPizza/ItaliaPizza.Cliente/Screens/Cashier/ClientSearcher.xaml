@@ -66,8 +66,9 @@
 
                     <!-- DataGrid -->
                     <DataGrid x:Name="dgClientes" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
-                              Visibility="Visible">
+                              Visibility="Visible" MouseDoubleClick="DataGrid_MouseDoubleClick">
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*"/>
                             <DataGridTextColumn Header="Nombre completo" Binding="{Binding NombreCompleto}" Width="*"/>
                             <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" Width="*"/>
                             <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>

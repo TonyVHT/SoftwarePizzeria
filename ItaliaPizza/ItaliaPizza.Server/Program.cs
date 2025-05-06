@@ -21,13 +21,16 @@ if (string.IsNullOrEmpty(connectionString))
     throw new InvalidOperationException("No se encontró la cadena de conexión en variables de entorno.");
 }
 
+//Tony services
+
 builder.Services.AddDbContext<ItaliaPizzaDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddControllers();
-builder.Services.AddScoped<IPlatilloService, PlatilloService>();
-builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddScoped<IPlatilloRepository, PlatilloRepository>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+builder.Services.AddScoped<ICategoriaProductoRepository, CategoriaProductoRepository>();
+builder.Services.AddControllers();
+builder.Services.AddAuthorization();
 builder.Services.AddScoped<IIngredienteRepository, IngredienteRepository>();
 builder.Services.AddScoped<IProvedorService, ProveedorService>();
 builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
@@ -43,6 +46,10 @@ builder.Services.AddScoped<IPedidoDomicilioRepository, PedidoDomicilioRepository
 builder.Services.AddScoped<IPedidoLocalRepository, PedidoLocalRepository>();
 builder.Services.AddScoped<IFinanzaRepository, FinanzaRepository>();
 
+builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IDireccionClienteService, DireccionClienteService>();
+builder.Services.AddScoped<IDireccionClienteRepository, DireccionClienteRepository>();
 
 builder.Services.AddScoped<IProductoProveedorRepository, ProductoProveedorRepository>();
 builder.Services.AddScoped<IProductoProveedorService, ProductoProveedorService>();

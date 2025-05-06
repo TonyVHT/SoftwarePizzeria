@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Animation;
 
 namespace ItaliaPizza.Cliente.Screens.Cashier
@@ -75,6 +76,19 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 Duration = TimeSpan.FromMilliseconds(500)
             };
             element.BeginAnimation(UIElement.OpacityProperty, fadeInAnimation);
+        }
+
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            
+            if (dgClientes.SelectedItem is ClienteConsultaDTO cliente)
+            {
+                if (dgClientes.SelectedItem == null)
+                    return;
+                var editWindow = new EditCustomer(cliente.Id);
+                editWindow.ShowDialog();
+                this.Close();
+            }
         }
     }
 }
