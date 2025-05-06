@@ -27,6 +27,7 @@ builder.Services.AddDbContext<ItaliaPizzaDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IPlatilloRepository, PlatilloRepository>();
+builder.Services.AddScoped<IPlatilloService, PlatilloService>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<ICategoriaProductoRepository, CategoriaProductoRepository>();
 builder.Services.AddControllers();
