@@ -48,6 +48,8 @@ builder.Services.AddScoped<IDireccionClienteRepository, DireccionClienteReposito
 
 builder.Services.AddScoped<IProductoProveedorRepository, ProductoProveedorRepository>();
 builder.Services.AddScoped<IProductoProveedorService, ProductoProveedorService>();
+builder.Services.AddScoped<IFinanzaRepository, FinanzaRepository>();
+builder.Services.AddScoped<IFinanzaService, FinanzaService>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
