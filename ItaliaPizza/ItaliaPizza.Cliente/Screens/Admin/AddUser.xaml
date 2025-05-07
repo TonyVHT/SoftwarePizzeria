@@ -8,17 +8,42 @@
         mc:Ignorable="d"
         Title="AddUser" Height="450" Width="800">
     <Grid>
-        <Grid>
-            <controls:UCAdmin></controls:UCAdmin>
-        </Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#E6F4EA" Offset="0"/>
+                <GradientStop Color="#F0F4F8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="127*"/>
                 <ColumnDefinition Width="673*"/>
             </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="12*"/>
+                    <RowDefinition Height="200*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18*"/>
+                    <ColumnDefinition Width="71*"/>
+                    <ColumnDefinition Width="584*"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="btnCancelar" Content="Cancelar" Style="{StaticResource cancelbuttonsStyle}" Margin="0,0,02,0"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></Button>
 
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1">
+
+
+            </Grid>
+            <Grid Grid.Column="0">
+                <controls:UCAdmin></controls:UCAdmin>
+            </Grid>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Margin="0,20,0,0">
                 <StackPanel Margin="20" Grid.Row="1" Grid.Column="1">
+                    
 
                     <!-- Información personal -->
                     <Expander Header="Información personal" Margin="0 0 0 20" IsExpanded="True">

@@ -74,6 +74,7 @@ namespace ItaliaPizza.Server.Controllers
         [HttpGet("reporte/{fecha}")]
         public async Task<ActionResult<List<FinanzaDTO>>> GetReporteBalanceDiario(DateTime fecha)
         {
+            fecha = fecha.Date;
             var reporte = await _finanzaService.GetReporteBalanceDiario(fecha);
             return Ok(reporte);
         }

@@ -5,66 +5,41 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ItaliaPizza.Cliente.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="450" d:DesignWidth="200"
               Width="Auto"
              Height="Auto"
              HorizontalAlignment="Stretch"
              VerticalAlignment="Stretch">
-    <Grid >
-        
-        <Grid Width="130" HorizontalAlignment="Left" Background="WhiteSmoke">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid x:Name="logo" Height="90" Width="90" VerticalAlignment="Top" Margin="15" Grid.Row="0">
-                <Image Source="../Resources/Images/logo.jpeg">
+    <Grid>
+        <Border Width="180"
+            CornerRadius="12"
+            Padding="10"
+            Background="{StaticResource SidebarGradient}"
+            Margin="5"
+            Effect="{StaticResource SoftShadow}">
+            <StackPanel>
+                <!-- Logo -->
+                <StackPanel Margin="0,10" HorizontalAlignment="Center">
+                    <Ellipse Width="70" Height="70" Stroke="White" StrokeThickness="2">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="pack://application:,,,/Resources/Images/logo.jpeg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <TextBlock Text="ITALIA PIZZA" FontWeight="Bold" FontSize="16"
+                           Foreground="White" HorizontalAlignment="Center" Margin="0,5"/>
+                    <TextBlock Text="Dashboard" FontSize="12" Foreground="White"
+                           HorizontalAlignment="Center"/>
+                </StackPanel>
 
-                </Image>
+                <!-- Menú -->
+                <Button x:Name="buttonInicio" Style="{StaticResource buttonMenus}" Content="🏠 Inicio" Margin="0,10,0,0"/>
+                <Button x:Name="buttonOrders" Style="{StaticResource buttonMenus}" Content="🧾 Ordenes"/>
+                <Button x:Name="buttonMenu" Style="{StaticResource buttonMenus}" Content="🍕 Menu"/>
+                <Button x:Name="buttonCustomers" Style="{StaticResource buttonMenus}" Content="👥 Customers"/>
+                <Button x:Name="buttonAnalytics" Style="{StaticResource buttonMenus}" Content="📊 Analytics"/>
+                <Button x:Name="buttonSettings" Style="{StaticResource buttonMenus}" Content="⚙ Settings" Click="buttonSettings_Click"/>
 
-            </Grid>
-            <Button Style="{StaticResource buttonMenus}" x:Name="buttonHomePage" Grid.Row="1" >
-                <Button.Content>
-                    ۩ Inicio
-                </Button.Content>
-            </Button>
-            <Button Style="{StaticResource buttonMenus}" x:Name="buttonOrders" Grid.Row="2" >
-                <Button.Content>
-                    ✎ Orders
-                </Button.Content>
-            </Button>
-
-            <Button Style="{StaticResource buttonMenus}" x:Name="buttonMenu" Grid.Row="3">
-                <Button.Content>
-                    𝄚 Menu
-                </Button.Content>
-            </Button>
-
-            <Button Style="{StaticResource buttonMenus}" x:Name="buttonCustomers" Grid.Row="4">
-                <Button.Content>
-                    ☺ Customers
-                </Button.Content>
-            </Button>
-
-            <Button Style="{StaticResource buttonMenus}" x:Name="buttonAnalytics" Grid.Row="5">
-                <Button.Content>
-                    ⌨ Analytics
-                </Button.Content>
-            </Button>
-
-            <Button Style="{StaticResource buttonMenus}" x:Name="buttonSettings" Grid.Row="6" Click="buttonSettings_Click">
-                <Button.Content>
-                    ֍ Cerrar Sesión
-                </Button.Content>
-                
-            </Button>
-        </Grid>
-
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

@@ -4,19 +4,118 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Manager"
+        xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
+        xmlns:utils="clr-namespace:ItaliaPizza.Cliente.Utils.Converters"
         mc:Ignorable="d"
-        Title="FinancesReporter" Height="450" Width="800">
+        Title="FinancesReporter" Height="600" Width="1000">
+
+    <Window.Resources>
+
+        <utils:SignoConverter x:Key="SignoConverter"/>
+        <utils:ColorConverter x:Key="ColorConverter"/>
+        <utils:FondoTotalConverter x:Key="FondoTotalConverter"/>
+    </Window.Resources>
     <Grid>
-        <Grid>
-            <controls:UCManager></controls:UCManager>
-        </Grid>
+
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="13*"/>
-                <ColumnDefinition Width="67*"/>
+                <ColumnDefinition Width="101*"/>
+                <ColumnDefinition Width="399*"/>
             </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <controls:UCManager/>
+            </Grid>
+
+            <Grid Background="#F0F4F8" Margin="10,10,10,10" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Encabezado -->
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <Button x:Name="CancelarButton" Content="Cancelar" Width="100" Margin="5" Click="Cancelar_Click" Style="{StaticResource cancelbuttonsStyle}"/>
+                    <DatePicker x:Name="FechaInicioDatePicker" Width="180" Margin="5" Style="{StaticResource ModernDatePickerStyle}"/>
+                    <Button x:Name="BuscarButton" Content="Buscar" Width="100" Margin="5" Click="BuscarButton_Click" Style="{StaticResource buttonsStyle}"/>
+                    <Button x:Name="DescargarReporteButton" Content="Descargar" Width="100" Margin="5" Style="{StaticResource downloadbuttonsStyle}"
+                    Click="DescargarReporteButton_Click"/>
+
+                </StackPanel>
+
+                <!-- Cuerpo -->
+                <Grid Grid.Row="1" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Panel izquierdo: reporte -->
+                    <Border Grid.Column="0" Background="White" CornerRadius="10" Padding="10" Margin="10" BorderBrush="LightGray" BorderThickness="1">
+                        <StackPanel>
+                            <!-- Tarjetas KPI -->
+                            <StackPanel Orientation="Horizontal" Margin="0 0 0 10" HorizontalAlignment="Center">
+                                <Border Background="#E0FFE0" Padding="10" Margin="5" CornerRadius="8">
+                                    <StackPanel>
+                                        <TextBlock Text="Entradas" FontWeight="Bold"/>
+                                        <TextBlock x:Name="TotalEntradasTextBlock" FontSize="16" FontWeight="Bold" Foreground="Green"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border Background="#FFE0E0" Padding="10" Margin="5" CornerRadius="8" >
+                                    <StackPanel>
+                                        <TextBlock Text="Salidas" FontWeight="Bold"/>
+                                        <TextBlock x:Name="TotalSalidasTextBlock" FontSize="16" FontWeight="Bold" Foreground="Red"/>
+                                    </StackPanel>
+                                </Border>
+                                <Border  Padding="10" Margin="5" CornerRadius="8" 
+                            Background="{Binding TotalBalance, Converter={StaticResource FondoTotalConverter}}">
+                                    <StackPanel>
+                                        <TextBlock Text="Balance" FontWeight="Bold"/>
+                                        <TextBlock x:Name="TotalBalanceTextBlock" FontSize="16" FontWeight="Bold"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+
+                            <!-- Lista de finanzas -->
+                            <ItemsControl x:Name="FinanzasListView">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="0,5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="100"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding TipoTransaccion, Converter={StaticResource SignoConverter}}"
+                                           Foreground="{Binding TipoTransaccion, Converter={StaticResource ColorConverter}}"
+                                           FontSize="18" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Concepto}" Grid.Column="1" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Monto, StringFormat=C}" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Panel derecho: gráficas -->
+                    <StackPanel Grid.Column="1" Margin="10" Orientation="Vertical">
+                        <Border Background="White" CornerRadius="10" Padding="10" Margin="0 0 0 10" Height="150">
+                            <oxy:PlotView x:Name="GraficoGanancias"/>
+                        </Border>
+                        <Border Background="White" CornerRadius="10" Padding="10" Margin="0 0 0 10" Height="150">
+                            <oxy:PlotView x:Name="GraficoPerdidas"/>
+                        </Border>
+                        <Border Background="White" CornerRadius="10" Padding="10" Height="150">
+                            <oxy:PlotView x:Name="GraficoGananciasYPerdidas"/>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Grid>
 
         </Grid>
+
     </Grid>
+
+
 </Window>
