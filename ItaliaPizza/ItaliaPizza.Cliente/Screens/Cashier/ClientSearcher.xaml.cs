@@ -90,5 +90,13 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 this.Close();
             }
         }
+
+
+        private void BtnAgregarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            var addWindow = new ClientAdder();
+            addWindow.ShowDialog();
+            this.Close();
+        }
     }
 }

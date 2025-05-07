@@ -33,17 +33,22 @@
                 <!-- Filtro -->
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                     <Grid Width="250">
-                        <TextBox x:Name="txtBusquedaCliente" Width="250" />
+                        <TextBox x:Name="txtBusquedaCliente" Width="250"  Style="{StaticResource textboxStyle}"/>
                         <TextBlock Text="Buscar cliente por nombre"
                                    Foreground="Gray"
                                    IsHitTestVisible="False"
-                                   Margin="5,0,0,0"
+                                   Margin="15,0,0,0"
                                    VerticalAlignment="Center"
-                                   Visibility="{Binding Text.IsEmpty, ElementName=txtBusquedaCliente, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                   Visibility="{Binding Text.IsEmpty, ElementName=txtBusquedaCliente, Converter={StaticResource BoolToVisibilityConverter}} "  />
                     </Grid>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="btnBuscarCliente" Content="Buscar" Width="100" Margin="15,0,0,0"
+                        Click="BtnBuscarCliente_Click" Style="{StaticResource buttonsStyle}" />
+                        <Button x:Name="btnAgregarCliente" Content="Añadir Cliente" Width="120" Margin="10,0,0,0" Click="BtnAgregarCliente_Click" Style="{StaticResource buttonsStyle}" />
 
-                    <Button x:Name="btnBuscarCliente" Content="Buscar" Width="100" Margin="10,0,0,0"
-                            Click="BtnBuscarCliente_Click" Style="{StaticResource buttonsStyle}" />
+                    </StackPanel>
+
+                    
                 </StackPanel>
 
                 <!-- Contenedor de resultados -->

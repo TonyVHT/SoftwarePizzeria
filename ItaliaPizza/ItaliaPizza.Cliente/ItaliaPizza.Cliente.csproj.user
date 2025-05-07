@@ -50,6 +50,9 @@
     <Compile Update="Screens\Admin\LogOutAdmin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Manager\FinancesReporter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Manager\HomePageManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -119,6 +122,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Admin\LogOutAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Manager\FinancesReporter.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Manager\HomePageManager.xaml">
