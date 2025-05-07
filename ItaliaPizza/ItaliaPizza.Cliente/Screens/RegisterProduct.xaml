@@ -6,21 +6,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens"
         mc:Ignorable="d"
-        Title="Registro de Producto" Height="600" Width="900" Background="#F2F2F2" WindowStartupLocation="CenterScreen">
+        Title="Registro de Producto" Height="500" Width="650" Background="#F2F2F2" WindowStartupLocation="CenterScreen">
 
     <Grid>
+        
         <Grid>
-            <controls:UCAdmin></controls:UCAdmin>
-        </Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="34*"/>
-                <ColumnDefinition Width="191*"/>
-            </Grid.ColumnDefinitions>
+            
 
 
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Border Background="White"
                     CornerRadius="20"
                     Padding="30"

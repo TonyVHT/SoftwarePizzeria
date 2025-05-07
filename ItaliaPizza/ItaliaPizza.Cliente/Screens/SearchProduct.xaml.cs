@@ -138,7 +138,12 @@ namespace ItaliaPizza.Cliente.Screens
 
         private void BtnRegistrarProducto_Click(object sender, RoutedEventArgs e)
         {
-           
+            var modal = new RegisterProduct();
+            modal.Owner = this;
+            if (modal.ShowDialog() == true)
+            {
+                DebouncedActualizarResultados();
+            }
         }
 
     }

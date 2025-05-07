@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Screens.Cashier;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -108,7 +109,9 @@ namespace ItaliaPizza.Cliente.Screens
 
         private void PedidoDomicilio_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Aquí se registraría un pedido a domicilio.");
+            var modal = new ClientSearcher();
+            modal.Owner = this;
+            modal.ShowDialog();
         }
 
         private void PedidoSucursal_Click(object sender, RoutedEventArgs e)
