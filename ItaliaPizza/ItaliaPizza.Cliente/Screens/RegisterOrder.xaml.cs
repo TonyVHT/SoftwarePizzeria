@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Screens.Cashier;
+using ItaliaPizza.Cliente.Screens.OrderClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +15,10 @@ namespace ItaliaPizza.Cliente.Screens
 {
     public partial class RegisterOrder : Window
     {
+        private ClienteConsultaDTO? _clienteSeleccionado;
+        private DireccionClienteDTO? _direccionSeleccionada;
+        private UsuarioConsultaDTO? _repartidorSeleccionado;
+
         private readonly HttpClient _httpClient = new HttpClient();
         public ObservableCollection<ItemPedido> ItemsPedido { get; set; } = new();
         public ObservableCollection<ItemDisponible> ProductosDisponibles { get; set; } = new();
@@ -70,6 +75,7 @@ namespace ItaliaPizza.Cliente.Screens
                 }
 
                 ActualizarTotal();
+                ActualizarEstadoBotonConfirmar();
                 ListaPedido.Items.Refresh();
             }
         }
@@ -89,6 +95,7 @@ namespace ItaliaPizza.Cliente.Screens
                 }
 
                 ActualizarTotal();
+                ActualizarEstadoBotonConfirmar();
                 ListaPedido.Items.Refresh();
             }
         }
@@ -99,7 +106,9 @@ namespace ItaliaPizza.Cliente.Screens
             {
                 ItemsPedido.Remove(item);
                 ActualizarTotal();
+                ActualizarEstadoBotonConfirmar();
             }
+
         }
 
         private void ActualizarTotal()
@@ -109,15 +118,95 @@ namespace ItaliaPizza.Cliente.Screens
 
         private void PedidoDomicilio_Click(object sender, RoutedEventArgs e)
         {
-            var modal = new ClientSearcher();
+            var modal = new ClientSearchOrder(); // o ClientSearcher si es tu nombre final
             modal.Owner = this;
-            modal.ShowDialog();
+
+            if (modal.ShowDialog() == true &&
+                modal.ClienteSeleccionado != null &&
+                modal.DireccionSeleccionada != null)
+            {
+                var cliente = modal.ClienteSeleccionado;
+                var direccion = modal.DireccionSeleccionada;
+
+                TextoCliente.Text = $"{cliente.NombreCompleto}";
+                TextoDireccion.Text = $"{direccion.Direccion}, {direccion.Ciudad}";
+
+
+                // Aquí puedes usar los datos como necesites
+                MessageBox.Show(
+                    $"Cliente: {cliente.NombreCompleto}\n" +
+                    $"Dirección: {direccion.Direccion}, {direccion.Ciudad}",
+                    "Pedido a domicilio",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information
+                );
+
+                // Puedes guardarlos como propiedades privadas si los necesitas al guardar el pedido
+                this._clienteSeleccionado = cliente;
+                this._direccionSeleccionada = direccion;
+            }
+            else
+            {
+                MessageBox.Show("No se seleccionó cliente o dirección.");
+            }
         }
 
-        private void PedidoSucursal_Click(object sender, RoutedEventArgs e)
+        private void ActualizarEstadoBotonConfirmar()
         {
-            MessageBox.Show("Aquí se registraría un pedido en sucursal.");
+            if (_clienteSeleccionado != null &&
+                _direccionSeleccionada != null &&
+                _repartidorSeleccionado != null &&
+                ItemsPedido.Any())
+            {
+                BtnConfirmarPedido.IsEnabled = true;
+            }
+            else
+            {
+                BtnConfirmarPedido.IsEnabled = false;
+            }
         }
+
+        private void AsignarRepartidor_Click(object sender, RoutedEventArgs e)
+        {
+            var selector = new RepartidorSelector();
+            selector.Owner = this;
+
+            if (selector.ShowDialog() == true && selector.RepartidorSeleccionado != null)
+            {
+                _repartidorSeleccionado = selector.RepartidorSeleccionado;
+                MessageBox.Show($"Repartidor asignado: {_repartidorSeleccionado.NombreCompleto}");
+                ActualizarEstadoBotonConfirmar();
+                TextoRepartidor.Text = $"Repartidor: {_repartidorSeleccionado.NombreCompleto}";
+
+            }
+        }
+
+        private void ConfirmarPedido_Click(object sender, RoutedEventArgs e)
+        {
+            if (_clienteSeleccionado == null || _direccionSeleccionada == null || _repartidorSeleccionado == null)
+            {
+                MessageBox.Show("Faltan datos para confirmar el pedido.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var resumen = new ConfirmarPedido(
+                _clienteSeleccionado,
+                _direccionSeleccionada,
+                _repartidorSeleccionado,
+                ItemsPedido.ToList(),
+                ItemsPedido.Sum(i => i.Subtotal)
+            );
+
+            resumen.Owner = this;
+
+            if (resumen.ShowDialog() == true)
+            {
+                // Aquí iría tu lógica para registrar el pedido (ej. llamar a tu API)
+                MessageBox.Show("¡Pedido confirmado y enviado al servidor!", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+
     }
 
     public class ItemDisponible

@@ -8,6 +8,8 @@ namespace ItaliaPizza.Server.Services.Interfaces
         Task<int> AddDireccionAsync(DireccionClienteDTO direccionCliente);
         Task ActualizarDireccionPrincipalAsync(UpdateDireccionPrincipalDTO dto);
         Task<UpdateDireccionPrincipalDTO?> ObtenerDireccionPrincipalAsync(int clienteId);
+        Task<List<DireccionClienteDTO>> ObtenerDireccionesPorClienteAsync(int clienteId);
+
 
     }
 }

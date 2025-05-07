@@ -31,22 +31,7 @@ namespace ItaliaPizza.Server.Services.Implementations
             if (pedido.ClienteId <= 0)
                 return (false, "El cliente no es válido.");
 
-            var finanza = new Finanza
-            {
-                TipoTransaccion = "Ingreso",
-                Concepto = "Pago de pedido a domicilio",
-                Monto = pedido.Total,
-                Fecha = DateTime.Now,
-                UsuarioId = pedido.CajeroId
-            };
-
-            await _finanzaRepository.AddAsync(finanza);
-            pedido.TransaccionFinancieraId = finanza.Id;
-
-            // Actualizar inventario de productos
-            await ActualizarInventarioProductosAsync(pedido.Detalles);
-
-            // Guardar pedido
+            // Se guarda con estado inicial, sin afectar inventario ni finanzas
             await _pedidoDomicilioRepository.AddAsync(pedido);
             return (true, "Pedido a domicilio registrado correctamente.");
         }
@@ -59,23 +44,50 @@ namespace ItaliaPizza.Server.Services.Implementations
             if (pedido.NumeroMesa <= 0)
                 return (false, "El número de mesa no es válido.");
 
-            var finanza = new Finanza
-            {
-                TipoTransaccion = "Ingreso",
-                Concepto = "Pago de pedido en sucursal",
-                Monto = pedido.Total,
-                Fecha = DateTime.Now,
-                UsuarioId = pedido.CajeroId
-            };
-
-            await _finanzaRepository.AddAsync(finanza);
-            pedido.TransaccionFinancieraId = finanza.Id;
-
-            await ActualizarInventarioProductosAsync(pedido.Detalles);
-
+            // Se guarda con estado inicial, sin afectar inventario ni finanzas
             await _pedidoLocalRepository.AddAsync(pedido);
             return (true, "Pedido en sucursal registrado correctamente.");
         }
+
+        public async Task<bool> CambiarEstadoPedidoAsync(int pedidoId, string nuevoEstado)
+        {
+            try
+            {
+                var pedido = await _pedidoDomicilioRepository.GetByIdAsync(pedidoId);
+                if (pedido == null)
+                    return false;
+
+                pedido.Estatus = nuevoEstado;
+
+                if (nuevoEstado == "En cocina")
+                {
+                    await ActualizarInventarioProductosAsync(pedido.Detalles);
+                }
+
+                if (nuevoEstado == "Entregado")
+                {
+                    var finanza = new Finanza
+                    {
+                        TipoTransaccion = "Ingreso",
+                        Concepto = "Pago de pedido a domicilio",
+                        Monto = pedido.Total,
+                        Fecha = DateTime.Now,
+                        UsuarioId = pedido.CajeroId
+                    };
+
+                    await _finanzaRepository.AddAsync(finanza);
+                    pedido.TransaccionFinancieraId = finanza.Id;
+                }
+
+                await _pedidoDomicilioRepository.UpdateAsync(pedido);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
 
         private async Task ActualizarInventarioProductosAsync(ICollection<DetallePedido> detalles)
         {

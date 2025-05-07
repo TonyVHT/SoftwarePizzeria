@@ -41,8 +41,4 @@
     </Compile>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Screens\OrderClient\" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Screens.Cashier;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,16 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 
-namespace ItaliaPizza.Cliente.Screens.Cashier
+namespace ItaliaPizza.Cliente.Screens.OrderClient
 {
-    public partial class ClientSearcher : Window
+    public partial class ClientSearchOrder : Window
     {
         public ClienteConsultaDTO? ClienteSeleccionado { get; private set; }
+        public DireccionClienteDTO? DireccionSeleccionada { get; private set; }
 
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
-        public ClientSearcher()
+        public ClientSearchOrder()
         {
             InitializeComponent();
         }
@@ -82,17 +84,26 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            
             if (dgClientes.SelectedItem is ClienteConsultaDTO cliente)
             {
-                if (dgClientes.SelectedItem == null)
-                    return;
-                var editWindow = new EditCustomer(cliente.Id);
-                editWindow.ShowDialog();
-                this.Close();
+                var addressSelector = new AddressSelector(cliente.Id);
+                addressSelector.Owner = this;
+
+                if (addressSelector.ShowDialog() == true && addressSelector.DireccionSeleccionada != null)
+                {
+                    ClienteSeleccionado = cliente;
+                    DireccionSeleccionada = addressSelector.DireccionSeleccionada;
+
+                    MessageBox.Show(
+                        $"Cliente: {cliente.NombreCompleto}\n" +
+                        $"Dirección: {DireccionSeleccionada.Direccion}, {DireccionSeleccionada.Ciudad}",
+                        "Selección exitosa", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    DialogResult = true;
+                    Close();
+                }
             }
         }
-
 
         private void BtnAgregarCliente_Click(object sender, RoutedEventArgs e)
         {

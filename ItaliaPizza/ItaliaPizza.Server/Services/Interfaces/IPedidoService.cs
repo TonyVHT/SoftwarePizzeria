@@ -6,5 +6,7 @@ namespace ItaliaPizza.Server.Services.Interfaces
     {
         Task<(bool success, string? message)> RegistrarPedidoLocalAsync(PedidoLocal pedido);
         Task<(bool success, string? message)> RegistrarPedidoDomicilioAsync(PedidoDomicilio pedido);
+        Task<bool> CambiarEstadoPedidoAsync(int pedidoId, string nuevoEstado);
+
     }
 }

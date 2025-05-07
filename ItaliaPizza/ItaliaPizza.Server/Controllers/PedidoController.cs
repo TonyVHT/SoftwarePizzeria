@@ -81,6 +81,20 @@ namespace ItaliaPizza.Server.Controllers
             return Ok(new { message = "Pedido en sucursal registrado correctamente." });
         }
 
+        [HttpPut("estado")]
+        public async Task<IActionResult> CambiarEstado([FromBody] CambiarEstadoPedidoDto dto)
+        {
+            try
+            {
+                await _pedidoService.CambiarEstadoPedidoAsync(dto.PedidoId, dto.NuevoEstado);
+                return Ok(new { message = "Estado actualizado correctamente." });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
         [HttpGet("ping")]
         public IActionResult Ping()
         {

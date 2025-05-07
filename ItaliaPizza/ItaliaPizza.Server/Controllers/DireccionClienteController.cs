@@ -77,6 +77,24 @@ namespace ItaliaPizza.Server.Controllers
             return Ok(dto);
         }
 
+        [HttpGet("cliente/{clienteId}")]
+        public async Task<ActionResult<List<DireccionClienteDTO>>> GetDireccionesPorCliente(int clienteId)
+        {
+            try
+            {
+                var direcciones = await _direccionClienteService.ObtenerDireccionesPorClienteAsync(clienteId);
+                if (direcciones == null || !direcciones.Any())
+                    return NotFound("No se encontraron direcciones para este cliente.");
+
+                return Ok(direcciones);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = $"Error al obtener direcciones: {ex.Message}" });
+            }
+        }
+
+
 
 
     }

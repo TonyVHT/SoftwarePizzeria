@@ -39,7 +39,7 @@
                                    IsHitTestVisible="False"
                                    Margin="15,0,0,0"
                                    VerticalAlignment="Center"
-                                   Visibility="{Binding Text.IsEmpty, ElementName=txtBusquedaCliente, Converter={StaticResource BoolToVisibilityConverter}} "  />
+                                              Visibility="{Binding ElementName=txtBusquedaCliente, Path=Text.IsEmpty, Converter={StaticResource BoolToVisibilityConverter}}"/>
                     </Grid>
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="btnBuscarCliente" Content="Buscar" Width="100" Margin="15,0,0,0"

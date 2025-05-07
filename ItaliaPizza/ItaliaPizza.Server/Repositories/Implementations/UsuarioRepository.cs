@@ -106,6 +106,19 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             return await query.FirstOrDefaultAsync();
         }
 
-        
+        public async Task<List<UsuarioConsultaDTO>> ObtenerRepartidoresAsync()
+        {
+            return await _context.Usuarios
+                .Where(u => u.Rol == "Repartidor" && u.Estatus)
+                .Select(u => new UsuarioConsultaDTO
+                {
+                    Id = u.Id,
+                    NombreCompleto = u.Nombre + " " + u.Apellidos,
+                })
+                .ToListAsync();
+        }
+
+
+
     }
 }
