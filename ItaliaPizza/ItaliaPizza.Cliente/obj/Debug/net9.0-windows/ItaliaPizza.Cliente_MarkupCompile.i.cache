@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\gearh\Desktop\Pizzeria\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\App.xaml
-361803413016
+381501378281
 
-66-1152252129
+68815062613
 224-1674445555
-MainWindow.xaml;PlatillosModulo\Screens\InformacionPlatillo.xaml;PlatillosModulo\Screens\PlatillosScreen.xaml;Screens\Admin\AddUser.xaml;Screens\Admin\AllUsersSearch.xaml;Screens\Admin\HomePageAdmin.xaml;Screens\Admin\LogOutAdmin.xaml;Screens\Admin\PeopleSearcher.xaml;Screens\Admin\UserSearch.xaml;Screens\Admin\UserUpdate.xaml;Screens\Cashier\ClientSearcher.xaml;Screens\Cashier\HomePageCashier.xaml;Screens\Cashier\LogOutCashier.xaml;Screens\ConsultOrdersProvider.xaml;Screens\ConsultProvider.xaml;Screens\ConsultProviders.xaml;Screens\Cook\HomePageCook.xaml;Screens\Cook\LogOutCook.xaml;Screens\EditProductModal.xaml;Screens\EditProvider.xaml;Screens\LogIn.xaml;Screens\Manager\HomePageManager.xaml;Screens\Manager\LogOutManager.xaml;Screens\RegisterHomeDeliveryOrder.xaml;Screens\RegisterMermaModal.xaml;Screens\RegisterOrder.xaml;Screens\RegisterOrderToProvider.xaml;Screens\RegisterProvider.xaml;Screens\SearchProduct.xaml;Screens\Waiter\HomePageWaiter.xaml;Screens\Waiter\LogOutWaiter.xaml;UserControls\UCAdmin.xaml;UserControls\UCCashier.xaml;UserControls\UCCook.xaml;UserControls\UCManager.xaml;UserControls\UCWaiter.xaml;
+MainWindow.xaml;PlatillosModulo\Screens\AgregarPlatillo.xaml;PlatillosModulo\Screens\BuscarPlatillosScreen.xaml;PlatillosModulo\Screens\ModificarPlatillo.xaml;PlatillosModulo\Screens\VerPlatillo.xaml;Screens\Admin\AddUser.xaml;Screens\Admin\AllUsersSearch.xaml;Screens\Admin\HomePageAdmin.xaml;Screens\Admin\LogOutAdmin.xaml;Screens\Admin\PeopleSearcher.xaml;Screens\Admin\UserSearch.xaml;Screens\Admin\UserUpdate.xaml;Screens\Cashier\ClientSearcher.xaml;Screens\Cashier\HomePageCashier.xaml;Screens\Cashier\LogOutCashier.xaml;Screens\ConsultOrdersProvider.xaml;Screens\ConsultProvider.xaml;Screens\ConsultProviders.xaml;Screens\Cook\HomePageCook.xaml;Screens\Cook\LogOutCook.xaml;Screens\EditProductModal.xaml;Screens\EditProvider.xaml;Screens\LogIn.xaml;Screens\Manager\HomePageManager.xaml;Screens\Manager\LogOutManager.xaml;Screens\RegisterHomeDeliveryOrder.xaml;Screens\RegisterMermaModal.xaml;Screens\RegisterOrder.xaml;Screens\RegisterOrderToProvider.xaml;Screens\RegisterProvider.xaml;Screens\SearchProduct.xaml;Screens\Waiter\HomePageWaiter.xaml;Screens\Waiter\LogOutWaiter.xaml;UserControls\UCAdmin.xaml;UserControls\UCCashier.xaml;UserControls\UCCook.xaml;UserControls\UCManager.xaml;UserControls\UCWaiter.xaml;
 
-False
+True
 

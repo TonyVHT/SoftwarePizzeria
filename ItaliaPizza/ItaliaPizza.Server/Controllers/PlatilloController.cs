@@ -15,31 +15,57 @@ namespace ItaliaPizza.Server.Controllers
             _platilloService = platilloService;
         }
 
+        // GET para obtener los platillos
         [HttpGet]
-        public async Task<ActionResult<List<PlatilloDto>>> GetAll()
-        {
-            var platillos = await _platilloService.ObtenerTodosAsync();
-            return Ok(platillos);
-        }
-
-        // Este es el método para obtener platillos por categoría
-        [HttpGet("filter")]
         public async Task<ActionResult<List<PlatilloDto>>> GetPlatillos([FromQuery] int? categoriaId)
         {
-            List<PlatilloDto> platillos;
-
-            if (categoriaId.HasValue)
-            {
-                // Si hay un categoriaId, obtenemos los platillos filtrados por categoría
-                platillos = await _platilloService.ObtenerPlatillosPorCategoriaAsync(categoriaId.Value);
-            }
-            else
-            {
-                // Si no hay categoriaId, obtenemos todos los platillos
-                platillos = await _platilloService.ObtenerTodosAsync();
-            }
-
+            var platillos = await _platilloService.ObtenerPlatillosAsync(categoriaId);
             return Ok(platillos);
         }
+
+        // POST para crear un platillo
+        [HttpPost]
+        public async Task<ActionResult> CrearPlatillo([FromBody] PlatilloDto platilloDto)
+        {
+            try
+            {
+                // Llamada al servicio para crear el platillo
+                var resultado = await _platilloService.CrearPlatilloAsync(platilloDto);
+
+                if (resultado)
+                {
+                    return CreatedAtAction(nameof(GetPlatillos), new { id = platilloDto.Id }, platilloDto);  // 201 Created
+                }
+
+                return BadRequest("Error al crear el platillo.");  // 400 BadRequest
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");  // 500 InternalServerError
+            }
+        }
+        [HttpPut("{id}")]
+        public async Task<ActionResult> ActualizarPlatillo(int id, [FromBody] PlatilloDto platilloDto)
+        {
+            try
+            {
+                platilloDto.Id = id; // Asignar el id del platillo para asegurarse de que se actualiza el platillo correcto
+                var resultado = await _platilloService.ActualizarPlatilloAsync(platilloDto);
+
+                if (resultado)
+                {
+                    return Ok("Platillo actualizado correctamente.");
+                }
+                else
+                {
+                    return NotFound("Platillo no encontrado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
+        }
+
     }
 }
