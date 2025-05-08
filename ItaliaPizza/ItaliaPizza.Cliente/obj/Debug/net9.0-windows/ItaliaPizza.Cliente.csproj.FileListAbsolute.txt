@@ -655,3 +655,15 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.pdb
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ItaliaPizza.Cliente.genruntimeconfig.cache
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\ref\ItaliaPizza.Cliente.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\OxyPlot.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\OxyPlot.Wpf.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\OxyPlot.Wpf.Shared.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\PdfSharpCore.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\ICSharpCode.SharpZipLib.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\SixLabors.Fonts.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\SixLabors.ImageSharp.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\bin\Debug\net9.0-windows\de\PdfSharpCore.resources.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Manager\FinancesReporter.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Manager\FinancesReporter.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\UserOptions.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\UserOptions.baml

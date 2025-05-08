@@ -28,12 +28,14 @@
                 </StackPanel>
 
                 <!-- Menú -->
-                <Button x:Name="buttonInicio" Style="{StaticResource buttonMenus}" Content="🏠 Inicio" Margin="0,10,0,0"/>
-                <Button x:Name="buttonOrders" Style="{StaticResource buttonMenus}" Content="🧾 Orders"/>
-                <Button x:Name="buttonMenu" Style="{StaticResource buttonMenus}" Content="🍕 Menu"/>
-                <Button x:Name="buttonCustomers" Style="{StaticResource buttonMenus}" Content="👥 Customers"/>
-                <Button x:Name="buttonAnalytics" Style="{StaticResource buttonMenus}" Content="📊 Analytics"/>
-                <Button x:Name="buttonSettings" Style="{StaticResource buttonMenus}" Content="⚙ Settings" Click="buttonSettings_Click"/>
+                <Button x:Name="buttonInicio" Style="{StaticResource buttonMenus}" Content="🏠 Inicio" Margin="0,10,0,0" Click="GoToHomePage"/>
+                <Button x:Name="buttonOrders" Style="{StaticResource buttonMenus}" Content="🧾 Usuarios" Click="GoToUserOptions"/>
+                <Button x:Name="buttonMenu" Style="{StaticResource buttonMenus}" Content="🍕 Pedido"/>
+                <Button x:Name="buttonCustomers" Style="{StaticResource buttonMenus}" Content="👥 Platillos" Click="GoToRecipeOptions"/>
+                <Button x:Name="buttonRecipes" Style="{StaticResource buttonMenus}" Content="Productos" Click="GoToProductsOptions"/>
+                <Button x:Name="buttonProviders" Style="{StaticResource buttonMenus}" Content="Proveedores" Click="GoToProviderOptions"/>
+                <Button x:Name="buttonAnalytics" Style="{StaticResource buttonMenus}" Content="📊 Estadísticas"/>
+                <Button x:Name="buttonSettings" Style="{StaticResource buttonMenus}" Content="⚙ Cerrar Sesión" Click="buttonSettings_Click"/>
 
             </StackPanel>
         </Border>

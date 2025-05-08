@@ -79,5 +79,13 @@ namespace ItaliaPizza.Server.Controllers
             return Ok(reporte);
         }
 
+        [HttpGet("resumen-mensual")]
+        public async Task<ActionResult<List<FinanzaMensualDTO>>> GetResumenMensual()
+        {
+            var resumen = await _finanzaService.ObtenerResumenMensualAsync();
+            return Ok(resumen);
+        }
+
+
     }
 }

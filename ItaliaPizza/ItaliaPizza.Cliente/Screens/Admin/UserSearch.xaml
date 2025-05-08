@@ -8,15 +8,13 @@
         mc:Ignorable="d"
         Title="UserSearch" Height="450" Width="800">
     <Grid>
-        <Grid>
-            <controls:UCAdmin></controls:UCAdmin>
-        </Grid>
+        
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="133*"/>
-                <ColumnDefinition Width="667*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
+            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
             <Grid Margin="20" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -25,11 +23,10 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Orientation="Horizontal"  Grid.Row="0" Margin="0 0 0 10">
-                    <TextBox x:Name="txtNombre" Width="180" 
-             />
-                    <TextBox x:Name="txtNombreUsuario" Width="180" 
-             />
-                    <ComboBox x:Name="cmbRol" Width="150">
+                    <TextBox x:Name="txtNombre" Width="300" Style="{StaticResource textboxStyle}"/>
+                    
+             
+                    <ComboBox x:Name="cmbRol"  Style="{StaticResource comboBoxStyle}" Width="200"> 
                         <ComboBoxItem Content=""/>
                         <ComboBoxItem Content="Administrador"/>
                         <ComboBoxItem Content="Mesero"/>
@@ -43,7 +40,7 @@
             Style="{StaticResource buttonsStyle}" />
                 </StackPanel>
 
-                <DataGrid x:Name="dgUsuarios" Grid.Row="1"
+                <DataGrid x:Name="dgUsuarios" Grid.Row="1" Style="{StaticResource ModernDataGridStyle}"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
                   SelectionMode="Single"

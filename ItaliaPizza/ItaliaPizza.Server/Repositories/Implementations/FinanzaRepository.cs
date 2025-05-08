@@ -2,6 +2,7 @@
 using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ItaliaPizza.Server.DTOs;
 
 namespace ItaliaPizza.Server.Repositories.Implementations
 {
@@ -60,6 +61,40 @@ namespace ItaliaPizza.Server.Repositories.Implementations
                                           .ToListAsync();
 
             return finanzas.Sum(f => f.Monto);
+        }
+
+        public async Task<List<FinanzasMensualesDTO>> ObtenerResumenByFechaMensualAsync()
+        {
+            var resultado = await _context.Finanzas
+                .GroupBy(f => new { f.Fecha.Year, f.Fecha.Month })
+                .Select(g => new FinanzasMensualesDTO
+                {
+                    Año = g.Key.Year,
+                    Mes = g.Key.Month,
+                    TotalEntradas = g.Where(f => f.TipoTransaccion == "Entrada").Sum(f => f.Monto),
+                    TotalSalidas = g.Where(f => f.TipoTransaccion == "Salida").Sum(f => f.Monto)
+                })
+                .OrderBy(r => r.Año).ThenBy(r => r.Mes)
+                .ToListAsync();
+
+            return resultado;
+        }
+
+        public async Task<List<FinanzaMensualDTO>> ObtenerResumenMensualAsync()
+        {
+            var resumen = await _context.Finanzas
+                .GroupBy(f => new { f.Fecha.Year, f.Fecha.Month })
+                .Select(g => new FinanzaMensualDTO
+                {
+                    Mes = g.Key.Month,
+                    MesNombre = new DateTime(1, g.Key.Month, 1).ToString("MMMM"),
+                    TotalEntradas = g.Where(f => f.TipoTransaccion == "Entrada").Sum(f => f.Monto),
+                    TotalSalidas = g.Where(f => f.TipoTransaccion == "Salida").Sum(f => f.Monto)
+                })
+                .OrderBy(r => r.Mes)
+                .ToListAsync();
+
+            return resumen;
         }
     }
 }

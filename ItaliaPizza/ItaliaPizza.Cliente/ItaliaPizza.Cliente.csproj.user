@@ -2,6 +2,18 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Screens\CustomerOptiones.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\OrderOptiones.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\ProviderOptions.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\RecipeOptions.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Admin\AddUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -65,10 +77,19 @@
     <Compile Update="Screens\RegisterProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\UserOptions.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Waiter\HomePageWaiter.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Waiter\LogOutWaiter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\UCDelivery.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\UCKitchenManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\UCManager.xaml.cs">
@@ -76,6 +97,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Screens\CustomerOptiones.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\OrderOptiones.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\ProviderOptions.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\RecipeOptions.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\Admin\AddUser.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -139,6 +172,9 @@
     <Page Update="Screens\RegisterProvider.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Screens\UserOptions.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\Waiter\HomePageWaiter.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -149,6 +185,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\UCCook.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCDelivery.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCKitchenManager.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\UCWaiter.xaml">

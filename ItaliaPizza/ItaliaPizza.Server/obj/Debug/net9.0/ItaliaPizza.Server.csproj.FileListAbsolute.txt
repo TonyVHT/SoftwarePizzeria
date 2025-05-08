@@ -871,3 +871,6 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\ItaliaPizza.Server.pdb
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\ItaliaPizza.Server.genruntimeconfig.cache
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\obj\Debug\net9.0\ref\ItaliaPizza.Server.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\bin\Debug\net9.0\OxyPlot.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\bin\Debug\net9.0\OxyPlot.Wpf.dll
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Server\bin\Debug\net9.0\OxyPlot.Wpf.Shared.dll

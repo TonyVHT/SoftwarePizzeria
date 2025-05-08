@@ -8,14 +8,13 @@
         mc:Ignorable="d"
         Title="UserUpdate" Height="450" Width="800">
     <Grid>
-        <Grid>
-            <controls:UCAdmin></controls:UCAdmin>
-        </Grid>
+        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="131*"/>
                 <ColumnDefinition Width="669*"/>
             </Grid.ColumnDefinitions>
+            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="1">
                 <StackPanel Margin="20">
 

@@ -37,7 +37,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 dgClientes.Visibility = Visibility.Collapsed;
                 txtNoResultadosCliente.Visibility = Visibility.Collapsed;
 
-                string url = $"api/cliente/buscar?nombre={textoBusqueda}";
+                string url = $"api/cliente/buscar?nombre={textoBusqueda}&numero={textoBusqueda}";
                 var lista = await _http.GetFromJsonAsync<List<ClienteConsultaDTO>>(url);
 
                 txtLoadingCliente.Visibility = Visibility.Collapsed;

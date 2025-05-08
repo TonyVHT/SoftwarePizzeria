@@ -1,5 +1,7 @@
-﻿using ItaliaPizza.Cliente.Screens.Admin;
+﻿using ItaliaPizza.Cliente.Screens;
+using ItaliaPizza.Cliente.Screens.Admin;
 using ItaliaPizza.Cliente.Screens.Manager;
+using ItaliaPizza.Cliente.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +31,9 @@ namespace ItaliaPizza.Cliente.UserControls
 
         private void buttonSettings_Click(object sender, RoutedEventArgs e)
         {
-            var closeSessionWindow = new LogOutManager();
-            closeSessionWindow.Show();
+            SessionManagerHelper.CerrarSesionUniversal();
+
+
         }
 
         public void ActivarBoton(string nombre)
@@ -65,6 +68,50 @@ namespace ItaliaPizza.Cliente.UserControls
                     buttonSettings.Tag = "Active";
                     break;
             }
+        }
+
+        private void GoToUserOptions(object sender, RoutedEventArgs e)
+        {
+            var userOptions = new UserOptions();
+            userOptions.Show();
+            Window.GetWindow(this)?.Close();
+        }
+
+
+
+        private void GoToHomePage(object sender, RoutedEventArgs e)
+        {
+            var homePage = new HomePageAdmin();
+            homePage.Show();
+            Window.GetWindow(this)?.Close();
+        }
+
+        private void GoToRecipeOptions(object sender, RoutedEventArgs e)
+        {
+            var recipeOptions = new RecipeOptions();
+            recipeOptions.Show();
+            Window.GetWindow(this)?.Close();
+        }
+
+
+        private void GoToCustomerOptions(object sender, RoutedEventArgs e)
+        {
+            var customerOptions = new CustomerOptiones();
+            customerOptions.Show();
+            Window.GetWindow(this)?.Close();
+        }
+
+        private void GoToProductsOptions(object sender, RoutedEventArgs e)
+        {
+            var productOptions = new SearchProduct();
+            productOptions.Show();
+            Window.GetWindow(this)?.Close();
+        }
+        private void GoToProviderOptions(object sender, RoutedEventArgs e)
+        {
+            var providerOptions = new ProviderOptions();
+            providerOptions.Show();
+            Window.GetWindow(this)?.Close();
         }
 
     }

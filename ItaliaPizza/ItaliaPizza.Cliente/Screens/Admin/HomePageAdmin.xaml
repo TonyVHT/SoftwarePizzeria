@@ -4,19 +4,55 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Admin"
+        xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
         mc:Ignorable="d"
         Title="HomePageAdmin" Height="600" Width="1000">
+
     <Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="101*"/>
-                <ColumnDefinition Width="399*"/>
-            </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#E6F4EA" Offset="0"/>
+                <GradientStop Color="#F0F4F8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
+        <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
 
+        <Grid Margin="20" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Tarjetas -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <Border Background="#DFF6E5" Width="200" Margin="10" CornerRadius="10" Padding="10">
+                    <StackPanel>
+                        <TextBlock Text="Total Entradas" FontWeight="Bold" FontSize="14"/>
+                        <TextBlock x:Name="TotalEntradasTextBlock" FontSize="20" FontWeight="Bold" Foreground="Green"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="#FFE5E5" Width="200" Margin="10" CornerRadius="10" Padding="10">
+                    <StackPanel>
+                        <TextBlock Text="Total Salidas" FontWeight="Bold" FontSize="14"/>
+                        <TextBlock x:Name="TotalSalidasTextBlock" FontSize="20" FontWeight="Bold" Foreground="Red"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="#E0E7FF" Width="200" Margin="10" CornerRadius="10" Padding="10">
+                    <StackPanel>
+                        <TextBlock Text="Balance Neto" FontWeight="Bold" FontSize="14"/>
+                        <TextBlock x:Name="TotalBalanceTextBlock" FontSize="20" FontWeight="Bold" Foreground="DarkBlue"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <!-- Gráfica de líneas -->
+            <oxy:PlotView x:Name="PlotFinanzasMensuales" Grid.Row="1"/>
         </Grid>
-
     </Grid>
 </Window>

@@ -43,6 +43,11 @@
         "Name": "nombre",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "numero",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -210,6 +215,177 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.FinanzaController",
+    "Method": "GetAllFinanzas",
+    "RelativePath": "api/Finanza",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ItaliaPizza.Server.DTOs.FinanzaDTO, ItaliaPizza.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.FinanzaController",
+    "Method": "CreateFinanza",
+    "RelativePath": "api/Finanza",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "finanzaDto",
+        "Type": "ItaliaPizza.Server.DTOs.FinanzaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.FinanzaController",
+    "Method": "GetFinanzaById",
+    "RelativePath": "api/Finanza/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ItaliaPizza.Server.DTOs.FinanzaDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.FinanzaController",
+    "Method": "UpdateFinanza",
+    "RelativePath": "api/Finanza/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "finanzaDto",
+        "Type": "ItaliaPizza.Server.DTOs.FinanzaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.FinanzaController",
+    "Method": "DeleteFinanza",
+    "RelativePath": "api/Finanza/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.FinanzaController",
+    "Method": "GetBalanceDiario",
+    "RelativePath": "api/Finanza/balance/{fecha}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fecha",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Decimal",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.FinanzaController",
+    "Method": "GetReporteBalanceDiario",
+    "RelativePath": "api/Finanza/reporte/{fecha}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fecha",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ItaliaPizza.Server.DTOs.FinanzaDTO, ItaliaPizza.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.FinanzaController",
+    "Method": "GetResumenMensual",
+    "RelativePath": "api/Finanza/resumen-mensual",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ItaliaPizza.Server.DTOs.FinanzaMensualDTO, ItaliaPizza.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ItaliaPizza.Server.Controllers.MermaController",

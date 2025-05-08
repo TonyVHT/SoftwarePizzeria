@@ -14,9 +14,9 @@ namespace ItaliaPizza.Server.Services.Implementations
             _clienteRepository = clienteRepository;
         }
 
-        public async Task<IEnumerable<ClienteConsultaDTO>> BuscarClientesAsync(string? nombre)
+        public async Task<IEnumerable<ClienteConsultaDTO>> BuscarClientesAsync(string? nombre, string? numero)
         {
-            return await _clienteRepository.BuscarClientesAsync(nombre);
+            return await _clienteRepository.BuscarClientesAsync(nombre, numero);
         }
 
         public async Task<int> AddClienteAsync(Cliente cliente)

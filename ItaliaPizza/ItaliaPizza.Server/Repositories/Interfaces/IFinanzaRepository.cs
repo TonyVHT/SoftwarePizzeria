@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.DTOs;
 
 namespace ItaliaPizza.Server.Repositories.Interfaces
 {
@@ -12,5 +13,8 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
         Task UpdateFinanzaAsync(Finanza finanza);
         Task DeleteFinanzaAsync(int id);
         Task<decimal> GetBalanceDiarioAsync(DateTime fecha);
+        Task<List<FinanzasMensualesDTO>> ObtenerResumenByFechaMensualAsync();
+        Task<List<FinanzaMensualDTO>> ObtenerResumenMensualAsync();
+
     }
 }

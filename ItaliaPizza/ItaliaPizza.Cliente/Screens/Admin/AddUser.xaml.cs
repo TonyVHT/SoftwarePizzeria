@@ -1,7 +1,10 @@
 ﻿using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using ItaliaPizza.Cliente.Utils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -27,6 +30,25 @@ namespace ItaliaPizza.Cliente.Screens.Admin
         public AddUser()
         {
             InitializeComponent();
+
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    break;
+                case "mesero":
+                    MenuLateral.Content = new UCWaiter();
+                    break;
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    break;
+                default:
+                    MessageBox.Show("Rol no reconocido");
+                    Close();
+                    return;
+            }
         }
 
         private async void BtnRegistrar_Click(object sender, RoutedEventArgs e)
@@ -53,6 +75,16 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                     Curp = txtCurp.Text,
                     Rol = (cmbTipoUsuario.SelectedItem as ComboBoxItem)?.Content.ToString() ?? ""
                 };
+
+                var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+                var isValidUser = Validator.TryValidateObject(usuario, new ValidationContext(usuario), validationResults, true);
+                if (!isValidUser)
+                {
+                    foreach(var error in validationResults)
+                    {
+                        
+                    }
+                }
 
                 var response = await _http.PostAsJsonAsync("api/usuario/registrar", usuario);
 
@@ -142,8 +174,21 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             }
 
             return vacio;
-            }
         }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            var ventana = new UserOptions();
+            ventana.Show();
+            Close();
+        }
+    }
+
+    
+
+
+
+
 
     }
 

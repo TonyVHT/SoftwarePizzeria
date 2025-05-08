@@ -11,5 +11,7 @@ namespace ItaliaPizza.Server.Services.Interfaces
         Task DeleteFinanzaAsync(int id);
         Task<decimal> GetBalanceDiarioAsync(DateTime fecha);
         Task<List<FinanzaDTO>> GetReporteBalanceDiario(DateTime fecha);
+        Task<List<FinanzasMensualesDTO>> ObtenerResumenByFechaMensualAsync();
+        Task<List<FinanzaMensualDTO>> ObtenerResumenMensualAsync();
     }
 }

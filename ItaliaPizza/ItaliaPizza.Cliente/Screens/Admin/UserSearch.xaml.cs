@@ -1,4 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,16 +28,33 @@ namespace ItaliaPizza.Cliente.Screens.Admin
         public UserSearch()
         {
             InitializeComponent();
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    break;
+                case "mesero":
+                    MenuLateral.Content = new UCWaiter();
+                    break;
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    break;
+                default:
+                    MessageBox.Show("Rol no reconocido");
+                    Close();
+                    return;
+            }
         }
 
         private async void BtnBuscar_Click(object sender, RoutedEventArgs e)
         {
             var nombre = txtNombre.Text;
-            var nombreUsuario = txtNombreUsuario.Text;
             var rol = (cmbRol.SelectedItem as ComboBoxItem)?.Content?.ToString();
 
             // Validar que al menos uno tenga contenido
-            if (string.IsNullOrWhiteSpace(nombre) && string.IsNullOrWhiteSpace(nombreUsuario) && string.IsNullOrWhiteSpace(rol))
+            if (string.IsNullOrWhiteSpace(nombre) && string.IsNullOrWhiteSpace(rol))
             {
                 MessageBox.Show("Por favor ingresa al menos un criterio de búsqueda.", "Búsqueda vacía", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
@@ -43,7 +62,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
 
             try
             {
-                string url = $"api/usuario/buscar?nombre={nombre}&nombreUsuario={nombreUsuario}&rol={rol}";
+                string url = $"api/usuario/buscar?nombre={nombre}&nombreUsuario={nombre}&rol={rol}";
                 var lista = await _http.GetFromJsonAsync<List<UsuarioConsultaDTO>>(url);
                 dgUsuarios.ItemsSource = lista;
             }

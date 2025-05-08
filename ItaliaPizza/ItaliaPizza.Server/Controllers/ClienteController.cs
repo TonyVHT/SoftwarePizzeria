@@ -17,9 +17,9 @@ namespace ItaliaPizza.Server.Controllers
         }
 
         [HttpGet("buscar")]
-        public async Task<IActionResult> BuscarClientes([FromQuery] string? nombre)
+        public async Task<IActionResult> BuscarClientes([FromQuery] string? nombre, string? numero)
         {
-            var clientes = await _clienteService.BuscarClientesAsync(nombre);
+            var clientes = await _clienteService.BuscarClientesAsync(nombre, numero);
             return Ok(clientes);
         }
 

@@ -1,4 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +30,24 @@ namespace ItaliaPizza.Cliente.Screens.Admin
         public PeopleSearcher()
         {
             InitializeComponent();
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    break;
+                case "mesero":
+                    MenuLateral.Content = new UCWaiter();
+                    break;
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    break;
+                default:
+                    MessageBox.Show("Rol no reconocido");
+                    Close();
+                    return;
+            }
         }
 
         private async void BtnBuscar_Click(object sender, RoutedEventArgs e)
@@ -50,7 +70,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
 
                 string url = $"api/usuario/buscar?nombre={textoBusqueda}&nombreUsuario={textoBusqueda}&rol={tipo}";
                 var lista = await _http.GetFromJsonAsync<List<PersonaConsultaDTO>>(url);
-                string url2 = $"api/cliente/buscar?nombre={textoBusqueda}";
+                string url2 = $"api/cliente/buscar?nombre={textoBusqueda}&numero={textoBusqueda}";
                 var lista2 =  await _http.GetFromJsonAsync<List<PersonaConsultaDTO>>(url2);
                 var lista3 = lista.Concat(lista2)
                   .GroupBy(p => p.Id)

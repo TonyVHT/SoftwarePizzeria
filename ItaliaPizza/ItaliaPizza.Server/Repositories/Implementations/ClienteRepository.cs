@@ -20,12 +20,12 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             return await _dbSet.FirstOrDefaultAsync(cliente => cliente.Telefono == telefono);
         }
 
-        public async Task<IEnumerable<ClienteConsultaDTO>> BuscarClientesAsync(string? nombre)
+        public async Task<IEnumerable<ClienteConsultaDTO>> BuscarClientesAsync(string? nombre, string? numero)
         {
             var query = _context.Clientes.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(nombre))
-                query = query.Where(c => (c.Nombre + " " + c.Apellidos).Contains(nombre));
+                query = query.Where(c => (c.Nombre + " " + c.Apellidos).Contains(nombre) || c.Telefono.Contains(numero));
 
             return await query.Select(c => new ClienteConsultaDTO
             {
