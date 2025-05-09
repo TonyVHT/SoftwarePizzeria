@@ -142,26 +142,29 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 using HttpClient client = new();
                 client.BaseAddress = new Uri("https://localhost:7264");
 
+                var categoriaSeleccionada = (CategoriaProductoDto)cmbCategoria.SelectedItem;
+
                 var platilloActualizado = new PlatilloDto
                 {
                     Id = _platillo.Id,
+                    CodigoPlatillo = _platillo.CodigoPlatillo, // ✅ Se conserva el código original
                     Nombre = txtNombre.Text,
                     Descripcion = txtDescripcion.Text,
                     Precio = decimal.Parse(txtPrecio.Text),
-                    CategoriaNombre = ((CategoriaProductoDto)cmbCategoria.SelectedItem).Nombre,
+                    CategoriaId = categoriaSeleccionada.Id,
+                    CategoriaNombre = categoriaSeleccionada.Nombre,
                     Estatus = cmbDisponibilidad.SelectedItem.ToString() == "Disponible",
-                    Foto = _platillo.Foto
+                    Foto = _platillo.Foto,
+                    Instrucciones = _platillo.Instrucciones
                 };
 
-                var json = JsonSerializer.Serialize(platilloActualizado);
+                var json = JsonSerializer.Serialize(platilloActualizado, new JsonSerializerOptions { WriteIndented = true });
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-
-                // Mostrar el enlace de la consulta y el cuerpo de la solicitud
-                string url = $"{client.BaseAddress}api/platillos/{platilloActualizado.Id}";
+                string url = $"{client.BaseAddress}api/platillo/{platilloActualizado.Id}";
                 MessageBox.Show($"URL: {url}\n\nCuerpo de la solicitud:\n{json}", "Información de la solicitud", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                var response = await client.PutAsync($"/api/platillos/{platilloActualizado.Id}", content);
+                var response = await client.PutAsync($"/api/platillo/{platilloActualizado.Id}", content);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -208,14 +211,22 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 return;
             }
 
-            // Crear el objeto de platillo actualizado
+            var categoriaSeleccionada = (CategoriaProductoDto)cmbCategoria.SelectedItem;
+
+            // Ya tienes esta parte bien:
             _platillo.Nombre = txtNombre.Text;
             _platillo.Descripcion = txtDescripcion.Text;
             _platillo.Precio = precio;
-            _platillo.CategoriaNombre = ((CategoriaProductoDto)cmbCategoria.SelectedItem).Nombre;
+            _platillo.CategoriaId = categoriaSeleccionada.Id;
+            _platillo.CategoriaNombre = categoriaSeleccionada.Nombre;
             _platillo.Estatus = cmbDisponibilidad.SelectedIndex == 0;
 
-            // Enviar los datos al backend para actualizar
+            if (string.IsNullOrWhiteSpace(_platillo.CodigoPlatillo))
+            {
+                _platillo.CodigoPlatillo = "PLT-" + new Random().Next(1000, 9999); // Solo si no lo tiene
+            }
+
+
             await GuardarPlatilloAsync();
         }
 

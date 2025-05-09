@@ -26,13 +26,9 @@ namespace ItaliaPizza.Server.Services.Implementations
                 if (existe != null)
                     return false;
 
-                var categoria = await _categoriaRepository
-                    .FindAsync(c => c.Nombre == dto.CategoriaNombre);
-
-                var categoriaSeleccionada = categoria.FirstOrDefault();
+                var categoriaSeleccionada = await _categoriaRepository.GetByIdAsync(dto.CategoriaId);
                 if (categoriaSeleccionada == null)
                 {
-                    // Retornar un mensaje de error más detallado si no se encuentra la categoría
                     throw new Exception("Categoría no encontrada.");
                 }
 
@@ -104,8 +100,13 @@ namespace ItaliaPizza.Server.Services.Implementations
                 platilloExistente.Foto = dto.Foto;
                 platilloExistente.Estatus = dto.Estatus;
 
-                var categoria = await _categoriaRepository.FindAsync(c => c.Nombre == dto.CategoriaNombre);
-                var categoriaSeleccionada = categoria.FirstOrDefault();
+                if (!string.IsNullOrWhiteSpace(dto.CodigoPlatillo) && dto.CodigoPlatillo != platilloExistente.CodigoPlatillo)
+                {
+                    throw new Exception("No se permite modificar el código del platillo.");
+                }
+
+
+                var categoriaSeleccionada = await _categoriaRepository.GetByIdAsync(dto.CategoriaId);
                 if (categoriaSeleccionada != null)
                 {
                     platilloExistente.CategoriaId = categoriaSeleccionada.Id;
