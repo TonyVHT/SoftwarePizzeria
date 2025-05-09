@@ -11,7 +11,10 @@
         public int? Restriccion { get; set; }
         public bool Estatus { get; set; }
         public string? Instrucciones { get; set; }
+
+        public int CategoriaId { get; set; } 
         public string CategoriaNombre { get; set; } = string.Empty;
     }
+
 
 }
