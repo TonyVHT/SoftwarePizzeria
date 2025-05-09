@@ -32,7 +32,10 @@ namespace ItaliaPizza.Cliente.Screens
             new() { Id = 2, Nombre = "Carnes frías" },
             new() { Id = 3, Nombre = "Quesos" },
             new() { Id = 4, Nombre = "Salsas y bases" },
-            new() { Id = 5, Nombre = "Ingredientes gourmet" }
+            new() { Id = 5, Nombre = "Ingredientes gourmet" },
+            new() { Id = 6, Nombre = "Bebidas" },
+            new() { Id = 7, Nombre = "Postres" },
+            new() { Id = 8, Nombre = "Pizzas" }
         };
 
                 cmbCategoriaFiltro.ItemsSource = _categorias;

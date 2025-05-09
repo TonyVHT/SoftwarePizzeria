@@ -22,8 +22,8 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        RegisterOrder registerOrder = new RegisterOrder();
-        registerOrder.Show();
+        //RegisterOrder registerOrder = new RegisterOrder();
+        //registerOrder.Show();
         InitializeComponent();
     }
 }

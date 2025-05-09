@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -181,7 +182,7 @@ namespace ItaliaPizza.Cliente.Screens
             }
         }
 
-        private void ConfirmarPedido_Click(object sender, RoutedEventArgs e)
+        private async void ConfirmarPedido_Click(object sender, RoutedEventArgs e)
         {
             if (_clienteSeleccionado == null || _direccionSeleccionada == null || _repartidorSeleccionado == null)
             {
@@ -201,10 +202,47 @@ namespace ItaliaPizza.Cliente.Screens
 
             if (resumen.ShowDialog() == true)
             {
-                // Aquí iría tu lógica para registrar el pedido (ej. llamar a tu API)
-                MessageBox.Show("¡Pedido confirmado y enviado al servidor!", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                var pedidoDto = new PedidoCreateDto
+                {
+                    CajeroId = 4, // Cambia esto por el ID del cajero actual
+                    ClienteId = _clienteSeleccionado.Id,
+                    DireccionEntrega = _direccionSeleccionada.Direccion,
+                    Referencias = _direccionSeleccionada.Referencias,
+                    TelefonoContacto = _clienteSeleccionado.Telefono,
+                    RepartidorId = _repartidorSeleccionado.Id,
+                    MetodoPago = "Efectivo", // o el método que selecciones
+                    Total = ItemsPedido.Sum(i => i.Subtotal),
+                    Estatus = "En proceso",
+                    Detalles = ItemsPedido.Select(item => new DetallePedidoDto
+                    {
+                        Cantidad = item.Cantidad,
+                        Subtotal = item.Subtotal,
+                        ProductoId = item.EsPlatillo ? null : item.Id,
+                        PlatilloId = item.EsPlatillo ? item.Id : null
+                    }).ToList()
+                };
+
+                try
+                {
+                    var response = await _httpClient.PostAsJsonAsync("https://localhost:7264/api/pedido/domicilio", pedidoDto);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("¡Pedido registrado exitosamente!", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close(); // o limpiar el formulario
+                    }
+                    else
+                    {
+                        var error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Error al registrar el pedido: {error}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error al registrar el pedido: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
+
 
 
     }

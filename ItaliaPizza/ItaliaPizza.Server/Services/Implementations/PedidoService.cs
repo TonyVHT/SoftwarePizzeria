@@ -1,6 +1,9 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.Dto;
+using ItaliaPizza.Server.Repositories.Implementations;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using ItaliaPizza.Server.Services.Interfaces;
+using ItaliaPizza.Server.View;
 
 namespace ItaliaPizza.Server.Services.Implementations
 {
@@ -10,17 +13,21 @@ namespace ItaliaPizza.Server.Services.Implementations
         private readonly IPedidoLocalRepository _pedidoLocalRepository;
         private readonly IFinanzaRepository _finanzaRepository;
         private readonly IProductoRepository _productoRepository;
+        private readonly IPedidoRepository _pedidoRepository;
+        private readonly IDetallePedidoRepository _detallePedidoRepository;
 
         public PedidoService(
             IPedidoDomicilioRepository pedidoDomicilioRepository,
             IPedidoLocalRepository pedidoLocalRepository,
             IFinanzaRepository finanzaRepository,
-            IProductoRepository productoRepository)
+            IProductoRepository productoRepository,
+            IDetallePedidoRepository detallePedidoRepository)
         {
             _pedidoDomicilioRepository = pedidoDomicilioRepository;
             _pedidoLocalRepository = pedidoLocalRepository;
             _finanzaRepository = finanzaRepository;
             _productoRepository = productoRepository;
+            _detallePedidoRepository = detallePedidoRepository;
         }
 
         public async Task<(bool success, string? message)> RegistrarPedidoDomicilioAsync(PedidoDomicilio pedido)
@@ -54,13 +61,16 @@ namespace ItaliaPizza.Server.Services.Implementations
             try
             {
                 var pedido = await _pedidoDomicilioRepository.GetByIdAsync(pedidoId);
-                if (pedido == null)
+                if (pedido == null) 
                     return false;
 
                 pedido.Estatus = nuevoEstado;
 
+
                 if (nuevoEstado == "En cocina")
                 {
+                    var detalles = await _detallePedidoRepository.GetByPedidoIdAsync(pedidoId);
+                    pedido.Detalles = detalles.ToList();
                     await ActualizarInventarioProductosAsync(pedido.Detalles);
                 }
 
@@ -68,7 +78,7 @@ namespace ItaliaPizza.Server.Services.Implementations
                 {
                     var finanza = new Finanza
                     {
-                        TipoTransaccion = "Ingreso",
+                        TipoTransaccion = "Entrada",
                         Concepto = "Pago de pedido a domicilio",
                         Monto = pedido.Total,
                         Fecha = DateTime.Now,
@@ -98,11 +108,29 @@ namespace ItaliaPizza.Server.Services.Implementations
                     var producto = await _productoRepository.GetByIdAsync(detalle.ProductoId.Value);
                     if (producto != null)
                     {
-                        producto.CantidadActual -= detalle.Cantidad;
+                        decimal cantidadRestada = detalle.Cantidad;
+                        producto.CantidadActual -= cantidadRestada;
                         await _productoRepository.UpdateAsync(producto);
                     }
                 }
             }
         }
+
+
+        public async Task<List<PedidoConsultaDTO>> ObtenerPedidosDomicilioConsultaAsync()
+        {
+            return await _pedidoDomicilioRepository.ObtenerPedidosConsultaAsync();
+        }
+
+        public async Task<List<PedidoRepartidorConsultaDTO>> ObtenerPedidosPorRepartidorAsync()
+        {
+            return await _pedidoDomicilioRepository.ObtenerPedidosConsultaConRepartidorAsync();
+        }
+
+        public async Task<List<PedidoLocalDto>> ObtenerPedidosLocalConsultaAsync()
+        {
+            return await _pedidoLocalRepository.ObtenerPedidosConsultaAsync();
+        }
+
     }
 }

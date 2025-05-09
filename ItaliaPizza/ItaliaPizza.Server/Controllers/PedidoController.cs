@@ -1,6 +1,7 @@
 ﻿using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.Dto;
 using ItaliaPizza.Server.Services.Interfaces;
+using ItaliaPizza.Server.View;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ItaliaPizza.Server.Controllers
@@ -100,5 +101,41 @@ namespace ItaliaPizza.Server.Controllers
         {
             return Ok("PedidoController");
         }
+
+        [HttpGet("domicilio/consulta")]
+        public async Task<IActionResult> ObtenerPedidosDomicilio()
+        {
+            var pedidos = await _pedidoService.ObtenerPedidosDomicilioConsultaAsync();
+            return Ok(pedidos);
+        }
+
+        [HttpGet("repartidor/consulta")]
+        public async Task<IActionResult> ObtenerPedidosPorRepartidor()
+        {
+            try
+            {
+                var pedidos = await _pedidoService.ObtenerPedidosPorRepartidorAsync();
+
+                if (pedidos == null || !pedidos.Any())
+                {
+                    return NotFound(new { message = "No se encontraron pedidos para los repartidores." });
+                }
+
+                return Ok(pedidos);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest(new { message = $"Error al obtener los pedidos: {ex.Message}" });
+            }
+        }
+
+        [HttpGet("local/consulta")]
+        public async Task<IActionResult> ObtenerPedidosLocal()
+        {
+            var pedidos = await _pedidoService.ObtenerPedidosLocalConsultaAsync();
+            return Ok(pedidos);
+        }
+
     }
 }

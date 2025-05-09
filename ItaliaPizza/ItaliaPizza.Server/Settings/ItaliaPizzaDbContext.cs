@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.View;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,8 @@ namespace ItaliaPizza.Server.Settings
         public DbSet<ReporteInventario> ReportesInventario { get; set; }
         public DbSet<DireccionCliente> direccionClientes { get; set; }
         public DbSet<ProductoProveedor> ProductoProveedores { get; set; }
+        public DbSet<PedidoDomicilio> PedidosDomicilio { get; set; }
+        public DbSet<PedidoLocal> PedidosLocales { get; set; }
 
         public DbSet<CredencialUsuario> CredencialesUsuarios { get; set; } = null!;
         public DbSet<Cliente> Clientes { get; set; }
@@ -40,7 +43,6 @@ namespace ItaliaPizza.Server.Settings
             HasConstraintName("fk_cliente_direccion")  // La clave foránea es ClienteId
             .OnDelete(DeleteBehavior.Cascade);  // Comportamiento de eliminación en cascada
 
-           
         }
     }
 }

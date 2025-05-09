@@ -1,13 +1,13 @@
 ﻿namespace ItaliaPizza.Server.Dto
 {
-    public class PedidoLocalDto
+    public class PedidoConsultaDTO
     {
         public int Id { get; set; }
-        public int NumeroMesa { get; set; }
-        public string Mesero { get; set; } = string.Empty;
+        public string Cliente { get; set; } = string.Empty;
+        public string Direccion { get; set; } = string.Empty;
         public decimal Total { get; set; }
         public string Estatus { get; set; } = string.Empty;
         public DateTime Fecha { get; set; }
-        public String Tipo { get; set; } = string.Empty;
+        public string Tipo { get; set; } = string.Empty;
     }
 }

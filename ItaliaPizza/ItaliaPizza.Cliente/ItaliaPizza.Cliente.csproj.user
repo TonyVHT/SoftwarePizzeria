@@ -71,6 +71,12 @@
     <Compile Update="Screens\OrderClient\RepartidorSelector.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Orders\ConsultarPedidos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Orders\PedidosEnCocina.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\RegisterOrderToProvider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
