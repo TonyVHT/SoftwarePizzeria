@@ -142,7 +142,6 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 using HttpClient client = new();
                 client.BaseAddress = new Uri("https://localhost:7264");
 
-                // Crear el objeto actualizado del platillo
                 var platilloActualizado = new PlatilloDto
                 {
                     Id = _platillo.Id,
@@ -151,14 +150,17 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                     Precio = decimal.Parse(txtPrecio.Text),
                     CategoriaNombre = ((CategoriaProductoDto)cmbCategoria.SelectedItem).Nombre,
                     Estatus = cmbDisponibilidad.SelectedItem.ToString() == "Disponible",
-                    Foto = _platillo.Foto // Mantener la imagen actual
+                    Foto = _platillo.Foto
                 };
 
-                // Serializar el objeto a JSON
                 var json = JsonSerializer.Serialize(platilloActualizado);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                // Enviar la solicitud PUT al servidor
+
+                // Mostrar el enlace de la consulta y el cuerpo de la solicitud
+                string url = $"{client.BaseAddress}api/platillos/{platilloActualizado.Id}";
+                MessageBox.Show($"URL: {url}\n\nCuerpo de la solicitud:\n{json}", "Información de la solicitud", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 var response = await client.PutAsync($"/api/platillos/{platilloActualizado.Id}", content);
 
                 if (response.IsSuccessStatusCode)

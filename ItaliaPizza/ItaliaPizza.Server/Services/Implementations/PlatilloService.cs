@@ -87,61 +87,40 @@ namespace ItaliaPizza.Server.Services.Implementations
         {
             try
             {
-                // Log: Iniciando la actualización del platillo
                 Console.WriteLine($"Iniciando la actualización del platillo con ID: {dto.Id}");
 
-                var platilloExistente = await _platilloRepository.GetByIdAsync(dto.Id); // Obtener el platillo actual desde el repositorio
-
+                var platilloExistente = await _platilloRepository.GetByIdAsync(dto.Id);
                 if (platilloExistente == null)
                 {
-                    // Log: No se encontró el platillo
                     Console.WriteLine($"No se encontró el platillo con ID: {dto.Id}");
                     return false;
                 }
 
-                // Log: Platillo encontrado, comenzando la actualización de sus datos
                 Console.WriteLine($"Platillo encontrado: {platilloExistente.Nombre}");
 
-                // Actualizar los datos del platillo
                 platilloExistente.Nombre = dto.Nombre;
                 platilloExistente.Descripcion = dto.Descripcion;
                 platilloExistente.Precio = dto.Precio;
-                platilloExistente.Foto = dto.Foto; // Aquí se puede cambiar la imagen si se modifica
-                platilloExistente.Restriccion = dto.Restriccion;
+                platilloExistente.Foto = dto.Foto;
                 platilloExistente.Estatus = dto.Estatus;
-                platilloExistente.Instrucciones = dto.Instrucciones;
 
-                // Obtener la categoría
                 var categoria = await _categoriaRepository.FindAsync(c => c.Nombre == dto.CategoriaNombre);
                 var categoriaSeleccionada = categoria.FirstOrDefault();
-
                 if (categoriaSeleccionada != null)
                 {
-                    // Log: Se encontró la categoría y se actualizará el platillo
-                    Console.WriteLine($"Categoría encontrada: {categoriaSeleccionada.Nombre}");
-                    platilloExistente.CategoriaId = categoriaSeleccionada.Id; // Actualizar la categoría
-                }
-                else
-                {
-                    // Log: No se encontró la categoría
-                    Console.WriteLine($"No se encontró la categoría: {dto.CategoriaNombre}");
+                    platilloExistente.CategoriaId = categoriaSeleccionada.Id;
                 }
 
-                await _platilloRepository.UpdateAsync(platilloExistente); // Actualizar el platillo en la base de datos
-
-                // Log: Actualización exitosa
+                await _platilloRepository.UpdateAsync(platilloExistente);
                 Console.WriteLine($"Platillo con ID: {dto.Id} actualizado correctamente.");
-
                 return true;
             }
             catch (Exception ex)
             {
-                // Log del error
                 Console.WriteLine($"Error al actualizar el platillo: {ex.Message}");
-                throw new Exception($"Error al actualizar el platillo: {ex.Message}");
+                throw;
             }
         }
-
 
     }
 }

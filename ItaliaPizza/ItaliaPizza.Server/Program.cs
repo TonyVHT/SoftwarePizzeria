@@ -14,11 +14,10 @@ Log.Logger = new LoggerConfiguration()
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 var connectionString = ConnectionStringProvider.GetConnectionString();
 if (string.IsNullOrEmpty(connectionString))
 {
-    throw new InvalidOperationException("No se encontró la cadena de conexión en variables de entorno.");
+    throw new InvalidOperationException("No se encontrÃ³ la cadena de conexiÃ³n en variables de entorno.");
 }
 
 //Tony services
