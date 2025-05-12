@@ -32,7 +32,7 @@ namespace ItaliaPizza.Cliente.Helpers
             else if (menuControl is UCCook ucCook)
             {
                 ucCook.buttonInicio.Tag = "Inactive";
-                ucCook.buttonOrders.Tag = "Inactive";
+                //ucCook.buttonOrders.Tag = "Inactive";
                 ucCook.buttonMenu.Tag = "Inactive";
                 ucCook.buttonCustomers.Tag = "Inactive";
 

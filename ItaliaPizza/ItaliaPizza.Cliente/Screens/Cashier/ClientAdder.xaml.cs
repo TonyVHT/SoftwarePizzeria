@@ -119,7 +119,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                     if (error.MemberNames.Contains("Referencias"))
                         txtReferenciasError.Text = error.ErrorMessage;
                 }
-                return; 
+                return;
             }
 
             try
@@ -129,10 +129,10 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadFromJsonAsync<Dictionary<string, int>>();
-                    int clienteId = result["clienteId"]; 
+                    int clienteId = result["clienteId"];
                     MessageBox.Show($"Cliente registrado con éxito. ID: {clienteId}");
 
-                    direccionDTO.ClienteId = clienteId; 
+                    direccionDTO.ClienteId = clienteId;
 
                     var responseDireccion = await _http.PostAsJsonAsync("api/direccioncliente/registrar", direccionDTO);
 

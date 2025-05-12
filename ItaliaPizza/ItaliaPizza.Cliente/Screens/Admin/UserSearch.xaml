@@ -23,6 +23,7 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Orientation="Horizontal"  Grid.Row="0" Margin="0 0 0 10">
+                    <Button x:Name="buttonCancelar" Content="Cancelar" Style="{StaticResource cancelbuttonsStyle}" Margin="0,0,10,0" Click="Btn_Cancelar"/>
                     <TextBox x:Name="txtNombre" Width="300" Style="{StaticResource textboxStyle}"/>
                     
              

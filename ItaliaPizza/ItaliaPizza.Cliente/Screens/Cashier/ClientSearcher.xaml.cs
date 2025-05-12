@@ -1,4 +1,7 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +21,50 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
         public ClientSearcher()
         {
             InitializeComponent();
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Clientes");
+                    break;
+                case "mesero":
+                    MenuLateral.Content = new UCWaiter();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCWaiter, "Clientes");
+                    break;
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Clientes");
+                    break;
+                case "cajero":
+                    MenuLateral.Content = new UCCashier();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCashier, "Clientes");
+                    break;
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Clientes");
+                    break;
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Clientes");
+                    break;
+                case "repartidor":
+                    MenuLateral.Content = new UCDelivery();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Clientes");
+                    break;
+                default:
+                    MessageBox.Show("Rol no reconocido");
+                    Close();
+                    return;
+            }
         }
 
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
+        }
         private async void BtnBuscarCliente_Click(object sender, RoutedEventArgs e)
         {
             var textoBusqueda = txtBusquedaCliente.Text.Trim();

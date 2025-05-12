@@ -1,4 +1,5 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
 using System;
@@ -34,18 +35,43 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             {
                 case "administrador":
                     MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Inicio");
                     break;
                 case "mesero":
                     MenuLateral.Content = new UCWaiter();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCWaiter, "Inicio");
                     break;
                 case "cocinero":
                     MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Inicio");
+                    break;
+                case "cajero":
+                    MenuLateral.Content = new UCCashier();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCashier, "Inicio");
+                    break;
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Inicio");
+                    break;
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Inicio");
+                    break;
+                case "repartidor":
+                    MenuLateral.Content = new UCDelivery();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Inicio");
                     break;
                 default:
                     MessageBox.Show("Rol no reconocido");
                     Close();
                     return;
             }
+        }
+
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
         }
 
         private async void BtnBuscar_Click(object sender, RoutedEventArgs e)
@@ -82,7 +108,15 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             }
         }
 
-        
+
+        private void Btn_Cancelar(object sender, RoutedEventArgs e)
+        {
+            var userOptions = new UserOptions();
+            userOptions.Show();
+            Close();
+        }
+
+
     }
 }
 

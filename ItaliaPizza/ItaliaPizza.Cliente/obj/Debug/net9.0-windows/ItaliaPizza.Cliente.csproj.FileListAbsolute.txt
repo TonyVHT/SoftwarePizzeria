@@ -667,3 +667,15 @@ C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Manager\FinancesReporter.baml
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\UserOptions.g.cs
 C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\UserOptions.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\CustomerOptiones.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\OrderOptiones.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ProviderOptions.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RecipeOptions.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCDelivery.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCKitchenManager.g.cs
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\CustomerOptiones.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\OrderOptiones.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ProviderOptions.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RecipeOptions.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCDelivery.baml
+C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCKitchenManager.baml

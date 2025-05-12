@@ -118,6 +118,12 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             element.BeginAnimation(UIElement.OpacityProperty, fadeInAnimation);
         }
 
+        private void Btn_Cancelar(object sender, RoutedEventArgs e)
+        {
+            var userOptions = new UserOptions();
+            userOptions.Show();
+            this.Close();
+        }
 
 
     }

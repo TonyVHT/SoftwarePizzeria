@@ -1,10 +1,11 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
 using ItaliaPizza.Cliente.Utils;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations; // Make sure this is included
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -37,13 +38,14 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             {
                 case "administrador":
                     MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Usuarios");
                     break;
-                case "mesero":
-                    MenuLateral.Content = new UCWaiter();
+
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Usuarios");
                     break;
-                case "cocinero":
-                    MenuLateral.Content = new UCCook();
-                    break;
+
                 default:
                     MessageBox.Show("Rol no reconocido");
                     Close();
@@ -51,130 +53,199 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             }
         }
 
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
+        }
+
         private async void BtnRegistrar_Click(object sender, RoutedEventArgs e)
         {
+            // Clear previous errors and styling
+            ClearErrorMessagesAndStyling();
 
-            if (HayCamposVaciosConResaltado(out var faltantes))
+            // Create the validation DTO from the form data
+            var validationDTO = new ValidacionUsuarioRegistroDTO
             {
-                MessageBox.Show($"Por favor completa los siguientes campos:\n• {string.Join("\n• ", faltantes)}",
-                                "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Nombre = txtNombre.Text,
+                Apellidos = txtApellidos.Text,
+                Curp = txtCurp.Text,
+                NombreUsuario = txtNombreUsuario.Text,
+                Contrasena = pswContra.Password,
+                Rol = (cmbTipoUsuario.SelectedItem as ComboBoxItem)?.Content.ToString() ?? "",
+                Calle = txtCalle.Text,
+                Numero = txtNumero.Text,
+                CodigoPostal = txtCodigoPostal.Text,
+                Ciudad = txtCiudad.Text,
+                Telefono = txtTelefono.Text,
+                Email = txtEmail.Text
+            };
+
+            var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+            var validationContext = new ValidationContext(validationDTO, serviceProvider: null, items: null);
+            bool isValid = Validator.TryValidateObject(validationDTO, validationContext, validationResults, true);
+
+            if (!isValid)
+            {
+                DisplayValidationErrors(validationResults);
+                MessageBox.Show("Por favor corrige los errores en el formulario.", "Errores de validación", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
+            // If validation passes, proceed with API calls
             try
             {
+                // Map data to your API DTOs (UsuarioRegistroDTO and CredencialRegistroDTO)
                 var usuario = new UsuarioRegistroDTO
                 {
-                    Nombre = txtNombre.Text,
-                    Apellidos = txtApellidos.Text,
-                    Telefono = txtTelefono.Text,
-                    Email = txtEmail.Text,
-                    Direccion = $"{txtCalle.Text} {txtNumero.Text}",
-                    Ciudad = txtCiudad.Text,
-                    CodigoPostal = txtCodigoPostal.Text,
-                    Curp = txtCurp.Text,
-                    Rol = (cmbTipoUsuario.SelectedItem as ComboBoxItem)?.Content.ToString() ?? ""
+                    Nombre = validationDTO.Nombre,
+                    Apellidos = validationDTO.Apellidos,
+                    Telefono = validationDTO.Telefono,
+                    Email = validationDTO.Email,
+                    Direccion = $"{validationDTO.Calle} {validationDTO.Numero}".Trim(), // Combine Calle and Numero
+                    Ciudad = validationDTO.Ciudad,
+                    CodigoPostal = validationDTO.CodigoPostal,
+                    Curp = validationDTO.Curp,
+                    Rol = validationDTO.Rol
                 };
-
-                var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
-                var isValidUser = Validator.TryValidateObject(usuario, new ValidationContext(usuario), validationResults, true);
-                if (!isValidUser)
-                {
-                    foreach(var error in validationResults)
-                    {
-                        
-                    }
-                }
 
                 var response = await _http.PostAsJsonAsync("api/usuario/registrar", usuario);
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Error al registrar usuario");
+                    // Handle API specific errors, potentially reading the error response
+                    string errorContent = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Error al registrar usuario: {response.StatusCode} - {errorContent}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
                 var result = await response.Content.ReadFromJsonAsync<Dictionary<string, int>>();
-                int usuarioId = result["id"];
+                if (result == null || !result.TryGetValue("id", out int usuarioId))
+                {
+                    MessageBox.Show("Error al obtener el ID del usuario registrado.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
 
                 var credencial = new CredencialRegistroDTO
                 {
                     UsuarioId = usuarioId,
-                    NombreUsuario = txtNombreUsuario.Text,
-                    Contrasena = pswContra.Password
+                    NombreUsuario = validationDTO.NombreUsuario,
+                    Contrasena = validationDTO.Contrasena
                 };
 
                 var credResponse = await _http.PostAsJsonAsync("api/credencialusuario/registrar", credencial);
 
                 if (credResponse.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Usuario y credencial registrados correctamente 💙");
+                    MessageBox.Show("Usuario y credencial registrados correctamente 💙", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    // Consider closing or navigating after successful registration
+                    var ventana = new UserOptions(); // Assuming UserOptions is the next window
+                    ventana.Show();
+                    Close();
+
                 }
                 else
                 {
-                    MessageBox.Show("Error al registrar la credencial.");
+                    string errorContent = await credResponse.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Error al registrar la credencial: {credResponse.StatusCode} - {errorContent}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    // Optional: Consider deleting the user if credencial registration fails to avoid orphaned users
                 }
+            }
+            catch (HttpRequestException httpEx)
+            {
+                MessageBox.Show($"Error de comunicación con el servidor: {httpEx.Message}", "Error de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error inesperado: {ex.Message}");
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private bool HayCamposVaciosConResaltado(out List<string> camposFaltantes)
+        private void ClearErrorMessagesAndStyling()
         {
-            camposFaltantes = new List<string>();
+            // Clear TextBlocks
+            txtNombreError.Text = "";
+            txtApellidosError.Text = "";
+            txtCurpError.Text = "";
+            txtNombreUsuarioError.Text = "";
+            txtContraError.Text = ""; // Corresponds to PasswordBox error
+            txtCalleError.Text = "";
+            txtNumeroError.Text = "";
+            txtCodigoPostalError.Text = "";
+            txtCiudadError.Text = "";
+            txtTelefonoError.Text = "";
+            txtEmailError.Text = "";
 
-            // Diccionario de controles y sus nombres para mensaje
-            var campos = new Dictionary<Control, string>
-    {
-                { txtNombre, "Nombre" },
-                { txtApellidos, "Apellidos" },
-                { txtCurp, "CURP" },
-                { txtNombreUsuario, "Nombre de usuario" },
-                { pswContra, "Contraseña" },
-                { txtCalle, "Calle" },
-                { txtNumero, "Número" },
-                { txtCodigoPostal, "Código Postal" },
-                { txtCiudad, "Ciudad" },
-                { txtTelefono, "Teléfono" },
-                { txtEmail, "Email" },
+            // Clear BorderBrush (assuming default is not Red)
+            txtNombre.ClearValue(Control.BorderBrushProperty);
+            txtApellidos.ClearValue(Control.BorderBrushProperty);
+            txtCurp.ClearValue(Control.BorderBrushProperty);
+            txtNombreUsuario.ClearValue(Control.BorderBrushProperty);
+            pswContra.ClearValue(Control.BorderBrushProperty);
+            cmbTipoUsuario.ClearValue(Control.BorderBrushProperty);
+            txtCalle.ClearValue(Control.BorderBrushProperty);
+            txtNumero.ClearValue(Control.BorderBrushProperty);
+            txtCodigoPostal.ClearValue(Control.BorderBrushProperty);
+            txtCiudad.ClearValue(Control.BorderBrushProperty);
+            txtTelefono.ClearValue(Control.BorderBrushProperty);
+            txtEmail.ClearValue(Control.BorderBrushProperty);
+        }
+
+        private void DisplayValidationErrors(List<System.ComponentModel.DataAnnotations.ValidationResult> validationResults)
+        {
+            // Map DTO property names to TextBlock error controls and input controls
+            var errorMapping = new Dictionary<string, (TextBlock errorTextBlock, Control inputControl)>
+            {
+                { nameof(ValidacionUsuarioRegistroDTO.Nombre), (txtNombreError, txtNombre) },
+                { nameof(ValidacionUsuarioRegistroDTO.Apellidos), (txtApellidosError, txtApellidos) },
+                { nameof(ValidacionUsuarioRegistroDTO.Curp), (txtCurpError, txtCurp) },
+                { nameof(ValidacionUsuarioRegistroDTO.NombreUsuario), (txtNombreUsuarioError, txtNombreUsuario) },
+                { nameof(ValidacionUsuarioRegistroDTO.Contrasena), (txtContraError, pswContra) },
+                { nameof(ValidacionUsuarioRegistroDTO.Rol), (null, cmbTipoUsuario) }, // Role doesn't have a dedicated error TextBlock in XAML, maybe use a general message or add one. We'll highlight the ComboBox.
+                { nameof(ValidacionUsuarioRegistroDTO.Calle), (txtCalleError, txtCalle) },
+                { nameof(ValidacionUsuarioRegistroDTO.Numero), (txtNumeroError, txtNumero) },
+                { nameof(ValidacionUsuarioRegistroDTO.CodigoPostal), (txtCodigoPostalError, txtCodigoPostal) },
+                { nameof(ValidacionUsuarioRegistroDTO.Ciudad), (txtCiudadError, txtCiudad) },
+                { nameof(ValidacionUsuarioRegistroDTO.Telefono), (txtTelefonoError, txtTelefono) },
+                { nameof(ValidacionUsuarioRegistroDTO.Email), (txtEmailError, txtEmail) }
             };
 
-            bool vacio = false;
-
-            // Limpiar resaltado previo
-            foreach (var c in campos.Keys)
+            foreach (var validationResult in validationResults)
             {
-                c.ClearValue(Control.BorderBrushProperty);
-            }
-            cmbTipoUsuario.ClearValue(Control.BorderBrushProperty);
-
-            foreach (var par in campos)
-            {
-                if (par.Key is TextBox txt && string.IsNullOrWhiteSpace(txt.Text))
+                // A validation result can apply to multiple members (properties)
+                foreach (var memberName in validationResult.MemberNames)
                 {
-                    camposFaltantes.Add(par.Value);
-                    txt.BorderBrush = Brushes.Red;
-                    vacio = true;
-                }
-                else if (par.Key is PasswordBox pwd && string.IsNullOrWhiteSpace(pwd.Password))
-                {
-                    camposFaltantes.Add(par.Value);
-                    pwd.BorderBrush = Brushes.Red;
-                    vacio = true;
+                    if (errorMapping.TryGetValue(memberName, out var mapping))
+                    {
+                        // Display the error message in the corresponding TextBlock
+                        if (mapping.errorTextBlock != null)
+                        {
+                            mapping.errorTextBlock.Text = validationResult.ErrorMessage;
+                        }
+
+                        // Highlight the input control
+                        if (mapping.inputControl != null)
+                        {
+                            mapping.inputControl.BorderBrush = Brushes.Red;
+                        }
+                    }
+                    else
+                    {
+                        // Handle errors for properties not explicitly mapped (e.g., general object validation errors)
+                        MessageBox.Show($"Error de validación: {validationResult.ErrorMessage}", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
                 }
             }
-
-            if (cmbTipoUsuario.SelectedItem == null)
+            // Special handling for Rol if it wasn't explicitly mapped to an error TextBlock
+            if (validationResults.Any(vr => vr.MemberNames.Contains(nameof(ValidacionUsuarioRegistroDTO.Rol))))
             {
-                camposFaltantes.Add("Tipo de usuario");
                 cmbTipoUsuario.BorderBrush = Brushes.Red;
-                vacio = true;
+                // You might want a specific TextBlock for the ComboBox error or a general message
+                // For now, we just highlight the ComboBox and the general validation message will appear.
             }
-
-            return vacio;
         }
+
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -182,14 +253,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             ventana.Show();
             Close();
         }
+        // Remove the old HayCamposVaciosConResaltado method as it's replaced by data annotations
+        // private bool HayCamposVaciosConResaltado(out List<string> camposFaltantes) { ... }
     }
-
-    
-
-
-
-
-
-    }
-
-
+}

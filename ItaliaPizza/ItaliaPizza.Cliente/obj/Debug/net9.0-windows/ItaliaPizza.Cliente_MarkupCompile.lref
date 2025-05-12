@@ -1,4 +1,4 @@
-﻿
+﻿C:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\GeneratedInternalTypeHelper.g.cs
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\App.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\MainWindow.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\PlatillosModulo\Screens\InformacionPlatillo.xaml;;
@@ -21,10 +21,14 @@ FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Consult
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\ConsultProviders.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Cook\HomePageCook.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Cook\LogOutCook.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\CustomerOptiones.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\EditProvider.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Manager\FinancesReporter.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Manager\HomePageManager.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Manager\LogOutManager.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\OrderOptiones.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\ProviderOptions.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RecipeOptions.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterHomeDeliveryOrder.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterOrderToProvider.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterProvider.xaml;;
@@ -34,5 +38,7 @@ FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Waiter\
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCAdmin.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCCashier.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCCook.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCDelivery.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCKitchenManager.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCWaiter.xaml;;
 

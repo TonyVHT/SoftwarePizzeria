@@ -149,7 +149,7 @@ namespace ItaliaPizza.Cliente.Screens {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ItaliaPizza.Cliente;component/screens/registerprovider.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ItaliaPizza.Cliente;V1.0.0.0;component/screens/registerprovider.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Screens\RegisterProvider.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

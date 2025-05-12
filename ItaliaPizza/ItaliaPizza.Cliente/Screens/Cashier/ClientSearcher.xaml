@@ -14,16 +14,14 @@
     </Window.Resources>
 
     <Grid>
-        <Grid>
-            <controls:UCCashier/>
-        </Grid>
+        
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="33*" />
-                <ColumnDefinition Width="167*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
+            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
             <Grid Margin="20" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -70,7 +68,7 @@
                                VerticalAlignment="Center" />
 
                     <!-- DataGrid -->
-                    <DataGrid x:Name="dgClientes" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
+                    <DataGrid x:Name="dgClientes" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Style="{StaticResource WorkingModernDataGridStyle}"
                               Visibility="Visible" MouseDoubleClick="DataGrid_MouseDoubleClick">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*"/>
