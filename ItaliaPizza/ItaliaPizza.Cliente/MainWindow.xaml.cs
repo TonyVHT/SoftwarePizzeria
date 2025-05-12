@@ -22,8 +22,8 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        AddUser addUserWindow = new AddUser();
-        addUserWindow.Show(); 
+        //RegisterOrder registerOrder = new RegisterOrder();
+        //registerOrder.Show();
         InitializeComponent();
     }
 

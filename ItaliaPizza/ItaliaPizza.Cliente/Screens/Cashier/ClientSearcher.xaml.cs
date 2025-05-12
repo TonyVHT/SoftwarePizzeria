@@ -16,6 +16,8 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 {
     public partial class ClientSearcher : Window
     {
+        public ClienteConsultaDTO? ClienteSeleccionado { get; private set; }
+
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
         public ClientSearcher()

@@ -3,6 +3,7 @@ using ItaliaPizza.Server.DTOs;
 using ItaliaPizza.Server.Repositories.Implementations;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using ItaliaPizza.Server.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace ItaliaPizza.Server.Services.Implementations
 {
@@ -58,6 +59,27 @@ namespace ItaliaPizza.Server.Services.Implementations
                 Estatus = direccion.Estatus
             };
         }
+
+        public async Task<List<DireccionClienteDTO>> ObtenerDireccionesPorClienteAsync(int clienteId)
+        {
+            var entidades = await _direccionClienteRepository.GetDireccionesByClienteIdAsync(clienteId);
+
+            return entidades
+                .Where(d => d.Estatus)
+                .Select(d => new DireccionClienteDTO
+                {
+                    Id = d.Id,
+                    ClienteId = d.ClienteId,
+                    Direccion = d.Direccion,
+                    CodigoPostal = d.CodigoPostal,
+                    Ciudad = d.Ciudad,
+                    Referencias = d.Referencias,
+                    EsPrincipal = d.EsPrincipal
+                })
+                .ToList();
+        }
+
+
 
     }
 

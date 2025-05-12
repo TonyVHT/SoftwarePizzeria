@@ -2,12 +2,21 @@
 using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ItaliaPizza.Server.Dto;
+using System.Linq;
+using ItaliaPizza.Server.View;
 
 namespace ItaliaPizza.Server.Repositories.Implementations
 {
     public class PedidoRepository : Repository<Pedido>, IPedidoRepository
     {
-        public PedidoRepository(ItaliaPizzaDbContext context) : base(context) { }
+        private readonly IUsuarioRepository _usuarioRepository;
+
+        public PedidoRepository(ItaliaPizzaDbContext context, IUsuarioRepository usuarioRepository) : base(context) 
+        {
+                _usuarioRepository = usuarioRepository;
+
+        }
 
         public async Task<IEnumerable<Pedido>> GetPedidosByCajeroIdAsync(int cajeroId)
         {
@@ -30,5 +39,7 @@ namespace ItaliaPizza.Server.Repositories.Implementations
                 .Include(p => p.Detalles)
                 .FirstOrDefaultAsync(p => p.Id == pedidoId);
         }
+
+
     }
 }

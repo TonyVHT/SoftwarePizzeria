@@ -1,8 +1,13 @@
 ﻿<Window x:Class="ItaliaPizza.Cliente.Screens.RegisterOrder"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Registrar Pedido" Height="720" Width="1280"
-        Background="#f4f4f4">
+        xmlns:local="clr-namespace:ItaliaPizza.Cliente.Converters"
+        Title="Registrar Pedido" Height="840" Width="1280" Background="#f4f4f4">
+
+    <Window.Resources>
+        <local:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter" />
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -10,6 +15,7 @@
             <ColumnDefinition Width="350"/>
         </Grid.ColumnDefinitions>
 
+        <!-- Categorías -->
         <Border Grid.Column="0" Background="#ffffff" BorderBrush="#dcdcdc" BorderThickness="0,0,1,0">
             <StackPanel Margin="10">
                 <TextBlock Text="Categorías" FontWeight="Bold" FontSize="16" Margin="0 0 0 10" Foreground="#333"/>
@@ -20,50 +26,99 @@
             </StackPanel>
         </Border>
 
+        <!-- Productos -->
         <ScrollViewer Grid.Column="1" Background="#f9f9f9">
-            <WrapPanel Margin="10" ItemHeight="150" ItemWidth="150">
-                <ItemsControl Name="ItemsDisponiblesControl">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button Click="AgregarAlPedido_Click" Margin="5" Background="#ffffff" BorderBrush="#dddddd" BorderThickness="1">
-                                <StackPanel>
-                                    <Image Height="100" Stretch="UniformToFill">
-                                        <Image.Source>
-                                            <Binding Path="Foto" Converter="{StaticResource ByteArrayToImageConverter}" />
-                                        </Image.Source>
-                                    </Image>
-                                    <TextBlock Text="{Binding Nombre}" HorizontalAlignment="Center" TextWrapping="Wrap" FontWeight="SemiBold" Foreground="#333"/>
-                                    <TextBlock Text="{Binding Precio, StringFormat='${0:F2}'}" HorizontalAlignment="Center" FontSize="10" Foreground="#777"/>
-                                </StackPanel>
-                            </Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </WrapPanel>
+            <ItemsControl Name="ItemsDisponiblesControl" Width="691">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="10"
+                                Background="White" Width="150" Margin="10" Padding="10">
+                            <StackPanel>
+                                <Image Height="100" Stretch="UniformToFill" Margin="0,0,0,5">
+                                    <Image.Source>
+                                        <Binding Path="Foto" Converter="{StaticResource ByteArrayToImageConverter}" />
+                                    </Image.Source>
+                                </Image>
+                                <TextBlock Text="{Binding Nombre}" FontWeight="SemiBold" FontSize="14" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Precio, StringFormat='${0:F2}'}" Foreground="#777" FontSize="12" TextAlignment="Center"/>
+                                <Button Content="Agregar" Tag="{Binding}" Margin="0,10,0,0"
+                                        Background="#32d483" Foreground="White" Click="AgregarAlPedido_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
 
+        <!-- Pedido actual -->
         <Border Grid.Column="2" Background="#ffffff" BorderBrush="#dcdcdc" BorderThickness="1,0,0,0">
             <StackPanel Margin="10">
                 <TextBlock Text="Pedido Actual" FontWeight="Bold" FontSize="18" Foreground="#333"/>
-                <ListView Name="ListaPedido" Margin="0 10" Height="500" Background="#f9f9f9">
+
+                <!-- Cliente seleccionado -->
+                <Border Background="#f0f0f0" Padding="10" Margin="0,10,0,10" CornerRadius="6">
+                    <StackPanel>
+                        <TextBlock Text="Cliente seleccionado" FontWeight="Bold" Foreground="#555" Margin="0,0,0,4"/>
+                        <TextBlock x:Name="TextoCliente" Text="(Ninguno)" Foreground="#333" FontSize="14"/>
+                        <TextBlock x:Name="TextoDireccion" Text="" Foreground="#333" FontSize="12" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                        <TextBlock x:Name="TextoRepartidor" Text="" Foreground="#333" FontSize="12" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                    </StackPanel>
+                </Border>
+
+
+                <!-- Lista de productos seleccionados -->
+                <ListView Name="ListaPedido" Margin="0 10" Height="400" Background="#f9f9f9">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}"/>
-                            <GridViewColumn Header="Cantidad" DisplayMemberBinding="{Binding Cantidad}"/>
-                            <GridViewColumn Header="Precio" DisplayMemberBinding="{Binding PrecioUnitario}"/>
-                            <GridViewColumn Header="Total" DisplayMemberBinding="{Binding Subtotal}"/>
+                            <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="160"/>
+                            <GridViewColumn Header="Cantidad" DisplayMemberBinding="{Binding Cantidad}" Width="60"/>
+                            <GridViewColumn Header="Precio" DisplayMemberBinding="{Binding PrecioUnitario}" Width="60"/>
+                            <GridViewColumn Header="Total" DisplayMemberBinding="{Binding Subtotal}" Width="60"/>
+                            <GridViewColumn Header="Acciones" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button Content="➖" Width="25" Height="25"
+                                                    Click="RestarCantidad_Click"
+                                                    ToolTip="Quitar uno"
+                                                    Tag="{Binding}" Margin="2"/>
+                                            <Button Content="🗑" Width="25" Height="25"
+                                                    Click="EliminarProducto_Click"
+                                                    ToolTip="Eliminar del pedido"
+                                                    Tag="{Binding}" Margin="2"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
+
                 <TextBlock Name="TextoTotal" Text="Total: $0.00" FontSize="14" FontWeight="Bold" Margin="0,10,0,0" Foreground="#333"/>
-                <StackPanel Orientation="Vertical" Margin="0,20,0,0">
-                    <Button Content="🚚 Pedido a domicilio" 
-                            Click="PedidoDomicilio_Click" 
-                            Height="40" Background="#32d483" Foreground="White" BorderThickness="0" Margin="0 0 0 10"/>
-                    <Button Content="🏠 Pedido en sucursal" 
-                            Click="PedidoSucursal_Click" 
-                            Height="40" Background="#dcdcdc" Foreground="#333" BorderThickness="0"/>
-                </StackPanel>
+
+                <!-- Botones -->
+                <UniformGrid Columns="1" Rows="3" Margin="0,10,0,0" HorizontalAlignment="Stretch">
+                    <Button Content="🧍 Cliente"
+                            Click="PedidoDomicilio_Click"
+                            Height="32" FontSize="13"
+                            Background="#32d483" Foreground="White" BorderThickness="0" Margin="0,0,0,8"/>
+
+                    <Button Content="🛵 Repartidor"
+                            Click="AsignarRepartidor_Click"
+                            Height="32" FontSize="13"
+                            Background="#ffcb05" Foreground="#333" BorderThickness="0" Margin="0,0,0,8"/>
+
+                    <Button x:Name="BtnConfirmarPedido"
+                            Content="✅ Confirmar"
+                            Click="ConfirmarPedido_Click"
+                            Height="32" FontSize="13"
+                            Background="#4caf50" Foreground="White" BorderThickness="0"/>
+                </UniformGrid>
             </StackPanel>
         </Border>
     </Grid>
