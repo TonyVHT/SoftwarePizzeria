@@ -1,8 +1,8 @@
-﻿using ItaliaPizza.Cliente.Platillos.DTOs;
-using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
+﻿using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
 using System;
 using System.IO;
 using System.Net.Http;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,16 +22,12 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             Loaded += async (s, e) => btnBuscar_Click(null, null);
         }
 
-        // Manejador de evento para abrir la ventana AgregarPlatillo y cerrar la ventana actual
         private void AgregarPlatillo_Click(object sender, RoutedEventArgs e)
         {
-            // Crear una nueva instancia de la ventana AgregarPlatillo
             AgregarPlatillo ventanaAgregar = new AgregarPlatillo();
 
-            // Cerrar la ventana actual (BuscarPlatillosScreen) antes de abrir la ventana modal
             this.Close();
 
-            // Abrir la ventana AgregarPlatillo de forma modal
             ventanaAgregar.ShowDialog();
         }
 
@@ -59,14 +55,11 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
 
         private void ModificarPlatillo_Click(object sender, RoutedEventArgs e)
         {
-            // Obtener el platillo asociado al botón "Modificar"
             if (sender is Button btn && btn.DataContext is PlatilloDto platilloSeleccionado)
             {
-                // Crear una instancia de la ventana ModificarPlatillo y pasar el platillo seleccionado
                 ModificarPlatillo ventanaModificarPlatillo = new ModificarPlatillo(platilloSeleccionado);
-                ventanaModificarPlatillo.ShowDialog(); // Mostrar la ventana de forma modal
+                ventanaModificarPlatillo.ShowDialog(); 
 
-                // Opcional: Actualizar la lista de platillos después de modificar
                 btnBuscar_Click(null, null);
             }
         }
@@ -82,12 +75,10 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
 
         private void VerPlatillo_Click(object sender, RoutedEventArgs e)
         {
-            // Obtener el platillo asociado al botón "Ver"
             if (sender is Button btn && btn.DataContext is PlatilloDto platilloSeleccionado)
             {
-                // Crear una instancia de la ventana VerPlatillo y pasar el platillo seleccionado
                 VerPlatillo ventanaVerPlatillo = new VerPlatillo(platilloSeleccionado);
-                ventanaVerPlatillo.ShowDialog(); // Mostrar la ventana de forma modal
+                ventanaVerPlatillo.ShowDialog(); 
             }
         }
 
@@ -95,27 +86,30 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
         {
             try
             {
-                using HttpClient client = new();
-                client.BaseAddress = new Uri("https://localhost:7264");
+                using var client = new HttpClient { BaseAddress = new Uri("https://localhost:7264") };
                 var response = await client.GetAsync("/api/categorias");
 
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    var categorias = System.Text.Json.JsonSerializer.Deserialize<List<CategoriaProductoDto>>(json, new System.Text.Json.JsonSerializerOptions
+                    var categorias = JsonSerializer.Deserialize<List<CategoriaProductoDto>>(json, new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
                     });
 
-                    return categorias?.Where(c => c.TipoDeUso == 1 || c.TipoDeUso == 2).ToList() ?? new();
+                    return categorias?
+                        .Where(c => c.TipoDeUso == TipoDeUso.Platillo
+                                 || c.TipoDeUso == TipoDeUso.Ambos)
+                        .ToList()
+                        ?? new List<CategoriaProductoDto>();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al obtener categorías: {ex.Message}");
+                MessageBox.Show($"Error al obtener categorías: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            return new();
+            return new List<CategoriaProductoDto>();
         }
 
         private async Task CargarCategoriasAsync()
@@ -161,7 +155,6 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 .Take(PlatillosPorPagina)
                 .ToList();
 
-            // Convertir el byte[] de la foto a una imagen visualizable en WPF
             foreach (var platillo in pagina)
             {
                 if (platillo.Foto != null)
@@ -174,7 +167,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                         image.StreamSource = ms;
                         image.EndInit();
                     }
-                    platillo.Imagen = image;  // Asignamos la imagen convertida al platillo
+                    platillo.Imagen = image; 
                 }
             }
 

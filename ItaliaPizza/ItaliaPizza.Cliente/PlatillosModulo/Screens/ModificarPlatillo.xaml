@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Platillos.Screens"
         mc:Ignorable="d" 
-        Title="Modificar Platillo" Height="703" Width="800"
+        Title="Modificar Platillo" Height="989" Width="847"
         WindowStartupLocation="CenterScreen"
         Background="#f9f9f9">
 
@@ -57,7 +57,15 @@
 
                     <!-- Categoría -->
                     <TextBlock Text="Categoría:" Margin="10" Grid.Row="3" Grid.Column="0" Foreground="#333" FontWeight="Bold" FontSize="18"/>
-                    <ComboBox Name="cmbCategoria" Margin="10" Grid.Row="3" Grid.Column="1" Height="35" FontSize="16"/>
+                    <ComboBox
+                        x:Name="cmbCategoria"
+                        DisplayMemberPath="Nombre"
+                        SelectedValuePath="Id"
+                        Margin="10"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Height="35"
+                        FontSize="16" />        
 
                     <!-- Disponibilidad -->
                     <TextBlock Text="Disponibilidad del platillo:" Margin="10" Grid.Row="4" Grid.Column="0" Foreground="#333" FontWeight="Bold" FontSize="18"/>
@@ -75,7 +83,7 @@
                     <!-- Botones -->
                     <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,30,0,0">
                         <Button Content="Guardar Cambios" Width="180" Margin="15" Background="#32d483" Foreground="White" BorderThickness="0" Height="50" FontWeight="Bold" FontSize="16" Click="btnGuardarCambios_Click"/>
-                        <Button Content="Modificar Receta" Width="180" Margin="15" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="50" FontWeight="Bold" FontSize="16" Click="btnModificarReceta_Click"/>
+                        <Button Content="Receta" Width="180" Margin="15" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="50" FontWeight="Bold" FontSize="16" Click="btnReceta_Click"/>
                         <Button Content="Cancelar" Width="180" Margin="15" Background="#f5f5f5" Foreground="#333" BorderThickness="0" Height="50" FontWeight="Bold" FontSize="16" Click="btnCancelar_Click"/>
                     </StackPanel>
                 </Grid>

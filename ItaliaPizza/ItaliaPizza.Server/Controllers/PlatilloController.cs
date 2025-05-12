@@ -15,7 +15,6 @@ namespace ItaliaPizza.Server.Controllers
             _platilloService = platilloService;
         }
 
-        // GET para obtener los platillos
         [HttpGet]
         public async Task<ActionResult<List<PlatilloDto>>> GetPlatillos([FromQuery] int? categoriaId)
         {
@@ -23,25 +22,23 @@ namespace ItaliaPizza.Server.Controllers
             return Ok(platillos);
         }
 
-        // POST para crear un platillo
         [HttpPost]
         public async Task<ActionResult> CrearPlatillo([FromBody] PlatilloDto platilloDto)
         {
             try
             {
-                // Llamada al servicio para crear el platillo
                 var resultado = await _platilloService.CrearPlatilloAsync(platilloDto);
 
                 if (resultado)
                 {
-                    return CreatedAtAction(nameof(GetPlatillos), new { id = platilloDto.Id }, platilloDto);  // 201 Created
+                    return CreatedAtAction(nameof(GetPlatillos), new { id = platilloDto.Id }, platilloDto);  
                 }
 
-                return BadRequest("Error al crear el platillo.");  // 400 BadRequest
+                return BadRequest("Error al crear el platillo.");  
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");  // 500 InternalServerError
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");  
             }
         }
         [HttpPut("{id}")]
@@ -49,7 +46,7 @@ namespace ItaliaPizza.Server.Controllers
         {
             try
             {
-                platilloDto.Id = id; // Asignar el id del platillo para asegurarse de que se actualiza el platillo correcto
+                platilloDto.Id = id; 
                 var resultado = await _platilloService.ActualizarPlatilloAsync(platilloDto);
 
                 if (resultado)
@@ -66,6 +63,7 @@ namespace ItaliaPizza.Server.Controllers
                 return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
         }
+
 
     }
 }

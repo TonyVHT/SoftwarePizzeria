@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
 using System.IO;
-using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
 using System.Net.Http.Json;
-using ItaliaPizza.Cliente.Platillos.DTOs;
+using ItaliaPizza.Cliente.PlatillosModulo.Screens;
+using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
 
 namespace ItaliaPizza.Cliente.Platillos.Screens
 {
@@ -26,29 +26,15 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
 
         private async Task<List<CategoriaProductoDto>> ObtenerCategoriasAsync()
         {
-            try
-            {
-                using HttpClient client = new();
-                client.BaseAddress = new Uri("https://localhost:7264");
-                var response = await client.GetAsync("/api/categorias");
+            using var client = new HttpClient { BaseAddress = new Uri("https://localhost:7264") };
+            var todas = await client.GetFromJsonAsync<List<CategoriaProductoDto>>("/api/categorias",
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
+                ?? new List<CategoriaProductoDto>();
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var json = await response.Content.ReadAsStringAsync();
-                    var categorias = JsonSerializer.Deserialize<List<CategoriaProductoDto>>(json, new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
-
-                    return categorias?.Where(c => c.TipoDeUso == 1 || c.TipoDeUso == 2).ToList() ?? new();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al obtener categorías: {ex.Message}");
-            }
-
-            return new();
+            return todas
+                .Where(c => c.TipoDeUso == TipoDeUso.Platillo
+                         || c.TipoDeUso == TipoDeUso.Ambos)
+                .ToList();
         }
 
         private async Task CargarCategoriasAsync()
@@ -121,7 +107,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 Nombre = txtNombre.Text,
                 Precio = decimal.Parse(txtPrecio.Text),
                 Descripcion = txtDescripcion.Text,
-                CodigoPlatillo = GenerarCodigoPlatillo(), // ✅ Generar código único
+                CodigoPlatillo = GenerarCodigoPlatillo(), 
                 CategoriaId = categoriaSeleccionada.Id,
                 CategoriaNombre = categoriaSeleccionada.Nombre,
                 Estatus = cmbDisponibilidad.SelectedIndex == 0,
@@ -146,6 +132,11 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Platillo guardado exitosamente.");
+
+                    BuscarPlatillosScreen ventanaBuscar = new BuscarPlatillosScreen();
+                    ventanaBuscar.Show();
+
+                    this.Close();
                 }
                 else
                 {
@@ -158,7 +149,6 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 MessageBox.Show($"Error al conectar con el servidor: {ex.Message}");
             }
         }
-
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             new BuscarPlatillosScreen().Show();

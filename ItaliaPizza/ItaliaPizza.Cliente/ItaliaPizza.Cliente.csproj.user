@@ -2,10 +2,22 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="PlatillosModulo\Screens\AgregarCategoria.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlatillosModulo\Screens\ModificarCategoria.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlatillosModulo\Screens\Receta.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PlatillosModulo\Screens\ModificarPlatillo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PlatillosModulo\Screens\VerPlatillo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlatillosModulo\Screens\VerReceta.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Admin\AddUser.xaml.cs">

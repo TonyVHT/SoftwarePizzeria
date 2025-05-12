@@ -50,7 +50,6 @@ namespace ItaliaPizza.Server.Services.Implementations
             }
             catch (Exception ex)
             {
-                // Aquí puedes hacer un log detallado o simplemente devolver el error
                 throw new Exception($"Error al crear el platillo: {ex.Message}");
             }
         }
@@ -63,22 +62,26 @@ namespace ItaliaPizza.Server.Services.Implementations
             if (categoriaId.HasValue)
                 platillos = await _platilloRepository.GetPlatillosPorCategoriaAsync(categoriaId.Value);
             else
-                platillos = await _platilloRepository.GetPlatillosActivosAsync();
+                platillos = await _platilloRepository.GetAllAsync(); 
 
-            return platillos.Select(p => new PlatilloDto
-            {
-                Id = p.Id,
-                Nombre = p.Nombre,
-                CodigoPlatillo = p.CodigoPlatillo,
-                Descripcion = p.Descripcion,
-                Precio = p.Precio,
-                Foto = p.Foto,
-                Restriccion = p.Restriccion,
-                Estatus = p.Estatus,
-                Instrucciones = p.Instrucciones,
-                CategoriaNombre = p.Categoria?.Nombre ?? string.Empty
-            }).ToList();
+            return platillos
+                .Select(p => new PlatilloDto
+                {
+                    Id = p.Id,
+                    Nombre = p.Nombre,
+                    CodigoPlatillo = p.CodigoPlatillo,
+                    Descripcion = p.Descripcion,
+                    Precio = p.Precio,
+                    Foto = p.Foto,
+                    Restriccion = p.Restriccion,
+                    Estatus = p.Estatus,
+                    Instrucciones = p.Instrucciones,
+                    CategoriaNombre = p.Categoria?.Nombre ?? string.Empty,  
+                    CategoriaId = p.CategoriaId
+                })
+                .ToList();
         }
+
         public async Task<bool> ActualizarPlatilloAsync(PlatilloDto dto)
         {
             try

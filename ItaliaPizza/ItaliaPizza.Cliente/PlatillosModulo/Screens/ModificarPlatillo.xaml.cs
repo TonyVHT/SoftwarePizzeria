@@ -1,14 +1,17 @@
-﻿using ItaliaPizza.Cliente.Platillos.DTOs;
+﻿
 using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
+using ItaliaPizza.Cliente.PlatillosModulo.Screens;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace ItaliaPizza.Cliente.Platillos.Screens
@@ -24,54 +27,52 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
         {
             InitializeComponent();
 
-            // Guardar el platillo recibido
             _platillo = platillo;
 
-            // Cargar las categorías desde el servidor
-            _ = CargarCategoriasAsync();
+            Loaded += ModificarPlatillo_Loaded;
+
+        }
+
+        private async void ModificarPlatillo_Loaded(object sender, RoutedEventArgs e)
+        {
+            var categorias = await ObtenerCategoriasAsync();
+            categorias.Insert(0, new CategoriaProductoDto { Id = -1, Nombre = "Seleccionar categoría", TipoDeUso = TipoDeUso.Platillo, Estatus = true });
+
+            cmbCategoria.ItemsSource = categorias;
+            cmbCategoria.DisplayMemberPath = "Nombre";
+            cmbCategoria.SelectedValuePath = "Id";
+
+            cmbCategoria.SelectedIndex = 0;
+
+            txtNombre.Text = _platillo.Nombre;
+            txtDescripcion.Text = _platillo.Descripcion;
+            txtPrecio.Text = _platillo.Precio.ToString("F2");
+
             CargarDisponibilidad();
+            cmbDisponibilidad.SelectedIndex = _platillo.Estatus ? 0 : 1;
 
-
-            // Asignar los valores del platillo a los controles en la ventana
-            txtNombre.Text = platillo.Nombre;
-            txtDescripcion.Text = platillo.Descripcion;
-            txtPrecio.Text = platillo.Precio.ToString("F2"); // Mostrar el precio con dos decimales
-            cmbDisponibilidad.SelectedIndex = platillo.Estatus ? 0 : 1; // Seleccionar "Disponible" o "No disponible"
-
-            // Mostrar la imagen del platillo
-            if (platillo.Foto != null)
+            if (_platillo.Foto?.Length > 0)
             {
                 var image = new BitmapImage();
-                using (var ms = new MemoryStream(platillo.Foto))
-                {
-                    image.BeginInit();
-                    image.CacheOption = BitmapCacheOption.OnLoad;
-                    image.StreamSource = ms;
-                    image.EndInit();
-                }
+                using var ms = new MemoryStream(_platillo.Foto);
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.StreamSource = ms;
+                image.EndInit();
                 imgPlatillo.Source = image;
             }
         }
 
+
         private void CargarDisponibilidad()
         {
-            // Configurar las opciones de disponibilidad
-            var disponibilidad = new List<string>
-            {
-                "Disponible",
-                "No disponible"
-            };
-
-            cmbDisponibilidad.ItemsSource = disponibilidad;
-
-            // Seleccionar la opción actual del platillo
-            cmbDisponibilidad.SelectedItem = _platillo.Estatus ? "Disponible" : "No disponible";
+            cmbDisponibilidad.ItemsSource = new List<string> { "Disponible", "No disponible" };
         }
 
-        // Add this method to the code-behind file (ModificarPlatillo.xaml.cs)
+
+
         private void btnModificarReceta_Click(object sender, RoutedEventArgs e)
         {
-            // Add your logic for modifying the recipe here
             MessageBox.Show("Modificar Receta button clicked!");
         }
 
@@ -79,44 +80,25 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
         {
             try
             {
-                using HttpClient client = new();
-                client.BaseAddress = new Uri("https://localhost:7264");
-                var response = await client.GetAsync("/api/categorias");
+                using var client = new HttpClient { BaseAddress = new Uri("https://localhost:7264") };
+                var resp = await client.GetAsync("/api/categorias");
+                resp.EnsureSuccessStatusCode();
 
-                if (response.IsSuccessStatusCode)
+                var categorias = await resp.Content.ReadFromJsonAsync<List<CategoriaProductoDto>>(new JsonSerializerOptions
                 {
-                    var json = await response.Content.ReadAsStringAsync();
-                    var categorias = JsonSerializer.Deserialize<List<CategoriaProductoDto>>(json, new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
+                    PropertyNameCaseInsensitive = true
+                }) ?? new List<CategoriaProductoDto>();
 
-                    return categorias?.Where(c => c.TipoDeUso == 1 || c.TipoDeUso == 2).ToList() ?? new();
-                }
+                return categorias
+                    .Where(c => c.TipoDeUso == TipoDeUso.Platillo || c.TipoDeUso == TipoDeUso.Ambos)
+                    .ToList();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show($"Error al obtener categorías: {ex.Message}");
+                return new List<CategoriaProductoDto>();
             }
-
-            return new();
         }
 
-        private async Task CargarCategoriasAsync()
-        {
-            var categorias = await ObtenerCategoriasAsync();
-            categorias.Insert(0, new CategoriaProductoDto { Id = -1, Nombre = "Seleccionar categoría" });
-
-            cmbCategoria.ItemsSource = categorias;
-            cmbCategoria.DisplayMemberPath = "Nombre";
-            cmbCategoria.SelectedValuePath = "Id";
-
-            // Seleccionar la categoría actual del platillo
-            var categoriaSeleccionada = categorias.FirstOrDefault(c => c.Nombre == _platillo.CategoriaNombre);
-            cmbCategoria.SelectedItem = categoriaSeleccionada;
-        }
-
-        // Manejador para el botón "Seleccionar Imagen"
         private void SeleccionarImagen_Click(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new Microsoft.Win32.OpenFileDialog
@@ -147,7 +129,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 var platilloActualizado = new PlatilloDto
                 {
                     Id = _platillo.Id,
-                    CodigoPlatillo = _platillo.CodigoPlatillo, // ✅ Se conserva el código original
+                    CodigoPlatillo = _platillo.CodigoPlatillo, 
                     Nombre = txtNombre.Text,
                     Descripcion = txtDescripcion.Text,
                     Precio = decimal.Parse(txtPrecio.Text),
@@ -183,10 +165,8 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             }
         }
 
-        // Manejador para el botón "Guardar Cambios"
         private async void btnGuardarCambios_Click(object sender, RoutedEventArgs e)
         {
-            // Validar los campos antes de guardar
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
                 MessageBox.Show("Por favor, ingrese el nombre del platillo.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -213,7 +193,6 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
 
             var categoriaSeleccionada = (CategoriaProductoDto)cmbCategoria.SelectedItem;
 
-            // Ya tienes esta parte bien:
             _platillo.Nombre = txtNombre.Text;
             _platillo.Descripcion = txtDescripcion.Text;
             _platillo.Precio = precio;
@@ -223,17 +202,32 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
 
             if (string.IsNullOrWhiteSpace(_platillo.CodigoPlatillo))
             {
-                _platillo.CodigoPlatillo = "PLT-" + new Random().Next(1000, 9999); // Solo si no lo tiene
+                _platillo.CodigoPlatillo = "PLT-" + new Random().Next(1000, 9999); 
             }
 
 
             await GuardarPlatilloAsync();
         }
 
-        // Manejador para el botón "Cancelar"
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        private void btnReceta_Click(object sender, RoutedEventArgs e)
+        {
+            if (_platillo != null)
+            {
+                Receta ventanaAgregarReceta = new Receta(_platillo);
+
+                ventanaAgregarReceta.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado un platillo.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+
     }
 }

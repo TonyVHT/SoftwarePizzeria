@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ItaliaPizza.Cliente.Platillos.DTOs
+namespace ItaliaPizza.Cliente.PlatillosModulo.DTOs
 {
     public class PlatilloDto
     {
