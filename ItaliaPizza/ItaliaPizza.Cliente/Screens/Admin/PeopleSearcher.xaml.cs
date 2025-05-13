@@ -1,4 +1,5 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
 using System;
@@ -36,12 +37,15 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             {
                 case "administrador":
                     MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Usuarios");
                     break;
-                case "mesero":
-                    MenuLateral.Content = new UCWaiter();
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Usuarios");
                     break;
                 case "cocinero":
                     MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Usuarios");
                     break;
                 default:
                     MessageBox.Show("Rol no reconocido");
@@ -50,6 +54,11 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             }
         }
 
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
+        }
         private async void BtnBuscar_Click(object sender, RoutedEventArgs e)
         {
             var textoBusqueda = txtBusqueda.Text.Trim();

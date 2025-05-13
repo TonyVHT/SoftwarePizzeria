@@ -37,28 +37,28 @@
 
                             <StackPanel Grid.Column="0" Margin="0,0,20,0">
                                 <TextBlock Text="Nombre:"/>
-                                <TextBox x:Name="txtNombre" Margin="0,5,0,15" Height="30"/>
+                                <TextBox x:Name="txtNombre" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
 
                                 <TextBlock Text="Categoría:"/>
-                                <ComboBox x:Name="cmbCategoria" Margin="0,5,0,15" Height="30"
+                                <ComboBox x:Name="cmbCategoria" Margin="0,5,0,15" Height="30" Style="{StaticResource comboBoxStyle}"
                                       DisplayMemberPath="Nombre" SelectedValuePath="Id" />
 
                                 <TextBlock Text="Unidad de Medida:"/>
-                                <TextBox x:Name="txtUnidadMedida" Margin="0,5,0,15" Height="30"/>
+                                <TextBox x:Name="txtUnidadMedida" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1">
                                 <TextBlock Text="Cantidad Actual:"/>
-                                <TextBox x:Name="txtCantidadActual" Margin="0,5,0,15" Height="30"/>
+                                <TextBox x:Name="txtCantidadActual" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
 
                                 <TextBlock Text="Cantidad Mínima:"/>
-                                <TextBox x:Name="txtCantidadMinima" Margin="0,5,0,15" Height="30"/>
+                                <TextBox x:Name="txtCantidadMinima" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
 
                                 <TextBlock Text="Precio:"/>
-                                <TextBox x:Name="txtPrecio" Margin="0,5,0,15" Height="30"/>
+                                <TextBox x:Name="txtPrecio" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
 
                                 <TextBlock Text="Observaciones:"/>
-                                <TextBox x:Name="txtObservaciones" Margin="0,5,0,15" Height="60" AcceptsReturn="True" TextWrapping="Wrap"/>
+                                <TextBox x:Name="txtObservaciones" Margin="0,5,0,15" Height="60" AcceptsReturn="True" TextWrapping="Wrap" Style="{StaticResource textboxStyle}"/>
 
                                 <StackPanel Orientation="Horizontal" Margin="0,5,0,15">
                                     <CheckBox x:Name="chkEstatus" IsChecked="False" Margin="0,0,15,0" Content="Activo"/>
@@ -71,12 +71,11 @@
                             Grid.Row="2"
                             HorizontalAlignment="Right"
                             Width="140"
-                            Height="40"
+                            Height="30"
                             Margin="0,20,0,0"
                             FontWeight="Bold"
                             FontSize="14"
-                            Foreground="White"
-                            Background="#24A148"
+                            Style="{StaticResource buttonsStyle}"
                             BorderThickness="0"
                             Cursor="Hand"
                             Click="BtnRegistrar_Click"/>

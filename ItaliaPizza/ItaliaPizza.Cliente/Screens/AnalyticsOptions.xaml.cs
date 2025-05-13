@@ -1,5 +1,5 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
-using ItaliaPizza.Cliente.Screens.Admin;
+using ItaliaPizza.Cliente.Screens.Manager;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
 using System;
@@ -19,11 +19,11 @@ using System.Windows.Shapes;
 namespace ItaliaPizza.Cliente.Screens
 {
     /// <summary>
-    /// Lógica de interacción para UserOptions.xaml
+    /// Lógica de interacción para AnalyticsOptions.xaml
     /// </summary>
-    public partial class UserOptions : Window
+    public partial class AnalyticsOptions : Window
     {
-        public UserOptions()
+        public AnalyticsOptions()
         {
             InitializeComponent();
             string rol = UserSessionManager.Instance.GetRol()?.ToLower();
@@ -32,13 +32,13 @@ namespace ItaliaPizza.Cliente.Screens
             {
                 case "administrador":
                     MenuLateral.Content = new UCAdmin();
-                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Usuarios");
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Estadísticas");
                     break;
                 case "gerente":
                     MenuLateral.Content = new UCManager();
-                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Usuarios");
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Estadísticas");
                     break;
-                
+
                 default:
                     MessageBox.Show("Rol no reconocido");
                     Close();
@@ -47,15 +47,12 @@ namespace ItaliaPizza.Cliente.Screens
 
             if (rol == "administrador")
             {
-                AgregarBoton("Agregar Usuarios", AbrirAgregarUsuario);
-                AgregarBoton("Consultar y Modificar Usuarios", AbrirModificarUsuario);
+                AgregarBoton("Agregar Usuarios", AbrirBalanceDiario);
             }
             else if (rol == "gerente")
             {
-                AgregarBoton("Agregar Usuarios", AbrirAgregarUsuario);
-                AgregarBoton("Consultar y Modificar Usuarios", AbrirModificarUsuario);
+                AgregarBoton("Agregar Usuarios", AbrirBalanceDiario);
             }
-            
         }
 
         private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
@@ -64,34 +61,12 @@ namespace ItaliaPizza.Cliente.Screens
             ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
         }
 
-        private void AbrirModificarUsuario(object sender, RoutedEventArgs e)
-        {
-            var modificarUsuario = new UserSearch();
-            modificarUsuario.Show();
-            Close();
-        }
-
-        private void AbrirAgregarUsuario(object sender, RoutedEventArgs e)
-        {
-            var agregarUsuario = new AddUser();
-            agregarUsuario.Show();
-            Close();
-        }
-
-        private void AbrirConsultarUsuario(object sender, RoutedEventArgs e)
-        {
-            var consultarUsuario = new PeopleSearcher();
-            consultarUsuario.Show();
-            Close();
-        }
-
-
         private void AgregarBoton(string texto, RoutedEventHandler accion)
         {
             Button btn = new Button
             {
                 Content = texto,
-                Margin = new Thickness(10, 5,0,0),  // Márgenes para separación
+                Margin = new Thickness(10, 5, 0, 0),  // Márgenes para separación
                 Padding = new Thickness(10),
                 Height = 50,
                 FontSize = 16,
@@ -104,5 +79,11 @@ namespace ItaliaPizza.Cliente.Screens
             BotonesWrapPanel.Children.Add(btn); // Agregar los botones al WrapPanel
         }
 
+        private void AbrirBalanceDiario(object sender, RoutedEventArgs e)
+        {
+            var balanceDiario = new FinancesReporter();
+            balanceDiario.Show();
+            Close();
+        }
     }
 }

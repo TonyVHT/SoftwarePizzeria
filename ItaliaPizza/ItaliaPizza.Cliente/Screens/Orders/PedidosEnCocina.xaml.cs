@@ -1,4 +1,7 @@
-﻿using ItaliaPizza.Cliente.Screens.Orders;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Screens.Orders;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,7 +23,34 @@ namespace ItaliaPizza.Cliente.Screens.Orders
         {
             InitializeComponent();
             PedidosItemsControl.ItemsSource = Pedidos;
-            _ = CargarPedidosAsync(); 
+            _ = CargarPedidosAsync();
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+
+            switch (rol)
+            {
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Pedidos");
+                    break;
+
+               
+                default:
+                    MessageBox.Show("Rol no reconocido");
+                    Close();
+                    return;
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            var opcionesPedidos = new OrderOptiones();
+            opcionesPedidos.Show();
+            this.Close();
+        }
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
         }
 
         private async Task CargarPedidosAsync()

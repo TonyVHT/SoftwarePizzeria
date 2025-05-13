@@ -38,7 +38,7 @@
                 <Button x:Name="buttonCustomers" Style="{StaticResource buttonMenus}" Content="👥 Clientes" Click="GoToCustomerOptions"/>
                 <Button x:Name="buttonProductos" Style="{StaticResource buttonMenus}" Content="Productos" Click="GoToProductsOptions"/>
                 <Button x:Name="buttonProveedores" Style="{StaticResource buttonMenus}" Content="Proveedores" Click="GoToProviderOptions"/>
-                <Button x:Name="buttonAnalytics" Style="{StaticResource buttonMenus}" Content="📊 Estadisticas"/>
+                <Button x:Name="buttonAnalytics" Style="{StaticResource buttonMenus}" Content="📊 Estadísticas" Click="GoToAnalyticsOptions"/>
                 <Button x:Name="buttonSettings" Style="{StaticResource buttonMenus}" Content="⚙ Cerrar Sesión" Click="buttonSettings_Click"/>
 
             </StackPanel>

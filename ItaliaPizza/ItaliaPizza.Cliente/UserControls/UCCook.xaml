@@ -31,7 +31,7 @@
                 <Button x:Name="buttonInicio" Style="{StaticResource buttonMenus}" Content="🏠 Inicio" Margin="0,10,0,0" Click="GoToHomePage"/>
                 <!--<Button x:Name="buttonOrders" Style="{StaticResource buttonMenus}" Content="🧾 Pedidos"/>-->
                 <Button x:Name="buttonMenu" Style="{StaticResource buttonMenus}" Content="🍕 Platillos" Click="GoToRecipeOptions"/>
-                <Button x:Name="buttonCustomers" Style="{StaticResource buttonMenus}" Content="👥 Productos" Click="GoToProductsOptions"/>
+                <Button x:Name="buttonProducts" Style="{StaticResource buttonMenus}" Content="👥 Productos" Click="GoToProductsOptions"/>
                 <Button x:Name="buttonSettings" Style="{StaticResource buttonMenus}" Content="⚙ Cerrar Sesión" Click="buttonSettings_Click"/>
 
             </StackPanel>

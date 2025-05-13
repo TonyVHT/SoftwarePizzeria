@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Screens.Orders;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
 using System;
@@ -64,21 +65,22 @@ namespace ItaliaPizza.Cliente.Screens
             }
             else if (rol == "cajero")
             {
-                AgregarBoton("Registrar pedido", AbrirRegistrarPedido);
+                AgregarBoton("Registrar pedido en local", AbrirRegistrarPedido);
+                AgregarBoton("Registrar pedido a domicilio", AbrirRegistrarPedidoDomicilio);
                 AgregarBoton("Consultar y Modificar Pedido", AbrirConsultarPedido);
             }
             else if (rol == "mesero")
             {
-                AgregarBoton("Registrar pedido", AbrirRegistrarPedido);
-                AgregarBoton("Consultar y Modificar Pedido", AbrirConsultarPedido);
+                AgregarBoton("Registrar pedido en local", AbrirRegistrarPedido);
+                AgregarBoton("Consultar pedido", AbrirConsultarPedido);
             }
             else if (rol == "repartidor")
             {
-                AgregarBoton("Consultar y Modificar Pedido", AbrirConsultarPedido);
+                AgregarBoton("Consultar pedido", AbrirConsultarPedido);
             }
             else if (rol == "jefe de cocina")
             {
-                AgregarBoton("Consultar y Modificar Pedido", AbrirConsultarPedido);
+                AgregarBoton("Consultar y Modificar Pedido", AbrirConsultarPedidoCocina);
             }
 
 
@@ -91,9 +93,23 @@ namespace ItaliaPizza.Cliente.Screens
             Window.GetWindow(this)?.Close();
         }
 
+        private void AbrirRegistrarPedidoDomicilio(object sender, RoutedEventArgs e)
+        {
+            var registrarPedidoDomicilio = new RegisterOrder();
+            registrarPedidoDomicilio.Show();
+            Window.GetWindow(this)?.Close();
+        }
+
+        private void AbrirConsultarPedidoCocina(object sender, RoutedEventArgs e)
+        {
+            var consultarPedidoCocina = new PedidosEnCocina();
+            consultarPedidoCocina.Show();
+            Window.GetWindow(this)?.Close();
+        }
+
         private void AbrirConsultarPedido(object sender, RoutedEventArgs e)
         {
-            var consultarPedido = new RegisterOrder();
+            var consultarPedido = new ConsultarPedidos();
             consultarPedido.Show();
             Window.GetWindow(this)?.Close();
         }

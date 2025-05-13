@@ -26,11 +26,15 @@ FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\EditPro
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Manager\FinancesReporter.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Manager\HomePageManager.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Manager\LogOutManager.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\OrderClient\AddressSelector.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\OrderClient\ClientSearchOrder.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\OrderOptiones.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\ProviderOptions.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RecipeOptions.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterHomeDeliveryOrder.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterOrder.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterOrderToProvider.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterProduct.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\RegisterProvider.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\UserOptions.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\Waiter\HomePageWaiter.xaml;;
@@ -41,4 +45,5 @@ FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UC
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCDelivery.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCKitchenManager.xaml;;
 FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\UserControls\UCWaiter.xaml;;
+FC:\Users\marla\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\Screens\AnalyticsOptions.xaml;;
 

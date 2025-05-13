@@ -176,6 +176,32 @@
   },
   {
     "ContainingType": "ItaliaPizza.Server.Controllers.DireccionClienteController",
+    "Method": "GetDireccionesPorCliente",
+    "RelativePath": "api/DireccionCliente/cliente/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ItaliaPizza.Server.DTOs.DireccionClienteDTO, ItaliaPizza.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.DireccionClienteController",
     "Method": "GetDireccionPrincipal",
     "RelativePath": "api/DireccionCliente/principal/{clienteId}",
     "HttpMethod": "GET",
@@ -396,8 +422,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "merma",
-        "Type": "ItaliaPizza.Server.Domain.Merma",
+        "Name": "mermaDto",
+        "Type": "ItaliaPizza.Server.Dto.MermaDto",
         "IsRequired": true
       }
     ],
@@ -421,6 +447,32 @@
   },
   {
     "ContainingType": "ItaliaPizza.Server.Controllers.PedidoController",
+    "Method": "ObtenerPedidosDomicilio",
+    "RelativePath": "api/Pedido/domicilio/consulta",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.PedidoController",
+    "Method": "CambiarEstado",
+    "RelativePath": "api/Pedido/estado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ItaliaPizza.Server.Dto.CambiarEstadoPedidoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.PedidoController",
     "Method": "RegistrarPedidoLocal",
     "RelativePath": "api/Pedido/local",
     "HttpMethod": "POST",
@@ -437,8 +489,28 @@
   },
   {
     "ContainingType": "ItaliaPizza.Server.Controllers.PedidoController",
+    "Method": "ObtenerPedidosLocal",
+    "RelativePath": "api/Pedido/local/consulta",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.PedidoController",
     "Method": "Ping",
     "RelativePath": "api/Pedido/ping",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.PedidoController",
+    "Method": "ObtenerPedidosPorRepartidor",
+    "RelativePath": "api/Pedido/repartidor/consulta",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -473,36 +545,6 @@
   },
   {
     "ContainingType": "ItaliaPizza.Server.Controllers.ProductoController",
-    "Method": "ObtenerTodos",
-    "RelativePath": "api/Producto",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ItaliaPizza.Server.Controllers.ProductoController",
-    "Method": "ObtenerProductos",
-    "RelativePath": "api/Producto",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ItaliaPizza.Server.Domain.Producto, ItaliaPizza.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ItaliaPizza.Server.Controllers.ProductoController",
     "Method": "ActualizarProducto",
     "RelativePath": "api/Producto/{id}",
     "HttpMethod": "PUT",
@@ -521,6 +563,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.ProductoController",
+    "Method": "ObtenerProductos",
+    "RelativePath": "api/Producto/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ItaliaPizza.Server.Domain.Producto, ItaliaPizza.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ItaliaPizza.Server.Controllers.ProductoController",
@@ -572,6 +634,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.ProductoController",
+    "Method": "ObtenerTodos",
+    "RelativePath": "api/Producto/withCategoria",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -771,6 +843,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.UsuarioController",
+    "Method": "GetRepartidores",
+    "RelativePath": "api/Usuario/repartidores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

@@ -6,62 +6,60 @@
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Cashier"
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
         mc:Ignorable="d"
-        Title="Añadir Nueva Dirección" Height="650" Width="950"
-        FocusManager.FocusedElement="{Binding ElementName=txtDireccion}"> <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>     <RowDefinition Height="*"/>       <RowDefinition Height="Auto"/>     </Grid.RowDefinitions>
+        Title="AddAddress" Height="600" Width="950">
+    <Grid>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-            <Button Content="Cancelar" Click="BtnCancelar_Click"
-                    Width="100" Height="30" Margin="10"
-                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                    Grid.Row="0" Style="{StaticResource buttonsStyle}"/>
+                <Button Content="Cancelar" Click="BtnCancelar_Click"
+        Width="100" Height="30" Margin="10"
+        HorizontalAlignment="Left" VerticalAlignment="Top"
+        Style="{StaticResource buttonsStyle}"/>
 
-            <Border Grid.Row="1" Background="White" CornerRadius="15" Padding="20" Margin="20,10,20,10">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Border Grid.Row="1" Background="White" CornerRadius="15" Padding="20" Margin="20">
                     <StackPanel>
-                        <TextBlock Text="Nueva Dirección" FontSize="20" FontWeight="Bold" Foreground="#199D54" Margin="0,0,0,20"/>
+                        <TextBlock Text="Nueva Dirección" FontSize="20" FontWeight="Bold" Foreground="#199D54" Margin="0,0,0,15"/>
 
                         <Label Content="Dirección:"/>
-                        <TextBox x:Name="txtDireccion" Height="30" Style="{StaticResource textboxStyle}"
-                                 Text="{Binding Direccion, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True}"/>
-                        <TextBlock Foreground="Red" Margin="0,2,0,5" FontSize="11"
-                                   Text="{Binding Path=(Validation.Errors)/ErrorContent, ElementName=txtDireccion}"/>
+                        <TextBox x:Name="txtDireccion" Height="30" Style="{StaticResource textboxStyle}"/>
+                        <TextBlock x:Name="txtDireccionError" Foreground="Red" Margin="0,2"/>
 
                         <Label Content="Código Postal:"/>
-                        <TextBox x:Name="txtCodigoPostal" Height="30" Style="{StaticResource textboxStyle}"
-                                 Text="{Binding CodigoPostal, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True}"/>
-                        <TextBlock Foreground="Red" Margin="0,2,0,5" FontSize="11"
-                                   Text="{Binding Path=(Validation.Errors)/ErrorContent, ElementName=txtCodigoPostal}"/>
+                        <TextBox x:Name="txtCodigoPostal" Height="30" Style="{StaticResource textboxStyle}"/>
+                        <TextBlock x:Name="txtCodigoPostalError" Foreground="Red" Margin="0,2"/>
 
                         <Label Content="Ciudad:"/>
-                        <TextBox x:Name="txtCiudad" Height="30" Style="{StaticResource textboxStyle}"
-                                 Text="{Binding Ciudad, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True}"/>
-                        <TextBlock Foreground="Red" Margin="0,2,0,5" FontSize="11"
-                                   Text="{Binding Path=(Validation.Errors)/ErrorContent, ElementName=txtCiudad}"/>
+                        <TextBox x:Name="txtCiudad" Height="30" Style="{StaticResource textboxStyle}"/>
+                        <TextBlock x:Name="txtCiudadError" Foreground="Red" Margin="0,2"/>
 
                         <Label Content="Referencias:"/>
-                        <TextBox x:Name="txtReferencias" Height="30" Style="{StaticResource textboxStyle}"
-                                 Text="{Binding Referencias, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True}"/>
-                        <TextBlock Foreground="Red" Margin="0,2,0,5" FontSize="11"
-                                   Text="{Binding Path=(Validation.Errors)/ErrorContent, ElementName=txtReferencias}"/>
-                        
-                        <CheckBox x:Name="chkEsPrincipal" Content="¿Es dirección principal?" Margin="0,15,0,0"
-                                  IsChecked="{Binding EsPrincipal}"/>
-                    </StackPanel>
-                </ScrollViewer>
-            </Border>
+                        <TextBox x:Name="txtReferencias" Height="30" Style="{StaticResource textboxStyle}"/>
+                        <TextBlock x:Name="txtReferenciasError" Foreground="Red" Margin="0,2"/>
+                        <CheckBox x:Name="chkEsPrincipal" Content="¿Es dirección principal?" Margin="0,10,0,0"/>
 
-            <Button Content="Guardar" Grid.Row="2" Click="BtnGuardar_Click"
-                    Width="120" Height="40" Margin="0,10,20,10"
-                    HorizontalAlignment="Right" VerticalAlignment="Center"
-                    Style="{StaticResource buttonsStyle}">
-                </Button>
+
+                    </StackPanel>
+                </Border>
+
+                <Button Content="Guardar" Grid.Row="2" Click="BtnGuardar_Click"
+        Width="120" Height="40" Margin="0,10"
+        HorizontalAlignment="Right" VerticalAlignment="Bottom"
+        Style="{StaticResource buttonsStyle}"/>
+            </Grid>
+
         </Grid>
+
+
     </Grid>
 </Window>

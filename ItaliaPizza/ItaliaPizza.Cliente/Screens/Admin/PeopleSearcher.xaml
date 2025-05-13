@@ -34,12 +34,12 @@
                     <Button x:Name="buttonCancelar" Content="Cancelar" Style="{StaticResource cancelbuttonsStyle}" Margin="0,0,10,0" Click="Btn_Cancelar"/>
 
                     <!-- TextBox con Placeholder -->
-                    <Grid Width="250">
+                    <Grid Width="260">
                         <TextBox x:Name="txtBusqueda" Width="250" Style="{StaticResource textboxStyle}" />
                         <TextBlock Text="Buscar por nombre o usuario"
                                    Foreground="Gray"
                                    IsHitTestVisible="False"
-                                   Margin="5,0,0,0"
+                                   Margin="5,0,5,0"
                                    VerticalAlignment="Center"
                                    Visibility="{Binding Text.IsEmpty, ElementName=txtBusqueda, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </Grid>

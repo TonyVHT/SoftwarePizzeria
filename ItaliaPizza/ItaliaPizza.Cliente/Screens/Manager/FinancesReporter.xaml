@@ -20,12 +20,10 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="101*"/>
-                <ColumnDefinition Width="399*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <controls:UCManager/>
-            </Grid>
+            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
 
             <Grid Background="#F0F4F8" Margin="10,10,10,10" Grid.Column="1">
                 <Grid.RowDefinitions>

@@ -38,6 +38,13 @@ namespace ItaliaPizza.Cliente.UserControls
             
         }
 
+        private void GoToAnalyticsOptions(object sender, RoutedEventArgs e)
+        {
+            var analyticsOptions = new AnalyticsOptions();
+            analyticsOptions.Show();
+            Window.GetWindow(this)?.Close();
+        }
+
         private void GoToUserOptions(object sender, RoutedEventArgs e)
         {
             var userOptions = new UserOptions();

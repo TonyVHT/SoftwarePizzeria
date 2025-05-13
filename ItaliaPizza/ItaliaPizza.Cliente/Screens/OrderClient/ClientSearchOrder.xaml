@@ -22,7 +22,7 @@
 
             <!-- Filtro -->
             <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                <Grid Width="250">
+                <Grid Width="255">
                     <TextBox x:Name="txtBusquedaCliente" Width="250" Style="{StaticResource textboxStyle}"/>
                     <TextBlock Text="Buscar cliente por nombre"
                                Foreground="Gray"
@@ -71,7 +71,7 @@
                            VerticalAlignment="Center" />
 
                 <!-- DataGrid -->
-                <DataGrid x:Name="dgClientes"
+                <DataGrid x:Name="dgClientes" Style="{StaticResource WorkingModernDataGridStyle}"
                           AutoGenerateColumns="False"
                           IsReadOnly="True"
                           SelectionMode="Single"

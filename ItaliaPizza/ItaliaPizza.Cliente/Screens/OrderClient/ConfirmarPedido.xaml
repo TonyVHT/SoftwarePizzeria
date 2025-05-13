@@ -23,14 +23,14 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Content="Aceptar"
+            <Button Content="Aceptar" Style="{StaticResource buttonsStyle}"
                     Width="100" Margin="0,0,10,0"
                     Click="BtnAceptar_Click"
-                    Background="#4CAF50" Foreground="White"/>
-            <Button Content="Cancelar"
+                     />
+            <Button Content="Cancelar" Style="{StaticResource cancelbuttonsStyle}"
                     Width="100"
                     Click="BtnCancelar_Click"
-                    Background="#E0E0E0" Foreground="#333"/>
+                    />
         </StackPanel>
     </Grid>
 </Window>

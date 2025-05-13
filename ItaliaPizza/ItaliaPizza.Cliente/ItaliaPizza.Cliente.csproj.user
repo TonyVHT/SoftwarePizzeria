@@ -2,6 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Screens\AnalyticsOptions.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\CustomerOptiones.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -115,6 +118,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Screens\AnalyticsOptions.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\CustomerOptiones.xaml">
       <SubType>Designer</SubType>
     </Page>
