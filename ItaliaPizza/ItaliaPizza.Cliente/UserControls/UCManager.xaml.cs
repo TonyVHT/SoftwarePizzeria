@@ -40,10 +40,13 @@ namespace ItaliaPizza.Cliente.UserControls
         {
             // Limpiar todos los botones
             buttonInicio.Tag = null;
-            buttonOrders.Tag = null;
-            buttonMenu.Tag = null;
+            buttonOrder.Tag = null;
+            buttonRecipes.Tag = null;
             buttonCustomers.Tag = null;
             buttonAnalytics.Tag = null;
+            buttonSettings.Tag = null;
+            buttonProductos.Tag = null;
+            buttonProviders.Tag = null;
             buttonSettings.Tag = null;
 
             // Activar el correspondiente
@@ -53,10 +56,10 @@ namespace ItaliaPizza.Cliente.UserControls
                     buttonInicio.Tag = "Active";
                     break;
                 case "Orders":
-                    buttonOrders.Tag = "Active";
+                    buttonOrder.Tag = "Active";
                     break;
                 case "Menu":
-                    buttonMenu.Tag = "Active";
+                    buttonRecipes.Tag = "Active";
                     break;
                 case "Customers":
                     buttonCustomers.Tag = "Active";
