@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Cliente.Platillos.Screens;
+using ItaliaPizza.Cliente.PlatillosModulo.Screens;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -15,7 +16,7 @@ public partial class App : Application
         base.OnStartup(e);
 
         // Aquí decides qué ventana probar
-        var ventana = new PlatillosScreen();
+        var ventana = new BuscarPlatillosScreen();
         ventana.Show();
     }
 }

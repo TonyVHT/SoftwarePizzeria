@@ -1,0 +1,109 @@
+﻿<Window x:Class="ItaliaPizza.Cliente.PlatillosModulo.Screens.VerReceta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ver Receta"
+        Height="800"
+        Width="1000"
+        WindowStartupLocation="CenterScreen"
+        Background="#f5f5f5">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Título -->
+        <TextBlock Text="Receta del Platillo"
+                   FontSize="36"
+                   FontWeight="Bold"
+                   Foreground="#32d483"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"/>
+
+        <!-- Contenido principal -->
+        <Grid Grid.Row="1" Background="White" Margin="0,10,0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Imagen -->
+            <Border Grid.Row="0" Grid.Column="0" CornerRadius="10" Background="#ddd" Margin="0,0,20,0">
+                <Image Name="imgPlatillo"
+                       Stretch="Uniform"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Height="200"
+                       Width="200"/>
+            </Border>
+
+            <!-- Detalles generales -->
+            <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,20,0">
+                <TextBlock Text="Nombre:" FontWeight="Bold" Foreground="#333" FontSize="18"/>
+                <TextBlock Name="txtNombrePlatillo" FontSize="20" Foreground="#555" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Categoría:" FontWeight="Bold" Foreground="#333" FontSize="18"/>
+                <TextBlock Name="txtCategoriaPlatillo" FontSize="18" Foreground="#555" Margin="0,0,0,15"/>
+
+                <TextBlock Text="Indicaciones:" FontWeight="Bold" Foreground="#333" FontSize="18"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              Height="120"
+                              Background="#f9f9f9"
+                              Padding="10"
+                              BorderBrush="#ddd"
+                              BorderThickness="1">
+                    <TextBlock Name="txtIndicaciones"
+                               FontSize="16"
+                               Foreground="#555"
+                               TextWrapping="Wrap"/>
+                </ScrollViewer>
+            </StackPanel>
+
+            <!-- Lista de ingredientes -->
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,20,0,0">
+                <TextBlock Text="Ingredientes:" FontSize="20" FontWeight="Bold" Foreground="#333" Margin="0,0,0,10"/>
+                <Border BorderBrush="#ddd" BorderThickness="1" CornerRadius="5">
+                    <ListView Name="lstIngredientesReceta"
+                              Background="White"
+                              BorderThickness="0"
+                              Height="300">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Ingrediente" DisplayMemberBinding="{Binding NombreProducto}" Width="400"/>
+                                <GridViewColumn Header="Cantidad" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Cantidad}" FontSize="16" Foreground="#555"/>
+                                                <TextBlock Text=" " FontSize="16"/>
+                                                <TextBlock Text="{Binding UnidadMedida}" FontSize="16" Foreground="#555"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+        <!-- Botón cerrar -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Content="Cerrar"
+                    Width="150"
+                    Height="50"
+                    Background="#32d483"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    FontSize="16"
+                    Click="Cerrar_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
