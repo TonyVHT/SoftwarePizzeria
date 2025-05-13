@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.DTOs;
+using ItaliaPizza.Server.Repositories.Implementations;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using ItaliaPizza.Server.Services.Interfaces;
 
@@ -97,6 +98,15 @@ namespace ItaliaPizza.Server.Services.Implementations
                            }).ToList();
         }
 
+        public async Task<List<FinanzasMensualesDTO>> ObtenerResumenByFechaMensualAsync()
+        {
+            return await _finanzaRepository.ObtenerResumenByFechaMensualAsync();
+        }
+
+        public async Task<List<FinanzaMensualDTO>> ObtenerResumenMensualAsync()
+        {
+            return await _finanzaRepository.ObtenerResumenMensualAsync();
+        }
 
     }
     

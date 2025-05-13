@@ -1,5 +1,7 @@
-﻿using ItaliaPizza.Cliente.Screens.Admin;
+﻿using ItaliaPizza.Cliente.Screens;
+using ItaliaPizza.Cliente.Screens.Admin;
 using ItaliaPizza.Cliente.Screens.Waiter;
+using ItaliaPizza.Cliente.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +31,23 @@ namespace ItaliaPizza.Cliente.UserControls
 
         private void buttonSettings_Click(object sender, RoutedEventArgs e)
         {
-            var closeSessionWindow = new LogOutWaiter();
-            closeSessionWindow.Show();
+            SessionManagerHelper.CerrarSesionUniversal();
 
+
+        }
+
+        private void GoToOrdersOptions(object sender, RoutedEventArgs e)
+        {
+            var orderOptions = new OrderOptiones();
+            orderOptions.Show();
+            Window.GetWindow(this)?.Close();
+        }
+
+        private void GoToHomePage(object sender, RoutedEventArgs e)
+        {
+            var homePage = new HomePageAdmin();
+            homePage.Show();
+            Window.GetWindow(this)?.Close();
         }
     }
 }

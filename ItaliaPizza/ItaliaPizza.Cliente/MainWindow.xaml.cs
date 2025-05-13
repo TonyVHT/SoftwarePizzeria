@@ -26,4 +26,9 @@ public partial class MainWindow : Window
         //registerOrder.Show();
         InitializeComponent();
     }
+
+    public void SetVista(UserControl control)
+    {
+        VistaContenedor.Content = control;
+    }
 }

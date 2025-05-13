@@ -1,4 +1,7 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,6 +10,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens.Cashier
 {
@@ -21,6 +25,49 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
         {
             InitializeComponent();
             CargarDatos(clienteId);
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Clientes");
+                    break;
+                case "mesero":
+                    MenuLateral.Content = new UCWaiter();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCWaiter, "Clientes");
+                    break;
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Clientes");
+                    break;
+                case "cajero":
+                    MenuLateral.Content = new UCCashier();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCashier, "Clientes");
+                    break;
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Clientes");
+                    break;
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Clientes");
+                    break;
+                case "repartidor":
+                    MenuLateral.Content = new UCDelivery();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Clientes");
+                    break;
+                default:
+                    MessageBox.Show("Rol no reconocido");
+                    Close();
+                    return;
+            }
+        }
+
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
         }
 
         private async void CargarDatos(int clienteId)
@@ -109,7 +156,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
             direccionDTO.Estatus = true;
 
             // Validaciones
-            var validationResults = new List<ValidationResult>();
+            var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
             var validCliente = Validator.TryValidateObject(clienteDTO, new ValidationContext(clienteDTO), validationResults, true);
             var validDireccion = Validator.TryValidateObject(direccionDTO, new ValidationContext(direccionDTO), validationResults, true);
 
@@ -157,7 +204,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
             txtReferenciasError.Text = "";
         }
 
-        private void MostrarErrores(IEnumerable<ValidationResult> errores)
+        private void MostrarErrores(IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> errores)
         {
             foreach (var error in errores)
             {

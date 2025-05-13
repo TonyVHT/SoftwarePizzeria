@@ -8,15 +8,13 @@
         mc:Ignorable="d"
         Title="AddAddress" Height="600" Width="950">
     <Grid>
-        <Grid>
-            <controls:UCCashier/>
-        </Grid>
+        
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="66*"/>
-                <ColumnDefinition Width="409*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
+            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>

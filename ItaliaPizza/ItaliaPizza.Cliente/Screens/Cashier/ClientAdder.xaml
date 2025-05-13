@@ -11,14 +11,13 @@
 
     <Grid>
         <Grid>
-            <controls:UCCashier/>
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="27*"/>
-                <ColumnDefinition Width="163*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
+            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
             <Grid Grid.Column="1">
                 <!-- Definición de Columnas: Una para el Cliente, otra para la Dirección -->
                 <Grid.ColumnDefinitions>

@@ -1,4 +1,7 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,6 +9,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens.Cashier
 {
@@ -16,8 +20,50 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
         public ClientAdder()
         {
             InitializeComponent();
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Clientes");
+                    break;
+                case "mesero":
+                    MenuLateral.Content = new UCWaiter();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCWaiter, "Clientes");
+                    break;
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Clientes");
+                    break;
+                case "cajero":
+                    MenuLateral.Content = new UCCashier();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCashier, "Clientes");
+                    break;
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Clientes");
+                    break;
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Clientes");
+                    break;
+                case "repartidor":
+                    MenuLateral.Content = new UCDelivery();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Clientes");
+                    break;
+                default:
+                    MessageBox.Show("Rol no reconocido");
+                    Close();
+                    return;
+            }
         }
 
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
+        }
         private async void BtnRegistrarClienteYDireccion_Click(object sender, RoutedEventArgs e)
         {
             var clienteDTO = new ClienteDTO
@@ -37,7 +83,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 EsPrincipal = chkEsPrincipal.IsChecked.GetValueOrDefault()
             };
 
-            var validationResults = new List<ValidationResult>();
+            var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
             var isValidCliente = Validator.TryValidateObject(clienteDTO, new ValidationContext(clienteDTO), validationResults, true);
             var isValidDireccion = Validator.TryValidateObject(direccionDTO, new ValidationContext(direccionDTO), validationResults, true);
 
@@ -73,7 +119,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                     if (error.MemberNames.Contains("Referencias"))
                         txtReferenciasError.Text = error.ErrorMessage;
                 }
-                return; 
+                return;
             }
 
             try
@@ -83,10 +129,10 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadFromJsonAsync<Dictionary<string, int>>();
-                    int clienteId = result["clienteId"]; 
+                    int clienteId = result["clienteId"];
                     MessageBox.Show($"Cliente registrado con éxito. ID: {clienteId}");
 
-                    direccionDTO.ClienteId = clienteId; 
+                    direccionDTO.ClienteId = clienteId;
 
                     var responseDireccion = await _http.PostAsJsonAsync("api/direccioncliente/registrar", direccionDTO);
 

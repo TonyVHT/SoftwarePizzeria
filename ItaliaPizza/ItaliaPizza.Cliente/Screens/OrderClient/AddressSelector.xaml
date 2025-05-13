@@ -28,7 +28,7 @@
                    Margin="0,0,0,10" />
 
         <!-- Tabla de direcciones -->
-        <DataGrid x:Name="dgDirecciones"
+        <DataGrid x:Name="dgDirecciones" Style="{StaticResource WorkingModernDataGridStyle}"
                   Grid.Row="1"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"

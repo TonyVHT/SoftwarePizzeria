@@ -102,6 +102,8 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
                     DialogResult = true;
                     Close();
                 }
+
+                Close();
             }
         }
 

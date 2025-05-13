@@ -28,7 +28,7 @@
 
         <!-- Productos -->
         <ScrollViewer Grid.Column="1" Background="#f9f9f9">
-            <ItemsControl Name="ItemsDisponiblesControl" Width="691">
+            <ItemsControl Name="ItemsDisponiblesControl" Width="auto">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
@@ -72,7 +72,7 @@
 
 
                 <!-- Lista de productos seleccionados -->
-                <ListView Name="ListaPedido" Margin="0 10" Height="400" Background="#f9f9f9">
+                <ListView Name="ListaPedido" Margin="0 10" Height="400" Background="#f9f9f9" >
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="160"/>

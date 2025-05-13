@@ -11,16 +11,15 @@
             <TextBlock x:Name="txtNombreProducto" FontWeight="Bold" Margin="0,5,0,15"/>
 
             <TextBlock Text="Cantidad de Merma:"/>
-            <TextBox x:Name="txtCantidad" Margin="0,5,0,15"/>
+            <TextBox x:Name="txtCantidad" Margin="0,5,0,15" Style="{StaticResource textboxStyle}"/>
 
             <TextBlock Text="Descripción del motivo:"/>
-            <TextBox x:Name="txtMotivoDescripcion" Margin="0,5,0,15" Height="60" AcceptsReturn="True" TextWrapping="Wrap"/>
+            <TextBox x:Name="txtMotivoDescripcion" Margin="0,5,0,15" Height="60" AcceptsReturn="True" TextWrapping="Wrap" Style="{StaticResource textboxStyle}"/>
 
             <Button Content="Registrar"
                     Width="160"
                     Height="40"
-                    Background="#24A148"
-                    Foreground="White"
+                    Style="{StaticResource buttonsStyle}"
                     FontWeight="Bold"
                     HorizontalAlignment="Center"
                     Click="BtnRegistrar_Click"/>
