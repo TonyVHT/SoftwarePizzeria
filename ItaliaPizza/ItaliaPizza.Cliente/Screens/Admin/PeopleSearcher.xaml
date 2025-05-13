@@ -14,15 +14,14 @@
     </Window.Resources>
 
     <Grid>
-        <Grid>
-            <controls:UCAdmin />
-        </Grid>
+        
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="33*" />
-                <ColumnDefinition Width="167*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
 
             <Grid Margin="20" Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -32,20 +31,21 @@
 
                 <!-- Filtros -->
                 <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                    <Button x:Name="buttonCancelar" Content="Cancelar" Style="{StaticResource cancelbuttonsStyle}" Margin="0,0,10,0" Click="Btn_Cancelar"/>
 
                     <!-- TextBox con Placeholder -->
-                    <Grid Width="250">
-                        <TextBox x:Name="txtBusqueda" Width="250" />
+                    <Grid Width="260">
+                        <TextBox x:Name="txtBusqueda" Width="250" Style="{StaticResource textboxStyle}" />
                         <TextBlock Text="Buscar por nombre o usuario"
                                    Foreground="Gray"
                                    IsHitTestVisible="False"
-                                   Margin="5,0,0,0"
+                                   Margin="5,0,5,0"
                                    VerticalAlignment="Center"
                                    Visibility="{Binding Text.IsEmpty, ElementName=txtBusqueda, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </Grid>
 
                     <!-- ComboBox -->
-                    <ComboBox x:Name="cmbTipo" Width="200" Margin="10,0,0,0">
+                    <ComboBox x:Name="cmbTipo" Width="200" Margin="10,0,0,0" Style="{StaticResource comboBoxStyle}">
                         <ComboBoxItem Content=""/>
                         <ComboBoxItem Content="Cliente"/>
                         <ComboBoxItem Content="Administrador"/>
@@ -85,7 +85,7 @@
 
                     <!-- DataGrid -->
                     <DataGrid x:Name="dgPersonas" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
-                              Visibility="Visible">
+                              Visibility="Visible" Style="{StaticResource WorkingModernDataGridStyle}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nombre completo" Binding="{Binding NombreCompleto}" Width="*"/>
                             <DataGridTextColumn Header="Nombre de usuario" Binding="{Binding NombreUsuario}" Width="*"/>

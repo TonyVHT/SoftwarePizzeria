@@ -28,6 +28,7 @@ builder.Services.AddDbContext<ItaliaPizzaDbContext>(options =>
 builder.Services.AddScoped<IPlatilloRepository, PlatilloRepository>();
 builder.Services.AddScoped<IPlatilloService, PlatilloService>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<ICategoriaProductoRepository, CategoriaProductoRepository>();
 builder.Services.AddScoped<IIngredienteService, IngredienteService>();
 builder.Services.AddScoped<IRecetaService, RecetaService>();
@@ -46,9 +47,20 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ICredencialUsuarioService, CredencialUsuarioService>();
 builder.Services.AddScoped<ICredencialUsuarioRepository,  CredencialUsuarioRepository>();
-
+builder.Services.AddScoped<IPedidoService, PedidoService>();
+builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
+builder.Services.AddScoped<IPedidoDomicilioRepository, PedidoDomicilioRepository>();
+builder.Services.AddScoped<IDetallePedidoRepository, DetallePedidoRepository>();
+builder.Services.AddScoped<IPedidoLocalRepository, PedidoLocalRepository>();
+builder.Services.AddScoped<IFinanzaRepository, FinanzaRepository>();
+builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IDireccionClienteService, DireccionClienteService>();
+builder.Services.AddScoped<IDireccionClienteRepository, DireccionClienteRepository>();
 builder.Services.AddScoped<IProductoProveedorRepository, ProductoProveedorRepository>();
 builder.Services.AddScoped<IProductoProveedorService, ProductoProveedorService>();
+builder.Services.AddScoped<IFinanzaRepository, FinanzaRepository>();
+builder.Services.AddScoped<IFinanzaService, FinanzaService>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();

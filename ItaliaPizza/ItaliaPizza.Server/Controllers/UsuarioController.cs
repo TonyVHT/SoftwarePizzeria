@@ -65,8 +65,12 @@ namespace ItaliaPizza.Server.Controllers
         }
 
 
-
-
+        [HttpGet("repartidores")]
+        public async Task<IActionResult> GetRepartidores()
+        {
+            var repartidores = await _usuarioService.ObtenerPorRolAsync("Repartidor");
+            return Ok(repartidores);
+        }
 
 
         [HttpGet("ping")]

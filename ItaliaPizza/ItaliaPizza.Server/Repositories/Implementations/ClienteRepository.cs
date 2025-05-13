@@ -20,12 +20,12 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             return await _dbSet.FirstOrDefaultAsync(cliente => cliente.Telefono == telefono);
         }
 
-        public async Task<IEnumerable<ClienteConsultaDTO>> BuscarClientesAsync(string? nombre)
+        public async Task<IEnumerable<ClienteConsultaDTO>> BuscarClientesAsync(string? nombre, string? numero)
         {
-            var query = _context.Cliente.AsQueryable();
+            var query = _context.Clientes.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(nombre))
-                query = query.Where(c => (c.Nombre + " " + c.Apellidos).Contains(nombre));
+                query = query.Where(c => (c.Nombre + " " + c.Apellidos).Contains(nombre) || c.Telefono.Contains(numero));
 
             return await query.Select(c => new ClienteConsultaDTO
             {
@@ -36,6 +36,43 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             }).OrderBy(c => c.NombreCompleto).ToListAsync();
         }
 
-        
+        public async Task<int> AddClienteAsync(Cliente cliente)
+        {
+            _context.Set<Cliente>().Add(cliente);
+            await _context.SaveChangesAsync();
+            return cliente.Id; 
+        }
+
+        public async Task<int?> GetClienteIdByNumeroAsync(string numero)
+        {
+            return await _context.Set<Cliente>()
+                .Where(c => c.Telefono == numero)
+                .Select(c => c.Id)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task UpdateClienteAsync(Cliente clienteActualizado)
+        {
+            var clienteExistente = await _context.Clientes.FindAsync(clienteActualizado.Id);
+            if (clienteExistente == null)
+                throw new Exception("Cliente no encontrado.");
+
+            // Actualiza campos individualmente para evitar conflictos de tracking
+            clienteExistente.Nombre = clienteActualizado.Nombre;
+            clienteExistente.Apellidos = clienteActualizado.Apellidos;
+            clienteExistente.Telefono = clienteActualizado.Telefono;
+            clienteExistente.Email = clienteActualizado.Email;
+            clienteExistente.Estatus = clienteActualizado.Estatus;
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Cliente?> ObtenerPorIdAsync(int id)
+        {
+            return await _context.Clientes.FindAsync(id);
+        }
+
+
+
     }
 }

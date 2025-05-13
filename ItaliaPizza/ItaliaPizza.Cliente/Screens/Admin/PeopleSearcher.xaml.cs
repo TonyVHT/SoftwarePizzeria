@@ -1,4 +1,7 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +31,34 @@ namespace ItaliaPizza.Cliente.Screens.Admin
         public PeopleSearcher()
         {
             InitializeComponent();
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Usuarios");
+                    break;
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Usuarios");
+                    break;
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Usuarios");
+                    break;
+                default:
+                    MessageBox.Show("Rol no reconocido");
+                    Close();
+                    return;
+            }
         }
 
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
+        }
         private async void BtnBuscar_Click(object sender, RoutedEventArgs e)
         {
             var textoBusqueda = txtBusqueda.Text.Trim();
@@ -50,9 +79,13 @@ namespace ItaliaPizza.Cliente.Screens.Admin
 
                 string url = $"api/usuario/buscar?nombre={textoBusqueda}&nombreUsuario={textoBusqueda}&rol={tipo}";
                 var lista = await _http.GetFromJsonAsync<List<PersonaConsultaDTO>>(url);
-                string url2 = $"api/cliente/buscar?nombre={textoBusqueda}";
-                var lista2 =  await _http.GetFromJsonAsync<List<PersonaConsultaDTO>>(url);
-                var lista3 = lista.Concat(lista2).ToList();
+                string url2 = $"api/cliente/buscar?nombre={textoBusqueda}&numero={textoBusqueda}";
+                var lista2 =  await _http.GetFromJsonAsync<List<PersonaConsultaDTO>>(url2);
+                var lista3 = lista.Concat(lista2)
+                  .GroupBy(p => p.Id)
+                  .Select(g => g.First())
+                  .ToList();
+
 
 
                 // Ocultar loading
@@ -94,6 +127,12 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             element.BeginAnimation(UIElement.OpacityProperty, fadeInAnimation);
         }
 
+        private void Btn_Cancelar(object sender, RoutedEventArgs e)
+        {
+            var userOptions = new UserOptions();
+            userOptions.Show();
+            this.Close();
+        }
 
 
     }

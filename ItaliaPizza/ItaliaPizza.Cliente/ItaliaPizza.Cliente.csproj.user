@@ -38,7 +38,16 @@
     <Compile Update="Screens\Admin\UserUpdate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Cashier\AddAddress.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Cashier\ClientAdder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Cashier\ClientSearcher.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Cashier\EditCustomer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Cashier\HomePageCashier.xaml.cs">
@@ -59,10 +68,31 @@
     <Compile Update="Screens\Admin\LogOutAdmin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Manager\FinancesReporter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Manager\HomePageManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Manager\LogOutManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\OrderClient\AddressSelector.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\OrderClient\ClientSearchOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\OrderClient\ConfirmarPedido.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\OrderClient\RepartidorSelector.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Orders\ConsultarPedidos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Orders\PedidosEnCocina.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\RegisterOrderToProvider.xaml.cs">
@@ -100,7 +130,16 @@
     <Page Update="Screens\Admin\UserUpdate.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Screens\Cashier\AddAddress.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Cashier\ClientAdder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Screens\Cashier\ClientSearcher.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Cashier\EditCustomer.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Cashier\HomePageCashier.xaml">
@@ -119,6 +158,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Admin\LogOutAdmin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\Manager\FinancesReporter.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Manager\HomePageManager.xaml">

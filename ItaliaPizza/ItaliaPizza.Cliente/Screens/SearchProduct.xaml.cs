@@ -1,4 +1,7 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -20,6 +23,31 @@ namespace ItaliaPizza.Cliente.Screens
         {
             InitializeComponent();
             _ = CargarCategoriasAsync();
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Productos");
+                    break;
+
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Productos");
+                    break;
+
+                default:
+                    MessageBox.Show("Rol no reconocido");
+                    Close();
+                    return;
+            }
+        }
+
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
         }
 
         private async Task CargarCategoriasAsync()
@@ -32,7 +60,10 @@ namespace ItaliaPizza.Cliente.Screens
             new() { Id = 2, Nombre = "Carnes frías" },
             new() { Id = 3, Nombre = "Quesos" },
             new() { Id = 4, Nombre = "Salsas y bases" },
-            new() { Id = 5, Nombre = "Ingredientes gourmet" }
+            new() { Id = 5, Nombre = "Ingredientes gourmet" },
+            new() { Id = 6, Nombre = "Bebidas" },
+            new() { Id = 7, Nombre = "Postres" },
+            new() { Id = 8, Nombre = "Pizzas" }
         };
 
                 cmbCategoriaFiltro.ItemsSource = _categorias;
@@ -134,6 +165,16 @@ namespace ItaliaPizza.Cliente.Screens
             var modal = new RegisterMermaModal(producto);
             modal.Owner = this;
             modal.ShowDialog();
+        }
+
+        private void BtnRegistrarProducto_Click(object sender, RoutedEventArgs e)
+        {
+            var modal = new RegisterProduct();
+            modal.Owner = this;
+            if (modal.ShowDialog() == true)
+            {
+                DebouncedActualizarResultados();
+            }
         }
 
     }

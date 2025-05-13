@@ -40,8 +40,7 @@ namespace ItaliaPizza.Server.Controllers
             return Ok(new { message = "Producto registrado correctamente." });
         }
 
-
-        [HttpGet]
+        [HttpGet("withCategoria")]
         public async Task<IActionResult> ObtenerTodos()
         {
             var productos = await _productoService.GetAllWithCategoriaAsync();
@@ -98,7 +97,7 @@ namespace ItaliaPizza.Server.Controllers
             return Ok("Ping en Producto");
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<Producto>>> ObtenerProductos()
         {
             var productos = await _productoService.GetAllProductosAsync();

@@ -207,6 +207,9 @@ namespace ItaliaPizza.Server.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ClienteId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("CodigoPostal")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -218,7 +221,9 @@ namespace ItaliaPizza.Server.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<bool>("EsPrincipal")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<bool>("Estatus")
                         .HasColumnType("bit");
@@ -231,7 +236,9 @@ namespace ItaliaPizza.Server.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("DireccionesClientes");
+                    b.HasIndex("ClienteId1");
+
+                    b.ToTable("DireccionesClientes", (string)null);
                 });
 
             modelBuilder.Entity("ItaliaPizza.Server.Domain.Finanza", b =>
@@ -915,10 +922,15 @@ namespace ItaliaPizza.Server.Migrations
             modelBuilder.Entity("ItaliaPizza.Server.Domain.DireccionCliente", b =>
                 {
                     b.HasOne("ItaliaPizza.Server.Domain.Cliente", "Cliente")
-                        .WithMany("Direcciones")
+                        .WithMany()
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_cliente_direccion");
+
+                    b.HasOne("ItaliaPizza.Server.Domain.Cliente", null)
+                        .WithMany("Direcciones")
+                        .HasForeignKey("ClienteId1");
 
                     b.Navigation("Cliente");
                 });

@@ -1,4 +1,7 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,16 +29,58 @@ namespace ItaliaPizza.Cliente.Screens.Admin
         public UserSearch()
         {
             InitializeComponent();
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Inicio");
+                    break;
+                case "mesero":
+                    MenuLateral.Content = new UCWaiter();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCWaiter, "Inicio");
+                    break;
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Inicio");
+                    break;
+                case "cajero":
+                    MenuLateral.Content = new UCCashier();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCashier, "Inicio");
+                    break;
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Inicio");
+                    break;
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Inicio");
+                    break;
+                case "repartidor":
+                    MenuLateral.Content = new UCDelivery();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Inicio");
+                    break;
+                default:
+                    MessageBox.Show("Rol no reconocido");
+                    Close();
+                    return;
+            }
+        }
+
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
         }
 
         private async void BtnBuscar_Click(object sender, RoutedEventArgs e)
         {
             var nombre = txtNombre.Text;
-            var nombreUsuario = txtNombreUsuario.Text;
             var rol = (cmbRol.SelectedItem as ComboBoxItem)?.Content?.ToString();
 
             // Validar que al menos uno tenga contenido
-            if (string.IsNullOrWhiteSpace(nombre) && string.IsNullOrWhiteSpace(nombreUsuario) && string.IsNullOrWhiteSpace(rol))
+            if (string.IsNullOrWhiteSpace(nombre) && string.IsNullOrWhiteSpace(rol))
             {
                 MessageBox.Show("Por favor ingresa al menos un criterio de búsqueda.", "Búsqueda vacía", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
@@ -43,7 +88,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
 
             try
             {
-                string url = $"api/usuario/buscar?nombre={nombre}&nombreUsuario={nombreUsuario}&rol={rol}";
+                string url = $"api/usuario/buscar?nombre={nombre}&nombreUsuario={nombre}&rol={rol}";
                 var lista = await _http.GetFromJsonAsync<List<UsuarioConsultaDTO>>(url);
                 dgUsuarios.ItemsSource = lista;
             }
@@ -59,11 +104,19 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             {
                 var ventana = new UserUpdate(seleccionado.Id);
                 ventana.ShowDialog();
-                BtnBuscar_Click(null, null); // refrescar
+                BtnBuscar_Click(null, null); 
             }
         }
 
-        
+
+        private void Btn_Cancelar(object sender, RoutedEventArgs e)
+        {
+            var userOptions = new UserOptions();
+            userOptions.Show();
+            Close();
+        }
+
+
     }
 }
 

@@ -37,8 +37,8 @@ namespace ItaliaPizza.Cliente.Screens
             {
                 ProductoId = _producto.Id,
                 CantidadPerdida = cantidad,
-                UsuarioId = 1, // TODO Reemplazar con el ID real del usuario logueado
-                Descripcion = txtMotivoDescripcion.Text.Trim()
+                UsuarioId = 4,
+                MotivoMerma = txtMotivoDescripcion.Text.Trim()
             };
 
             try

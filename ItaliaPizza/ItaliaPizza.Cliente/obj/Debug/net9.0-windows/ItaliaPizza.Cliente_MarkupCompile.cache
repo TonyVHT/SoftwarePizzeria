@@ -1,0 +1,20 @@
+﻿ItaliaPizza.Cliente
+
+
+winexe
+C#
+.cs
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\
+ItaliaPizza.Cliente
+none
+false
+TRACE;DEBUG;NET;NET9_0;NETCOREAPP
+C:\Users\neco3\Desktop\Proyecto software\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\App.xaml
+471592483407
+
+82546529590
+225-1764057062
+MainWindow.xaml;PlatillosModulo\Screens\InformacionPlatillo.xaml;PlatillosModulo\Screens\PlatillosScreen.xaml;Screens\Admin\AddUser.xaml;Screens\Admin\AllUsersSearch.xaml;Screens\Admin\HomePageAdmin.xaml;Screens\Admin\LogOutAdmin.xaml;Screens\Admin\PeopleSearcher.xaml;Screens\Admin\UserSearch.xaml;Screens\Admin\UserUpdate.xaml;Screens\Cashier\AddAddress.xaml;Screens\Cashier\ClientAdder.xaml;Screens\Cashier\ClientSearcher.xaml;Screens\Cashier\EditCustomer.xaml;Screens\Cashier\HomePageCashier.xaml;Screens\Cashier\LogOutCashier.xaml;Screens\ConsultOrdersProvider.xaml;Screens\ConsultProvider.xaml;Screens\ConsultProviders.xaml;Screens\Cook\HomePageCook.xaml;Screens\Cook\LogOutCook.xaml;Screens\EditProductModal.xaml;Screens\EditProvider.xaml;Screens\LogIn.xaml;Screens\Manager\FinancesReporter.xaml;Screens\Manager\HomePageManager.xaml;Screens\Manager\LogOutManager.xaml;Screens\OrderClient\AddressSelector.xaml;Screens\OrderClient\ClientSearchOrder.xaml;Screens\OrderClient\ConfirmarPedido.xaml;Screens\OrderClient\RepartidorSelector.xaml;Screens\Orders\ConsultarPedidos.xaml;Screens\Orders\PedidosEnCocina.xaml;Screens\RegisterHomeDeliveryOrder.xaml;Screens\RegisterMermaModal.xaml;Screens\RegisterOrder.xaml;Screens\RegisterOrderToProvider.xaml;Screens\RegisterProduct.xaml;Screens\RegisterProvider.xaml;Screens\SearchProduct.xaml;Screens\Waiter\HomePageWaiter.xaml;Screens\Waiter\LogOutWaiter.xaml;UserControls\UCAdmin.xaml;UserControls\UCCashier.xaml;UserControls\UCCook.xaml;UserControls\UCManager.xaml;UserControls\UCWaiter.xaml;
+
+False
+

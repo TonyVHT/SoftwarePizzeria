@@ -1,0 +1,110 @@
+﻿<Window x:Class="ItaliaPizza.Cliente.Screens.Cashier.ClientAdder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Cashier"
+        xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
+        mc:Ignorable="d"
+        Title="Registrar Cliente" Height="600" Width="950"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
+            <Grid Grid.Column="1">
+                <!-- Definición de Columnas: Una para el Cliente, otra para la Dirección -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="44*"/>
+                    <RowDefinition Height="495*"/>
+                    <RowDefinition Height="45*"/>
+
+                </Grid.RowDefinitions>
+                <!-- Botón de Cancelar (esquina superior izquierda) -->
+                <Button Content="Cancelar" Grid.Column="0" Grid.Row="0"
+Width="100"
+Height="30"
+HorizontalAlignment="Left"
+VerticalAlignment="Top"
+Margin="0,5,0,0"
+Click="BtnCancelar_Click"
+Style="{StaticResource buttonsStyle}"  />
+
+                <!-- Columna 1: Formulario Cliente -->
+                <Grid Grid.Column="0" Margin="20,20,20,20" Grid.Row="1" >
+                    <GroupBox Header="Registrar Cliente" Margin="0 0 0 10">
+                        <StackPanel Margin="10">
+                            <Label Content="Nombre:"/>
+                            <TextBox x:Name="txtNombre" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtNombreError" Foreground="Red" Margin="0,2" />
+
+                            <Label Content="Apellidos:"/>
+                            <TextBox x:Name="txtApellidos" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtApellidosError" Foreground="Red" Margin="0,2" />
+
+                            <Label Content="Teléfono:"/>
+                            <TextBox x:Name="txtTelefono" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtTelefonoError" Foreground="Red" Margin="0,2" />
+
+                            <Label Content="Email:"/>
+                            <TextBox x:Name="txtEmail" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtEmailError" Foreground="Red" Margin="0,2" />
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+
+                <!-- Columna 2: Formulario Dirección -->
+                <Grid Grid.Column="1" Margin="20,20,20,20" Grid.Row="1" >
+                    <GroupBox Header="Registrar Dirección" Margin="0 0 0 20">
+                        <StackPanel Margin="10">
+                            <Label Content="Dirección:"/>
+                            <TextBox x:Name="txtDireccion" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtDireccionError" Foreground="Red" Margin="0,2" />
+
+                            <Label Content="Código Postal:"/>
+                            <TextBox x:Name="txtCodigoPostal" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtCodigoPostalError" Foreground="Red" Margin="0,2" />
+
+                            <Label Content="Ciudad:"/>
+                            <TextBox x:Name="txtCiudad" Width="300" Margin="0,5"  Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtCiudadError" Foreground="Red" Margin="0,2" />
+
+                            <Label Content="Referencias:"/>
+                            <TextBox x:Name="txtReferencias" Width="300" Margin="0,5" Style="{StaticResource textboxStyle}" Height="30"/>
+                            <TextBlock x:Name="txtReferenciasError" Foreground="Red" Margin="0,2" />
+
+                            <CheckBox x:Name="chkEsPrincipal" Content="¿Es dirección principal?" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+                <Button Content="Registrar Cliente y Dirección" Grid.Column="1" Grid.Row="2" Padding="2"
+Width="200"
+Height="40"
+HorizontalAlignment="Left"
+VerticalAlignment="Center"
+Margin="198,0,5,2"
+Click="BtnRegistrarClienteYDireccion_Click"
+Style="{StaticResource buttonsStyle}"  />
+
+
+
+                <!-- Botón de Registrar (esquina inferior derecha) -->
+            </Grid>
+
+        </Grid>
+
+
+
+    </Grid>
+</Window>

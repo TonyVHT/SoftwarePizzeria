@@ -1,5 +1,7 @@
-﻿using ItaliaPizza.Cliente.Screens.Admin;
+﻿using ItaliaPizza.Cliente.Screens;
+using ItaliaPizza.Cliente.Screens.Admin;
 using ItaliaPizza.Cliente.Screens.Cook;
+using ItaliaPizza.Cliente.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +31,33 @@ namespace ItaliaPizza.Cliente.UserControls
 
         private void buttonSettings_Click(object sender, RoutedEventArgs e)
         {
-            var closeSessionWindow = new LogOutCook();
-            closeSessionWindow.Show();
+            SessionManagerHelper.CerrarSesionUniversal();
+
+
+        }
+
+
+
+        private void GoToRecipeOptions(object sender, RoutedEventArgs e)
+        {
+            var recipeOptions = new RecipeOptions();
+            recipeOptions.Show();
+            Window.GetWindow(this)?.Close();
+        }
+
+
+        private void GoToHomePage(object sender, RoutedEventArgs e)
+        {
+            var homePage = new HomePageAdmin();
+            homePage.Show();
+            Window.GetWindow(this)?.Close();
+        }
+
+        private void GoToProductsOptions(object sender, RoutedEventArgs e)
+        {
+            var productOptions = new SearchProduct();
+            productOptions.Show();
+            Window.GetWindow(this)?.Close();
         }
     }
 }

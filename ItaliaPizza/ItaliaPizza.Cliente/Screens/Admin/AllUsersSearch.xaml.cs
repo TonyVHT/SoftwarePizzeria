@@ -22,6 +22,8 @@ namespace ItaliaPizza.Cliente.Screens.Admin
         public AllUsersSearch()
         {
             InitializeComponent();
+
+
         }
     }
 }

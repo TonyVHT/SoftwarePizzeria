@@ -39,9 +39,20 @@ namespace ItaliaPizza.Server.Repositories.Implementations
 
         public async Task UpdateAsync(T entity)
         {
-            _dbSet.Update(entity);
+            var trackedEntity = await _dbSet.FindAsync(GetEntityKey(entity));
+            if (trackedEntity == null)
+                throw new Exception("Entidad no encontrada.");
+
+            _context.Entry(trackedEntity).CurrentValues.SetValues(entity);
             await _context.SaveChangesAsync();
         }
+
+        private object? GetEntityKey(T entity)
+        {
+            var key = _context.Model.FindEntityType(typeof(T))?.FindPrimaryKey();
+            return key?.Properties.Select(p => typeof(T).GetProperty(p.Name)?.GetValue(entity)).FirstOrDefault();
+        }
+
 
         public async Task DeleteAsync(T entity)
         {

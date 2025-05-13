@@ -12,7 +12,7 @@ namespace ItaliaPizza.Server.Services.Interfaces
         Task<bool> ActualizarUsuarioAsync(UsuarioActualizadoDTO dto);
         Task<IEnumerable<UsuarioConsultaDTO>> BuscarUsuariosAsync(string? nombre, string? nombreUsuario, string? rol);
         Task<UsuarioEdicionDTO?> ObtenerUsuarioPorIdAsync(int id);
-
+        Task<List<UsuarioConsultaDTO>> ObtenerPorRolAsync(string rol);
 
 
 

@@ -1,0 +1,102 @@
+﻿<Window x:Class="ItaliaPizza.Cliente.Screens.RegisterProduct"
+        xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens"
+        mc:Ignorable="d"
+        Title="Registro de Producto" Height="500" Width="650" Background="#F2F2F2" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        
+        <Grid>
+            
+
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border Background="White"
+                    CornerRadius="20"
+                    Padding="30"
+                    Width="650">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Registro de Producto" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                                <TextBlock Text="Nombre:"/>
+                                <TextBox x:Name="txtNombre" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
+
+                                <TextBlock Text="Categoría:"/>
+                                <ComboBox x:Name="cmbCategoria" Margin="0,5,0,15" Height="30" Style="{StaticResource comboBoxStyle}"
+                                      DisplayMemberPath="Nombre" SelectedValuePath="Id" />
+
+                                <TextBlock Text="Unidad de Medida:"/>
+                                <TextBox x:Name="txtUnidadMedida" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="Cantidad Actual:"/>
+                                <TextBox x:Name="txtCantidadActual" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
+
+                                <TextBlock Text="Cantidad Mínima:"/>
+                                <TextBox x:Name="txtCantidadMinima" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
+
+                                <TextBlock Text="Precio:"/>
+                                <TextBox x:Name="txtPrecio" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
+
+                                <TextBlock Text="Observaciones:"/>
+                                <TextBox x:Name="txtObservaciones" Margin="0,5,0,15" Height="60" AcceptsReturn="True" TextWrapping="Wrap" Style="{StaticResource textboxStyle}"/>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,15">
+                                    <CheckBox x:Name="chkEstatus" IsChecked="False" Margin="0,0,15,0" Content="Activo"/>
+                                    <CheckBox x:Name="chkEsIngrediente" Content="Es Ingrediente"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+
+                        <Button Content="Registrar"
+                            Grid.Row="2"
+                            HorizontalAlignment="Right"
+                            Width="140"
+                            Height="30"
+                            Margin="0,20,0,0"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Style="{StaticResource buttonsStyle}"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            Click="BtnRegistrar_Click"/>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <TextBlock x:Name="toastMessage"
+                   Text=""
+                   Background="#FF2D7D46"
+                   Foreground="White"
+                   Padding="10"
+                   FontWeight="Bold"
+                   FontSize="14"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Margin="0,0,0,20"
+                   Opacity="0"
+                   Visibility="Collapsed"
+                   TextAlignment="Center"
+                   Width="Auto"/>
+        </Grid>
+    </Grid>
+</Window>

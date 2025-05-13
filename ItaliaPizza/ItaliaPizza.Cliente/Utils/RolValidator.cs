@@ -1,44 +1,39 @@
-﻿using ItaliaPizza.Cliente.Screens.Admin;
-using ItaliaPizza.Cliente.Screens.Cook;
-using ItaliaPizza.Cliente.Screens.Manager;
-using ItaliaPizza.Cliente.Screens.Waiter;
+﻿using ItaliaPizza.Cliente.Screens;
+using ItaliaPizza.Cliente.UserControls; // donde están los UserControls
+using ItaliaPizza.Cliente.Singleton;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Net;
+using ItaliaPizza.Cliente.UserControls;
 
 namespace ItaliaPizza.Cliente.Utils
 {
     public static class RolValidator
     {
-        public static void ValidateRol(String rol)
+        public static void ValidateRol(string rol)
         {
-            Window ventana;
+            var main = new MainWindow();
 
             switch (rol.ToLower())
             {
                 case "gerente":
-                    ventana = new HomePageManager();
-                   
+                    main.SetVista(new UCManager());
                     break;
 
                 case "mesero":
-                   ventana = new HomePageWaiter();
-                    
+                    main.SetVista(new UCWaiter());
                     break;
 
                 case "cajero":
-                    ventana = new HomePageWaiter();
+                    main.SetVista(new UCCashier());
                     break;
 
                 case "cocinero":
-                    ventana = new HomePageCook();
+                    main.SetVista(new UCCook());
                     break;
 
                 case "administrador":
-                    ventana = new HomePageAdmin();
+                    main.SetVista(new UCAdmin());
                     break;
 
                 default:
@@ -46,8 +41,7 @@ namespace ItaliaPizza.Cliente.Utils
                     return;
             }
 
-            ventana.Show();
-
+            main.Show();
         }
     }
 }
