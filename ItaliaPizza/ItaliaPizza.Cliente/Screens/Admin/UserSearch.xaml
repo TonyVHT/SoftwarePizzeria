@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Admin"
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
+        
         mc:Ignorable="d"
         Title="UserSearch" Height="450" Width="950">
     <Grid>

@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.DTOs;
+using ItaliaPizza.Server.Services.Implementations;
 using ItaliaPizza.Server.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -74,6 +75,13 @@ namespace ItaliaPizza.Server.Controllers
 
             await _clienteService.ActualizarClienteAsync(cliente);
             return NoContent();
+        }
+
+        [HttpGet("telefono-cliente-existe")]
+        public async Task<IActionResult> TelefonoClienteExiste([FromQuery] string telefono)
+        {
+            bool existe = await _clienteService.TelefonoExisteAsync(telefono);
+            return Ok(existe);
         }
 
 

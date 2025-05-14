@@ -64,6 +64,8 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             // Clear previous errors and styling
             ClearErrorMessagesAndStyling();
 
+
+
             // Create the validation DTO from the form data
             var validationDTO = new ValidacionUsuarioRegistroDTO
             {
@@ -80,6 +82,34 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                 Telefono = txtTelefono.Text,
                 Email = txtEmail.Text
             };
+
+
+            // Validaciones contra duplicados
+            var tareasValidacion = new List<Task<(string campo, bool existe)>>()
+
+                {
+                    VerificarExistencia("api/usuarios/telefono-existe", validationDTO.Telefono, "Teléfono en Usuarios"),
+                    VerificarExistencia("api/usuarios/telefono-cliente-existe", validationDTO.Telefono, "Teléfono en Clientes"),
+                    VerificarExistencia("api/usuarios/email-existe", validationDTO.Email, "Email"),
+                    VerificarExistencia("api/usuarios/curp-existe", validationDTO.Curp, "CURP"),
+                    VerificarExistencia("api/usuarios/nombre-usuario-existe", validationDTO.NombreUsuario, "Nombre de usuario")
+                };
+
+            await Task.WhenAll(tareasValidacion);
+
+            var errores = tareasValidacion
+                .Select(t => t.Result)
+                .Where(r => r.existe)
+                .Select(r => r.campo)
+                .ToList();
+
+            if (errores.Any())
+            {
+                string campos = string.Join(", ", errores);
+                MessageBox.Show($"Los siguientes datos ya están registrados: {campos}", "Datos duplicados", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
 
             var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
             var validationContext = new ValidationContext(validationDTO, serviceProvider: null, items: null);
@@ -255,5 +285,31 @@ namespace ItaliaPizza.Cliente.Screens.Admin
         }
         // Remove the old HayCamposVaciosConResaltado method as it's replaced by data annotations
         // private bool HayCamposVaciosConResaltado(out List<string> camposFaltantes) { ... }
+
+
+        private async Task<(string campo, bool existe)> VerificarExistencia(string endpoint, string valor, string nombreCampo)
+        {
+            try
+            {
+                string queryParam = endpoint.Contains("nombre-usuario") ? "nombreUsuario"
+                                  : endpoint.Contains("email") ? "email"
+                                  : endpoint.Contains("curp") ? "curp"
+                                  : "telefono";
+
+                var response = await _http.GetAsync($"{endpoint}?{queryParam}={Uri.EscapeDataString(valor)}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    bool existe = await response.Content.ReadFromJsonAsync<bool>();
+                    return (nombreCampo, existe);
+                }
+            }
+            catch { }
+
+            return (nombreCampo, false);
+        }
+
     }
 }
+
+

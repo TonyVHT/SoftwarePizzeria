@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Admin"
         xmlns:oxy="http://oxyplot.org/wpf"
+        
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
         mc:Ignorable="d"
         Title="HomePageAdmin" Height="600" Width="1000">

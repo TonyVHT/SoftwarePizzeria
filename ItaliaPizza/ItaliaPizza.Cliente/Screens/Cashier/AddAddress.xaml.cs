@@ -83,7 +83,16 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 Referencias = txtReferencias.Text.Trim(),
                 EsPrincipal = chkEsPrincipal.IsChecked ?? false
             };
+            if (chkEsPrincipal.IsChecked == true)
+            {
+                bool yaTieneOtraPrincipal = await ClienteYaTieneOtraDireccionPrincipal(direccionDTO.ClienteId);
 
+                if (yaTieneOtraPrincipal)
+                {
+                    MessageBox.Show("Este cliente ya tiene otra dirección principal registrada.", "Error de duplicado", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+            }
             var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
             var isValid = Validator.TryValidateObject(direccionDTO, new ValidationContext(direccionDTO), validationResults, true);
 
@@ -139,6 +148,21 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                     }
                 }
             }
+        }
+
+        private async Task<bool> ClienteYaTieneOtraDireccionPrincipal(int clienteId)
+        {
+            try
+            {
+                var response = await _http.GetAsync($"api/direccioncliente/ya-tiene-direccion-principal?clienteId={clienteId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<bool>();
+                }
+            }
+            catch { }
+
+            return false;
         }
     }
 }

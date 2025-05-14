@@ -51,7 +51,6 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             }
             usuarioId = id;
             _ = CargarUsuarioAsync();
-            MessageBox.Show($"ID recibido: {id}");
 
         }
 
@@ -102,6 +101,28 @@ namespace ItaliaPizza.Cliente.Screens.Admin
         private async void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
             var errores = ValidarCampos();
+            var tareasValidacion = new List<Task<(string campo, bool existe)>>()
+            {
+                VerificarExistencia("api/usuarios/telefono-existe", txtTelefono.Text, "Teléfono", "telefono"),
+                VerificarExistencia("api/usuarios/email-existe", txtEmail.Text, "Email", "email"),
+                VerificarExistencia("api/usuarios/curp-existe", txtCurp.Text, "CURP", "curp"),
+                VerificarExistencia("api/usuarios/nombre-usuario-existe", txtNombreUsuario.Text, "Nombre de usuario", "nombreUsuario")
+            };
+
+            await Task.WhenAll(tareasValidacion);
+
+            var erroresDuplicados = tareasValidacion
+                .Select(t => t.Result)
+                .Where(r => r.existe)
+                .Select(r => $"Ya existe un usuario con el mismo {r.campo}.")
+                .ToList();
+
+            if (erroresDuplicados.Any())
+            {
+                MessageBox.Show(string.Join("\\n• ", erroresDuplicados), "Datos duplicados", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
 
             if (errores.Any())
             {
@@ -201,7 +222,35 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             return errores;
         }
 
+        private async Task<(string campo, bool existe)> VerificarExistencia(string endpoint, string valor, string nombreCampo, string queryKey)
+        {
+            try
+            {
+                var response = await _http.GetAsync($"{endpoint}?{queryKey}={Uri.EscapeDataString(valor)}&excluirId={usuarioId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    bool existe = await response.Content.ReadFromJsonAsync<bool>();
+                    return (nombreCampo, existe);
+                }
+            }
+            catch { }
+
+            return (nombreCampo, false);
+        }
+
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            var userSearch = new UserSearch();
+            userSearch.Show();
+            Close();
+        }
+
+
+
     }
+
+
 
 }
 

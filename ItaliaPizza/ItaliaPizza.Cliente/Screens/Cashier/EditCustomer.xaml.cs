@@ -155,6 +155,16 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
             direccionDTO.Referencias = txtReferencias.Text.Trim();
             direccionDTO.Estatus = true;
 
+            if (chkEsPrincipal.IsChecked == true)
+            {
+                bool yaTieneOtraPrincipal = await ClienteYaTieneOtraDireccionPrincipal(clienteDTO.Id);
+
+                if (yaTieneOtraPrincipal)
+                {
+                    MessageBox.Show("Este cliente ya tiene otra dirección principal registrada.", "Error de duplicado", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+            }
             // Validaciones
             var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
             var validCliente = Validator.TryValidateObject(clienteDTO, new ValidationContext(clienteDTO), validationResults, true);
@@ -166,6 +176,25 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
             {
                 MostrarErrores(validationResults);
                 MessageBox.Show("Verifica los campos marcados en rojo.", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var tareasValidacion = new List<Task<(string campo, bool existe)>>()
+            {
+                VerificarExistencia("api/cliente/telefono-cliente-existe", clienteDTO.Telefono, "Teléfono en Clientes"),
+            };
+
+            await Task.WhenAll(tareasValidacion);
+
+            var erroresDuplicados = tareasValidacion
+                .Select(t => t.Result)
+                .Where(r => r.existe)
+                .Select(r => $"Ya existe un registro con el mismo {r.campo}.")
+                .ToList();
+
+            if (erroresDuplicados.Any())
+            {
+                MessageBox.Show(string.Join("\\n• ", erroresDuplicados), "Datos duplicados", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -229,6 +258,37 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
         {
             var ventana = new AddAddress(clienteDTO.Id);
             ventana.ShowDialog();
+        }
+
+        private async Task<(string campo, bool existe)> VerificarExistencia(string endpoint, string valor, string nombreCampo)
+        {
+            try
+            {
+                var response = await _http.GetAsync($"{endpoint}?{(endpoint.Contains("email") ? "email" : "telefono")}={Uri.EscapeDataString(valor)}");
+                if (response.IsSuccessStatusCode)
+                {
+                    bool existe = await response.Content.ReadFromJsonAsync<bool>();
+                    return (nombreCampo, existe);
+                }
+            }
+            catch { }
+
+            return (nombreCampo, false);
+        }
+
+        private async Task<bool> ClienteYaTieneOtraDireccionPrincipal(int clienteId)
+        {
+            try
+            {
+                var response = await _http.GetAsync($"api/direccioncliente/ya-tiene-direccion-principal?clienteId={clienteId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<bool>();
+                }
+            }
+            catch { }
+
+            return false;
         }
     }
 }

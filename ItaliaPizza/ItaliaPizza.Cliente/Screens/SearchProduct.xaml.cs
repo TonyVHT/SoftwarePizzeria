@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Screens.Admin;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
 using System;
@@ -177,5 +178,12 @@ namespace ItaliaPizza.Cliente.Screens
             }
         }
 
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            var homePage = new HomePageAdmin();
+            homePage.Show();
+            Close();
+
+        }
     }
 }

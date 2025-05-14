@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Admin"
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
         mc:Ignorable="d"
+        
         Title="AddUser" Height="450" Width="800">
     <Grid>
 

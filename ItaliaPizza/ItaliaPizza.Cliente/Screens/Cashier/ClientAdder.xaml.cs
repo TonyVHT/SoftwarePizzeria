@@ -66,6 +66,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
         }
         private async void BtnRegistrarClienteYDireccion_Click(object sender, RoutedEventArgs e)
         {
+
             var clienteDTO = new ClienteDTO
             {
                 Nombre = txtNombre.Text,
@@ -82,6 +83,18 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 Referencias = txtReferencias.Text,
                 EsPrincipal = chkEsPrincipal.IsChecked.GetValueOrDefault()
             };
+
+            if (chkEsPrincipal.IsChecked == true)
+            {
+                bool yaTieneOtraPrincipal = await ClienteYaTieneOtraDireccionPrincipal(clienteDTO.Id);
+
+                if (yaTieneOtraPrincipal)
+                {
+                    MessageBox.Show("Este cliente ya tiene otra dirección principal registrada.", "Error de duplicado", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+            }
+
 
             var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
             var isValidCliente = Validator.TryValidateObject(clienteDTO, new ValidationContext(clienteDTO), validationResults, true);
@@ -122,6 +135,26 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 return;
             }
 
+            var tareasValidacion = new List<Task<(string campo, bool existe)>>()
+            {
+                VerificarExistencia("api/cliente/telefono-cliente-existe", clienteDTO.Telefono, "Teléfono en Clientes"),
+            };
+
+            await Task.WhenAll(tareasValidacion);
+
+            var erroresDuplicados = tareasValidacion
+                .Select(t => t.Result)
+                .Where(r => r.existe)
+                .Select(r => $"Ya existe un registro con el mismo {r.campo}.")
+                .ToList();
+
+            if (erroresDuplicados.Any())
+            {
+                MessageBox.Show(string.Join("\\n• ", erroresDuplicados), "Datos duplicados", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+
             try
             {
                 var response = await _http.PostAsJsonAsync("api/cliente/registrar", clienteDTO);
@@ -159,7 +192,42 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
+            var opcionesUsuario = new UserOptions();
+            opcionesUsuario.Show();
             this.Close();
         }
+
+        private async Task<(string campo, bool existe)> VerificarExistencia(string endpoint, string valor, string nombreCampo)
+        {
+            try
+            {
+                var response = await _http.GetAsync($"{endpoint}?{(endpoint.Contains("email") ? "email" : "telefono")}={Uri.EscapeDataString(valor)}");
+                if (response.IsSuccessStatusCode)
+                {
+                    bool existe = await response.Content.ReadFromJsonAsync<bool>();
+                    return (nombreCampo, existe);
+                }
+            }
+            catch { }
+
+            return (nombreCampo, false);
+        }
+
+        private async Task<bool> ClienteYaTieneOtraDireccionPrincipal(int clienteId)
+        {
+            try
+            {
+                var response = await _http.GetAsync($"api/direccioncliente/ya-tiene-direccion-principal?clienteId={clienteId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<bool>();
+                }
+            }
+            catch { }
+
+            return false;
+        }
+
+
     }
 }

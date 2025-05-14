@@ -36,39 +36,7 @@ namespace ItaliaPizza.Cliente.UserControls
 
         }
 
-        public void ActivarBoton(string nombre)
-        {
-            // Limpiar todos los botones
-            buttonInicio.Tag = null;
-            buttonOrders.Tag = null;
-            buttonMenu.Tag = null;
-            buttonCustomers.Tag = null;
-            buttonAnalytics.Tag = null;
-            buttonSettings.Tag = null;
-
-            // Activar el correspondiente
-            switch (nombre)
-            {
-                case "Inicio":
-                    buttonInicio.Tag = "Active";
-                    break;
-                case "Orders":
-                    buttonOrders.Tag = "Active";
-                    break;
-                case "Menu":
-                    buttonMenu.Tag = "Active";
-                    break;
-                case "Customers":
-                    buttonCustomers.Tag = "Active";
-                    break;
-                case "Analytics":
-                    buttonAnalytics.Tag = "Active";
-                    break;
-                case "Settings":
-                    buttonSettings.Tag = "Active";
-                    break;
-            }
-        }
+        
 
         private void GoToUserOptions(object sender, RoutedEventArgs e)
         {

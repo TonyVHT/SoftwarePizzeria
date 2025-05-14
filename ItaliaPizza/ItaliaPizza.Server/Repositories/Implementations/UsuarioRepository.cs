@@ -118,6 +118,26 @@ namespace ItaliaPizza.Server.Repositories.Implementations
                 .ToListAsync();
         }
 
+        public async Task<bool> ExisteTelefonoAsync(string telefono)
+        {
+            return await _context.Usuarios.AnyAsync(u => u.Telefono == telefono);
+        }
+
+        public async Task<bool> ExisteEmailAsync(string email)
+        {
+            return await _context.Usuarios.AnyAsync(u => u.Email == email);
+        }
+
+        public async Task<bool> ExisteCurpAsync(string curp)
+        {
+            return await _context.Usuarios.AnyAsync(u => u.Curp == curp);
+        }
+
+        public async Task<bool> ExisteNombreUsuarioAsync(string nombreUsuario)
+        {
+            return await _context.CredencialesUsuarios.AnyAsync(c => c.NombreUsuario == nombreUsuario);
+        }
+
 
 
     }

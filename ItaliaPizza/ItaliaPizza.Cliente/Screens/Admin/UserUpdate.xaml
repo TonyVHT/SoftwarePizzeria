@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Admin"
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
+        
         mc:Ignorable="d"
         Title="UserUpdate" Height="450" Width="800">
     <Grid>
@@ -16,8 +17,15 @@
             </Grid.ColumnDefinitions>
             <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="1">
+                
                 <StackPanel Margin="20">
-
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="Cancelar" Style="{StaticResource cancelbuttonsStyle}" Margin="10,0,0,10" Click="BtnCancelar_Click"></Button>
+                    </Grid>
                     <!-- Datos personales -->
                     <GroupBox Header="Datos del usuario" Margin="0 0 0 20">
                         <StackPanel Margin="10">

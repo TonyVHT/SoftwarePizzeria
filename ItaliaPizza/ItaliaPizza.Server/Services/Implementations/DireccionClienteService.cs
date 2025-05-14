@@ -79,6 +79,11 @@ namespace ItaliaPizza.Server.Services.Implementations
                 .ToList();
         }
 
+        public Task<bool> TieneDireccionPrincipalAsync(int clienteId)
+        {
+            return _direccionClienteRepository.TieneDireccionPrincipalAsync(clienteId);
+        }
+
 
 
     }
