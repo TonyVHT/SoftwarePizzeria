@@ -14,11 +14,10 @@ Log.Logger = new LoggerConfiguration()
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 var connectionString = ConnectionStringProvider.GetConnectionString();
 if (string.IsNullOrEmpty(connectionString))
 {
-    throw new InvalidOperationException("No se encontró la cadena de conexión en variables de entorno.");
+    throw new InvalidOperationException("No se encontrÃ³ la cadena de conexiÃ³n en variables de entorno.");
 }
 
 //Tony services
@@ -27,9 +26,15 @@ builder.Services.AddDbContext<ItaliaPizzaDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IPlatilloRepository, PlatilloRepository>();
+builder.Services.AddScoped<IPlatilloService, PlatilloService>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<ICategoriaProductoRepository, CategoriaProductoRepository>();
+builder.Services.AddScoped<IIngredienteService, IngredienteService>();
+builder.Services.AddScoped<IRecetaService, RecetaService>();
+builder.Services.AddScoped<IRecetaRepository, RecetaRepository>();
+builder.Services.AddScoped<ICategoriaProductoRepository, CategoriaProductoRepository>();
+builder.Services.AddScoped<ICategoriaProductoService, CategoriaProductoService>();
 builder.Services.AddControllers();
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<IIngredienteRepository, IngredienteRepository>();

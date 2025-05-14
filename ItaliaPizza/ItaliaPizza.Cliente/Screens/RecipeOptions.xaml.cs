@@ -96,51 +96,51 @@ namespace ItaliaPizza.Cliente
 
         private void AbrirRegistrarReceta(object sender, RoutedEventArgs e)
         {
-            var ventana = new PlatillosScreen();
-            ventana.Show();
-            Close();
+            //var ventana = new PlatillosScreen();
+            //ventana.Show();
+            //Close();
         }
 
         private void AbrirConsultarReceta(object sender, RoutedEventArgs e)
         {
-            var ventana = new PlatillosScreen();
-            ventana.Show();
-            Close();
+           // var ventana = new PlatillosScreen();
+           // ventana.Show();
+           // Close();
         }
 
         private void AbrirRegistrarPlatillo(object sender, RoutedEventArgs e)
         {
-            var ventana = new PlatillosScreen();
-            ventana.Show();
-            Close();
+            //var ventana = new PlatillosScreen();
+           // ventana.Show();
+           // Close();
         }
 
         private void AbrirModificarPlatillo(object sender, RoutedEventArgs e)
         {
-            var ventana = new PlatillosScreen();
-            ventana.Show();
-            Close();
+           // var ventana = new PlatillosScreen();
+           // ventana.Show();
+           // Close();
         }
 
         private void AbrirConsultarPlatillo(object sender, RoutedEventArgs e)
         {
-            var ventana = new PlatillosScreen();
-            ventana.Show();
-            Close();
+           // var ventana = new PlatillosScreen();
+           // ventana.Show();
+           // Close();
         }
 
         private void AbrirAgregarCategoria(object sender, RoutedEventArgs e)
         {
-            var ventana = new PlatillosScreen();
-            ventana.Show();
-            Close();
+           // var ventana = new PlatillosScreen();
+           // ventana.Show();
+           // Close();
         }
 
         private void AbrirModificarCategoria(object sender, RoutedEventArgs e)
         {
-            var ventana = new PlatillosScreen();
-            ventana.Show();
-            Close();
+           // var ventana = new PlatillosScreen();
+          //  ventana.Show();
+          //  Close();
         }
 
 

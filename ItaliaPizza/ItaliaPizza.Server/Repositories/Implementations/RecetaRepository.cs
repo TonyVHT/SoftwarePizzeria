@@ -9,11 +9,14 @@ namespace ItaliaPizza.Server.Repositories.Implementations
     {
         public RecetaRepository(ItaliaPizzaDbContext context) : base(context) { }
 
-        public async Task<IEnumerable<Receta>> GetRecetasByPlatilloIdAsync(int platilloId)
+        public async Task<List<Receta>> GetRecetasByPlatilloIdAsync(int platilloId)
         {
-            return await _dbSet.Where(r => r.PlatilloId == platilloId)
-                               .Include(r => r.Ingrediente)
-                               .ToListAsync();
+            return await _dbSet
+                .Include(r => r.Platillo) // Incluir la relación con Platillo
+                .Include(r => r.Ingrediente) // Incluir la relación con Ingrediente
+                .ThenInclude(i => i.Producto) // Incluir la relación con Producto
+                .Where(r => r.PlatilloId == platilloId)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Receta>> GetRecetasByIngredienteIdAsync(int ingredienteId)

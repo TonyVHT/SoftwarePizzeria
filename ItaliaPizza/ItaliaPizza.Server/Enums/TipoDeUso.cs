@@ -4,6 +4,7 @@
     {
         Producto = 0,
         Platillo = 1,
-        Ambos = 2
+        Ambos = 2,
+        ingrediente = 3
     }
 }

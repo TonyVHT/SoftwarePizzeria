@@ -4616,23 +4616,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\marla\\.nuget\\packages\\": {},
+    "C:\\Users\\neco3\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marla\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Cliente\\ItaliaPizza.Cliente.csproj",
+      "projectUniqueName": "C:\\Users\\neco3\\Desktop\\Proyecto software\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Cliente\\ItaliaPizza.Cliente.csproj",
       "projectName": "ItaliaPizza.Cliente",
-      "projectPath": "C:\\Users\\marla\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Cliente\\ItaliaPizza.Cliente.csproj",
-      "packagesPath": "C:\\Users\\marla\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marla\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Cliente\\obj\\",
+      "projectPath": "C:\\Users\\neco3\\Desktop\\Proyecto software\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Cliente\\ItaliaPizza.Cliente.csproj",
+      "packagesPath": "C:\\Users\\neco3\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\neco3\\Desktop\\Proyecto software\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Cliente\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\marla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\neco3\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4657,9 +4657,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "all"
+        "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0-windows7.0": {
@@ -4733,7 +4733,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.105/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -4802,7 +4802,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"FontAwesome.WPF 4.7.0.9\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net9.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'FontAwesome.WPF 4.7.0.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "FontAwesome.WPF",
       "targetGraphs": [
         "net9.0-windows7.0"
