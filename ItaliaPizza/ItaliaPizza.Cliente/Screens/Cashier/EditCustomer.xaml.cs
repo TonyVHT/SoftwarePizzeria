@@ -14,7 +14,7 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens.Cashier
 {
-    public partial class EditCustomer : Window
+    public partial class EditCustomer : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
@@ -58,8 +58,8 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                     CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Clientes");
                     break;
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
         }
@@ -80,7 +80,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 if (cliente == null || direccion == null)
                 {
                     MessageBox.Show("No se encontró el cliente o su dirección principal.");
-                    this.Close();
+                    NavigationService.GoBack();
                     return;
                 }
 
@@ -108,7 +108,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar datos: {ex.Message}");
-                this.Close();
+                NavigationService.GoBack();
             }
         }
 
@@ -128,7 +128,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            NavigationService.Navigate(new ClientSearcher());
         }
 
         private void BtnModificar_Click(object sender, RoutedEventArgs e)
@@ -206,7 +206,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 if (responseCliente.IsSuccessStatusCode && responseDireccion.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Cliente y dirección actualizados correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
+                    NavigationService.Navigate(new ClientSearcher());
                 }
                 else
                 {
@@ -256,8 +256,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
         private void BtnAgregarDireccion_Click(object sender, RoutedEventArgs e)
         {
-            var ventana = new AddAddress(clienteDTO.Id);
-            ventana.ShowDialog();
+            NavigationService.Navigate(new AddAddress(clienteDTO.Id, null));
         }
 
         private async Task<(string campo, bool existe)> VerificarExistencia(string endpoint, string valor, string nombreCampo)

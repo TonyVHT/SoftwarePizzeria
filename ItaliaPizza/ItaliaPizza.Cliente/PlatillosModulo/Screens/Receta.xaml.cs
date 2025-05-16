@@ -1,4 +1,5 @@
 ﻿
+using ItaliaPizza.Cliente.Platillos.Screens;
 using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 
 namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 {
-    public partial class Receta : Window
+    public partial class Receta : Page
     {
         private readonly PlatilloDto _platillo;
         private readonly HttpClient _httpClient;
@@ -206,7 +208,8 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (NavigationService?.CanGoBack == true)
+                NavigationService.GoBack();
         }
         private async Task GuardarRecetaAsync()
         {
@@ -228,7 +231,7 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Receta guardada exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close(); 
+                    NavigationService.Navigate(new BuscarPlatillosScreen());
                 }
                 else
                 {

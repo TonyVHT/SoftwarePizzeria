@@ -25,7 +25,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
     /// <summary>
     /// Lógica de interacción para AddUser.xaml
     /// </summary>
-    public partial class AddUser : Window
+    public partial class AddUser : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
         public AddUser()
@@ -48,7 +48,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
 
                 default:
                     MessageBox.Show("Rol no reconocido");
-                    Close();
+                    NavigationService.GoBack();
                     return;
             }
         }
@@ -171,8 +171,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                     MessageBox.Show("Usuario y credencial registrados correctamente 💙", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
                     // Consider closing or navigating after successful registration
                     var ventana = new UserOptions(); // Assuming UserOptions is the next window
-                    ventana.Show();
-                    Close();
+                    NavigationService.Navigate(ventana);
 
                 }
                 else
@@ -280,8 +279,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
             var ventana = new UserOptions();
-            ventana.Show();
-            Close();
+            NavigationService.Navigate(ventana);
         }
         // Remove the old HayCamposVaciosConResaltado method as it's replaced by data annotations
         // private bool HayCamposVaciosConResaltado(out List<string> camposFaltantes) { ... }

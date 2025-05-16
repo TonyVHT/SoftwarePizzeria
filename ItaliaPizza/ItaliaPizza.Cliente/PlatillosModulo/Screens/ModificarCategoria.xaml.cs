@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 {
-    public partial class ModificarCategoria : Window
+    public partial class ModificarCategoria : Page
     {
         private List<CategoriaProductoDto> _categorias = new();
 
@@ -71,8 +71,8 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
                 {
                     MessageBox.Show("Categoría actualizada con éxito.", "Éxito",
                                     MessageBoxButton.OK, MessageBoxImage.Information);
-                    DialogResult = true;
-                    Close();
+                    if (NavigationService?.CanGoBack == true)
+                        NavigationService.GoBack();
                 }
                 else
                 {
@@ -90,8 +90,8 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
-            Close();
+            if (NavigationService?.CanGoBack == true)
+                NavigationService.GoBack();
         }
     }
 }

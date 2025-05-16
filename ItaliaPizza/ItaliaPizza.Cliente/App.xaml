@@ -824,20 +824,74 @@ SnapsToDevicePixels="True">
             </Setter>
 
         </Style>
-        
-        
 
+        <!-- Estilo para los encabezados -->
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="Background" Value="#E6F4EA"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        </Style>
 
+        <!-- Estilo para el ListView -->
+        <Style x:Key="WorkingModernListViewStyle" TargetType="ListView">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="Foreground" Value="#333"/>
+                        <Setter Property="Padding" Value="10,5"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border Name="Border" BorderBrush="#E0E0E0" BorderThickness="0,0,0,1" Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#D1EEDD"/>
+                                            <Setter Property="Foreground" Value="#0B8043"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#F0F9F5"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Foreground" Value="#888"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-
-
-
-
-
-
-
-
-
+        <Style x:Key="RoundedShadowedBorderText" TargetType="Border">
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Background" Value="#F4FDF7"/>
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#888" BlurRadius="6" Opacity="0.2" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
 

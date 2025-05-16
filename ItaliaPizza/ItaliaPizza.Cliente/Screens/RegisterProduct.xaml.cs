@@ -3,12 +3,13 @@ using ItaliaPizza.Cliente.Utils;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace ItaliaPizza.Cliente.Screens
 {
-    public partial class RegisterProduct : Window
+    public partial class RegisterProduct : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 

@@ -1,4 +1,4 @@
-﻿<Window x:Class="ItaliaPizza.Cliente.Screens.OrderClient.ClientSearchOrder"
+﻿<Page x:Class="ItaliaPizza.Cliente.Screens.OrderClient.ClientSearchOrder"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -6,13 +6,19 @@
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.OrderClient"
         mc:Ignorable="d"
         Title="Buscar Cliente" Height="600" Width="950"
-        WindowStartupLocation="CenterScreen">
+        >
 
-    <Window.Resources>
+    <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-    </Window.Resources>
+    </Page.Resources>
 
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#E6F4EA" Offset="0"/>
+                <GradientStop Color="#F0F4F8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
         <Grid Margin="20" Grid.Column="1">
             <Grid.RowDefinitions>
@@ -22,6 +28,7 @@
 
             <!-- Filtro -->
             <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                <Button x:Name="BtnCancelar" Style="{StaticResource cancelbuttonsStyle}" Content="Cancelar" Click="BtnCancelar_Click" Margin="0,0,10,0"></Button>
                 <Grid Width="255">
                     <TextBox x:Name="txtBusquedaCliente" Width="250" Style="{StaticResource textboxStyle}"/>
                     <TextBlock Text="Buscar cliente por nombre"
@@ -87,4 +94,4 @@
             </Grid>
         </Grid>
     </Grid>
-</Window>
+</Page>

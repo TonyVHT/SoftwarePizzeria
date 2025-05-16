@@ -8,11 +8,12 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 {
-    public partial class VerReceta : Window
+    public partial class VerReceta : Page
     {
         private readonly PlatilloDto _platillo;
         private readonly HttpClient _httpClient;
@@ -128,6 +129,9 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
         }
 
         private void Cerrar_Click(object sender, RoutedEventArgs e)
-            => Close();
+        {
+            NavigationService.GoBack();
+        }
+            
     }
 }

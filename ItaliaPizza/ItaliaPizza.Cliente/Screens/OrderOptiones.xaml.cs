@@ -21,7 +21,7 @@ namespace ItaliaPizza.Cliente.Screens
     /// <summary>
     /// Lógica de interacción para OrderOptiones.xaml
     /// </summary>
-    public partial class OrderOptiones : Window
+    public partial class OrderOptiones : Page
     {
         public OrderOptiones()
         {
@@ -54,8 +54,8 @@ namespace ItaliaPizza.Cliente.Screens
                     break;
 
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
 
@@ -89,29 +89,26 @@ namespace ItaliaPizza.Cliente.Screens
         private void AbrirRegistrarPedido(object sender, RoutedEventArgs e)
         {
             var registrarPedido = new RegisterOrder();
-            registrarPedido.Show();
+            NavigationService.Navigate(registrarPedido);
             Window.GetWindow(this)?.Close();
         }
 
         private void AbrirRegistrarPedidoDomicilio(object sender, RoutedEventArgs e)
         {
             var registrarPedidoDomicilio = new RegisterOrder();
-            registrarPedidoDomicilio.Show();
-            Window.GetWindow(this)?.Close();
+            NavigationService.Navigate(registrarPedidoDomicilio);
         }
 
         private void AbrirConsultarPedidoCocina(object sender, RoutedEventArgs e)
         {
             var consultarPedidoCocina = new PedidosEnCocina();
-            consultarPedidoCocina.Show();
-            Window.GetWindow(this)?.Close();
+            NavigationService.Navigate(consultarPedidoCocina);
         }
 
         private void AbrirConsultarPedido(object sender, RoutedEventArgs e)
         {
             var consultarPedido = new ConsultarPedidos();
-            consultarPedido.Show();
-            Window.GetWindow(this)?.Close();
+            NavigationService.Navigate(consultarPedido);
         }
 
         private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)

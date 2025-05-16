@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Platillos.Screens
 {
-    public partial class BuscarPlatillosScreen : Window
+    public partial class BuscarPlatillosScreen : Page
     {
         private const int PlatillosPorPagina = 5;
         private int paginaActual = 1;
@@ -26,9 +26,12 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
         {
             AgregarPlatillo ventanaAgregar = new AgregarPlatillo();
 
-            this.Close();
+            NavigationService.Navigate(ventanaAgregar);
+        }
 
-            ventanaAgregar.ShowDialog();
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
 
 
@@ -58,7 +61,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             if (sender is Button btn && btn.DataContext is PlatilloDto platilloSeleccionado)
             {
                 ModificarPlatillo ventanaModificarPlatillo = new ModificarPlatillo(platilloSeleccionado);
-                ventanaModificarPlatillo.ShowDialog(); 
+                NavigationService.Navigate(ventanaModificarPlatillo);
 
                 btnBuscar_Click(null, null);
             }
@@ -78,7 +81,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             if (sender is Button btn && btn.DataContext is PlatilloDto platilloSeleccionado)
             {
                 VerPlatillo ventanaVerPlatillo = new VerPlatillo(platilloSeleccionado);
-                ventanaVerPlatillo.ShowDialog(); 
+                NavigationService.Navigate(ventanaVerPlatillo);
             }
         }
 

@@ -13,7 +13,7 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens.Cashier
 {
-    public partial class ClientAdder : Window
+    public partial class ClientAdder : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
@@ -53,8 +53,8 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                     CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Clientes");
                     break;
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, inicie sesión de nuevo");
+                    NavigationService?.Navigate(new LogIn());
                     return;
             }
         }
@@ -192,9 +192,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            var opcionesUsuario = new UserOptions();
-            opcionesUsuario.Show();
-            this.Close();
+            NavigationService.Navigate(new CustomerOptiones());
         }
 
         private async Task<(string campo, bool existe)> VerificarExistencia(string endpoint, string valor, string nombreCampo)

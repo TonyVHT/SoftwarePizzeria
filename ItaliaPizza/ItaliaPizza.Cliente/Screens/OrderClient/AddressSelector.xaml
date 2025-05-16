@@ -1,4 +1,4 @@
-﻿<Window x:Class="ItaliaPizza.Cliente.Screens.OrderClient.AddressSelector"
+﻿<Page x:Class="ItaliaPizza.Cliente.Screens.OrderClient.AddressSelector"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,13 +8,17 @@
         Title="Seleccionar Dirección"
         Height="500"
         Width="600"
-        WindowStartupLocation="CenterOwner">
+        >
 
-    <Window.Resources>
-        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-    </Window.Resources>
+    
 
     <Grid Margin="20">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#E6F4EA" Offset="0"/>
+                <GradientStop Color="#F0F4F8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -60,4 +64,4 @@
             Style="{StaticResource buttonsStyle}" />
         </StackPanel>
     </Grid>
-</Window>
+</Page>

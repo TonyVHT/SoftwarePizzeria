@@ -1,4 +1,4 @@
-﻿<Window x:Class="ItaliaPizza.Cliente.Screens.CustomerOptiones"
+﻿<Page x:Class="ItaliaPizza.Cliente.Screens.CustomerOptiones"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -28,7 +28,7 @@
                     <TextBlock Text="Opciones" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center" Foreground="#333"/>
                     <Border BorderBrush="#4CAF50" BorderThickness="2" CornerRadius="10" Margin="10" Padding="10" HorizontalAlignment="Stretch">
                         <Border.Effect>
-                            <DropShadowEffect Color="Black" BlurRadius="10" Direction="270" ShadowDepth="5"/>
+                            <DropShadowEffect Color="#32d483" BlurRadius="10" Direction="270" ShadowDepth="5"/>
                         </Border.Effect>
                         <!-- Botones distribuidos en un WrapPanel -->
                         <WrapPanel x:Name="BotonesWrapPanel" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Top" ItemWidth="250" ItemHeight="70" Margin="15">
@@ -42,4 +42,4 @@
         </Grid>
 
     </Grid>
-</Window>
+</Page>

@@ -1,12 +1,12 @@
-﻿<Window x:Class="ItaliaPizza.Cliente.Screens.RegisterOrder"
+﻿<Page x:Class="ItaliaPizza.Cliente.Screens.RegisterOrder"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Converters"
         Title="Registrar Pedido" Height="840" Width="1280" Background="#f4f4f4">
 
-    <Window.Resources>
+    <Page.Resources>
         <local:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter" />
-    </Window.Resources>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -122,4 +122,4 @@
             </StackPanel>
         </Border>
     </Grid>
-</Window>
+</Page>

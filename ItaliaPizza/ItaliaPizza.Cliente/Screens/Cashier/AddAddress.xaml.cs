@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Interfaces;
 using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
@@ -13,15 +14,17 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens.Cashier
 {
-    public partial class AddAddress : Window
+    public partial class AddAddress : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
         private readonly int _clienteId;
+        private readonly IRefreshable? _paginaAnterior;
 
-        public AddAddress(int clienteId)
+        public AddAddress(int clienteId, IRefreshable? paginaAnterior)
         {
             InitializeComponent();
             _clienteId = clienteId;
+            _paginaAnterior = paginaAnterior as IRefreshable;
             string rol = UserSessionManager.Instance.GetRol()?.ToLower();
 
             switch (rol)
@@ -56,7 +59,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                     break;
                 default:
                     MessageBox.Show("Rol no reconocido");
-                    Close();
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
         }
@@ -69,7 +72,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            NavigationService?.GoBack();
         }
 
         private async void BtnGuardar_Click(object sender, RoutedEventArgs e)
@@ -111,7 +114,8 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Dirección registrada correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
+                    _paginaAnterior?.Refrescar(); 
+                    NavigationService?.GoBack();  
                 }
                 else
                 {

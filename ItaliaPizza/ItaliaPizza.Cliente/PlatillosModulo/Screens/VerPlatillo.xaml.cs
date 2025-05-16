@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
@@ -7,7 +8,7 @@ using ItaliaPizza.Cliente.PlatillosModulo.Screens;
 
 namespace ItaliaPizza.Cliente.Platillos.Screens
 {
-    public partial class VerPlatillo : Window
+    public partial class VerPlatillo : Page
     {
         private readonly PlatilloDto platillo;
 
@@ -49,13 +50,14 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
 
         private void Receta_Click(object sender, RoutedEventArgs e)
         {
-            var ventanaVerReceta = new VerReceta(platillo) { Owner = this };
-            ventanaVerReceta.ShowDialog();
+            var ventanaVerReceta = new VerReceta(platillo);
+            NavigationService.Navigate(ventanaVerReceta);
         }
 
         private void Salir_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            if(NavigationService?.CanGoBack == true)
+                NavigationService.GoBack();
         }
     }
 }

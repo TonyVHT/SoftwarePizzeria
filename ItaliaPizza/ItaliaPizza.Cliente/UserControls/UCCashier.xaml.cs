@@ -24,6 +24,8 @@ namespace ItaliaPizza.Cliente.UserControls
     /// </summary>
     public partial class UCCashier : UserControl
     {
+        private NavigationService? Navigation => NavigationService.GetNavigationService(this);
+
         public UCCashier()
         {
             InitializeComponent();
@@ -39,29 +41,25 @@ namespace ItaliaPizza.Cliente.UserControls
         private void GoToCustomerOptions(object sender, RoutedEventArgs e)
         {
             var customerOptions = new CustomerOptiones();
-            customerOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(customerOptions);
         }
 
         private void GoToOrdersOptions(object sender, RoutedEventArgs e)
         {
             var orderOptions = new OrderOptiones();
-            orderOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(orderOptions);
         }
 
         private void GoToHomePage(object sender, RoutedEventArgs e)
         {
             var homePage = new HomePageAdmin();
-            homePage.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(homePage);
         }
 
         private void GoToProductsOptions(object sender, RoutedEventArgs e)
         {
             var productOptions = new SearchProduct();
-            productOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation.Navigate(productOptions);
         }
     }
 }

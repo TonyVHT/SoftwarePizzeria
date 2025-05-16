@@ -23,7 +23,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
     /// <summary>
     /// Lógica de interacción para UserUpdate.xaml
     /// </summary>
-    public partial class UserUpdate : Window
+    public partial class UserUpdate : Page
     {
         private readonly int usuarioId;
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
@@ -46,7 +46,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                 
                 default:
                     MessageBox.Show("Rol no reconocido");
-                    Close();
+                    NavigationService?.Navigate(new LogIn());
                     return;
             }
             usuarioId = id;
@@ -69,7 +69,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                 if (usuario == null)
                 {
                     MessageBox.Show("No se pudo cargar la información del usuario.");
-                    this.Close();
+                    NavigationService?.Navigate(new UserSearch());
                     return;
                 }
 
@@ -172,7 +172,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                 }
 
                 MessageBox.Show("Usuario actualizado correctamente.");
-                this.Close();
+                NavigationService.Navigate(new UserSearch());
             }
             else
             {
@@ -241,9 +241,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            var userSearch = new UserSearch();
-            userSearch.Show();
-            Close();
+            NavigationService.Navigate(new UserOptions());
         }
 
 

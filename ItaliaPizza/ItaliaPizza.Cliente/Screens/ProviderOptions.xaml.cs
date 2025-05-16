@@ -20,7 +20,7 @@ namespace ItaliaPizza.Cliente.Screens
     /// <summary>
     /// Lógica de interacción para ProviderOptiones.xaml
     /// </summary>
-    public partial class ProviderOptions : Window
+    public partial class ProviderOptions : Page
     {
         public ProviderOptions()
         {
@@ -39,8 +39,8 @@ namespace ItaliaPizza.Cliente.Screens
                     break;
 
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
 
@@ -62,22 +62,19 @@ namespace ItaliaPizza.Cliente.Screens
         private void AbrirRegistrarProveedor(object sender, RoutedEventArgs e)
         {
             var registrarProveedorWindow = new RegisterProvider();
-            registrarProveedorWindow.Show();
-            Close();
+            NavigationService.Navigate(registrarProveedorWindow);
         }
 
         private void AbrirModificarProveedor(object sender, RoutedEventArgs e)
         {
             var modificarProveedorWindow = new ConsultProviders();
-            modificarProveedorWindow.Show();
-            Close();
+            NavigationService.Navigate(modificarProveedorWindow);
         }
 
         private void AbrirRegistrarPedidoProveedor(object sender, RoutedEventArgs e)
         {
             var registrarPedidoProveedorWindow = new RegisterOrderToProvider();
-            registrarPedidoProveedorWindow.Show();
-            Close();
+            NavigationService.Navigate(registrarPedidoProveedorWindow);
         }
 
         

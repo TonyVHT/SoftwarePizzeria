@@ -13,7 +13,7 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens.Orders
 {
-    public partial class PedidosEnCocina : Window
+    public partial class PedidosEnCocina : Page
     {
         private readonly HttpClient _httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
@@ -35,17 +35,15 @@ namespace ItaliaPizza.Cliente.Screens.Orders
 
                
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor incie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            var opcionesPedidos = new OrderOptiones();
-            opcionesPedidos.Show();
-            this.Close();
+            NavigationService.Navigate(new OrderOptiones());
         }
         private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
         {

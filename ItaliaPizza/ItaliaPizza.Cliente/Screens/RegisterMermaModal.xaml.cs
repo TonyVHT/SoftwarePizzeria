@@ -4,10 +4,11 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens
 {
-    public partial class RegisterMermaModal : Window
+    public partial class RegisterMermaModal : Page
     {
         private readonly Producto _producto;
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
@@ -47,8 +48,7 @@ namespace ItaliaPizza.Cliente.Screens
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Merma registrada correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    DialogResult = true;
-                    Close();
+                    NavigationService.Navigate(new SearchProduct());
                 }
                 else
                 {

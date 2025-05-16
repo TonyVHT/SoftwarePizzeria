@@ -7,7 +7,7 @@ using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
 
 namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 {
-    public partial class AgregarCategoria : Window
+    public partial class AgregarCategoria : Page
     {
         public AgregarCategoria()
         {
@@ -50,8 +50,7 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
                 {
                     MessageBox.Show($"Categoría '{nuevaCat.Nombre}' agregada con éxito.", "Éxito",
                                     MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.DialogResult = true;
-                    this.Close();
+                    NavigationService.Navigate(new RecipeOptions());
                 }
                 else
                 {
@@ -69,8 +68,7 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
-            this.Close();
+            NavigationService.GoBack();
         }
     }
 }

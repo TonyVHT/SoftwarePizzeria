@@ -19,7 +19,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
     /// <summary>
     /// Lógica de interacción para ModificarPlatillo.xaml
     /// </summary>
-    public partial class ModificarPlatillo : Window
+    public partial class ModificarPlatillo : Page
     {
         private PlatilloDto _platillo;
 
@@ -151,7 +151,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Los cambios se han guardado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
+                    NavigationService.Navigate(new BuscarPlatillosScreen());
                 }
                 else
                 {
@@ -211,7 +211,10 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if(NavigationService?.CanGoBack == true)
+            {
+                NavigationService.GoBack();
+            }
         }
 
         private void btnReceta_Click(object sender, RoutedEventArgs e)
@@ -220,7 +223,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             {
                 Receta ventanaAgregarReceta = new Receta(_platillo);
 
-                ventanaAgregarReceta.ShowDialog();
+                NavigationService.Navigate(ventanaAgregarReceta);
             }
             else
             {

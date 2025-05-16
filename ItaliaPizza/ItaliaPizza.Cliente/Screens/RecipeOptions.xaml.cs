@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.Platillos.Screens;
+using ItaliaPizza.Cliente.Screens;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
 using System;
@@ -14,6 +15,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ItaliaPizza.Cliente
@@ -21,7 +23,7 @@ namespace ItaliaPizza.Cliente
     /// <summary>
     /// Lógica de interacción para RecipeOptions.xaml
     /// </summary>
-    public partial class RecipeOptions : Window
+    public partial class RecipeOptions : Page
     {
         public RecipeOptions()
         {
@@ -48,8 +50,8 @@ namespace ItaliaPizza.Cliente
                     break;
 
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
 
@@ -87,8 +89,8 @@ namespace ItaliaPizza.Cliente
             }
             else
             {
-                MessageBox.Show("Rol no reconocido");
-                Close();
+                MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                NavigationService.Navigate(new LogIn());
                 return;
             }
         }

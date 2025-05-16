@@ -10,10 +10,11 @@ using System.IO;
 using System.Net.Http.Json;
 using ItaliaPizza.Cliente.PlatillosModulo.Screens;
 using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
+using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Platillos.Screens
 {
-    public partial class AgregarPlatillo : Window
+    public partial class AgregarPlatillo : Page
     {
         private byte[]? imagenPlatillo;
 
@@ -134,9 +135,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                     MessageBox.Show("Platillo guardado exitosamente.");
 
                     BuscarPlatillosScreen ventanaBuscar = new BuscarPlatillosScreen();
-                    ventanaBuscar.Show();
-
-                    this.Close();
+                    NavigationService.Navigate(ventanaBuscar);
                 }
                 else
                 {
@@ -151,8 +150,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
         }
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            new BuscarPlatillosScreen().Show();
-            this.Close();
+            NavigationService.Navigate(new BuscarPlatillosScreen());
         }
     }
 }

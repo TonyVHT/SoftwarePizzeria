@@ -16,7 +16,7 @@ using System.Windows.Media;
 
 namespace ItaliaPizza.Cliente.Screens.Orders
 {
-    public partial class ConsultarPedidos : Window
+    public partial class ConsultarPedidos : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
         private List<PedidoDomicilioDto> _pedidosDomicilio;
@@ -55,8 +55,8 @@ namespace ItaliaPizza.Cliente.Screens.Orders
                     CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Pedidos");
                     break;
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
 
@@ -220,9 +220,7 @@ namespace ItaliaPizza.Cliente.Screens.Orders
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            var opcinesPedidos = new OrderOptiones();
-            opcinesPedidos.Show();
-            this.Close();
+            NavigationService.Navigate(new OrderOptiones());
         }
 
         private async void DgPedidos_MouseDoubleClick(object sender, MouseButtonEventArgs e)

@@ -1,4 +1,4 @@
-﻿<Window x:Class="ItaliaPizza.Cliente.Screens.Cashier.EditCustomer"
+﻿<Page x:Class="ItaliaPizza.Cliente.Screens.Cashier.EditCustomer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +9,14 @@
         Title="EditCostumer" Height="600" Width="950">
 
     <Grid>
-       
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#E6F4EA" Offset="0"/>
+                <GradientStop Color="#F0F4F8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -35,7 +42,7 @@ Width="100"
 Height="30"
 HorizontalAlignment="Left"
 VerticalAlignment="Top"
-Margin="0,5,0,0"
+Margin="10,15,0,0"
 Click="BtnCancelar_Click"
 Style="{StaticResource buttonsStyle}"  />
 
@@ -86,19 +93,20 @@ Style="{StaticResource buttonsStyle}"  />
                         </StackPanel>
                     </GroupBox>
                 </Grid>
-                <!-- Botón Modificar Cliente -->
-                <Button x:Name="btnModificar" Content="Modificar cliente" Grid.Column="1" Grid.Row="2"
-        Width="200" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center"
-        Margin="205,0,5,2"
-        Click="BtnModificar_Click"
-        Style="{StaticResource buttonsStyle}" />
+                <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,2">
+                    <Button x:Name="btnModificar" Content="Modificar cliente"  Margin="0,0,10,0"
+Width="200" Height="40" 
+Click="BtnModificar_Click"
+Style="{StaticResource buttonsStyle}" />
 
-                <!-- Botón Agregar Dirección -->
-                <Button x:Name="btnAgregarDireccion" Content="Agregar dirección" Grid.Column="1" Grid.Row="2"
-        Width="200" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center"
-        Margin="0,0,20,2"
-        Click="BtnAgregarDireccion_Click"
-        Style="{StaticResource buttonsStyle}" />
+                    <!-- Botón Agregar Dirección -->
+                    <Button x:Name="btnAgregarDireccion" Content="Agregar dirección" 
+Width="200" Height="40" 
+Click="BtnAgregarDireccion_Click"
+Style="{StaticResource buttonsStyle}" />
+                </StackPanel>
+                <!-- Botón Modificar Cliente -->
+                
 
                 <!-- Botón Guardar Cambios (inicialmente oculto) -->
                 <Button x:Name="btnGuardarCambios" Content="Guardar cambios" Grid.Column="1" Grid.Row="2"
@@ -119,4 +127,4 @@ Style="{StaticResource buttonsStyle}"  />
 
     </Grid>
 
-</Window>
+</Page>

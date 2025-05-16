@@ -1,21 +1,29 @@
-﻿<Window x:Class="ItaliaPizza.Cliente.Screens.Admin.UserSearch"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Admin"
-        xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
-        
-        mc:Ignorable="d"
-        Title="UserSearch" Height="450" Width="950">
+﻿<Page x:Class="ItaliaPizza.Cliente.Screens.Admin.UserSearch"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Admin"
+      xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
+      mc:Ignorable="d"
+      Title="UserSearch" Height="450" Width="950">
+
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#E6F4EA" Offset="0"/>
+                <GradientStop Color="#F0F4F8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+
             <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
+
             <Grid Margin="20" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -23,12 +31,11 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <StackPanel Orientation="Horizontal"  Grid.Row="0" Margin="0 0 0 10">
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0 0 0 10">
                     <Button x:Name="buttonCancelar" Content="Cancelar" Style="{StaticResource cancelbuttonsStyle}" Margin="0,0,10,0" Click="Btn_Cancelar"/>
                     <TextBox x:Name="txtNombre" Width="300" Style="{StaticResource textboxStyle}"/>
-                    
-             
-                    <ComboBox x:Name="cmbRol"  Style="{StaticResource comboBoxStyle}" Width="200"> 
+
+                    <ComboBox x:Name="cmbRol" Style="{StaticResource comboBoxStyle}" Width="200">
                         <ComboBoxItem Content=""/>
                         <ComboBoxItem Content="Administrador"/>
                         <ComboBoxItem Content="Mesero"/>
@@ -36,57 +43,73 @@
                         <ComboBoxItem Content="Gerente"/>
                         <ComboBoxItem Content="Cajero"/>
                     </ComboBox>
-                    <Button Content="Buscar"
-            Width="100"
-            Click="BtnBuscar_Click"
-            Style="{StaticResource buttonsStyle}" />
+
+                    <Button Content="Buscar" Width="100" Click="BtnBuscar_Click" Style="{StaticResource buttonsStyle}" />
                 </StackPanel>
 
                 <DataGrid x:Name="dgUsuarios" Grid.Row="1" Style="{StaticResource WorkingModernDataGridStyle}"
-                  AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  SelectionMode="Single"
-                  SelectionUnit="FullRow"
-                  MouseDoubleClick="dgUsuarios_MouseDoubleClick"
-                  HeadersVisibility="Column"
-                  RowHeaderWidth="0">
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Single"
+                          SelectionUnit="FullRow"
+                          MouseDoubleClick="dgUsuarios_MouseDoubleClick"
+                          HeadersVisibility="Column"
+                          RowHeaderWidth="0">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Usuario" Binding="{Binding NombreUsuario}" Width="*">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
-                                    <Setter Property="ToolTip" Value="{Binding NombreCompleto, StringFormat='Doble clic para editar'}"/>
+                                    <Setter Property="ToolTip">
+                                        <Setter.Value>
+                                            <TextBlock>
+                                                <Run Text="{Binding NombreUsuario}" />
+                                                <Run Text=" - Doble clic para editar" />
+                                            </TextBlock>
+                                        </Setter.Value>
+                                    </Setter>
                                 </Style>
                             </DataGridTextColumn.CellStyle>
-
                         </DataGridTextColumn>
+
                         <DataGridTextColumn Header="Nombre completo" Binding="{Binding NombreCompleto}" Width="*">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
-                                    <Setter Property="ToolTip" Value="{Binding NombreCompleto, StringFormat='Doble clic para editar'}"/>
+                                    <Setter Property="ToolTip">
+                                        <Setter.Value>
+                                            <TextBlock>
+                                                <Run Text="{Binding NombreCompleto}" />
+                                                <Run Text=" - Doble clic para editar" />
+                                            </TextBlock>
+                                        </Setter.Value>
+                                    </Setter>
                                 </Style>
                             </DataGridTextColumn.CellStyle>
-
                         </DataGridTextColumn>
+
                         <DataGridTextColumn Header="Rol" Binding="{Binding Rol}" Width="*">
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
-                                    <Setter Property="ToolTip" Value="{Binding NombreCompleto, StringFormat='Doble clic para editar'}"/>
+                                    <Setter Property="ToolTip">
+                                        <Setter.Value>
+                                            <TextBlock>
+                                                <Run Text="{Binding Rol}" />
+                                                <Run Text=" - Doble clic para editar" />
+                                            </TextBlock>
+                                        </Setter.Value>
+                                    </Setter>
                                 </Style>
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
+
                 <Label Grid.Row="2" Grid.Column="1">
                     <Label.Content>
                         * Doble clic en el usuario para editar
                     </Label.Content>
                 </Label>
             </Grid>
-            
-
         </Grid>
-
-
     </Grid>
-</Window>
+</Page>
