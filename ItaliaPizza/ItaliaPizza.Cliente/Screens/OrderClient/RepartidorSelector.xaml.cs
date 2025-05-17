@@ -51,19 +51,25 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
             if (dgRepartidores.SelectedItem is UsuarioConsultaDTO repartidor)
             {
                 AppState.RepartidorSeleccionado = repartidor;
-                NavigationService?.GoBack();
-            }
-            else
-            {
-                MessageBox.Show("Por favor selecciona un repartidor.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                if (Tag is RegisterOrder parent)
+                {
+                    parent.CerrarModal(); 
+                }
             }
         }
+
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
             AppState.RepartidorSeleccionado = null;
-            NavigationService?.GoBack();
+
+            if (Tag is RegisterOrder parent)
+            {
+                parent.CerrarModal();
+            }
         }
+
 
         private void DgRepartidores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

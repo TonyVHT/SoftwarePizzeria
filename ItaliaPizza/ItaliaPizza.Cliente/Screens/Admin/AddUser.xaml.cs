@@ -47,8 +47,8 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                     break;
 
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    NavigationService.GoBack();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
         }

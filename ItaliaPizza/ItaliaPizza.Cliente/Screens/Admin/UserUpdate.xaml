@@ -7,7 +7,7 @@
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
         
         mc:Ignorable="d"
-        Title="UserUpdate" Height="450" Width="800">
+        Title="UserUpdate">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">

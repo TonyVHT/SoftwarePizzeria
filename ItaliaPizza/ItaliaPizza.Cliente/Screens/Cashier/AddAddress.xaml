@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Cashier"
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
         mc:Ignorable="d"
-        Title="AddAddress" Height="600" Width="950">
+        Title="AddAddress" >
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">

@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.OrderClient"
         mc:Ignorable="d"
-        Title="Buscar Cliente" Height="600" Width="950"
+        Title="Buscar Cliente" 
         >
 
     <Page.Resources>
@@ -93,5 +93,19 @@
                 </DataGrid>
             </Grid>
         </Grid>
+        <!-- Contenedor de modal -->
+        <Grid x:Name="ModalOverlay"
+      Background="#80000000"
+      Visibility="Collapsed"
+      Panel.ZIndex="99">
+            <Frame x:Name="ModalFrame"
+           Width="700"
+           Height="Auto"
+           NavigationUIVisibility="Hidden"
+           Background="Transparent"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"/>
+        </Grid>
+
     </Grid>
 </Page>

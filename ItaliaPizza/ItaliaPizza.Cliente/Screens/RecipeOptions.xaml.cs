@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.Platillos.Screens;
+using ItaliaPizza.Cliente.PlatillosModulo.Screens;
 using ItaliaPizza.Cliente.Screens;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
@@ -57,16 +58,14 @@ namespace ItaliaPizza.Cliente
 
             if (rol == "administrador")
             {
-                AgregarBoton("Registrar platillo", AbrirRegistrarPlatillo);
-                AgregarBoton("Modificar platillo", AbrirModificarPlatillo);
+                
                 AgregarBoton("Consultar platillo", AbrirConsultarPlatillo);
                 AgregarBoton("Agregar categoria de platillos", AbrirAgregarCategoria);
                 AgregarBoton("Modificar categoria de platillos", AbrirModificarCategoria);
             }
             else if (rol == "gerente")
             {
-                AgregarBoton("Registrar platillo", AbrirRegistrarPlatillo);
-                AgregarBoton("Modificar platillo", AbrirModificarPlatillo);
+                
                 AgregarBoton("Consultar platillo", AbrirConsultarPlatillo);
                 AgregarBoton("Agregar categoria de platillos", AbrirAgregarCategoria);
                 AgregarBoton("Modificar categoria de platillos", AbrirModificarCategoria);
@@ -76,15 +75,12 @@ namespace ItaliaPizza.Cliente
             else if(rol == "cocinero")
             {
                 AgregarBoton("Consultar platillo", AbrirConsultarPlatillo);
-                AgregarBoton("Consultar receta", AbrirConsultarReceta);
             }
             else if(rol == "jefe de cocina")
             {
-                AgregarBoton("Registrar platillo", AbrirRegistrarPlatillo);
-                AgregarBoton("Modificar platillo", AbrirModificarPlatillo);
+                
                 AgregarBoton("Consultar platillo", AbrirConsultarPlatillo);
-                AgregarBoton("Registrar receta", AbrirRegistrarReceta);
-                AgregarBoton("Consultar receta", AbrirConsultarReceta);
+                
 
             }
             else
@@ -96,53 +92,30 @@ namespace ItaliaPizza.Cliente
         }
 
 
-        private void AbrirRegistrarReceta(object sender, RoutedEventArgs e)
-        {
-            //var ventana = new PlatillosScreen();
-            //ventana.Show();
-            //Close();
-        }
+        
 
-        private void AbrirConsultarReceta(object sender, RoutedEventArgs e)
-        {
-           // var ventana = new PlatillosScreen();
-           // ventana.Show();
-           // Close();
-        }
-
-        private void AbrirRegistrarPlatillo(object sender, RoutedEventArgs e)
-        {
-            //var ventana = new PlatillosScreen();
-           // ventana.Show();
-           // Close();
-        }
-
-        private void AbrirModificarPlatillo(object sender, RoutedEventArgs e)
-        {
-           // var ventana = new PlatillosScreen();
-           // ventana.Show();
-           // Close();
-        }
+        
 
         private void AbrirConsultarPlatillo(object sender, RoutedEventArgs e)
         {
-           // var ventana = new PlatillosScreen();
-           // ventana.Show();
-           // Close();
+
+            var ventana = new BuscarPlatillosScreen();
+            NavigationService.Navigate(ventana);
+
         }
 
         private void AbrirAgregarCategoria(object sender, RoutedEventArgs e)
         {
-           // var ventana = new PlatillosScreen();
-           // ventana.Show();
-           // Close();
+            var ventana = new AgregarCategoria();
+            NavigationService.Navigate(ventana);
+
         }
 
         private void AbrirModificarCategoria(object sender, RoutedEventArgs e)
         {
-           // var ventana = new PlatillosScreen();
-          //  ventana.Show();
-          //  Close();
+            var ventana = new ModificarCategoria();
+            NavigationService.Navigate(ventana);
+
         }
 
 

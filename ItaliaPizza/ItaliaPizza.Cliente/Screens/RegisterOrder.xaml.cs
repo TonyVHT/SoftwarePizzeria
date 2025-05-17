@@ -79,6 +79,14 @@ namespace ItaliaPizza.Cliente.Screens
             }
         }
 
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            AppState.ClienteSeleccionado = null;
+            AppState.DireccionSeleccionada = null;
+            AppState.RepartidorSeleccionado = null;
+            NavigationService?.GoBack();
+        }
+
         private void AgregarAlPedido_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button btn && btn.Tag is ItemDisponible producto)
@@ -145,13 +153,22 @@ namespace ItaliaPizza.Cliente.Screens
 
         private void PedidoDomicilio_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new ClientSearchOrder());
+            var page = new ClientSearchOrder
+            {
+                RegresarAlCerrar = true 
+            };
+
+            NavigationService?.Navigate(page);
         }
+
 
         private void AsignarRepartidor_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new RepartidorSelector());
+            var modal = new RepartidorSelector();
+            modal.Tag = this;
+            MostrarModal(modal);
         }
+
 
         private void ActualizarEstadoBotonConfirmar()
         {
@@ -161,6 +178,20 @@ namespace ItaliaPizza.Cliente.Screens
                 _repartidorSeleccionado != null &&
                 ItemsPedido.Any();
         }
+
+        public void MostrarModal(Page modal)
+        {
+            modal.Tag = this;
+            ModalFrame.Navigate(modal);
+            ModalOverlay.Visibility = Visibility.Visible;
+        }
+
+        public void CerrarModal()
+        {
+            ModalOverlay.Visibility = Visibility.Collapsed;
+            ModalFrame.Content = null;
+        }
+
 
         private async void ConfirmarPedido_Click(object sender, RoutedEventArgs e)
         {

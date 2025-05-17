@@ -8,7 +8,7 @@
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
         xmlns:utils="clr-namespace:ItaliaPizza.Cliente.Utils.Converters"
         mc:Ignorable="d"
-        Title="FinancesReporter" Height="600" Width="1000">
+        Title="FinancesReporter" >
 
     <Page.Resources>
 

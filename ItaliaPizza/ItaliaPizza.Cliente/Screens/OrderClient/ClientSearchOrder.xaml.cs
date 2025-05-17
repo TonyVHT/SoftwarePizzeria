@@ -18,6 +18,8 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
     {
         public ClienteConsultaDTO? ClienteSeleccionado { get; private set; }
         public DireccionClienteDTO? DireccionSeleccionada { get; private set; }
+        public bool RegresarAlCerrar { get; set; } = false;
+
 
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
@@ -124,7 +126,10 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
             {
                 ClienteSeleccionado = cliente;
                 AppState.ClienteSeleccionado = cliente; // Guarda también por si acaso
-                NavigationService?.Navigate(new AddressSelector(cliente.Id));
+                var modal = new AddressSelector(cliente.Id);
+                modal.Tag = this;
+                MostrarModal(modal);
+
             }
         }
 
@@ -132,8 +137,27 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
 
         private void BtnAgregarCliente_Click(object sender, RoutedEventArgs e)
         {
-            // Aquí también deberías usar NavigationService si ClientAdder es una Page
             NavigationService?.Navigate(new ClientAdder());
         }
+
+        public void MostrarModal(Page modal)
+        {
+            modal.Tag = this;
+            ModalFrame.Navigate(modal);
+            ModalOverlay.Visibility = Visibility.Visible;
+        }
+
+        public void CerrarModal()
+        {
+            ModalOverlay.Visibility = Visibility.Collapsed;
+            ModalFrame.Content = null;
+
+            if (RegresarAlCerrar)
+            {
+                NavigationService?.GoBack();
+            }
+        }
+
+
     }
 }

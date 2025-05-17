@@ -1,6 +1,9 @@
 ﻿
+using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
 using ItaliaPizza.Cliente.PlatillosModulo.Screens;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,7 +33,38 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             _platillo = platillo;
 
             Loaded += ModificarPlatillo_Loaded;
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Platillos");
+                    break;
 
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Platillos");
+                    break;
+
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Platillos");
+                    break;
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Platillos");
+                    break;
+                default:
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.GoBack();
+                    return;
+            }
+
+        }
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
         }
 
         private async void ModificarPlatillo_Loaded(object sender, RoutedEventArgs e)

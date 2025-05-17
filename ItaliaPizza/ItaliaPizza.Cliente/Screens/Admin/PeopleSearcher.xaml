@@ -7,7 +7,7 @@
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
         mc:Ignorable="d"
         
-        Title="PeopleSearcher" Height="600" Width="950">
+        Title="PeopleSearcher" >
 
     
 
@@ -24,6 +24,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
+                
             </Grid.ColumnDefinitions>
             <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
 
@@ -31,6 +32,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <!-- Filtros -->
@@ -98,6 +100,7 @@
                     </DataGrid>
 
                 </Grid>
+                <TextBlock Text="* Doble clic para editar al usuario o cliente" Grid.Row="2"/>
 
             </Grid>
 

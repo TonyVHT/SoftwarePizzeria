@@ -77,6 +77,9 @@
     <Compile Update="Screens\Manager\LogOutManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\OrderClient\AddAddressModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\OrderClient\AddressSelector.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -167,6 +170,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Manager\LogOutManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\OrderClient\AddAddressModal.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\RegisterOrderToProvider.xaml">

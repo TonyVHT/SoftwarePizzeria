@@ -172,6 +172,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                     if (responseDireccion.IsSuccessStatusCode)
                     {
                         MessageBox.Show("Dirección registrada con éxito.");
+                        NavigationService?.GoBack(); 
                     }
                     else
                     {
@@ -192,7 +193,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomerOptiones());
+            NavigationService.GoBack();
         }
 
         private async Task<(string campo, bool existe)> VerificarExistencia(string endpoint, string valor, string nombreCampo)

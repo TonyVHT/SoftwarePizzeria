@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Cashier"
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
         mc:Ignorable="d"
-        Title="Registrar Cliente" Height="600" Width="950"
+        Title="Registrar Cliente" 
         >
 
     <Grid>

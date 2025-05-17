@@ -1,95 +1,85 @@
 ﻿<Page x:Class="ItaliaPizza.Cliente.Screens.RegisterProduct"
-        xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens"
-        mc:Ignorable="d"
-        Title="Registro de Producto" Height="500" Width="650">
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="Transparent">
 
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="#E6F4EA" Offset="0"/>
-                <GradientStop Color="#F0F4F8" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+        <!-- Contenedor modal -->
+        <Border CornerRadius="20"
+                Padding="30"
+                Width="650"
+                Background="White"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                SnapsToDevicePixels="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-        <Grid>
-            
+                <TextBlock Text="Registro de Producto"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Margin="0,0,0,20"
+                           HorizontalAlignment="Center"/>
 
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
 
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Border
-                    CornerRadius="20"
-                    Padding="30"
-                    Width="650">
+                    <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                        <TextBlock Text="Nombre:"/>
+                        <TextBox x:Name="txtNombre" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
 
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                        <TextBlock Text="Categoría:"/>
+                        <ComboBox x:Name="cmbCategoria" Margin="0,5,0,15" Height="30" Style="{StaticResource comboBoxStyle}"
+                                  DisplayMemberPath="Nombre" SelectedValuePath="Id"/>
 
-                        <TextBlock Text="Registro de Producto" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Unidad de Medida:"/>
+                        <TextBox x:Name="txtUnidadMedida" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
+                    </StackPanel>
 
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Cantidad Actual:"/>
+                        <TextBox x:Name="txtCantidadActual" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
 
-                            <StackPanel Grid.Column="0" Margin="0,0,20,0">
-                                <TextBlock Text="Nombre:"/>
-                                <TextBox x:Name="txtNombre" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
+                        <TextBlock Text="Cantidad Mínima:"/>
+                        <TextBox x:Name="txtCantidadMinima" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
 
-                                <TextBlock Text="Categoría:"/>
-                                <ComboBox x:Name="cmbCategoria" Margin="0,5,0,15" Height="30" Style="{StaticResource comboBoxStyle}"
-                                      DisplayMemberPath="Nombre" SelectedValuePath="Id" />
+                        <TextBlock Text="Precio:"/>
+                        <TextBox x:Name="txtPrecio" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
 
-                                <TextBlock Text="Unidad de Medida:"/>
-                                <TextBox x:Name="txtUnidadMedida" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
-                            </StackPanel>
+                        <TextBlock Text="Observaciones:"/>
+                        <TextBox x:Name="txtObservaciones" Margin="0,5,0,15" Height="60" AcceptsReturn="True" TextWrapping="Wrap" Style="{StaticResource textboxStyle}"/>
 
-                            <StackPanel Grid.Column="1">
-                                <TextBlock Text="Cantidad Actual:"/>
-                                <TextBox x:Name="txtCantidadActual" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,15">
+                            <CheckBox x:Name="chkEstatus" Margin="0,0,15,0" Content="Activo"/>
+                            <CheckBox x:Name="chkEsIngrediente" Content="Es Ingrediente"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
 
-                                <TextBlock Text="Cantidad Mínima:"/>
-                                <TextBox x:Name="txtCantidadMinima" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
-
-                                <TextBlock Text="Precio:"/>
-                                <TextBox x:Name="txtPrecio" Margin="0,5,0,15" Height="30" Style="{StaticResource textboxStyle}"/>
-
-                                <TextBlock Text="Observaciones:"/>
-                                <TextBox x:Name="txtObservaciones" Margin="0,5,0,15" Height="60" AcceptsReturn="True" TextWrapping="Wrap" Style="{StaticResource textboxStyle}"/>
-
-                                <StackPanel Orientation="Horizontal" Margin="0,5,0,15">
-                                    <CheckBox x:Name="chkEstatus" IsChecked="False" Margin="0,0,15,0" Content="Activo"/>
-                                    <CheckBox x:Name="chkEsIngrediente" Content="Es Ingrediente"/>
-                                </StackPanel>
-                            </StackPanel>
-                        </Grid>
-
-                        <Button Content="Registrar"
-                            Grid.Row="2"
-                            HorizontalAlignment="Right"
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                    <Button Content="Cancelar"
+                            Width="100"
+                            Margin="0,0,10,0"
+                            Click="BtnCancelar_Click"
+                            Style="{StaticResource cancelbuttonsStyle}"/>
+                    <Button Content="Registrar"
                             Width="140"
-                            Height="30"
-                            Margin="0,20,0,0"
                             FontWeight="Bold"
-                            FontSize="14"
                             Style="{StaticResource buttonsStyle}"
-                            BorderThickness="0"
-                            Cursor="Hand"
                             Click="BtnRegistrar_Click"/>
-                    </Grid>
-                </Border>
+                </StackPanel>
             </Grid>
+        </Border>
 
-            <TextBlock x:Name="toastMessage"
+        <!-- Toast -->
+        <TextBlock x:Name="toastMessage"
                    Text=""
                    Background="#FF2D7D46"
                    Foreground="White"
@@ -102,7 +92,10 @@
                    Opacity="0"
                    Visibility="Collapsed"
                    TextAlignment="Center"
-                   Width="Auto"/>
-        </Grid>
+                   Width="Auto">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.4"/>
+            </TextBlock.Effect>
+        </TextBlock>
     </Grid>
 </Page>

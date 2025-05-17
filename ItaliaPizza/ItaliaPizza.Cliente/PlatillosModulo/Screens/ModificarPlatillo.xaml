@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Platillos.Screens"
         mc:Ignorable="d" 
-        Title="Modificar Platillo" Height="989" Width="847">
+        Title="Modificar Platillo" >
 
     <Grid>
         <Grid.Background>
@@ -14,7 +14,13 @@
                 <GradientStop Color="#F0F4F8" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="1">
             <Grid Margin="30">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>

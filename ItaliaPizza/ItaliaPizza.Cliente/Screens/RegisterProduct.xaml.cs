@@ -1,7 +1,10 @@
 ﻿using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Utils;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -16,46 +19,30 @@ namespace ItaliaPizza.Cliente.Screens
         public RegisterProduct()
         {
             InitializeComponent();
-            _ = CargarCategoriasYProveedoresAsync();
+            _ = CargarCategoriasAsync();
         }
-        /*
-        private async Task CargarCategoriasYProveedoresAsync()
-        {
-            try
-            {
-                var categorias = await _http.GetFromJsonAsync<List<CategoriaProducto>>("api/categoria");
-                cmbCategoria.ItemsSource = categorias;
-            }
-            catch (Exception ex)
-            {
-                await ShowToastAsync($"Error al cargar combos: {ex.Message}", false);
-            }
-        }
-        */
 
-        private async Task CargarCategoriasYProveedoresAsync()
+        private async Task CargarCategoriasAsync()
         {
             try
             {
-                // ⚠️ Simulación local (solo para pruebas)
                 var categorias = new List<CategoriaProducto>
-        {
-            new CategoriaProducto { Id = 1, Nombre = "Verduras frescas" },
-            new CategoriaProducto { Id = 2, Nombre = "Carnes frías" },
-            new CategoriaProducto { Id = 3, Nombre = "Quesos" },
-            new CategoriaProducto { Id = 4, Nombre = "Salsas y bases" },
-            new CategoriaProducto { Id = 5, Nombre = "Ingredientes gourmet" }
-        };
+                {
+                    new CategoriaProducto { Id = 1, Nombre = "Verduras frescas" },
+                    new CategoriaProducto { Id = 2, Nombre = "Carnes frías" },
+                    new CategoriaProducto { Id = 3, Nombre = "Quesos" },
+                    new CategoriaProducto { Id = 4, Nombre = "Salsas y bases" },
+                    new CategoriaProducto { Id = 5, Nombre = "Ingredientes gourmet" }
+                };
 
                 cmbCategoria.ItemsSource = categorias;
-                cmbCategoria.SelectedIndex = 0; // Selecciona la primera por default (opcional)
+                cmbCategoria.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
-                await ShowToastAsync($"Error al cargar combos: {ex.Message}", false);
+                await ShowToastAsync($"Error al cargar categorías: {ex.Message}", false);
             }
         }
-
 
         private async void BtnRegistrar_Click(object sender, RoutedEventArgs e)
         {
@@ -103,8 +90,15 @@ namespace ItaliaPizza.Cliente.Screens
 
                 if (response.IsSuccessStatusCode)
                 {
-                    await ShowToastAsync(producto.EsIngrediente ? "Ingrediente registrado correctamente." : "Producto registrado correctamente.");
-                    LimpiarCampos();
+                    await ShowToastAsync("Producto registrado correctamente.");
+
+                    await Task.Delay(300); // Espera breve para que se vea el mensaje
+
+                    if (Tag is SearchProduct parentPage)
+                    {
+                        await parentPage.RecargarResultadosAsync();
+                        parentPage.CerrarModal();
+                    }
                 }
                 else
                 {
@@ -118,10 +112,21 @@ namespace ItaliaPizza.Cliente.Screens
             }
         }
 
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            if (Tag is SearchProduct parentPage)
+            {
+                parentPage.CerrarModal();
+            }
+        }
+
         private async Task ShowToastAsync(string mensaje, bool esExito = true)
         {
             toastMessage.Text = mensaje;
-            toastMessage.Background = esExito ? new SolidColorBrush(Color.FromRgb(45, 125, 70)) : new SolidColorBrush(Color.FromRgb(200, 55, 55));
+            toastMessage.Background = esExito
+                ? new SolidColorBrush(Color.FromRgb(45, 125, 70))
+                : new SolidColorBrush(Color.FromRgb(200, 55, 55));
+
             toastMessage.Visibility = Visibility.Visible;
 
             var fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromMilliseconds(200));
@@ -134,19 +139,6 @@ namespace ItaliaPizza.Cliente.Screens
 
             await Task.Delay(500);
             toastMessage.Visibility = Visibility.Collapsed;
-        }
-
-        private void LimpiarCampos()
-        {
-            txtNombre.Clear();
-            txtUnidadMedida.Clear();
-            txtCantidadActual.Clear();
-            txtCantidadMinima.Clear();
-            txtPrecio.Clear();
-            txtObservaciones.Clear();
-            chkEstatus.IsChecked = true;
-            chkEsIngrediente.IsChecked = false;
-            cmbCategoria.SelectedIndex = -1;
         }
     }
 }

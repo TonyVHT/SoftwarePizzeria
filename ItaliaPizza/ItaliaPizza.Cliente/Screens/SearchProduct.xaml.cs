@@ -37,6 +37,10 @@ namespace ItaliaPizza.Cliente.Screens
                     MenuLateral.Content = new UCManager();
                     CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Productos");
                     break;
+                case "cajero":
+                    MenuLateral.Content = new UCCashier();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCashier, "Productos");
+                    break;
 
                 default:
                     MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
@@ -128,12 +132,25 @@ namespace ItaliaPizza.Cliente.Screens
             }
         }
 
+        public void MostrarModal(Page modal)
+        {
+            modal.Tag = this; // para que el modal sepa quién lo llamó
+            ModalFrame.Navigate(modal);
+            ModalOverlay.Visibility = Visibility.Visible;
+        }
+
+        public void CerrarModal()
+        {
+            ModalOverlay.Visibility = Visibility.Collapsed;
+            ModalFrame.Content = null;
+        }
+
         private void BtnModificar_Click(object sender, RoutedEventArgs e)
         {
             var producto = (sender as Button)?.Tag as Producto;
             if (producto == null) return;
 
-            NavigationService?.Navigate(new EditProductModal(producto));
+            MostrarModal(new EditProductModal(producto));
         }
 
         private void BtnRegistrarMerma_Click(object sender, RoutedEventArgs e)
@@ -141,12 +158,20 @@ namespace ItaliaPizza.Cliente.Screens
             var producto = (sender as Button)?.Tag as Producto;
             if (producto == null) return;
 
-            NavigationService?.Navigate(new RegisterMermaModal(producto));
+            MostrarModal(new RegisterMermaModal(producto));
         }
+
+        public async Task RecargarResultadosAsync()
+        {
+            await ActualizarResultadosAsync(); 
+        }
+
 
         private void BtnRegistrarProducto_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new RegisterProduct());
+            var modal = new RegisterProduct();
+            modal.Tag = this;
+            MostrarModal(modal);
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)

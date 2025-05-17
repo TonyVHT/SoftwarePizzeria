@@ -17,9 +17,7 @@ public partial class App : Application
     {
         base.OnStartup(e);
 
-        // Aquí decides qué ventana probar
-        var ventana = new LogIn();
-        ventana.Show();
+        
     }
 
     private void App_Startup(object sender, StartupEventArgs e)

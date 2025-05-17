@@ -43,13 +43,24 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
                 MessageBox.Show($"Error al cargar direcciones: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void BtnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
             if (dgDirecciones.SelectedItem is DireccionClienteDTO direccion)
             {
                 AppState.DireccionSeleccionada = direccion;
-                NavigationService?.Navigate(new RegisterOrder());
+
+                // Primero cerramos este modal
+                if (Tag is ClientSearchOrder parent)
+                {
+                    // Cerramos AddressSelector
+                    parent.CerrarModal();
+
+                    // Y también cerramos ClientSearchOrder
+                    if (parent.Tag is Page ownerPage)
+                    {
+                        (ownerPage as dynamic)?.CerrarModal();
+                    }
+                }
             }
             else
             {
@@ -57,16 +68,49 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
             }
         }
 
+
+        public void MostrarModal(Page modal)
+        {
+            modal.Tag = this;
+
+            if (Tag is ClientSearchOrder parent)
+            {
+                parent.MostrarModal(modal); 
+            }
+        }
+
+
+
+        public void CerrarModal()
+        {
+            if (Tag is ClientSearchOrder parent)
+            {
+                parent.CerrarModal(); 
+            }
+        }
+
+
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
             AppState.DireccionSeleccionada = null;
-            NavigationService?.GoBack();
+
+            if (Tag is ClientSearchOrder parent)
+            {
+                parent.CerrarModal();
+            }
         }
+
 
         private void BtnAgregarDireccion_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddAddress(_clienteId, this));
+            var modal = new AddAddressModal(_clienteId, this);
+            NavigationService?.Navigate(modal);
             _ = CargarDireccionesAsync();
+
         }
+
+
+
+
     }
 }
