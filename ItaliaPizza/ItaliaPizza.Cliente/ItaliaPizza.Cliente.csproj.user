@@ -62,6 +62,15 @@
     <Compile Update="Screens\Cook\LogOutCook.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\LocalOrder\LocalOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\LocalOrder\SelectMeseroPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\LocalOrder\SelectTablePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\LogIn.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

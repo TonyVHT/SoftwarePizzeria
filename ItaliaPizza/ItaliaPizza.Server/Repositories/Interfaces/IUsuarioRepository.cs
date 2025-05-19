@@ -14,6 +14,7 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
         Task<IEnumerable<UsuarioConsultaDTO>> BuscarUsuariosAsync(string? nombre, string? nombreUsuario, string? rol);
         Task<UsuarioEdicionDTO?> GetUsuarioConCredencialByIdAsync(int id);
         Task<List<UsuarioConsultaDTO>> ObtenerRepartidoresAsync();
+        Task<List<UsuarioConsultaDTO>> ObtenerMeserosAsync();
 
 
 

@@ -58,6 +58,9 @@ namespace ItaliaPizza.Server.Services.Implementations
         {
             if (rol == "Repartidor")
                 return await _usuarioRepository.ObtenerRepartidoresAsync();
+            if (rol == "Mesero")
+                return await _usuarioRepository.ObtenerMeserosAsync();
+
 
             return new List<UsuarioConsultaDTO>();
         }

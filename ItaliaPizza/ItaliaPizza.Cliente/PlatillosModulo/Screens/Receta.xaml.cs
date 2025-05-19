@@ -104,7 +104,7 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
                              ?? new List<CategoriaProductoDto>();
 
                 var lista = todas
-                    .Where(c => c.TipoDeUso == TipoDeUso.Ingrediente
+                    .Where(c => c.TipoDeUso == TipoDeUso.ingrediente
                              || c.TipoDeUso == TipoDeUso.Ambos)
                     .Select(c => c.Nombre)
                     .OrderBy(n => n)

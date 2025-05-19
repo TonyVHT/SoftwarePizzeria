@@ -1,4 +1,4 @@
-﻿<Window x:Class="ItaliaPizza.Cliente.Screens.RegisterOrder"
+﻿<Window x:Class="ItaliaPizza.Cliente.Screens.LocalOrder.LocalOrder"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Converters"
@@ -20,10 +20,9 @@
             <StackPanel Margin="10">
                 <TextBlock Text="Categorías" FontWeight="Bold" FontSize="16" Margin="0 0 0 10" Foreground="#333"/>
                 <Button Content="🍽 Todos" Margin="0 5" Background="#32d483" Foreground="White" BorderThickness="0" Height="40"/>
-                <Button Content="🥘 Pizza" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40"/>
+                <Button Content="🥘 Platillos" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40"/>
                 <Button Content="🥤 Bebidas" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40"/>
                 <Button Content="🍰 Postres" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40"/>
-                <Button Content="🧂 Otros" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40" />
             </StackPanel>
         </Border>
 
@@ -61,19 +60,18 @@
             <StackPanel Margin="10">
                 <TextBlock Text="Pedido Actual" FontWeight="Bold" FontSize="18" Foreground="#333"/>
 
-                <!-- Cliente seleccionado -->
+                <!-- Mesa seleccionada -->
                 <Border Background="#f0f0f0" Padding="10" Margin="0,10,0,10" CornerRadius="6">
                     <StackPanel>
-                        <TextBlock Text="Cliente seleccionado" FontWeight="Bold" Foreground="#555" Margin="0,0,0,4"/>
-                        <TextBlock x:Name="TextoCliente" Text="(Ninguno)" Foreground="#333" FontSize="14"/>
+                        <TextBlock Text="Mesa seleccionada" FontWeight="Bold" Foreground="#555" Margin="0,0,0,4"/>
+                        <TextBlock x:Name="TextoCliente" Text="(Ninguna)" Foreground="#333" FontSize="14"/>
                         <TextBlock x:Name="TextoDireccion" Text="" Foreground="#333" FontSize="12" TextWrapping="Wrap" Margin="0,2,0,0"/>
                         <TextBlock x:Name="TextoRepartidor" Text="" Foreground="#333" FontSize="12" TextWrapping="Wrap" Margin="0,2,0,0"/>
                     </StackPanel>
                 </Border>
 
-
                 <!-- Lista de productos seleccionados -->
-                <ListView Name="ListaPedido" Margin="0 10" Height="400" Background="#f9f9f9" >
+                <ListView Name="ListaPedido" Margin="0 10" Height="400" Background="#f9f9f9">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="160"/>
@@ -104,13 +102,13 @@
 
                 <!-- Botones -->
                 <UniformGrid Columns="1" Rows="3" Margin="0,10,0,0" HorizontalAlignment="Stretch">
-                    <Button Content="🧍 Cliente"
-                            Click="PedidoDomicilio_Click"
+                    <Button Content="🍽 Mesa"
+                            Click="SeleccionarMesa_Click"
                             Height="32" FontSize="13"
                             Background="#32d483" Foreground="White" BorderThickness="0" Margin="0,0,0,8"/>
 
-                    <Button Content="🛵 Repartidor"
-                            Click="AsignarRepartidor_Click"
+                    <Button Content="🧑‍🍳 Mesero"
+                            Click="AsignarMesero_Click"
                             Height="32" FontSize="13"
                             Background="#ffcb05" Foreground="#333" BorderThickness="0" Margin="0,0,0,8"/>
 
@@ -122,5 +120,19 @@
                 </UniformGrid>
             </StackPanel>
         </Border>
+
+        <!-- Overlay y Frame para modales -->
+        <Rectangle x:Name="Overlay"
+                   Fill="#80000000"
+                   Visibility="Collapsed"
+                   Panel.ZIndex="99"
+                   Grid.ColumnSpan="3"/>
+
+        <Frame x:Name="ModalFrame"
+               Background="Transparent"
+               Visibility="Collapsed"
+               IsHitTestVisible="False"
+               Panel.ZIndex="100"
+               Grid.ColumnSpan="3"/>
     </Grid>
 </Window>

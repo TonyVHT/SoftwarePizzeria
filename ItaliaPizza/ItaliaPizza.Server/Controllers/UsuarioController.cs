@@ -72,6 +72,13 @@ namespace ItaliaPizza.Server.Controllers
             return Ok(repartidores);
         }
 
+        [HttpGet("meseros")]
+        public async Task<IActionResult> GetMeseros()
+        {
+            var meseros = await _usuarioService.ObtenerPorRolAsync("Mesero");
+            return Ok(meseros);
+        }
+
 
         [HttpGet("ping")]
         public IActionResult Ping()

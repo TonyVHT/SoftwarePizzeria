@@ -16,13 +16,14 @@ namespace ItaliaPizza.Cliente.Screens
     public partial class SearchProduct : Window
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
-        private List<CategoriaProducto> _categorias = new();
+        private List<CategoriaProductoDto> _categorias = new();
         private CancellationTokenSource _cancellationTokenSource;
 
         public SearchProduct()
         {
             InitializeComponent();
             _ = CargarCategoriasAsync();
+            
             string rol = UserSessionManager.Instance.GetRol()?.ToLower();
 
             switch (rol)
@@ -42,6 +43,7 @@ namespace ItaliaPizza.Cliente.Screens
                     Close();
                     return;
             }
+            
         }
 
         private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
@@ -54,19 +56,11 @@ namespace ItaliaPizza.Cliente.Screens
         {
             try
             {
-                _categorias = new List<CategoriaProducto>
-        {
-            new() { Id = 1, Nombre = "Verduras frescas" },
-            new() { Id = 2, Nombre = "Carnes frías" },
-            new() { Id = 3, Nombre = "Quesos" },
-            new() { Id = 4, Nombre = "Salsas y bases" },
-            new() { Id = 5, Nombre = "Ingredientes gourmet" },
-            new() { Id = 6, Nombre = "Bebidas" },
-            new() { Id = 7, Nombre = "Postres" },
-            new() { Id = 8, Nombre = "Pizzas" }
-        };
+                _categorias = await _http.GetFromJsonAsync<List<CategoriaProductoDto>>("api/categorias") ?? new();
 
                 cmbCategoriaFiltro.ItemsSource = _categorias;
+                cmbCategoriaFiltro.DisplayMemberPath = "Nombre";
+                cmbCategoriaFiltro.SelectedValuePath = "Id";
                 cmbCategoriaFiltro.SelectedIndex = -1;
             }
             catch (Exception ex)
@@ -75,21 +69,6 @@ namespace ItaliaPizza.Cliente.Screens
             }
         }
 
-
-        /*
-        private async Task CargarCategoriasAsync()
-        {
-            try
-            {
-                _categorias = await _http.GetFromJsonAsync<List<CategoriaProducto>>("api/categoria") ?? new();
-                cmbCategoriaFiltro.ItemsSource = _categorias;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar categorías: {ex.Message}");
-            }
-        }
-        */
 
         private void TxtBuscarNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -179,3 +158,20 @@ namespace ItaliaPizza.Cliente.Screens
 
     }
 }
+
+public class CategoriaProductoDto
+{
+    public int Id { get; set; }
+    public string Nombre { get; set; } = string.Empty;
+    public bool Estatus { get; set; }
+    public TipoDeUso TipoDeUso { get; set; } 
+}
+
+public enum TipoDeUso
+{
+    Producto = 0,
+    Platillo = 1,
+    Ambos = 2,
+    ingrediente = 3
+}
+

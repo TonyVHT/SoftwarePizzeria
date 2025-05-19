@@ -28,6 +28,7 @@ namespace ItaliaPizza.Cliente.Screens.Orders
         public ConsultarPedidos()
         {
             InitializeComponent();
+            
             string rol = UserSessionManager.Instance.GetRol()?.ToLower();
 
             switch (rol)
@@ -59,6 +60,7 @@ namespace ItaliaPizza.Cliente.Screens.Orders
                     Close();
                     return;
             }
+            
 
         }
 
