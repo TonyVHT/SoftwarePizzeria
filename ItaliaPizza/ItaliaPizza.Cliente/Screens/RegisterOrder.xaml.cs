@@ -1,4 +1,6 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente;
+using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Screens.Cashier;
 using ItaliaPizza.Cliente.Screens.OrderClient;
 using System;
@@ -7,14 +9,14 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace ItaliaPizza.Cliente.Screens
 {
-    public partial class RegisterOrder : Window
+    public partial class RegisterOrder : Page
     {
         private ClienteConsultaDTO? _clienteSeleccionado;
         private DireccionClienteDTO? _direccionSeleccionada;
@@ -30,6 +32,7 @@ namespace ItaliaPizza.Cliente.Screens
             ListaPedido.ItemsSource = ItemsPedido;
             ItemsDisponiblesControl.ItemsSource = ProductosDisponibles;
             _ = CargarProductosAsync();
+            this.Loaded += RegisterOrder_Loaded;
         }
 
         private async Task CargarProductosAsync()
@@ -37,8 +40,6 @@ namespace ItaliaPizza.Cliente.Screens
             try
             {
                 var productos = await _httpClient.GetFromJsonAsync<List<ItemDisponible>>("https://localhost:7264/api/producto/all");
-
-
                 if (productos != null)
                 {
                     var productosValidos = productos.Where(p => p.TipoDeUso == 0 || p.TipoDeUso == 2);
@@ -50,6 +51,40 @@ namespace ItaliaPizza.Cliente.Screens
             {
                 MessageBox.Show($"Error al cargar productos: {ex.Message}");
             }
+        }
+
+        private void RegisterOrder_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (AppState.ClienteSeleccionado != null && AppState.DireccionSeleccionada != null)
+            {
+                _clienteSeleccionado = AppState.ClienteSeleccionado;
+                _direccionSeleccionada = AppState.DireccionSeleccionada;
+
+                TextoCliente.Text = _clienteSeleccionado.NombreCompleto;
+                TextoDireccion.Text = $"{_direccionSeleccionada.Direccion}, {_direccionSeleccionada.Ciudad}";
+
+                AppState.ClienteSeleccionado = null;
+                AppState.DireccionSeleccionada = null;
+
+                ActualizarEstadoBotonConfirmar();
+            }
+
+            if (AppState.RepartidorSeleccionado != null)
+            {
+                _repartidorSeleccionado = AppState.RepartidorSeleccionado;
+                TextoRepartidor.Text = $"Repartidor: {_repartidorSeleccionado.NombreCompleto}";
+
+                AppState.RepartidorSeleccionado = null;
+                ActualizarEstadoBotonConfirmar();
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            AppState.ClienteSeleccionado = null;
+            AppState.DireccionSeleccionada = null;
+            AppState.RepartidorSeleccionado = null;
+            NavigationService?.GoBack();
         }
 
         private void AgregarAlPedido_Click(object sender, RoutedEventArgs e)
@@ -109,7 +144,6 @@ namespace ItaliaPizza.Cliente.Screens
                 ActualizarTotal();
                 ActualizarEstadoBotonConfirmar();
             }
-
         }
 
         private void ActualizarTotal()
@@ -119,68 +153,45 @@ namespace ItaliaPizza.Cliente.Screens
 
         private void PedidoDomicilio_Click(object sender, RoutedEventArgs e)
         {
-            var modal = new ClientSearchOrder(); // o ClientSearcher si es tu nombre final
-            modal.Owner = this;
-
-            if (modal.ShowDialog() == true &&
-                modal.ClienteSeleccionado != null &&
-                modal.DireccionSeleccionada != null)
+            var page = new ClientSearchOrder
             {
-                var cliente = modal.ClienteSeleccionado;
-                var direccion = modal.DireccionSeleccionada;
+                RegresarAlCerrar = true 
+            };
 
-                TextoCliente.Text = $"{cliente.NombreCompleto}";
-                TextoDireccion.Text = $"{direccion.Direccion}, {direccion.Ciudad}";
-
-
-                // Aquí puedes usar los datos como necesites
-                MessageBox.Show(
-                    $"Cliente: {cliente.NombreCompleto}\n" +
-                    $"Dirección: {direccion.Direccion}, {direccion.Ciudad}",
-                    "Pedido a domicilio",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information
-                );
-
-                // Puedes guardarlos como propiedades privadas si los necesitas al guardar el pedido
-                this._clienteSeleccionado = cliente;
-                this._direccionSeleccionada = direccion;
-            }
-            else
-            {
-                MessageBox.Show("No se seleccionó cliente o dirección.");
-            }
+            NavigationService?.Navigate(page);
         }
 
-        private void ActualizarEstadoBotonConfirmar()
-        {
-            if (_clienteSeleccionado != null &&
-                _direccionSeleccionada != null &&
-                _repartidorSeleccionado != null &&
-                ItemsPedido.Any())
-            {
-                BtnConfirmarPedido.IsEnabled = true;
-            }
-            else
-            {
-                BtnConfirmarPedido.IsEnabled = false;
-            }
-        }
 
         private void AsignarRepartidor_Click(object sender, RoutedEventArgs e)
         {
-            var selector = new RepartidorSelector();
-            selector.Owner = this;
-
-            if (selector.ShowDialog() == true && selector.RepartidorSeleccionado != null)
-            {
-                _repartidorSeleccionado = selector.RepartidorSeleccionado;
-                MessageBox.Show($"Repartidor asignado: {_repartidorSeleccionado.NombreCompleto}");
-                ActualizarEstadoBotonConfirmar();
-                TextoRepartidor.Text = $"Repartidor: {_repartidorSeleccionado.NombreCompleto}";
-
-            }
+            var modal = new RepartidorSelector();
+            modal.Tag = this;
+            MostrarModal(modal);
         }
+
+
+        private void ActualizarEstadoBotonConfirmar()
+        {
+            BtnConfirmarPedido.IsEnabled =
+                _clienteSeleccionado != null &&
+                _direccionSeleccionada != null &&
+                _repartidorSeleccionado != null &&
+                ItemsPedido.Any();
+        }
+
+        public void MostrarModal(Page modal)
+        {
+            modal.Tag = this;
+            ModalFrame.Navigate(modal);
+            ModalOverlay.Visibility = Visibility.Visible;
+        }
+
+        public void CerrarModal()
+        {
+            ModalOverlay.Visibility = Visibility.Collapsed;
+            ModalFrame.Content = null;
+        }
+
 
         private async void ConfirmarPedido_Click(object sender, RoutedEventArgs e)
         {
@@ -190,61 +201,45 @@ namespace ItaliaPizza.Cliente.Screens
                 return;
             }
 
-            var resumen = new ConfirmarPedido(
-                _clienteSeleccionado,
-                _direccionSeleccionada,
-                _repartidorSeleccionado,
-                ItemsPedido.ToList(),
-                ItemsPedido.Sum(i => i.Subtotal)
-            );
-
-            resumen.Owner = this;
-
-            if (resumen.ShowDialog() == true)
+            var pedidoDto = new PedidoCreateDto
             {
-                var pedidoDto = new PedidoCreateDto
+                CajeroId = 4, // ← Cambia esto por el ID real del cajero
+                ClienteId = _clienteSeleccionado.Id,
+                DireccionEntrega = _direccionSeleccionada.Direccion,
+                Referencias = _direccionSeleccionada.Referencias,
+                TelefonoContacto = _clienteSeleccionado.Telefono,
+                RepartidorId = _repartidorSeleccionado.Id,
+                MetodoPago = "Efectivo",
+                Total = ItemsPedido.Sum(i => i.Subtotal),
+                Estatus = "En proceso",
+                Detalles = ItemsPedido.Select(item => new DetallePedidoDto
                 {
-                    CajeroId = 4, // Cambia esto por el ID del cajero actual
-                    ClienteId = _clienteSeleccionado.Id,
-                    DireccionEntrega = _direccionSeleccionada.Direccion,
-                    Referencias = _direccionSeleccionada.Referencias,
-                    TelefonoContacto = _clienteSeleccionado.Telefono,
-                    RepartidorId = _repartidorSeleccionado.Id,
-                    MetodoPago = "Efectivo", // o el método que selecciones
-                    Total = ItemsPedido.Sum(i => i.Subtotal),
-                    Estatus = "En proceso",
-                    Detalles = ItemsPedido.Select(item => new DetallePedidoDto
-                    {
-                        Cantidad = item.Cantidad,
-                        Subtotal = item.Subtotal,
-                        ProductoId = item.EsPlatillo ? null : item.Id,
-                        PlatilloId = item.EsPlatillo ? item.Id : null
-                    }).ToList()
-                };
+                    Cantidad = item.Cantidad,
+                    Subtotal = item.Subtotal,
+                    ProductoId = item.EsPlatillo ? null : item.Id,
+                    PlatilloId = item.EsPlatillo ? item.Id : null
+                }).ToList()
+            };
 
-                try
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync("https://localhost:7264/api/pedido/domicilio", pedidoDto);
+                if (response.IsSuccessStatusCode)
                 {
-                    var response = await _httpClient.PostAsJsonAsync("https://localhost:7264/api/pedido/domicilio", pedidoDto);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show("¡Pedido registrado exitosamente!", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                        Close(); // o limpiar el formulario
-                    }
-                    else
-                    {
-                        var error = await response.Content.ReadAsStringAsync();
-                        MessageBox.Show($"Error al registrar el pedido: {error}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                    MessageBox.Show("¡Pedido registrado exitosamente!", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService?.GoBack(); // Limpia volviendo a la vista anterior
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Ocurrió un error al registrar el pedido: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Error al registrar el pedido: {error}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al registrar el pedido: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-
-
-
     }
 
     public class ItemDisponible

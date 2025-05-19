@@ -14,7 +14,7 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens.Cashier
 {
-    public partial class EditCustomer : Window
+    public partial class EditCustomer : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
@@ -58,8 +58,8 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                     CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Clientes");
                     break;
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
         }
@@ -80,7 +80,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 if (cliente == null || direccion == null)
                 {
                     MessageBox.Show("No se encontró el cliente o su dirección principal.");
-                    this.Close();
+                    NavigationService.GoBack();
                     return;
                 }
 
@@ -108,7 +108,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar datos: {ex.Message}");
-                this.Close();
+                NavigationService.GoBack();
             }
         }
 
@@ -128,7 +128,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            NavigationService.Navigate(new ClientSearcher());
         }
 
         private void BtnModificar_Click(object sender, RoutedEventArgs e)
@@ -155,6 +155,16 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
             direccionDTO.Referencias = txtReferencias.Text.Trim();
             direccionDTO.Estatus = true;
 
+            if (chkEsPrincipal.IsChecked == true)
+            {
+                bool yaTieneOtraPrincipal = await ClienteYaTieneOtraDireccionPrincipal(clienteDTO.Id);
+
+                if (yaTieneOtraPrincipal)
+                {
+                    MessageBox.Show("Este cliente ya tiene otra dirección principal registrada.", "Error de duplicado", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+            }
             // Validaciones
             var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
             var validCliente = Validator.TryValidateObject(clienteDTO, new ValidationContext(clienteDTO), validationResults, true);
@@ -169,6 +179,25 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 return;
             }
 
+            var tareasValidacion = new List<Task<(string campo, bool existe)>>()
+            {
+                VerificarExistencia("api/cliente/telefono-cliente-existe", clienteDTO.Telefono, "Teléfono en Clientes"),
+            };
+
+            await Task.WhenAll(tareasValidacion);
+
+            var erroresDuplicados = tareasValidacion
+                .Select(t => t.Result)
+                .Where(r => r.existe)
+                .Select(r => $"Ya existe un registro con el mismo {r.campo}.")
+                .ToList();
+
+            if (erroresDuplicados.Any())
+            {
+                MessageBox.Show(string.Join("\\n• ", erroresDuplicados), "Datos duplicados", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             try
             {
                 var responseCliente = await _http.PutAsJsonAsync("api/cliente/actualizar", clienteDTO);
@@ -177,7 +206,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 if (responseCliente.IsSuccessStatusCode && responseDireccion.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Cliente y dirección actualizados correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
+                    NavigationService.Navigate(new ClientSearcher());
                 }
                 else
                 {
@@ -227,8 +256,38 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
         private void BtnAgregarDireccion_Click(object sender, RoutedEventArgs e)
         {
-            var ventana = new AddAddress(clienteDTO.Id);
-            ventana.ShowDialog();
+            NavigationService.Navigate(new AddAddress(clienteDTO.Id, null));
+        }
+
+        private async Task<(string campo, bool existe)> VerificarExistencia(string endpoint, string valor, string nombreCampo)
+        {
+            try
+            {
+                var response = await _http.GetAsync($"{endpoint}?{(endpoint.Contains("email") ? "email" : "telefono")}={Uri.EscapeDataString(valor)}");
+                if (response.IsSuccessStatusCode)
+                {
+                    bool existe = await response.Content.ReadFromJsonAsync<bool>();
+                    return (nombreCampo, existe);
+                }
+            }
+            catch { }
+
+            return (nombreCampo, false);
+        }
+
+        private async Task<bool> ClienteYaTieneOtraDireccionPrincipal(int clienteId)
+        {
+            try
+            {
+                var response = await _http.GetAsync($"api/direccioncliente/ya-tiene-direccion-principal?clienteId={clienteId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<bool>();
+                }
+            }
+            catch { }
+
+            return false;
         }
     }
 }

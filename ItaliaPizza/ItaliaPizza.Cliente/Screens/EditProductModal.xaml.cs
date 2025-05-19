@@ -21,7 +21,7 @@ namespace ItaliaPizza.Cliente.Screens
     /// <summary>
     /// Interaction logic for EditProductModal.xaml
     /// </summary>
-    public partial class EditProductModal : Window
+    public partial class EditProductModal : Page
     {
         private Producto _producto;
 
@@ -49,8 +49,13 @@ namespace ItaliaPizza.Cliente.Screens
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Producto actualizado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.DialogResult = true;
-                    this.Close();
+
+                    // Cerramos el modal
+                    if (Tag is SearchProduct parentPage)
+                    {
+                        parentPage.CerrarModal();
+                        await parentPage.RecargarResultadosAsync(); // Esto si quieres actualizar lista
+                    }
                 }
                 else
                 {
@@ -63,5 +68,15 @@ namespace ItaliaPizza.Cliente.Screens
                 MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            if (Tag is SearchProduct parentPage)
+            {
+                parentPage.CerrarModal();
+            }
+        }
+
+
     }
 }

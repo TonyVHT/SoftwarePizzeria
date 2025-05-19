@@ -21,7 +21,7 @@ namespace ItaliaPizza.Cliente.Screens
     /// <summary>
     /// Lógica de interacción para AnalyticsOptions.xaml
     /// </summary>
-    public partial class AnalyticsOptions : Window
+    public partial class AnalyticsOptions : Page
     {
         public AnalyticsOptions()
         {
@@ -40,8 +40,8 @@ namespace ItaliaPizza.Cliente.Screens
                     break;
 
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
 
@@ -81,9 +81,7 @@ namespace ItaliaPizza.Cliente.Screens
 
         private void AbrirBalanceDiario(object sender, RoutedEventArgs e)
         {
-            var balanceDiario = new FinancesReporter();
-            balanceDiario.Show();
-            Close();
+            NavigationService.Navigate(new FinancesReporter());
         }
     }
 }

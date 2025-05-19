@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Screens.Admin;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
 using System;
@@ -13,7 +14,7 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens
 {
-    public partial class SearchProduct : Window
+    public partial class SearchProduct : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
         private List<CategoriaProductoDto> _categorias = new();
@@ -23,9 +24,8 @@ namespace ItaliaPizza.Cliente.Screens
         {
             InitializeComponent();
             _ = CargarCategoriasAsync();
-            
-            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
 
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
             switch (rol)
             {
                 case "administrador":
@@ -37,10 +37,14 @@ namespace ItaliaPizza.Cliente.Screens
                     MenuLateral.Content = new UCManager();
                     CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Productos");
                     break;
+                case "cajero":
+                    MenuLateral.Content = new UCCashier();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCashier, "Productos");
+                    break;
 
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
             
@@ -56,7 +60,17 @@ namespace ItaliaPizza.Cliente.Screens
         {
             try
             {
-                _categorias = await _http.GetFromJsonAsync<List<CategoriaProductoDto>>("api/categorias") ?? new();
+                _categorias = new List<CategoriaProducto>
+                {
+                    new() { Id = 1, Nombre = "Verduras frescas" },
+                    new() { Id = 2, Nombre = "Carnes frías" },
+                    new() { Id = 3, Nombre = "Quesos" },
+                    new() { Id = 4, Nombre = "Salsas y bases" },
+                    new() { Id = 5, Nombre = "Ingredientes gourmet" },
+                    new() { Id = 6, Nombre = "Bebidas" },
+                    new() { Id = 7, Nombre = "Postres" },
+                    new() { Id = 8, Nombre = "Pizzas" }
+                };
 
                 cmbCategoriaFiltro.ItemsSource = _categorias;
                 cmbCategoriaFiltro.DisplayMemberPath = "Nombre";
@@ -68,7 +82,6 @@ namespace ItaliaPizza.Cliente.Screens
                 MessageBox.Show($"Error al cargar categorías: {ex.Message}");
             }
         }
-
 
         private void TxtBuscarNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -122,18 +135,25 @@ namespace ItaliaPizza.Cliente.Screens
             }
         }
 
+        public void MostrarModal(Page modal)
+        {
+            modal.Tag = this; // para que el modal sepa quién lo llamó
+            ModalFrame.Navigate(modal);
+            ModalOverlay.Visibility = Visibility.Visible;
+        }
+
+        public void CerrarModal()
+        {
+            ModalOverlay.Visibility = Visibility.Collapsed;
+            ModalFrame.Content = null;
+        }
+
         private void BtnModificar_Click(object sender, RoutedEventArgs e)
         {
             var producto = (sender as Button)?.Tag as Producto;
             if (producto == null) return;
 
-            var modal = new EditProductModal(producto);
-            modal.Owner = this;
-
-            if (modal.ShowDialog() == true)
-            {
-                DebouncedActualizarResultados();
-            }
+            MostrarModal(new EditProductModal(producto));
         }
 
         private void BtnRegistrarMerma_Click(object sender, RoutedEventArgs e)
@@ -141,21 +161,26 @@ namespace ItaliaPizza.Cliente.Screens
             var producto = (sender as Button)?.Tag as Producto;
             if (producto == null) return;
 
-            var modal = new RegisterMermaModal(producto);
-            modal.Owner = this;
-            modal.ShowDialog();
+            MostrarModal(new RegisterMermaModal(producto));
         }
+
+        public async Task RecargarResultadosAsync()
+        {
+            await ActualizarResultadosAsync(); 
+        }
+
 
         private void BtnRegistrarProducto_Click(object sender, RoutedEventArgs e)
         {
             var modal = new RegisterProduct();
-            modal.Owner = this;
-            if (modal.ShowDialog() == true)
-            {
-                DebouncedActualizarResultados();
-            }
+            modal.Tag = this;
+            MostrarModal(modal);
         }
 
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new HomePageAdmin());
+        }
     }
 }
 

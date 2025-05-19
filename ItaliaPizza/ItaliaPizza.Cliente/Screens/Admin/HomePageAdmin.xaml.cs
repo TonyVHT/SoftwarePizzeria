@@ -16,7 +16,7 @@ using ItaliaPizza.Cliente.Helpers;
 
 namespace ItaliaPizza.Cliente.Screens.Admin
 {
-    public partial class HomePageAdmin : Window
+    public partial class HomePageAdmin : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
@@ -59,7 +59,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                     break;
                 default:
                     MessageBox.Show("Rol no reconocido");
-                    Close();
+                    NavigationService?.Navigate(new LogIn());
                     return;
             }
         }

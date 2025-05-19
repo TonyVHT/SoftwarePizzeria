@@ -1,21 +1,25 @@
 ﻿using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Singleton;
 using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens
 {
-    public partial class RegisterMermaModal : Window
+    public partial class RegisterMermaModal : Page
     {
         private readonly Producto _producto;
+        private readonly int _usuarioId;
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
         public RegisterMermaModal(Producto producto)
         {
             InitializeComponent();
             _producto = producto;
+            _usuarioId = UserSessionManager.Instance.GetUsuarioId() ?? 0; // puedes validar si es null
             txtNombreProducto.Text = producto.Nombre;
         }
 
@@ -37,7 +41,7 @@ namespace ItaliaPizza.Cliente.Screens
             {
                 ProductoId = _producto.Id,
                 CantidadPerdida = cantidad,
-                UsuarioId = 4,
+                UsuarioId = _usuarioId,
                 MotivoMerma = txtMotivoDescripcion.Text.Trim()
             };
 
@@ -47,8 +51,12 @@ namespace ItaliaPizza.Cliente.Screens
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Merma registrada correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    DialogResult = true;
-                    Close();
+
+                    if (Tag is SearchProduct parent)
+                    {
+                        parent.CerrarModal();
+                        await parent.RecargarResultadosAsync();
+                    }
                 }
                 else
                 {
@@ -60,6 +68,11 @@ namespace ItaliaPizza.Cliente.Screens
             {
                 MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            (Tag as SearchProduct)?.CerrarModal();
         }
     }
 }

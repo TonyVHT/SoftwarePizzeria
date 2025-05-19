@@ -1,6 +1,9 @@
 ﻿
+using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
 using ItaliaPizza.Cliente.PlatillosModulo.Screens;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +22,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
     /// <summary>
     /// Lógica de interacción para ModificarPlatillo.xaml
     /// </summary>
-    public partial class ModificarPlatillo : Window
+    public partial class ModificarPlatillo : Page
     {
         private PlatilloDto _platillo;
 
@@ -30,7 +33,38 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             _platillo = platillo;
 
             Loaded += ModificarPlatillo_Loaded;
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Platillos");
+                    break;
 
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Platillos");
+                    break;
+
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Platillos");
+                    break;
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Platillos");
+                    break;
+                default:
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.GoBack();
+                    return;
+            }
+
+        }
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
         }
 
         private async void ModificarPlatillo_Loaded(object sender, RoutedEventArgs e)
@@ -151,7 +185,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Los cambios se han guardado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
+                    NavigationService.Navigate(new BuscarPlatillosScreen());
                 }
                 else
                 {
@@ -211,7 +245,10 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if(NavigationService?.CanGoBack == true)
+            {
+                NavigationService.GoBack();
+            }
         }
 
         private void btnReceta_Click(object sender, RoutedEventArgs e)
@@ -220,7 +257,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             {
                 Receta ventanaAgregarReceta = new Receta(_platillo);
 
-                ventanaAgregarReceta.ShowDialog();
+                NavigationService.Navigate(ventanaAgregarReceta);
             }
             else
             {

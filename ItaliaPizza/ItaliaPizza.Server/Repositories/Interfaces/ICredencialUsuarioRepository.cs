@@ -10,6 +10,7 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
         Task RegistrarCredencialAsync(CredencialUsuario credencial);
         Task<CredencialUsuario?> GetByUsuarioIdAsync(int usuarioId);
         Task<int> SaveChangesAsync();
+        Task<bool> ExisteNombreUsuario(string nombreUsuario);
 
 
     }

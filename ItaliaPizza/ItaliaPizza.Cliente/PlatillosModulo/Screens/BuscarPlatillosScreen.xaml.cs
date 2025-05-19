@@ -1,4 +1,7 @@
-﻿using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -8,7 +11,7 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Platillos.Screens
 {
-    public partial class BuscarPlatillosScreen : Window
+    public partial class BuscarPlatillosScreen : Page
     {
         private const int PlatillosPorPagina = 5;
         private int paginaActual = 1;
@@ -20,15 +23,51 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             InitializeComponent();
             _ = CargarCategoriasAsync();
             Loaded += async (s, e) => btnBuscar_Click(null, null);
+            
+                string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+                switch (rol)
+                {
+                    case "administrador":
+                        MenuLateral.Content = new UCAdmin();
+                        CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Platillos");
+                        break;
+                    
+                    case "cocinero":
+                        MenuLateral.Content = new UCCook();
+                        CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Platillos");
+                        break;
+                   
+                    case "gerente":
+                        MenuLateral.Content = new UCManager();
+                        CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Platillos");
+                        break;
+                    case "jefe de cocina":
+                        MenuLateral.Content = new UCKitchenManager();
+                        CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Platillos");
+                        break;
+                    default:
+                        MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                        NavigationService.GoBack();
+                        return;
+                    }
+            
+        }
+
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
         }
 
         private void AgregarPlatillo_Click(object sender, RoutedEventArgs e)
         {
-            AgregarPlatillo ventanaAgregar = new AgregarPlatillo();
+            var page = new AgregarPlatillo();
+            NavigationService.Navigate(page);
+        }
 
-            this.Close();
-
-            ventanaAgregar.ShowDialog();
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
 
 
@@ -58,7 +97,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             if (sender is Button btn && btn.DataContext is PlatilloDto platilloSeleccionado)
             {
                 ModificarPlatillo ventanaModificarPlatillo = new ModificarPlatillo(platilloSeleccionado);
-                ventanaModificarPlatillo.ShowDialog(); 
+                NavigationService.Navigate(ventanaModificarPlatillo);
 
                 btnBuscar_Click(null, null);
             }
@@ -77,9 +116,22 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
         {
             if (sender is Button btn && btn.DataContext is PlatilloDto platilloSeleccionado)
             {
-                VerPlatillo ventanaVerPlatillo = new VerPlatillo(platilloSeleccionado);
-                ventanaVerPlatillo.ShowDialog(); 
+                var page = new VerPlatillo(platilloSeleccionado);
+                NavigationService.Navigate(page);
             }
+        }
+
+        public void MostrarModal(Page modal)
+        {
+            modal.Tag = this;
+            ModalFrame.Navigate(modal);
+            ModalOverlay.Visibility = Visibility.Visible;
+        }
+
+        public void CerrarModal()
+        {
+            ModalOverlay.Visibility = Visibility.Collapsed;
+            ModalFrame.Content = null;
         }
 
         private async Task<List<CategoriaProductoDto>> ObtenerCategoriasAsync()

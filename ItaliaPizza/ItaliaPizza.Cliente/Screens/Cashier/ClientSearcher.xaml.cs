@@ -14,7 +14,7 @@ using System.Windows.Media.Animation;
 
 namespace ItaliaPizza.Cliente.Screens.Cashier
 {
-    public partial class ClientSearcher : Window
+    public partial class ClientSearcher : Page
     {
         public ClienteConsultaDTO? ClienteSeleccionado { get; private set; }
 
@@ -56,12 +56,16 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                     CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Clientes");
                     break;
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
         }
 
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new CustomerOptiones());
+        }
         private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
         {
             ButtonSelectionHelper.DesmarcarBotones(menuControl);
@@ -132,18 +136,14 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
             {
                 if (dgClientes.SelectedItem == null)
                     return;
-                var editWindow = new EditCustomer(cliente.Id);
-                editWindow.ShowDialog();
-                this.Close();
+                NavigationService.Navigate(new EditCustomer(cliente.Id));
             }
         }
 
 
         private void BtnAgregarCliente_Click(object sender, RoutedEventArgs e)
         {
-            var addWindow = new ClientAdder();
-            addWindow.ShowDialog();
-            this.Close();
+            NavigationService.Navigate(new ClientAdder());
         }
     }
 }

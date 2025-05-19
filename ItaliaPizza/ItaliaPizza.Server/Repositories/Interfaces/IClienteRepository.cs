@@ -12,6 +12,7 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
         Task<int?> GetClienteIdByNumeroAsync(string numero);
         Task UpdateClienteAsync(Cliente cliente);
         Task<Cliente?> ObtenerPorIdAsync(int id);
+        Task<bool> ExisteTelefonoAsync(string telefono);
 
 
     }

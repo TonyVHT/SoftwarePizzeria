@@ -1,79 +1,48 @@
-﻿using ItaliaPizza.Cliente.Helpers;
-using ItaliaPizza.Cliente.Interfaces;
+﻿using ItaliaPizza.Cliente.Interfaces;
 using ItaliaPizza.Cliente.Models;
-using ItaliaPizza.Cliente.Singleton;
-using ItaliaPizza.Cliente.UserControls;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace ItaliaPizza.Cliente.Screens.Cashier
+namespace ItaliaPizza.Cliente.Screens.OrderClient
 {
-    public partial class AddAddress : Page
+    /// <summary>
+    /// Lógica de interacción para AddAddressModal.xaml
+    /// </summary>
+    public partial class AddAddressModal : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
         private readonly int _clienteId;
         private readonly IRefreshable? _paginaAnterior;
 
-        public AddAddress(int clienteId, IRefreshable? paginaAnterior)
+        public AddAddressModal(int clienteId, IRefreshable? paginaAnterior)
         {
             InitializeComponent();
             _clienteId = clienteId;
-            _paginaAnterior = paginaAnterior as IRefreshable;
-            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
-
-            switch (rol)
-            {
-                case "administrador":
-                    MenuLateral.Content = new UCAdmin();
-                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Clientes");
-                    break;
-                case "mesero":
-                    MenuLateral.Content = new UCWaiter();
-                    CambiarBotonSeleccionado(MenuLateral.Content as UCWaiter, "Clientes");
-                    break;
-                case "cocinero":
-                    MenuLateral.Content = new UCCook();
-                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Clientes");
-                    break;
-                case "cajero":
-                    MenuLateral.Content = new UCCashier();
-                    CambiarBotonSeleccionado(MenuLateral.Content as UCCashier, "Clientes");
-                    break;
-                case "gerente":
-                    MenuLateral.Content = new UCManager();
-                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Clientes");
-                    break;
-                case "jefe de cocina":
-                    MenuLateral.Content = new UCKitchenManager();
-                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Clientes");
-                    break;
-                case "repartidor":
-                    MenuLateral.Content = new UCDelivery();
-                    CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Clientes");
-                    break;
-                default:
-                    MessageBox.Show("Rol no reconocido");
-                    NavigationService.Navigate(new LogIn());
-                    return;
-            }
-        }
-
-        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
-        {
-            ButtonSelectionHelper.DesmarcarBotones(menuControl);
-            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
+            _paginaAnterior = paginaAnterior;
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.GoBack();
+            NavigationService.GoBack();
         }
+
+
+
 
         private async void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
@@ -86,6 +55,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 Referencias = txtReferencias.Text.Trim(),
                 EsPrincipal = chkEsPrincipal.IsChecked ?? false
             };
+
             if (chkEsPrincipal.IsChecked == true)
             {
                 bool yaTieneOtraPrincipal = await ClienteYaTieneOtraDireccionPrincipal(direccionDTO.ClienteId);
@@ -96,6 +66,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                     return;
                 }
             }
+
             var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
             var isValid = Validator.TryValidateObject(direccionDTO, new ValidationContext(direccionDTO), validationResults, true);
 
@@ -114,8 +85,12 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Dirección registrada correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    _paginaAnterior?.Refrescar(); 
-                    NavigationService?.GoBack();  
+
+                    _paginaAnterior?.Refrescar();
+                    NavigationService?.GoBack();
+
+
+
                 }
                 else
                 {
@@ -128,6 +103,7 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 MessageBox.Show($"Error de red: {ex.Message}", "Excepción", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void LimpiarErrores()
         {

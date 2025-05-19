@@ -1,4 +1,4 @@
-﻿<Window x:Class="ItaliaPizza.Cliente.Screens.Cashier.ClientAdder"
+﻿<Page x:Class="ItaliaPizza.Cliente.Screens.Cashier.ClientAdder"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,12 +6,16 @@
         xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Cashier"
         xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
         mc:Ignorable="d"
-        Title="Registrar Cliente" Height="600" Width="950"
-        WindowStartupLocation="CenterScreen">
+        Title="Registrar Cliente" 
+        >
 
     <Grid>
-        <Grid>
-        </Grid>
+        <Grid.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#E6F4EA" Offset="0"/>
+            <GradientStop Color="#F0F4F8" Offset="1"/>
+        </LinearGradientBrush>
+        </Grid.Background>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -107,4 +111,4 @@ Style="{StaticResource buttonsStyle}"  />
 
 
     </Grid>
-</Window>
+</Page>

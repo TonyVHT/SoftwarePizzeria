@@ -94,6 +94,13 @@ namespace ItaliaPizza.Server.Controllers
             }
         }
 
+        [HttpGet("cliente-tiene-direccion-principal")]
+        public async Task<IActionResult> ClienteTieneDireccionPrincipal([FromQuery] int clienteId)
+        {
+            bool tiene = await _direccionClienteService.TieneDireccionPrincipalAsync(clienteId);
+            return Ok(tiene);
+        }
+
 
 
 

@@ -24,6 +24,8 @@ namespace ItaliaPizza.Cliente.UserControls
     /// </summary>
     public partial class UCWaiter : UserControl
     {
+        private NavigationService? Navigation => NavigationService.GetNavigationService(this);
+
         public UCWaiter()
         {
             InitializeComponent();
@@ -39,15 +41,13 @@ namespace ItaliaPizza.Cliente.UserControls
         private void GoToOrdersOptions(object sender, RoutedEventArgs e)
         {
             var orderOptions = new OrderOptiones();
-            orderOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(orderOptions);
         }
 
         private void GoToHomePage(object sender, RoutedEventArgs e)
         {
             var homePage = new HomePageAdmin();
-            homePage.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(homePage);
         }
     }
 }

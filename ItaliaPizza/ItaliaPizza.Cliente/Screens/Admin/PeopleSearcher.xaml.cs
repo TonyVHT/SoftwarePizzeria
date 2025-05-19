@@ -24,7 +24,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
     /// <summary>
     /// Lógica de interacción para PeopleSearcher.xaml
     /// </summary>
-    public partial class PeopleSearcher : Window
+    public partial class PeopleSearcher : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
@@ -49,7 +49,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                     break;
                 default:
                     MessageBox.Show("Rol no reconocido");
-                    Close();
+                    NavigationService?.Navigate(new LogIn());
                     return;
             }
         }
@@ -129,9 +129,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
 
         private void Btn_Cancelar(object sender, RoutedEventArgs e)
         {
-            var userOptions = new UserOptions();
-            userOptions.Show();
-            this.Close();
+            NavigationService.Navigate(new UserOptions());
         }
 
 

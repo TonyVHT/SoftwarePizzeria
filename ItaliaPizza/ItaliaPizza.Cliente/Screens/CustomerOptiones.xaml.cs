@@ -24,7 +24,7 @@ namespace ItaliaPizza.Cliente.Screens
     /// <summary>
     /// Lógica de interacción para CustomerOptiones.xaml
     /// </summary>
-    public partial class CustomerOptiones : Window
+    public partial class CustomerOptiones : Page
     {
         public CustomerOptiones()
         {
@@ -47,8 +47,8 @@ namespace ItaliaPizza.Cliente.Screens
                     break;
 
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
 
@@ -71,30 +71,26 @@ namespace ItaliaPizza.Cliente.Screens
         private void AbrirAgregarCliente(object sender, RoutedEventArgs e)
         {
             var agregarCliente = new ClientAdder();
-            agregarCliente.Show();
-            Window.GetWindow(this)?.Close();
+            NavigationService.Navigate(agregarCliente);
         }
 
         private void AbrirModificarCliente(object sender, RoutedEventArgs e)
         {
             var modificarCliente = new ClientSearcher();
-            modificarCliente.Show();
-            Window.GetWindow(this)?.Close();
+            NavigationService.Navigate(modificarCliente);
         }
 
         private void AbrirConsultarCliente(object sender, RoutedEventArgs e)
         {
             var consultarCliente = new ClientSearcher();
-            consultarCliente.Show();
-            Window.GetWindow(this)?.Close();
+            NavigationService.Navigate(consultarCliente);
         }
 
 
         private void AbrirConsultarPersonas(object sender, RoutedEventArgs e)
         {
             var consultarPersona = new PeopleSearcher();
-            consultarPersona.Show();
-            Window.GetWindow(this)?.Close();
+            NavigationService.Navigate(consultarPersona);
         }
 
         private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)

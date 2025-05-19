@@ -18,7 +18,7 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens.Manager
 {
-    public partial class FinancesReporter : Window
+    public partial class FinancesReporter : Page
     {
         private readonly HttpClient _http = new HttpClient
         {
@@ -44,8 +44,8 @@ namespace ItaliaPizza.Cliente.Screens.Manager
                     CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Estadísticas");
                     break;
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
         }
@@ -284,7 +284,8 @@ namespace ItaliaPizza.Cliente.Screens.Manager
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            
+            NavigationService?.GoBack();
+
         }
 
     }

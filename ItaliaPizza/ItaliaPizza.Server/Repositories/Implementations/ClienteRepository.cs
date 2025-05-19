@@ -72,6 +72,10 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             return await _context.Clientes.FindAsync(id);
         }
 
+        public async Task<bool> ExisteTelefonoAsync(string telefono)
+        {
+            return await _context.Clientes.AnyAsync(c => c.Telefono == telefono);
+        }
 
 
     }

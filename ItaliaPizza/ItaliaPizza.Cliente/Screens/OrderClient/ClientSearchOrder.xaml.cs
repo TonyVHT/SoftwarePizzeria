@@ -1,27 +1,43 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente;
+using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Screens.Cashier;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
+using System.Windows.Navigation;
 
 namespace ItaliaPizza.Cliente.Screens.OrderClient
 {
-    public partial class ClientSearchOrder : Window
+    public partial class ClientSearchOrder : Page
     {
         public ClienteConsultaDTO? ClienteSeleccionado { get; private set; }
         public DireccionClienteDTO? DireccionSeleccionada { get; private set; }
+        public bool RegresarAlCerrar { get; set; } = false;
+
 
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
         public ClientSearchOrder()
         {
             InitializeComponent();
+            this.Loaded += ClientSearchOrder_Loaded;
+            this.Loaded += (s, e) =>
+            {
+                if (AppState.RepartidorSeleccionado != null)
+                {
+                    var repartidor = AppState.RepartidorSeleccionado;
+                    AppState.RepartidorSeleccionado = null;
+
+                    MessageBox.Show($"Repartidor seleccionado: {repartidor.NombreCompleto}", "Listo", MessageBoxButton.OK);
+                }
+            };
+
         }
 
         private async void BtnBuscarCliente_Click(object sender, RoutedEventArgs e)
@@ -82,36 +98,66 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
             element.BeginAnimation(UIElement.OpacityProperty, fadeInAnimation);
         }
 
+        private void ClientSearchOrder_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (AppState.DireccionSeleccionada != null)
+            {
+                DireccionSeleccionada = AppState.DireccionSeleccionada;
+                AppState.DireccionSeleccionada = null;
+
+                MessageBox.Show(
+                    $"Cliente: {ClienteSeleccionado?.NombreCompleto}\n" +
+                    $"Dirección: {DireccionSeleccionada.Direccion}, {DireccionSeleccionada.Ciudad}",
+                    "Selección exitosa", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            ClienteSeleccionado = null;
+            DireccionSeleccionada = null;
+            NavigationService.GoBack();
+        }
+
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (dgClientes.SelectedItem is ClienteConsultaDTO cliente)
             {
-                var addressSelector = new AddressSelector(cliente.Id);
-                addressSelector.Owner = this;
+                ClienteSeleccionado = cliente;
+                AppState.ClienteSeleccionado = cliente; // Guarda también por si acaso
+                var modal = new AddressSelector(cliente.Id);
+                modal.Tag = this;
+                MostrarModal(modal);
 
-                if (addressSelector.ShowDialog() == true && addressSelector.DireccionSeleccionada != null)
-                {
-                    ClienteSeleccionado = cliente;
-                    DireccionSeleccionada = addressSelector.DireccionSeleccionada;
-
-                    MessageBox.Show(
-                        $"Cliente: {cliente.NombreCompleto}\n" +
-                        $"Dirección: {DireccionSeleccionada.Direccion}, {DireccionSeleccionada.Ciudad}",
-                        "Selección exitosa", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    DialogResult = true;
-                    Close();
-                }
-
-                Close();
             }
         }
 
+        
+
         private void BtnAgregarCliente_Click(object sender, RoutedEventArgs e)
         {
-            var addWindow = new ClientAdder();
-            addWindow.ShowDialog();
-            this.Close();
+            NavigationService?.Navigate(new ClientAdder());
         }
+
+        public void MostrarModal(Page modal)
+        {
+            modal.Tag = this;
+            ModalFrame.Navigate(modal);
+            ModalOverlay.Visibility = Visibility.Visible;
+        }
+
+        public void CerrarModal()
+        {
+            ModalOverlay.Visibility = Visibility.Collapsed;
+            ModalFrame.Content = null;
+
+            if (RegresarAlCerrar)
+            {
+                NavigationService?.GoBack();
+            }
+        }
+
+
     }
 }

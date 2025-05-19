@@ -1,33 +1,22 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Interfaces;
+using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Screens.Cashier;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ItaliaPizza.Cliente.Screens.OrderClient
 {
-    /// <summary>
-    /// Interaction logic for AddressSelector.xaml
-    /// </summary>
-    public partial class AddressSelector : Window
+    public partial class AddressSelector : Page, IRefreshable
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
         private readonly int _clienteId;
-
-        public DireccionClienteDTO? DireccionSeleccionada { get; private set; }
 
         public AddressSelector(int clienteId)
         {
@@ -36,11 +25,17 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
             _ = CargarDireccionesAsync();
         }
 
+        public void Refrescar()
+        {
+            _ = CargarDireccionesAsync();
+        }
+
         private async Task CargarDireccionesAsync()
         {
             try
             {
-                var direcciones = await _http.GetFromJsonAsync<List<DireccionClienteDTO>>($"api/direccioncliente/cliente/{_clienteId}");
+                var direcciones = await _http.GetFromJsonAsync<List<DireccionClienteDTO>>(
+                    $"api/direccioncliente/cliente/{_clienteId}");
                 dgDirecciones.ItemsSource = direcciones;
             }
             catch (Exception ex)
@@ -48,14 +43,24 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
                 MessageBox.Show($"Error al cargar direcciones: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void BtnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
             if (dgDirecciones.SelectedItem is DireccionClienteDTO direccion)
             {
-                DireccionSeleccionada = direccion;
-                DialogResult = true;
-                Close();
+                AppState.DireccionSeleccionada = direccion;
+
+                // Primero cerramos este modal
+                if (Tag is ClientSearchOrder parent)
+                {
+                    // Cerramos AddressSelector
+                    parent.CerrarModal();
+
+                    // Y también cerramos ClientSearchOrder
+                    if (parent.Tag is Page ownerPage)
+                    {
+                        (ownerPage as dynamic)?.CerrarModal();
+                    }
+                }
             }
             else
             {
@@ -63,20 +68,49 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
             }
         }
 
+
+        public void MostrarModal(Page modal)
+        {
+            modal.Tag = this;
+
+            if (Tag is ClientSearchOrder parent)
+            {
+                parent.MostrarModal(modal); 
+            }
+        }
+
+
+
+        public void CerrarModal()
+        {
+            if (Tag is ClientSearchOrder parent)
+            {
+                parent.CerrarModal(); 
+            }
+        }
+
+
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
-            Close();
+            AppState.DireccionSeleccionada = null;
+
+            if (Tag is ClientSearchOrder parent)
+            {
+                parent.CerrarModal();
+            }
         }
+
 
         private void BtnAgregarDireccion_Click(object sender, RoutedEventArgs e)
         {
-            var addWindow = new AddAddress(_clienteId);
-            addWindow.Owner = this;
-            addWindow.ShowDialog();
-
+            var modal = new AddAddressModal(_clienteId, this);
+            NavigationService?.Navigate(modal);
             _ = CargarDireccionesAsync();
+
         }
+
+
+
 
     }
 }

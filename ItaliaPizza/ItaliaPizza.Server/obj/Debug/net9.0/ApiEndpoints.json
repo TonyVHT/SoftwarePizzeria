@@ -80,6 +80,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ItaliaPizza.Server.Controllers.ClienteController",
+    "Method": "TelefonoClienteExiste",
+    "RelativePath": "api/Cliente/telefono-cliente-existe",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "telefono",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ItaliaPizza.Server.Controllers.CredencialUsuarioController",
     "Method": "CambiarContrasena",
     "RelativePath": "api/CredencialUsuario/cambiar-contrasena",
@@ -165,6 +181,22 @@
         "Name": "dto",
         "Type": "ItaliaPizza.Server.DTOs.UpdateDireccionPrincipalDTO",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.DireccionClienteController",
+    "Method": "ClienteTieneDireccionPrincipal",
+    "RelativePath": "api/DireccionCliente/cliente-tiene-direccion-principal",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -764,6 +796,38 @@
   },
   {
     "ContainingType": "ItaliaPizza.Server.Controllers.UsuarioController",
+    "Method": "CurpExiste",
+    "RelativePath": "api/Usuario/curp-existe",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "curp",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.UsuarioController",
+    "Method": "EmailExiste",
+    "RelativePath": "api/Usuario/email-existe",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.UsuarioController",
     "Method": "GetRolById",
     "RelativePath": "api/Usuario/getrol",
     "HttpMethod": "POST",
@@ -790,6 +854,22 @@
         "Name": "dto",
         "Type": "ItaliaPizza.Server.DTOs.UsuarioActualizadoDTO",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.UsuarioController",
+    "Method": "NombreUsuarioExiste",
+    "RelativePath": "api/Usuario/nombre-usuario-existe",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nombreUsuario",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -828,6 +908,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ItaliaPizza.Server.Controllers.UsuarioController",
+    "Method": "TelefonoExiste",
+    "RelativePath": "api/Usuario/telefono-existe",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "telefono",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   }
 ]

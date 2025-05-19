@@ -96,7 +96,7 @@ namespace ItaliaPizza.Cliente.Screens
                         UserSessionManager.Instance.Login(sesion);
                         
 
-                        HomePageAdmin homePageAdmin = new HomePageAdmin();  
+                        var homePageAdmin = new MainWindow();  
                         homePageAdmin.Show();
                         this.Close();
                     }
