@@ -25,5 +25,11 @@ namespace ItaliaPizza.Server.Repositories.Implementations
                 .Include(p => p.Categoria)
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<Producto>> GetProductosConCategoriaAsync()
+        {
+            return await _dbSet.Include(p => p.Categoria).ToListAsync();
+        }
+
     }
 }

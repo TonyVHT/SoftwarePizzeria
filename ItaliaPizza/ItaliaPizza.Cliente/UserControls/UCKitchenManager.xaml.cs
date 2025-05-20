@@ -49,7 +49,11 @@ namespace ItaliaPizza.Cliente.UserControls
             Navigation?.Navigate(productOptions);
         }
 
-
+        private void GoToPedidosEnCocina(object sender, RoutedEventArgs e)
+        {
+            var pedidosEnCocina = new ItaliaPizza.Cliente.Screens.Orders.PedidosEnCocina();
+            Navigation?.Navigate(pedidosEnCocina);
+        }
 
         private void GoToHomePage(object sender, RoutedEventArgs e)
         {

@@ -104,5 +104,22 @@ namespace ItaliaPizza.Server.Controllers
             return Ok(productos);
         }
 
+        [HttpGet("finales")]
+        public async Task<ActionResult<IEnumerable<Producto>>> ObtenerProductosFinales()
+        {
+            var productos = await _productoService.GetProductosPorEsIngredienteAsync(false);
+            return Ok(productos);
+        }
+
+        [HttpGet("por-categoria")]
+        public async Task<ActionResult<IEnumerable<Producto>>> ObtenerPorNombreCategoria([FromQuery] string nombreCategoria)
+        {
+            var productos = await _productoService.GetPorNombreCategoriaAsync(nombreCategoria);
+            return Ok(productos);
+        }
+
+
+
+
     }
 }

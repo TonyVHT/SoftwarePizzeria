@@ -54,8 +54,12 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
 
                 if (Tag is RegisterOrder parent)
                 {
-                    parent.CerrarModal(); 
+                    parent._repartidorSeleccionado = repartidor; 
+                    parent.TextoRepartidor.Text = $"Repartidor: {repartidor.NombreCompleto}";
+                    parent.ActualizarEstadoBotonConfirmar();
+                    parent.CerrarModal();
                 }
+
             }
         }
 
@@ -76,8 +80,17 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
             if (dgRepartidores.SelectedItem is UsuarioConsultaDTO repartidor)
             {
                 AppState.RepartidorSeleccionado = repartidor;
-                NavigationService?.GoBack();
+
+                if (Tag is RegisterOrder parent)
+                {
+                    parent._repartidorSeleccionado = repartidor; // 💥 ¡así sí lo asignas!
+                    parent.TextoRepartidor.Text = $"Repartidor: {repartidor.NombreCompleto}";
+                    parent.ActualizarEstadoBotonConfirmar();
+                    parent.CerrarModal();
+                }
+
             }
         }
+
     }
 }

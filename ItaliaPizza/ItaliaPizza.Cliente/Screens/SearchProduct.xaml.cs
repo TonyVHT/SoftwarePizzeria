@@ -42,6 +42,16 @@ namespace ItaliaPizza.Cliente.Screens
                     CambiarBotonSeleccionado(MenuLateral.Content as UCCashier, "Productos");
                     break;
 
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Productos");
+                    break;
+
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Productos");
+                    break;
+
                 default:
                     MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
                     NavigationService.Navigate(new LogIn());
@@ -60,28 +70,21 @@ namespace ItaliaPizza.Cliente.Screens
         {
             try
             {
-                _categorias = new List<CategoriaProducto>
-                {
-                    new() { Id = 1, Nombre = "Verduras frescas" },
-                    new() { Id = 2, Nombre = "Carnes frías" },
-                    new() { Id = 3, Nombre = "Quesos" },
-                    new() { Id = 4, Nombre = "Salsas y bases" },
-                    new() { Id = 5, Nombre = "Ingredientes gourmet" },
-                    new() { Id = 6, Nombre = "Bebidas" },
-                    new() { Id = 7, Nombre = "Postres" },
-                    new() { Id = 8, Nombre = "Pizzas" }
-                };
+                _categorias = await _http.GetFromJsonAsync<List<CategoriaProductoDto>>("api/categorias") ?? new();
+                _categorias.Insert(0, new CategoriaProductoDto { Id = -1, Nombre = "Selecciona una categoría" });
 
                 cmbCategoriaFiltro.ItemsSource = _categorias;
                 cmbCategoriaFiltro.DisplayMemberPath = "Nombre";
                 cmbCategoriaFiltro.SelectedValuePath = "Id";
-                cmbCategoriaFiltro.SelectedIndex = -1;
+                cmbCategoriaFiltro.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar categorías: {ex.Message}");
             }
         }
+
+
 
         private void TxtBuscarNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -90,7 +93,15 @@ namespace ItaliaPizza.Cliente.Screens
 
         private void CmbCategoriaFiltro_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var selectedCategoria = cmbCategoriaFiltro.SelectedItem as CategoriaProductoDto;
+            if (selectedCategoria == null || selectedCategoria.Id == -1)
+            {
+                cardsContainer.ItemsSource = null;
+                return;
+            }
+
             DebouncedActualizarResultados();
+
         }
 
         private void DebouncedActualizarResultados()
@@ -189,7 +200,9 @@ public class CategoriaProductoDto
     public int Id { get; set; }
     public string Nombre { get; set; } = string.Empty;
     public bool Estatus { get; set; }
-    public TipoDeUso TipoDeUso { get; set; } 
+    public TipoDeUso TipoDeUso { get; set; }
+    public override string ToString() => Nombre;  
+
 }
 
 public enum TipoDeUso

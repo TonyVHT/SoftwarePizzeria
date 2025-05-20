@@ -26,7 +26,7 @@ namespace ItaliaPizza.Cliente.Screens.Orders
             InitializeComponent();
             PedidosItemsControl.ItemsSource = Pedidos;
             _ = CargarPedidosAsync();
-          /*  string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+          string rol = UserSessionManager.Instance.GetRol()?.ToLower();
 
             switch (rol)
             {
@@ -41,8 +41,6 @@ namespace ItaliaPizza.Cliente.Screens.Orders
                     NavigationService.Navigate(new LogIn());
                     return;
             }
-
-            */
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
@@ -66,7 +64,9 @@ namespace ItaliaPizza.Cliente.Screens.Orders
                 var pedidosRepartidor = await _httpClient.GetFromJsonAsync<List<PedidoRepartidorConsultaDTO>>("api/pedido/repartidor/consulta");
                 if (pedidosRepartidor != null)
                 {
-                    listaFinal.AddRange(pedidosRepartidor.Select(p => new
+                    var enProceso = pedidosRepartidor.Where(p => p.Estatus.Equals("En proceso", StringComparison.OrdinalIgnoreCase));
+
+                    listaFinal.AddRange(enProceso.Select(p => new
                     {
                         Tipo = "Domicilio",
                         Repartidor = p.Repartidor,

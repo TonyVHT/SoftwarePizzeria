@@ -25,10 +25,10 @@
         <Border Grid.Column="0" Background="#ffffff" BorderBrush="#dcdcdc" BorderThickness="0,0,1,0">
             <StackPanel Margin="10">
                 <TextBlock Text="Categorías" FontWeight="Bold" FontSize="16" Margin="0 0 0 10" Foreground="#333"/>
-                <Button Content="🍽 Todos" Margin="0 5" Background="#32d483" Foreground="White" BorderThickness="0" Height="40"/>
-                <Button Content="🥘 Pizza" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40"/>
-                <Button Content="🥤 Bebidas" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40"/>
-                <Button Content="🍰 Postres" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40"/>
+                <Button x:Name="BtnTodos" Content="🍽 Todos" Margin="0 5" Background="#32d483" Foreground="White" BorderThickness="0" Height="40" Click="Categoria_Click"/>
+                <Button x:Name="BtnPizza" Content="🥘 Pizza" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40" Click="Categoria_Click"/>
+                <Button x:Name="BtnBebidas" Content="🥤 Bebidas" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40" Click="Categoria_Click"/>
+                <Button x:Name="BtnPostres" Content="🍰 Postres" Margin="0 5" Background="#e0f9f0" Foreground="#333" BorderThickness="0" Height="40" Click="Categoria_Click"/>
                 <Button Content="Cancelar" Margin="0 5" Style="{StaticResource cancelbuttonsStyle}" BorderThickness="0" Height="40" Click="BtnCancelar_Click"/>
             </StackPanel>
         </Border>

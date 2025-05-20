@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItaliaPizza.Cliente"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
+          WindowState="Maximized"
+    WindowStartupLocation="CenterScreen"
+    ResizeMode="CanResize"
         Title="MainWindow" Height="840" Width="1280">
     <Grid>
         <ContentControl x:Name="VistaContenedor"/>

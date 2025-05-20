@@ -6,21 +6,26 @@ using ItaliaPizza.Cliente.Screens.OrderClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace ItaliaPizza.Cliente.Screens
 {
     public partial class RegisterOrder : Page
     {
-        private ClienteConsultaDTO? _clienteSeleccionado;
-        private DireccionClienteDTO? _direccionSeleccionada;
-        private UsuarioConsultaDTO? _repartidorSeleccionado;
+        public ClienteConsultaDTO? _clienteSeleccionado;
+        public DireccionClienteDTO? _direccionSeleccionada;
+        public UsuarioConsultaDTO? _repartidorSeleccionado;
+        private Button? _botonCategoriaSeleccionado = null;
+
+
 
         private readonly HttpClient _httpClient = new HttpClient();
         public ObservableCollection<ItemPedido> ItemsPedido { get; set; } = new();
@@ -31,7 +36,7 @@ namespace ItaliaPizza.Cliente.Screens
             InitializeComponent();
             ListaPedido.ItemsSource = ItemsPedido;
             ItemsDisponiblesControl.ItemsSource = ProductosDisponibles;
-            _ = CargarProductosAsync();
+            _ = CargarProductosYPlatillosAsync();
             this.Loaded += RegisterOrder_Loaded;
         }
 
@@ -39,12 +44,22 @@ namespace ItaliaPizza.Cliente.Screens
         {
             try
             {
-                var productos = await _httpClient.GetFromJsonAsync<List<ItemDisponible>>("https://localhost:7264/api/producto/all");
+                var productos = await _httpClient.GetFromJsonAsync<List<ItemDisponible>>("https://localhost:7264/api/producto/finales");
                 if (productos != null)
                 {
                     var productosValidos = productos.Where(p => p.TipoDeUso == 0 || p.TipoDeUso == 2);
                     foreach (var p in productosValidos)
+                    {
+                        if (p.Foto == null || p.Foto.Length == 0)
+                        {
+                            p.Foto = ObtenerImagenFakePorNombre(p.Nombre);
+                        }
+                        p.EsPlatillo = false;
+
                         ProductosDisponibles.Add(p);
+         
+
+                    }
                 }
             }
             catch (Exception ex)
@@ -91,7 +106,7 @@ namespace ItaliaPizza.Cliente.Screens
         {
             if (sender is Button btn && btn.Tag is ItemDisponible producto)
             {
-                var existente = ItemsPedido.FirstOrDefault(i => i.Id == producto.Id && !i.EsPlatillo);
+                var existente = ItemsPedido.FirstOrDefault(i => i.Id == producto.Id && i.EsPlatillo == producto.EsPlatillo);
                 if (existente != null)
                 {
                     existente.Cantidad++;
@@ -106,7 +121,7 @@ namespace ItaliaPizza.Cliente.Screens
                         PrecioUnitario = producto.Precio,
                         Cantidad = 1,
                         Subtotal = producto.Precio,
-                        EsPlatillo = false
+                        EsPlatillo = producto.EsPlatillo
                     });
                 }
 
@@ -155,7 +170,7 @@ namespace ItaliaPizza.Cliente.Screens
         {
             var page = new ClientSearchOrder
             {
-                RegresarAlCerrar = true 
+                RegresarAlCerrar = true
             };
 
             NavigationService?.Navigate(page);
@@ -169,14 +184,42 @@ namespace ItaliaPizza.Cliente.Screens
             MostrarModal(modal);
         }
 
-
-        private void ActualizarEstadoBotonConfirmar()
+        public void ActualizarEstadoBotonConfirmar()
         {
+            var clienteOk = _clienteSeleccionado != null;
+            var direccionOk = _direccionSeleccionada != null;
+            var repartidorOk = _repartidorSeleccionado != null;
+            var hayProductos = ItemsPedido.Any();
+
             BtnConfirmarPedido.IsEnabled =
-                _clienteSeleccionado != null &&
-                _direccionSeleccionada != null &&
-                _repartidorSeleccionado != null &&
-                ItemsPedido.Any();
+                clienteOk && direccionOk && repartidorOk && hayProductos;
+        }
+
+        private byte[] ObtenerImagenFakePorNombre(string nombre)
+        {
+            var lower = nombre.ToLower();
+
+            string basePath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Resources\\Images\\productAssets"));
+
+            if (lower.Contains("coca"))
+                return File.ReadAllBytes(Path.Combine(basePath, "coca-cola.png"));
+
+            if (lower.Contains("pepsi"))
+                return File.ReadAllBytes(Path.Combine(basePath, "pepsi.png"));
+
+            if (lower.Contains("agua"))
+                return File.ReadAllBytes(Path.Combine(basePath, "agua.png"));
+
+            if (lower.Contains("pastel"))
+                return File.ReadAllBytes(Path.Combine(basePath, "pastel.jpg"));
+
+            if (lower.Contains("flan"))
+                return File.ReadAllBytes(Path.Combine(basePath, "flan-napolitano.jpg"));
+
+            if (lower.Contains("pay") || lower.Contains("queso"))
+                return File.ReadAllBytes(Path.Combine(basePath, "pay-queso.jpg"));
+
+            return File.ReadAllBytes(Path.Combine(basePath, "no-image.jpg"));
         }
 
         public void MostrarModal(Page modal)
@@ -227,7 +270,7 @@ namespace ItaliaPizza.Cliente.Screens
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("¡Pedido registrado exitosamente!", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    NavigationService?.GoBack(); // Limpia volviendo a la vista anterior
+                    LimpiarFormulario();
                 }
                 else
                 {
@@ -240,8 +283,76 @@ namespace ItaliaPizza.Cliente.Screens
                 MessageBox.Show($"Ocurrió un error al registrar el pedido: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-    }
 
+        public void LimpiarFormulario()
+        {
+            _clienteSeleccionado = null;
+            _direccionSeleccionada = null;
+            _repartidorSeleccionado = null;
+
+            TextoCliente.Text = "(Ninguno)";
+            TextoDireccion.Text = "";
+            TextoRepartidor.Text = "";
+
+            ItemsPedido.Clear();
+
+            ActualizarTotal();
+            ActualizarEstadoBotonConfirmar();
+
+            ListaPedido.Items.Refresh();
+        }
+
+
+
+        private void Categoria_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                BtnTodos.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0f9f0"));
+                BtnTodos.Foreground = new SolidColorBrush(Color.FromRgb(51, 51, 51));
+                BtnPizza.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0f9f0"));
+                BtnPizza.Foreground = new SolidColorBrush(Color.FromRgb(51, 51, 51));
+                BtnBebidas.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0f9f0"));
+                BtnBebidas.Foreground = new SolidColorBrush(Color.FromRgb(51, 51, 51));
+                BtnPostres.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0f9f0"));
+                BtnPostres.Foreground = new SolidColorBrush(Color.FromRgb(51, 51, 51));
+
+                btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#32d483")); // Verde seleccionado
+                btn.Foreground = new SolidColorBrush(Colors.White);
+
+                _botonCategoriaSeleccionado = btn;
+
+                // Aquí puedes filtrar los productos según la categoría seleccionada
+                // Por ejemplo: FiltrarProductosPorCategoria(btn.Content.ToString());
+            }
+        }
+
+        private async Task CargarPlatillosAsync()
+        {
+            try
+            {
+                var platillos = await _httpClient.GetFromJsonAsync<List<ItemDisponible>>("https://localhost:7264/api/platillo");
+                if (platillos != null)
+                {
+                    foreach (var p in platillos)
+                    {
+                        p.EsPlatillo = true;
+                        ProductosDisponibles.Add(p);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar platillos: {ex.Message}");
+            }
+        }
+
+        private async Task CargarProductosYPlatillosAsync()
+        {
+            await CargarProductosAsync();
+            await CargarPlatillosAsync();
+        }
+    }
     public class ItemDisponible
     {
         public int Id { get; set; }
@@ -249,6 +360,8 @@ namespace ItaliaPizza.Cliente.Screens
         public decimal Precio { get; set; }
         public byte[]? Foto { get; set; }
         public int TipoDeUso { get; set; }
+        public bool EsPlatillo { get; set; } 
+
     }
 
     public class ItemPedido
@@ -260,4 +373,5 @@ namespace ItaliaPizza.Cliente.Screens
         public decimal Subtotal { get; set; }
         public bool EsPlatillo { get; set; } = false;
     }
+
 }

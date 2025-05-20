@@ -56,6 +56,9 @@
     <Compile Update="Screens\Cashier\LogOutCashier.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Controls\CustomDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Cook\HomePageCook.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
