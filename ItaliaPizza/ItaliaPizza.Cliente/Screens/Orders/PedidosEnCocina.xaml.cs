@@ -13,18 +13,20 @@ using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens.Orders
 {
-    public partial class PedidosEnCocina : Window
+    public partial class PedidosEnCocina : Page
     {
         private readonly HttpClient _httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
         public ObservableCollection<PedidoRepartidorConsultaDTO> Pedidos { get; set; } = new();
+        private ObservableCollection<PedidoLocalConsultaDTO> PedidosLocales { get; set; } = new();
+
 
         public PedidosEnCocina()
         {
             InitializeComponent();
             PedidosItemsControl.ItemsSource = Pedidos;
             _ = CargarPedidosAsync();
-            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+          string rol = UserSessionManager.Instance.GetRol()?.ToLower();
 
             switch (rol)
             {
@@ -35,17 +37,15 @@ namespace ItaliaPizza.Cliente.Screens.Orders
 
                
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor incie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            var opcionesPedidos = new OrderOptiones();
-            opcionesPedidos.Show();
-            this.Close();
+            NavigationService.Navigate(new OrderOptiones());
         }
         private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
         {
@@ -57,17 +57,40 @@ namespace ItaliaPizza.Cliente.Screens.Orders
         {
             try
             {
-                Pedidos.Clear();
+                PedidosItemsControl.ItemsSource = null;
+                var listaFinal = new List<object>();
 
-                var pedidos = await _httpClient.GetFromJsonAsync<List<PedidoRepartidorConsultaDTO>>("api/pedido/repartidor/consulta");
-
-                if (pedidos != null)
+                // Obtener pedidos de repartidor
+                var pedidosRepartidor = await _httpClient.GetFromJsonAsync<List<PedidoRepartidorConsultaDTO>>("api/pedido/repartidor/consulta");
+                if (pedidosRepartidor != null)
                 {
-                    foreach (var pedido in pedidos)
+                    var enProceso = pedidosRepartidor.Where(p => p.Estatus.Equals("En proceso", StringComparison.OrdinalIgnoreCase));
+
+                    listaFinal.AddRange(enProceso.Select(p => new
                     {
-                        Pedidos.Add(pedido);
-                    }
+                        Tipo = "Domicilio",
+                        Repartidor = p.Repartidor,
+                        Fecha = p.Fecha,
+                        Total = p.Total,
+                        Original = p
+                    }));
                 }
+
+                // Obtener pedidos locales
+                var pedidosLocales = await _httpClient.GetFromJsonAsync<List<PedidoLocalConsultaDTO>>("api/pedido/local/consulta");
+                if (pedidosLocales != null)
+                {
+                    listaFinal.AddRange(pedidosLocales.Select(p => new
+                    {
+                        Tipo = "Local",
+                        Repartidor = p.Mesero, // Lo mismo que 'Repartidor' por simplicidad de UI
+                        Fecha = p.Fecha,
+                        Total = p.Total,
+                        Original = p
+                    }));
+                }
+
+                PedidosItemsControl.ItemsSource = listaFinal;
             }
             catch (Exception ex)
             {
@@ -75,55 +98,96 @@ namespace ItaliaPizza.Cliente.Screens.Orders
             }
         }
 
+
         private void VerDetalles_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button btn && btn.Tag is PedidoRepartidorConsultaDTO pedido)
+            if (sender is Button btn && btn.Tag != null)
             {
-                string detalles = $"Pedido ID: {pedido.Id}\nTotal: ${pedido.Total:F2}\nFecha: {pedido.Fecha:dd/MM/yyyy}\nRepartidor: {pedido.Repartidor}";
-                MessageBox.Show(detalles, $"Detalles del Pedido #{pedido.Id}", MessageBoxButton.OK, MessageBoxImage.Information);
+                var item = btn.Tag;
+
+                if (item is PedidoRepartidorConsultaDTO pedidoReparto)
+                {
+                    string detalles = $"🛵 Pedido ID: {pedidoReparto.Id}\n" +
+                                      $"Total: ${pedidoReparto.Total:F2}\n" +
+                                      $"Fecha: {pedidoReparto.Fecha:dd/MM/yyyy}\n" +
+                                      $"Repartidor: {pedidoReparto.Repartidor}";
+
+                    MessageBox.Show(detalles, $"📦 Detalles del Pedido #{pedidoReparto.Id}", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else if (item is PedidoLocalConsultaDTO pedidoLocal)
+                {
+                    string detalles = $"🍽️ Pedido ID: {pedidoLocal.Id}\n" +
+                                      $"Total: ${pedidoLocal.Total:F2}\n" +
+                                      $"Fecha: {pedidoLocal.Fecha:dd/MM/yyyy}\n" +
+                                      $"Mesero: {pedidoLocal.Mesero}";
+
+                    MessageBox.Show(detalles, $"🪑 Detalles del Pedido #{pedidoLocal.Id}", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
         }
 
         private async void CompletarPedido_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button btn && btn.Tag is PedidoRepartidorConsultaDTO pedido)
+            if (sender is Button btn && btn.Tag != null)
             {
-                var confirmar = MessageBox.Show(
-                    $"¿Deseas marcar el pedido #{pedido.Id} como 'En cocina'?",
-                    "Confirmar estado",
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Question);
-
-                if (confirmar == MessageBoxResult.Yes)
+                if (btn.Tag is PedidoRepartidorConsultaDTO pedidoReparto)
                 {
-                    try
+                    var confirmar = MessageBox.Show(
+                        $"¿Deseas marcar el pedido #{pedidoReparto.Id} como 'En cocina'?",
+                        "Confirmar estado",
+                        MessageBoxButton.YesNo,
+                        MessageBoxImage.Question);
+
+                    if (confirmar == MessageBoxResult.Yes)
                     {
-                        var dto = new CambiarEstadoPedidoDto
-                        {
-                            PedidoId = pedido.Id,
-                            NuevoEstado = "En cocina"
-                        };
-
-                        var response = await _httpClient.PutAsJsonAsync("api/pedido/estado", dto);
-
-                        if (response.IsSuccessStatusCode)
-                        {
-                            MessageBox.Show("Pedido actualizado a 'En cocina'.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                            Pedidos.Remove(pedido);
-                        }
-                        else
-                        {
-                            var errorMsg = await response.Content.ReadAsStringAsync();
-                            MessageBox.Show($"Error al actualizar estado:\n{errorMsg}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
+                        await CambiarEstadoPedidoAsync(pedidoReparto.Id, "En cocina");
                     }
-                    catch (Exception ex)
+                }
+                else if (btn.Tag is PedidoLocalConsultaDTO pedidoLocal)
+                {
+                    var confirmar = MessageBox.Show(
+                        $"¿Deseas marcar el pedido local #{pedidoLocal.Id} como 'En cocina'?",
+                        "Confirmar estado",
+                        MessageBoxButton.YesNo,
+                        MessageBoxImage.Question);
+
+                    if (confirmar == MessageBoxResult.Yes)
                     {
-                        MessageBox.Show($"Error de red: {ex.Message}", "Excepción", MessageBoxButton.OK, MessageBoxImage.Error);
+                        await CambiarEstadoPedidoAsync(pedidoLocal.Id, "En cocina");
                     }
                 }
             }
         }
+
+        private async Task CambiarEstadoPedidoAsync(int pedidoId, string nuevoEstado)
+        {
+            try
+            {
+                var dto = new CambiarEstadoPedidoDto
+                {
+                    PedidoId = pedidoId,
+                    NuevoEstado = nuevoEstado
+                };
+
+                var response = await _httpClient.PutAsJsonAsync("api/pedido/estado", dto);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Pedido actualizado a 'En cocina'.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    await CargarPedidosAsync();
+                }
+                else
+                {
+                    var errorMsg = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Error al actualizar estado:\n{errorMsg}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error de red: {ex.Message}", "Excepción", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
 
 
     }
@@ -136,6 +200,15 @@ namespace ItaliaPizza.Cliente.Screens.Orders
         public string Estatus { get; set; } = "";
         public DateTime Fecha { get; set; }
         public string Tipo { get; set; } = "Domicilio";
+    }
+
+    public class PedidoLocalConsultaDTO
+    {
+        public int Id { get; set; }
+        public string Tipo { get; set; } = "Pedido Local"; // Literal
+        public string Mesero { get; set; } = ""; // Nombre del mesero
+        public DateTime Fecha { get; set; }
+        public decimal Total { get; set; }
     }
 
     internal class CambiarEstadoPedidoDto

@@ -60,18 +60,51 @@ namespace ItaliaPizza.Server.Services.Implementations
         {
             try
             {
+                // Intentar primero en pedidos a domicilio
                 var pedido = await _pedidoDomicilioRepository.GetByIdAsync(pedidoId);
-                if (pedido == null) 
+
+                if (pedido != null)
+                {
+                    pedido.Estatus = nuevoEstado;
+
+                    if (nuevoEstado == "En cocina")
+                    {
+                        var detalles = await _detallePedidoRepository.GetByPedidoIdAsync(pedidoId);
+                        pedido.Detalles = detalles.ToList();
+                        await ActualizarInventarioProductosAsync(pedido.Detalles);
+                    }
+
+                    if (nuevoEstado == "Entregado")
+                    {
+                        var finanza = new Finanza
+                        {
+                            TipoTransaccion = "Entrada",
+                            Concepto = "Pago de pedido a domicilio",
+                            Monto = pedido.Total,
+                            Fecha = DateTime.Now,
+                            UsuarioId = pedido.CajeroId
+                        };
+
+                        await _finanzaRepository.AddAsync(finanza);
+                        pedido.TransaccionFinancieraId = finanza.Id;
+                    }
+
+                    await _pedidoDomicilioRepository.UpdateAsync(pedido);
+                    return true;
+                }
+
+                // Si no es a domicilio, intentamos con pedido local
+                var pedidoLocal = await _pedidoLocalRepository.GetByIdAsync(pedidoId);
+                if (pedidoLocal == null)
                     return false;
 
-                pedido.Estatus = nuevoEstado;
-
+                pedidoLocal.Estatus = nuevoEstado;
 
                 if (nuevoEstado == "En cocina")
                 {
                     var detalles = await _detallePedidoRepository.GetByPedidoIdAsync(pedidoId);
-                    pedido.Detalles = detalles.ToList();
-                    await ActualizarInventarioProductosAsync(pedido.Detalles);
+                    pedidoLocal.Detalles = detalles.ToList();
+                    await ActualizarInventarioProductosAsync(pedidoLocal.Detalles);
                 }
 
                 if (nuevoEstado == "Entregado")
@@ -79,17 +112,17 @@ namespace ItaliaPizza.Server.Services.Implementations
                     var finanza = new Finanza
                     {
                         TipoTransaccion = "Entrada",
-                        Concepto = "Pago de pedido a domicilio",
-                        Monto = pedido.Total,
+                        Concepto = "Pago de pedido local",
+                        Monto = pedidoLocal.Total,
                         Fecha = DateTime.Now,
-                        UsuarioId = pedido.CajeroId
+                        UsuarioId = pedidoLocal.CajeroId
                     };
 
                     await _finanzaRepository.AddAsync(finanza);
-                    pedido.TransaccionFinancieraId = finanza.Id;
+                    pedidoLocal.TransaccionFinancieraId = finanza.Id;
                 }
 
-                await _pedidoDomicilioRepository.UpdateAsync(pedido);
+                await _pedidoLocalRepository.UpdateAsync(pedidoLocal);
                 return true;
             }
             catch
@@ -97,7 +130,6 @@ namespace ItaliaPizza.Server.Services.Implementations
                 return false;
             }
         }
-
 
         private async Task ActualizarInventarioProductosAsync(ICollection<DetallePedido> detalles)
         {

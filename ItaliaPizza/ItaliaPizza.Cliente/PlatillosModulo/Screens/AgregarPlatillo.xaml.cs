@@ -10,10 +10,14 @@ using System.IO;
 using System.Net.Http.Json;
 using ItaliaPizza.Cliente.PlatillosModulo.Screens;
 using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
+using System.Windows.Controls;
+using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 
 namespace ItaliaPizza.Cliente.Platillos.Screens
 {
-    public partial class AgregarPlatillo : Window
+    public partial class AgregarPlatillo : Page
     {
         private byte[]? imagenPlatillo;
 
@@ -22,8 +26,39 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
             InitializeComponent();
             _ = CargarCategoriasAsync();
             CargarDisponibilidad();
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Platillos");
+                    break;
+
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Platillos");
+                    break;
+
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Platillos");
+                    break;
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Platillos");
+                    break;
+                default:
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.GoBack();
+                    return;
+            }
         }
 
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
+        }
         private async Task<List<CategoriaProductoDto>> ObtenerCategoriasAsync()
         {
             using var client = new HttpClient { BaseAddress = new Uri("https://localhost:7264") };
@@ -133,10 +168,7 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
                 {
                     MessageBox.Show("Platillo guardado exitosamente.");
 
-                    BuscarPlatillosScreen ventanaBuscar = new BuscarPlatillosScreen();
-                    ventanaBuscar.Show();
-
-                    this.Close();
+                    NavigationService.Navigate(new BuscarPlatillosScreen());
                 }
                 else
                 {
@@ -151,8 +183,16 @@ namespace ItaliaPizza.Cliente.Platillos.Screens
         }
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            new BuscarPlatillosScreen().Show();
-            this.Close();
+            if(NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            
         }
+
+        
+
+        
+
     }
 }

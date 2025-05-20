@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ItaliaPizza.Cliente.Utils;
 using ItaliaPizza.Cliente.Screens;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ItaliaPizza.Cliente.UserControls
 {
@@ -23,6 +24,8 @@ namespace ItaliaPizza.Cliente.UserControls
     /// </summary>
     public partial class UCAdmin : UserControl
     {
+        private NavigationService? Navigation => NavigationService.GetNavigationService(this);
+
         public UCAdmin()
         {
             InitializeComponent();
@@ -41,51 +44,44 @@ namespace ItaliaPizza.Cliente.UserControls
         private void GoToAnalyticsOptions(object sender, RoutedEventArgs e)
         {
             var analyticsOptions = new AnalyticsOptions();
-            analyticsOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(analyticsOptions);
         }
 
         private void GoToUserOptions(object sender, RoutedEventArgs e)
         {
             var userOptions = new UserOptions();
-            userOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(userOptions);
         }
 
         private void GoToProductsOptions(object sender, RoutedEventArgs e)
         {
             var productOptions = new SearchProduct();
-            productOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(productOptions);
         }
 
         private void GoToProviderOptions(object sender, RoutedEventArgs e)
         {
             var providerOptions = new ProviderOptions();
-            providerOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(providerOptions);
         }
 
 
         private void GoToHomePage(object sender, RoutedEventArgs e)
         {
             var homePage = new HomePageAdmin();
-            homePage.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(homePage);
         }
 
         private void GoToRecipeOptions(object sender, RoutedEventArgs e)
         {
             var recipeOptions = new RecipeOptions();
-            recipeOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(recipeOptions);
         }
 
         private void GoToCustomerOptions(object sender, RoutedEventArgs e)
         {
             var customerOptions = new CustomerOptiones();
-            customerOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(customerOptions);
         }
     }
 }

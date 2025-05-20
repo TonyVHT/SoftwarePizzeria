@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.DTOs;
+using ItaliaPizza.Server.Repositories.Implementations;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using ItaliaPizza.Server.Services.Interfaces;
 
@@ -49,6 +50,11 @@ namespace ItaliaPizza.Server.Services.Implementations
                 Telefono = cliente.Telefono,
                 Email = cliente.Email
             };
+        }
+
+        public Task<bool> TelefonoExisteAsync(string telefono)
+        {
+            return _clienteRepository.ExisteTelefonoAsync(telefono);
         }
 
     }

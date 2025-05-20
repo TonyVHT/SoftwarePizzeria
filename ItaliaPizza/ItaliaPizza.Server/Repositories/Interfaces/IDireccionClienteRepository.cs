@@ -12,6 +12,7 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
         Task UpdateDireccionPrincipalAsync(UpdateDireccionPrincipalDTO dto);
         Task<DireccionCliente?> GetDireccionPrincipalByClienteIdAsync(int clienteId);
         Task<DireccionCliente?> ObtenerDireccionPrincipalPorClienteIdAsync(int clienteId);
+        Task<bool> TieneDireccionPrincipalAsync(int clienteId);
 
     }
 

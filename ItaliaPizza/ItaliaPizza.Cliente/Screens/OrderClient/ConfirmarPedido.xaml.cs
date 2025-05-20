@@ -1,10 +1,11 @@
 ﻿using ItaliaPizza.Cliente.Models;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ItaliaPizza.Cliente.Screens.OrderClient
 {
-    public partial class ConfirmarPedido : Window
+    public partial class ConfirmarPedido : Page
     {
         public ConfirmarPedido(
             ClienteConsultaDTO cliente,
@@ -26,14 +27,12 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
 
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
-            Close();
+            NavigationService.Navigate(new ClientSearchOrder());
         }
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
-            Close();
+            NavigationService.GoBack();
         }
     }
 }

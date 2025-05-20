@@ -56,10 +56,22 @@
     <Compile Update="Screens\Cashier\LogOutCashier.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Controls\CustomDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Cook\HomePageCook.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Cook\LogOutCook.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\LocalOrder\LocalOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\LocalOrder\SelectMeseroPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\LocalOrder\SelectTablePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\LogIn.xaml.cs">
@@ -75,6 +87,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\Manager\LogOutManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\OrderClient\AddAddressModal.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\OrderClient\AddressSelector.xaml.cs">
@@ -167,6 +182,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\Manager\LogOutManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Screens\OrderClient\AddAddressModal.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Screens\RegisterOrderToProvider.xaml">

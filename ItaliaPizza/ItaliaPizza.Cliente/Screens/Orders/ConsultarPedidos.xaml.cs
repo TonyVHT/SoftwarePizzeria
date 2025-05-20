@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Screens.Controls;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
 using System;
@@ -16,7 +17,7 @@ using System.Windows.Media;
 
 namespace ItaliaPizza.Cliente.Screens.Orders
 {
-    public partial class ConsultarPedidos : Window
+    public partial class ConsultarPedidos : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
         private List<PedidoDomicilioDto> _pedidosDomicilio;
@@ -28,6 +29,7 @@ namespace ItaliaPizza.Cliente.Screens.Orders
         public ConsultarPedidos()
         {
             InitializeComponent();
+            
             string rol = UserSessionManager.Instance.GetRol()?.ToLower();
 
             switch (rol)
@@ -55,10 +57,11 @@ namespace ItaliaPizza.Cliente.Screens.Orders
                     CambiarBotonSeleccionado(MenuLateral.Content as UCDelivery, "Pedidos");
                     break;
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.Navigate(new LogIn());
                     return;
             }
+            
 
         }
 
@@ -70,7 +73,6 @@ namespace ItaliaPizza.Cliente.Screens.Orders
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Inicia la carga de datos una vez que la ventana está lista
             CargarPedidosDomicilioAsync();
         }
 
@@ -220,9 +222,7 @@ namespace ItaliaPizza.Cliente.Screens.Orders
 
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            var opcinesPedidos = new OrderOptiones();
-            opcinesPedidos.Show();
-            this.Close();
+            NavigationService.Navigate(new OrderOptiones());
         }
 
         private async void DgPedidos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -260,19 +260,29 @@ namespace ItaliaPizza.Cliente.Screens.Orders
                 if (!string.IsNullOrEmpty(estado))
                 {
                     MessageBoxResult result = MessageBoxResult.None;
+
                     if (estado == "En cocina")
                     {
-                        result = MessageBox.Show("Desea cambiar el estado a \"En camino\"?", "Confirmar cambio de estado", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        var dialog = new CustomDialog("¿Desea cambiar el estado a 'En camino'?");
+                        dialog.Owner = Window.GetWindow(this);
+                        var res = dialog.ShowDialog();
+                        result = (res == true) ? MessageBoxResult.Yes : MessageBoxResult.No;
                         nuevoEstado = "En camino";
                     }
                     else if (estado == "En proceso")
                     {
-                        result = MessageBox.Show("Desea cancelar el pedido?", "Confirmar cancelación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        var dialog = new CustomDialog("¿Desea cancelar el pedido?");
+                        dialog.Owner = Window.GetWindow(this);
+                        var res = dialog.ShowDialog();
+                        result = (res == true) ? MessageBoxResult.Yes : MessageBoxResult.No;
                         nuevoEstado = "Cancelado";
                     }
                     else if (estado == "En camino")
                     {
-                        result = MessageBox.Show("Desea cambiar el estado a entregado?", "Confirmar entrega", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        var dialog = new CustomDialog("¿Desea cambiar el estado a entregado?");
+                        dialog.Owner = Window.GetWindow(this);
+                        var res = dialog.ShowDialog();
+                        result = (res == true) ? MessageBoxResult.Yes : MessageBoxResult.No;
                         nuevoEstado = "Entregado";
                     }
 
@@ -285,12 +295,14 @@ namespace ItaliaPizza.Cliente.Screens.Orders
                         };
 
                         var response = await _http.PutAsJsonAsync("api/pedido/estado", dto);
-                        MessageBox.Show("Estado cambiado", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                        
+
+                        var infoDialog = new CustomDialog("¡Estado cambiado exitosamente!", false); // 'false' indica solo OK
+                        infoDialog.Owner = Window.GetWindow(this);
+                        infoDialog.ShowDialog(); // No necesitas revisar el resultado
                     }
                     DgPedidos.SelectedItem = null;
-
                 }
+
             }
         }
 

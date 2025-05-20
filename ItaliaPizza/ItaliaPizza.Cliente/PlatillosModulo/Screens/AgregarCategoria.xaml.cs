@@ -3,18 +3,53 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Windows;
 using System.Windows.Controls;
+using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 
 namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 {
-    public partial class AgregarCategoria : Window
+    public partial class AgregarCategoria : Page
     {
         public AgregarCategoria()
         {
             InitializeComponent();
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Platillos");
+                    break;
+
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Platillos");
+                    break;
+
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Platillos");
+                    break;
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Platillos");
+                    break;
+                default:
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.GoBack();
+                    return;
+            }
 
             cmbEstatus.SelectedIndex = 0;
             cmbTipoDeUso.SelectedIndex = 0;
+        }
+
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
         }
 
         private async void btnAgregar_Click(object sender, RoutedEventArgs e)
@@ -50,8 +85,7 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
                 {
                     MessageBox.Show($"Categoría '{nuevaCat.Nombre}' agregada con éxito.", "Éxito",
                                     MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.DialogResult = true;
-                    this.Close();
+                    NavigationService.Navigate(new RecipeOptions());
                 }
                 else
                 {
@@ -69,8 +103,7 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
-            this.Close();
+            NavigationService.GoBack();
         }
     }
 }

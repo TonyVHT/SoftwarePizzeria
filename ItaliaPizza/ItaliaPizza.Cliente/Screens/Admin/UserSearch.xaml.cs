@@ -23,7 +23,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
     /// <summary>
     /// Lógica de interacción para UserSearch.xaml
     /// </summary>
-    public partial class UserSearch : Window
+    public partial class UserSearch : Page
     {
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
         public UserSearch()
@@ -63,7 +63,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
                     break;
                 default:
                     MessageBox.Show("Rol no reconocido");
-                    Close();
+                    NavigationService?.Navigate(new LogIn());
                     return;
             }
         }
@@ -103,7 +103,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
             if (dgUsuarios.SelectedItem is UsuarioConsultaDTO seleccionado)
             {
                 var ventana = new UserUpdate(seleccionado.Id);
-                ventana.ShowDialog();
+                NavigationService.Navigate(ventana);
                 BtnBuscar_Click(null, null); 
             }
         }
@@ -111,9 +111,7 @@ namespace ItaliaPizza.Cliente.Screens.Admin
 
         private void Btn_Cancelar(object sender, RoutedEventArgs e)
         {
-            var userOptions = new UserOptions();
-            userOptions.Show();
-            Close();
+            NavigationService.Navigate(new UserOptions());
         }
 
 

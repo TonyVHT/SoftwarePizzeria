@@ -10,6 +10,10 @@ namespace ItaliaPizza.Server.Services.Interfaces
         Task<IEnumerable<Producto>> GetFiltradosAsync(string? nombre, int? categoriaId);
         Task<IEnumerable<Producto>> SearchProductAsync(string? nombre, int? categoriaId);
         Task<IEnumerable<Producto>> GetAllProductosAsync();
+        Task<IEnumerable<Producto>> GetProductosPorEsIngredienteAsync(bool? esIngrediente);
+        Task<IEnumerable<Producto>> GetPorNombreCategoriaAsync(string nombreCategoria);
+
+
 
     }
 }

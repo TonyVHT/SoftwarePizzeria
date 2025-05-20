@@ -1,4 +1,6 @@
-﻿using ItaliaPizza.Cliente.Models;
+﻿using ItaliaPizza.Cliente;
+using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -10,10 +12,8 @@ using System.Windows.Input;
 
 namespace ItaliaPizza.Cliente.Screens.OrderClient
 {
-    public partial class RepartidorSelector : Window
+    public partial class RepartidorSelector : Page
     {
-        public UsuarioConsultaDTO? RepartidorSeleccionado { get; private set; }
-
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
 
         public RepartidorSelector()
@@ -50,30 +50,47 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
         {
             if (dgRepartidores.SelectedItem is UsuarioConsultaDTO repartidor)
             {
-                RepartidorSeleccionado = repartidor;
-                DialogResult = true;
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Por favor selecciona un repartidor.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                AppState.RepartidorSeleccionado = repartidor;
+
+                if (Tag is RegisterOrder parent)
+                {
+                    parent._repartidorSeleccionado = repartidor; 
+                    parent.TextoRepartidor.Text = $"Repartidor: {repartidor.NombreCompleto}";
+                    parent.ActualizarEstadoBotonConfirmar();
+                    parent.CerrarModal();
+                }
+
             }
         }
 
+
         private void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
-            Close();
+            AppState.RepartidorSeleccionado = null;
+
+            if (Tag is RegisterOrder parent)
+            {
+                parent.CerrarModal();
+            }
         }
+
 
         private void DgRepartidores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (dgRepartidores.SelectedItem is UsuarioConsultaDTO repartidor)
             {
-                RepartidorSeleccionado = repartidor;
-                DialogResult = true;
-                Close();
+                AppState.RepartidorSeleccionado = repartidor;
+
+                if (Tag is RegisterOrder parent)
+                {
+                    parent._repartidorSeleccionado = repartidor; // 💥 ¡así sí lo asignas!
+                    parent.TextoRepartidor.Text = $"Repartidor: {repartidor.NombreCompleto}";
+                    parent.ActualizarEstadoBotonConfirmar();
+                    parent.CerrarModal();
+                }
+
             }
         }
+
     }
 }

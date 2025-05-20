@@ -24,6 +24,8 @@ namespace ItaliaPizza.Cliente.UserControls
     /// </summary>
     public partial class UCManager : UserControl
     {
+        private NavigationService? Navigation => NavigationService.GetNavigationService(this);
+
         public UCManager()
         {
             InitializeComponent();
@@ -36,48 +38,12 @@ namespace ItaliaPizza.Cliente.UserControls
 
         }
 
-        public void ActivarBoton(string nombre)
-        {
-            // Limpiar todos los botones
-            buttonInicio.Tag = null;
-            buttonOrder.Tag = null;
-            buttonRecipes.Tag = null;
-            buttonCustomers.Tag = null;
-            buttonAnalytics.Tag = null;
-            buttonSettings.Tag = null;
-            buttonProductos.Tag = null;
-            buttonProviders.Tag = null;
-            buttonSettings.Tag = null;
-
-            // Activar el correspondiente
-            switch (nombre)
-            {
-                case "Inicio":
-                    buttonInicio.Tag = "Active";
-                    break;
-                case "Orders":
-                    buttonOrder.Tag = "Active";
-                    break;
-                case "Menu":
-                    buttonRecipes.Tag = "Active";
-                    break;
-                case "Customers":
-                    buttonCustomers.Tag = "Active";
-                    break;
-                case "Analytics":
-                    buttonAnalytics.Tag = "Active";
-                    break;
-                case "Settings":
-                    buttonSettings.Tag = "Active";
-                    break;
-            }
-        }
+        
 
         private void GoToUserOptions(object sender, RoutedEventArgs e)
         {
             var userOptions = new UserOptions();
-            userOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(userOptions);
         }
 
 
@@ -85,36 +51,31 @@ namespace ItaliaPizza.Cliente.UserControls
         private void GoToHomePage(object sender, RoutedEventArgs e)
         {
             var homePage = new HomePageAdmin();
-            homePage.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(homePage);
         }
 
         private void GoToRecipeOptions(object sender, RoutedEventArgs e)
         {
             var recipeOptions = new RecipeOptions();
-            recipeOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(recipeOptions);
         }
 
 
         private void GoToCustomerOptions(object sender, RoutedEventArgs e)
         {
             var customerOptions = new CustomerOptiones();
-            customerOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(customerOptions);
         }
 
         private void GoToProductsOptions(object sender, RoutedEventArgs e)
         {
             var productOptions = new SearchProduct();
-            productOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(productOptions);
         }
         private void GoToProviderOptions(object sender, RoutedEventArgs e)
         {
             var providerOptions = new ProviderOptions();
-            providerOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(providerOptions);
         }
 
     }

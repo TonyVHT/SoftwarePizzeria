@@ -1,0 +1,32 @@
+﻿<Page x:Class="ItaliaPizza.Cliente.Screens.LocalOrder.SelectTablePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="Transparent">
+
+    <Border Width="600" Height="500" Background="White" CornerRadius="5" BorderBrush="#ccc" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Título -->
+            <DockPanel Background="#2d3e50" Grid.Row="0">
+                <TextBlock Text="🪑 Select Table" FontSize="16" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" Margin="10"/>
+                <Button Content="✖"
+                        Width="30" Height="30" Margin="0,0,10,0"
+                        HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Background="Transparent" Foreground="White"
+                        BorderThickness="0" Click="BtnCerrar_Click"/>
+            </DockPanel>
+
+            <!-- Lista de mesas -->
+            <ScrollViewer Grid.Row="1">
+                <WrapPanel x:Name="WrapMesas"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="20"/>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</Page>

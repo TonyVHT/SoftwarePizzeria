@@ -1,5 +1,9 @@
 ﻿
+using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Platillos.Screens;
 using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
+using ItaliaPizza.Cliente.Singleton;
+using ItaliaPizza.Cliente.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,10 +15,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 
 namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 {
-    public partial class Receta : Window
+    public partial class Receta : Page
     {
         private readonly PlatilloDto _platillo;
         private readonly HttpClient _httpClient;
@@ -50,6 +55,33 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
             _ = CargarCategoriasIngredientesAsync();
 
             _ = CargarRecetaAsync();
+
+            string rol = UserSessionManager.Instance.GetRol()?.ToLower();
+            switch (rol)
+            {
+                case "administrador":
+                    MenuLateral.Content = new UCAdmin();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCAdmin, "Platillos");
+                    break;
+
+                case "cocinero":
+                    MenuLateral.Content = new UCCook();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCCook, "Platillos");
+                    break;
+
+                case "gerente":
+                    MenuLateral.Content = new UCManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCManager, "Platillos");
+                    break;
+                case "jefe de cocina":
+                    MenuLateral.Content = new UCKitchenManager();
+                    CambiarBotonSeleccionado(MenuLateral.Content as UCKitchenManager, "Platillos");
+                    break;
+                default:
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService.GoBack();
+                    return;
+            }
         }
 
         private async Task CargarRecetaAsync()
@@ -94,6 +126,8 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
             }
         }
 
+        
+
         private async Task CargarCategoriasIngredientesAsync()
         {
             try
@@ -104,7 +138,7 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
                              ?? new List<CategoriaProductoDto>();
 
                 var lista = todas
-                    .Where(c => c.TipoDeUso == TipoDeUso.Ingrediente
+                    .Where(c => c.TipoDeUso == TipoDeUso.ingrediente
                              || c.TipoDeUso == TipoDeUso.Ambos)
                     .Select(c => c.Nombre)
                     .OrderBy(n => n)
@@ -196,6 +230,12 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
             }
         }
 
+        private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
+        {
+            ButtonSelectionHelper.DesmarcarBotones(menuControl);
+            ButtonSelectionHelper.MarcarBotonSeleccionado(menuControl, botonSeleccionado);
+        }
+
         private void EliminarIngrediente_Click(object sender, RoutedEventArgs e)
         {
             if (sender is FrameworkElement fe && fe.DataContext is IngredienteDto ingrediente)
@@ -206,7 +246,8 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (NavigationService?.CanGoBack == true)
+                NavigationService.GoBack();
         }
         private async Task GuardarRecetaAsync()
         {
@@ -228,7 +269,7 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Receta guardada exitosamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close(); 
+                    NavigationService.Navigate(new BuscarPlatillosScreen());
                 }
                 else
                 {

@@ -23,6 +23,8 @@ namespace ItaliaPizza.Cliente.UserControls
     /// </summary>
     public partial class UCKitchenManager : UserControl
     {
+        private NavigationService? Navigation => NavigationService.GetNavigationService(this);
+
         public UCKitchenManager()
         {
             InitializeComponent();
@@ -38,24 +40,25 @@ namespace ItaliaPizza.Cliente.UserControls
         private void GoToRecipeOptions(object sender, RoutedEventArgs e)
         {
             var recipeOptions = new RecipeOptions();
-            recipeOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(recipeOptions);
         }
 
         private void GoToProductsOptions(object sender, RoutedEventArgs e)
         {
             var productOptions = new SearchProduct();
-            productOptions.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(productOptions);
         }
 
-
+        private void GoToPedidosEnCocina(object sender, RoutedEventArgs e)
+        {
+            var pedidosEnCocina = new ItaliaPizza.Cliente.Screens.Orders.PedidosEnCocina();
+            Navigation?.Navigate(pedidosEnCocina);
+        }
 
         private void GoToHomePage(object sender, RoutedEventArgs e)
         {
             var homePage = new HomePageAdmin();
-            homePage.Show();
-            Window.GetWindow(this)?.Close();
+            Navigation?.Navigate(homePage);
         }
     }
 }

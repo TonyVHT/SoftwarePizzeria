@@ -1,102 +1,145 @@
-﻿<Window x:Class="ItaliaPizza.Cliente.Platillos.Screens.BuscarPlatillosScreen"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="Gestión de platillos" Height="600" Width="800" MinHeight="400" MinWidth="600"
-        WindowStartupLocation="CenterScreen"
-        Background="#f9f9f9">
+﻿<Page x:Class="ItaliaPizza.Cliente.Platillos.Screens.BuscarPlatillosScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Title="Gestión de platillos">
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="20" HorizontalAlignment="Stretch">
+    <Grid>
+        <!-- Fondo general -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#E6F4EA" Offset="0"/>
+                <GradientStop Color="#F0F4F8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
-            <!-- Título -->
-            <TextBlock Text="Gestión de Platillos y Recetas"
-                       FontSize="36"
-                       FontWeight="Bold"
-                       HorizontalAlignment="Center"
-                       Margin="0 0 0 20"
-                       Foreground="#32d483"/>
+        <!-- Estructura principal: Menú lateral y contenido -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <!-- Menú lateral -->
+            <ColumnDefinition Width="*"/>
+            <!-- Contenido -->
+        </Grid.ColumnDefinitions>
 
-            <!-- Filtros -->
-            <Border Background="White" BorderBrush="#32d483" BorderThickness="2" CornerRadius="10" Padding="20" Margin="0 0 0 20">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
+        <!-- 🟩 MENÚ LATERAL -->
+        <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
 
-                    <!-- Filtro por nombre -->
-                    <StackPanel Grid.Column="0" Margin="5">
-                        <TextBlock Text="Buscar por nombre:" FontSize="16" FontWeight="Bold" Foreground="#333" Margin="0 0 0 5"/>
-                        <TextBox Name="txtBuscarNombre" Height="30" FontSize="14" Padding="5"/>
-                    </StackPanel>
+        <!-- 🟦 CONTENIDO PRINCIPAL -->
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="20" HorizontalAlignment="Stretch">
 
-                    <!-- Filtro por categoría -->
-                    <StackPanel Grid.Column="1" Margin="5">
-                        <TextBlock Text="Categoría:" FontSize="16" FontWeight="Bold" Foreground="#333" Margin="0 0 0 5"/>
-                        <ComboBox Name="cmbCategoria" Height="30" FontSize="14"/>
-                    </StackPanel>
+                <!-- Título -->
+                <TextBlock Text="Gestión de Platillos y Recetas"
+                           FontSize="36"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 20"
+                           Foreground="#32d483"/>
 
-                    <!-- Botón de búsqueda -->
-                    <Button Grid.Column="2" Content="Buscar" Margin="10,26,0,0" Background="#32d483" Foreground="White" BorderThickness="0" Height="40" FontWeight="Bold" FontSize="16" Click="btnBuscar_Click"/>
-                </Grid>
-            </Border>
+                <!-- Filtros -->
+                <Border Background="White" BorderBrush="#32d483" BorderThickness="2" CornerRadius="10" Padding="20" Margin="0 0 0 20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
 
-            <!-- Botón Agregar Platillo -->
-            <Button Content="Agregar Platillo"
-                    Width="200"
-                    Margin="0 0 0 20"
-                    HorizontalAlignment="Left"
-                    Background="#32d483"
-                    Foreground="White"
-                    BorderThickness="0"
-                    Height="50"
-                    FontWeight="Bold"
-                    FontSize="16"
-                    Click="AgregarPlatillo_Click"/>
+                        <!-- Filtro por nombre -->
+                        <StackPanel Grid.Column="0" Margin="5">
+                            <TextBlock Text="Buscar por nombre:" FontSize="16" FontWeight="Bold" Foreground="#333" Margin="0 0 0 5"/>
+                            <TextBox Name="txtBuscarNombre" Height="30" FontSize="14" Padding="5" Style="{StaticResource textboxStyle}"/>
+                        </StackPanel>
 
-            <!-- Lista de platillos -->
-            <ItemsControl Name="PlatillosLista">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="#32d483" BorderThickness="1" CornerRadius="10" Margin="0 10" Background="#e0f9f0">
-                            <Grid Margin="10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
+                        <!-- Filtro por categoría -->
+                        <StackPanel Grid.Column="1" Margin="5">
+                            <TextBlock Text="Categoría:" FontSize="16" FontWeight="Bold" Foreground="#333" Margin="0 0 0 5"/>
+                            <ComboBox Name="cmbCategoria" Height="30" FontSize="14" Style="{StaticResource comboBoxStyle}"/>
+                        </StackPanel>
 
-                                <!-- Imagen -->
-                                <Image Width="100" Height="100" HorizontalAlignment="Left" Grid.Column="0" Source="{Binding Imagen}" Margin="10"/>
+                        <!-- Botón de búsqueda -->
+                        <Button Grid.Column="2" Content="Buscar" Margin="10,26,0,0"
+                                BorderThickness="0" Height="40"
+                                FontWeight="Bold" FontSize="16"
+                                Click="btnBuscar_Click" Style="{StaticResource buttonsStyle}"/>
+                    </Grid>
+                </Border>
 
-                                <!-- Nombre del platillo -->
-                                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="20 0">
-                                    <TextBlock Text="{Binding Nombre}" FontSize="18" FontWeight="Bold" Foreground="#333"/>
-                                    <TextBlock Text="{Binding Categoria}" FontSize="14" Foreground="#555"/>
-                                </StackPanel>
+                <!-- Botón Agregar Platillo -->
+                <Button Content="Agregar Platillo"
+                        Width="200"
+                        Margin="0 0 0 20"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource buttonsStyle}"
+                        BorderThickness="0"
+                        Height="50"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        Click="AgregarPlatillo_Click"/>
 
-                                <!-- Botones -->
-                                <StackPanel Orientation="Vertical" Grid.Column="2" VerticalAlignment="Center" Margin="10">
-                                    <Button Content="Ver" Width="80" Margin="5" Background="#32d483" Foreground="White" BorderThickness="0" Height="30" FontWeight="Bold" FontSize="14" Click="VerPlatillo_Click"/>
-                                    <Button Content="Modificar" Width="80" Margin="5" Background="#32d483" Foreground="White" BorderThickness="0" Height="30" FontWeight="Bold" FontSize="14" Click="ModificarPlatillo_Click"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                <!-- Lista de platillos -->
+                <ItemsControl Name="PlatillosLista">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="#32d483" BorderThickness="1" CornerRadius="10" Margin="0 10" Background="#e0f9f0">
+                                <Grid Margin="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
 
-            <!-- Paginación -->
-            <StackPanel x:Name="PaginacionContenedor"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Center"
-                        Margin="0 20">
-                <!-- Aquí se agregarán los controles de paginación dinámicamente -->
+                                    <!-- Imagen -->
+                                    <Image Width="100" Height="100" HorizontalAlignment="Left" Grid.Column="0" Source="{Binding Imagen}" Margin="10"/>
+
+                                    <!-- Nombre del platillo -->
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="20 0">
+                                        <TextBlock Text="{Binding Nombre}" FontSize="18" FontWeight="Bold" Foreground="#333"/>
+                                        <TextBlock Text="{Binding Categoria}" FontSize="14" Foreground="#555"/>
+                                    </StackPanel>
+
+                                    <!-- Botones -->
+                                    <StackPanel Orientation="Vertical" Grid.Column="2" VerticalAlignment="Center" Margin="10">
+                                        <Button Content="Ver" Width="80" Margin="5" Background="#32d483" Foreground="White" BorderThickness="0" Height="30" FontWeight="Bold" FontSize="14" Click="VerPlatillo_Click"/>
+                                        <Button Content="Modificar" Width="80" Margin="5" Background="#32d483" Foreground="White" BorderThickness="0" Height="30" FontWeight="Bold" FontSize="14" Click="ModificarPlatillo_Click"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!-- Paginación -->
+                <StackPanel x:Name="PaginacionContenedor"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0 20"/>
+
+                <!-- Botón Cancelar -->
+                <Button x:Name="btnCancelar"
+                        Style="{StaticResource cancelbuttonsStyle}"
+                        Content="Cancelar"
+                        Width="150"
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        Click="BtnCancelar_Click"/>
             </StackPanel>
-        </StackPanel>
-    </ScrollViewer>
-</Window>
+        </ScrollViewer>
+
+        <!-- 🟥 MODAL -->
+        <Grid x:Name="ModalOverlay"
+              Background="#80000000"
+              Visibility="Collapsed"
+              Panel.ZIndex="99">
+            <Frame x:Name="ModalFrame"
+                   Width="700"
+                   Height="Auto"
+                   NavigationUIVisibility="Hidden"
+                   Background="Transparent"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Page>

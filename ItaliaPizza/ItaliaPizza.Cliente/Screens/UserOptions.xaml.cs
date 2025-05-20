@@ -14,6 +14,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ItaliaPizza.Cliente.Screens
@@ -21,7 +22,7 @@ namespace ItaliaPizza.Cliente.Screens
     /// <summary>
     /// Lógica de interacción para UserOptions.xaml
     /// </summary>
-    public partial class UserOptions : Window
+    public partial class UserOptions : Page
     {
         public UserOptions()
         {
@@ -40,8 +41,8 @@ namespace ItaliaPizza.Cliente.Screens
                     break;
                 
                 default:
-                    MessageBox.Show("Rol no reconocido");
-                    Close();
+                    MessageBox.Show("Ocurrió un error, por favor inicie sesión nuevamente");
+                    NavigationService?.Navigate(new LogIn());
                     return;
             }
 
@@ -67,22 +68,20 @@ namespace ItaliaPizza.Cliente.Screens
         private void AbrirModificarUsuario(object sender, RoutedEventArgs e)
         {
             var modificarUsuario = new UserSearch();
-            modificarUsuario.Show();
-            Close();
+            NavigationService?.Navigate(modificarUsuario);
+            
         }
 
         private void AbrirAgregarUsuario(object sender, RoutedEventArgs e)
         {
             var agregarUsuario = new AddUser();
-            agregarUsuario.Show();
-            Close();
+            NavigationService.Navigate(agregarUsuario);
         }
 
         private void AbrirConsultarUsuario(object sender, RoutedEventArgs e)
         {
             var consultarUsuario = new PeopleSearcher();
-            consultarUsuario.Show();
-            Close();
+            NavigationService.Navigate(consultarUsuario);
         }
 
 
