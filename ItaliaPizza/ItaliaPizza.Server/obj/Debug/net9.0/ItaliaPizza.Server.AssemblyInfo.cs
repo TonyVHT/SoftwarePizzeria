@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ItaliaPizza.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bdd2fabe28b809acd357611b2a61c97c98808ca9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c399a858ae8f60a3035e2c7a0181aa1fedfc139e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ItaliaPizza.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ItaliaPizza.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

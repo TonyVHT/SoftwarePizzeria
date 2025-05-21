@@ -9,7 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+    <None Remove="Resources\Images\fondoPizzas.jpg" />
+    <None Remove="Resources\Images\pizza.png" />
+    <None Remove="Resources\Images\proveedorfondo.png" />
+=======
     <None Remove="Resources\Images\logo.jpeg" />
+>>>>>>> main
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +40,18 @@
 
   <ItemGroup>
     <Resource Include="Resources\Images\logo.jpeg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\fondoPizzas.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\pizza.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\proveedorfondo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

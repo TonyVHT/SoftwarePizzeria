@@ -19,7 +19,7 @@
                     InitialCatalog = "ItaliaPizzaDB",
                     UserID = "jp",
                     Password = "12345",*/
-                    ConnectTimeout = 10,
+                    ConnectTimeout = 20,
                     TrustServerCertificate = true,
                     MultipleActiveResultSets = true
                 }.ConnectionString;

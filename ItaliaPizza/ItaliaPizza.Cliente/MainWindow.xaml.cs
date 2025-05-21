@@ -22,7 +22,12 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
+<<<<<<< HEAD
+        /*RegisterOrder registerOrder = new RegisterOrder();
+        registerOrder.Show();*/
+=======
         
+>>>>>>> main
         InitializeComponent();
         MainFrame.Navigate(new HomePageAdmin());
     }

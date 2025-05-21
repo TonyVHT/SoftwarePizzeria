@@ -7,10 +7,16 @@
         mc:Ignorable="d"
         Title="Register Provider"
         WindowState="Maximized"
-        WindowStartupLocation="CenterScreen"
-        Background="#d9dce1">
+        WindowStartupLocation="CenterScreen">
 
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#E6F4EA" Offset="0"/>
+                <GradientStop Color="#F0F4F8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Grid Margin="40">
                 <Grid.ColumnDefinitions>
@@ -19,62 +25,93 @@
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
 
-                <Border Grid.Column="1" Background="White" CornerRadius="20" Padding="30">
+                <Border Grid.Column="1" CornerRadius="20" Padding="30" Background="White">
                     <StackPanel Orientation="Vertical">
 
                         <!-- Título -->
-                        <TextBlock Text="Register Provider"
+                        <TextBlock Text="Registrar Proveedor"
                                    FontSize="36"
                                    FontWeight="Bold"
-                                   Foreground="#2c3e50"
+                                   Foreground="#199D54"
                                    Margin="0,20"
                                    HorizontalAlignment="Center"
                                    FontFamily="Segoe UI"/>
 
                         <!-- Agrupaciones -->
-                        <GroupBox Header="Información del proveedor" Margin="0,10" FontWeight="Bold" Foreground="#2c3e50" FontFamily="Segoe UI">
-                            <UniformGrid Columns="2" Rows="4" Margin="10" HorizontalAlignment="Stretch">
-                                <Label Content="Nombre:" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="txtNombre" Margin="5" Height="30"/>
+                        <GroupBox Header="Información del proveedor" Margin="0,10" FontWeight="Bold" Foreground="#199D54" FontFamily="Segoe UI">
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                                <Label Content="Apellido paterno:" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="txtApellidoPaterno" Margin="5" Height="30"/>
+                                <Label Content="Nombre:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                                <TextBox x:Name="txtNombre" MinWidth="350" MaxWidth="1100" Grid.Row="0" Grid.Column="1" Margin="5" Height="45" Style="{StaticResource textboxStyle}"/>
 
-                                <Label Content="Apellido materno:" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="txtApellidoMaterno"  Margin="5" Height="30"/>
+                                <Label Content="Apellido paterno:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                                <TextBox x:Name="txtApellidoPaterno" MinWidth="350" MaxWidth="1100" Grid.Row="1" Grid.Column="1" Margin="5" Height="45" Style="{StaticResource textboxStyle}"/>
 
-                                <Label Content="Producto que provee" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="txtProductoProveido" Margin="5" Height="30"/>
-                            </UniformGrid>
+                                <Label Content="Apellido materno:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                                <TextBox x:Name="txtApellidoMaterno" MinWidth="350" MaxWidth="1100" Grid.Row="2" Grid.Column="1" Margin="5" Height="45" Style="{StaticResource textboxStyle}"/>
+
+                                <Label Content="Producto que provee:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                                <TextBox x:Name="txtProductoProveido" MinWidth="350" MaxWidth="1100" Grid.Row="3" Grid.Column="1" Margin="5" Height="45" Style="{StaticResource textboxStyle}"/>
+                            </Grid>
                         </GroupBox>
 
-                        <GroupBox Header="Contacto" Margin="0,10" FontWeight="Bold" Foreground="#2c3e50" FontFamily="Segoe UI">
-                            <UniformGrid Columns="2" Rows="2" Margin="10" HorizontalAlignment="Stretch">
-                                <Label Content="Número de teléfono:" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="txtTelefono" Margin="5" Height="30"/>
+                        <GroupBox Header="Contacto" Margin="0,10" FontWeight="Bold" Foreground="#199D54" FontFamily="Segoe UI">
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                                <Label Content="E-mail:" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="txtCorreo" Margin="5" Height="30"/>
-                            </UniformGrid>
+                                <Label Content="Número de teléfono:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                                <TextBox x:Name="txtTelefono" MinWidth="350" MaxWidth="1100" Grid.Row="0" Grid.Column="1" Margin="5" Height="45" Style="{StaticResource textboxStyle}"/>
+
+                                <Label Content="E-mail:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                                <TextBox x:Name="txtCorreo" MinWidth="350" MaxWidth="1100" Grid.Row="1" Grid.Column="1" Margin="5" Height="45" Style="{StaticResource textboxStyle}"/>
+                            </Grid>
                         </GroupBox>
 
-                        <GroupBox Header="Dirección" Margin="0,10" FontWeight="Bold" Foreground="#2c3e50" FontFamily="Segoe UI">
-                            <UniformGrid Columns="2" Rows="4" Margin="10" HorizontalAlignment="Stretch">
-                                <Label Content="Ciudad:" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="txtCiudad" Margin="5" Height="30"/>
+                        <GroupBox Header="Dirección" Margin="0,10" FontWeight="Bold" Foreground="#199D54" FontFamily="Segoe UI">
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                                <Label Content="Calle:" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="txtCalle" Margin="5" Height="30"/>
+                                <Label Content="Ciudad:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                                <TextBox x:Name="txtCiudad" MinWidth="340" MaxWidth="1100" Grid.Row="0" Grid.Column="1" Margin="5" Height="45" Style="{StaticResource textboxStyle}"/>
 
-                                <Label Content="Numero de casa:" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="txtNumeroCasa" Margin="5" Height="30"/>
+                                <Label Content="Calle:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                                <TextBox x:Name="txtCalle" MinWidth="340" MaxWidth="1100" Grid.Row="1" Grid.Column="1" Margin="5" Height="45" Style="{StaticResource textboxStyle}"/>
 
-                                <Label Content="Código postal:" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="txtCodigoPostal" Margin="5" Height="30"/>
-                            </UniformGrid>
+                                <Label Content="Numero de casa:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                                <TextBox x:Name="txtNumeroCasa" MinWidth="340" MaxWidth="1100" Grid.Row="2" Grid.Column="1" Margin="5" Height="45" Style="{StaticResource textboxStyle}"/>
+
+                                <Label Content="Código postal:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                                <TextBox x:Name="txtCodigoPostal" MinWidth="340" MaxWidth="1100" Grid.Row="3" Grid.Column="1" Margin="5" Height="45" Style="{StaticResource textboxStyle}"/>
+                            </Grid>
                         </GroupBox>
 
-                        <GroupBox Header="Productos disponibles" Margin="0,10" FontWeight="Bold" Foreground="#2c3e50" FontFamily="Segoe UI">
+                        <GroupBox Header="Productos disponibles" Margin="0,10" FontWeight="Bold" Foreground="#199D54" FontFamily="Segoe UI">
                             <Grid Margin="10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -82,35 +119,35 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <!-- Lista de productos disponibles -->
                                 <ListBox x:Name="lstProductosDisponibles"
-                                    DisplayMemberPath="Nombre"
-                                    SelectionMode="Extended"
-                                    Grid.Column="0"
-                                    Height="200"
-                                    Width="250"
-                                    Margin="5" />
+                                         DisplayMemberPath="Nombre"
+                                         SelectionMode="Extended"
+                                         Grid.Column="0"
+                                         Height="200"
+                                         Width="250"
+                                         Margin="5" />
 
-                                <!-- Botones para agregar/quitar -->
                                 <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Center" Margin="10">
-                                    <Button Content="➤" Width="40" Click="BtnAgregarProducto_Click" Margin="0,5"/>
-                                    <Button Content="⬅" Width="40" Click="BtnQuitarProducto_Click" Margin="0,5"/>
+                                    <Button Content="➤" Width="40" Click="BtnAgregarProducto_Click" Margin="0,5"
+                                            Style="{StaticResource buttonsStyle}"/>
+                                    <Button Content="⬅" Width="40" Click="BtnQuitarProducto_Click" Margin="0,5"
+                                            Style="{StaticResource buttonsStyle}"/>
                                 </StackPanel>
 
-                                <!-- Lista de productos seleccionados -->
                                 <ListBox x:Name="lstProductosSeleccionados"
-                                    DisplayMemberPath="Nombre"
-                                    Grid.Column="2"
-                                    Height="200"
-                                    Width="250"
-                                    Margin="5" />
+                                         DisplayMemberPath="Nombre"
+                                         Grid.Column="2"
+                                         Height="200"
+                                         Width="250"
+                                         Margin="5" />
                             </Grid>
                         </GroupBox>
 
-                        <!-- Botones -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,10">
-                            <Button Content="Save" Width="120" Height="35" Background="#3498db" Foreground="White" FontWeight="Bold" Margin="10" Cursor="Hand" Click="BtnRegistrar_Click"/>
-                            <Button Content="Cancel" Width="120" Height="35" Background="#e74c3c" Foreground="White" FontWeight="Bold" Margin="10" Cursor="Hand" Click="BtnCancelar_Click"/>
+                            <Button Content="Registrar" Width="120" Height="35" Margin="10"
+                                    Click="BtnRegistrar_Click" Style="{StaticResource buttonsStyle}"/>
+                            <Button Content="Cancelar" Width="120" Height="35" Margin="10" Background="Gray"
+                                    Click="BtnCancelar_Click" Style="{StaticResource buttonsStyle}"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>

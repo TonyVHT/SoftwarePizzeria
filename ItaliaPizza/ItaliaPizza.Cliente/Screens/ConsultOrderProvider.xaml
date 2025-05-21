@@ -1,0 +1,96 @@
+﻿<Window x:Class="ItaliaPizza.Cliente.Screens.ConsultOrderProvider"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens"
+        Title="Detalle del Pedido"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/estilos.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Margin="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="1" CornerRadius="20" Padding="30" Style="{StaticResource RoosterClubBorderStyle}">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                        <!-- Título -->
+                        <TextBlock Text="Detalle del pedido"
+                                   FontSize="36"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Margin="0,0,0,20"
+                                   HorizontalAlignment="Center"
+                                   FontFamily="Segoe UI"/>
+
+                        <!-- Datos del pedido -->
+                        <TextBlock Name="txtFechaPedido" Text="{Binding FechaPedido, StringFormat='Fecha: {0:dd/MM/yyyy HH:mm}'}"
+                                   FontSize="16" FontWeight="Bold" Foreground="White"/>
+                        <TextBlock Name="txtUsuarioSolicita" Text="{Binding UsuarioSolicita, StringFormat='Solicitado por: {0}'}" 
+                                   Margin="0,5,0,0" Foreground="White"/>
+                        <TextBlock Name="txtProveedorNombre" Text="{Binding ProveedorNombre, StringFormat='Proveedor: {0}'}" 
+                                   Margin="0,0,0,10" Foreground="White"/>
+                        <TextBlock Name="txtEstadoPedido" Text="{Binding EstadoDePedido, StringFormat='Estado del pedido: {0}'}"
+                                    FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,5,0,10"/>
+
+                        <TextBlock Name="txtFechaLlegada" Text="{Binding FechaLlegada, StringFormat='Fecha de llegada: {0:dd/MM/yyyy HH:mm}'}"
+                                    Margin="0,0,0,5" Foreground="White"/>
+
+                        <TextBlock Name="txtUsuarioRecibe" Text="{Binding UsuarioRecibe, StringFormat='Recibido por: {0}'}"
+                                    Margin="0,0,0,15" Foreground="White"/>
+
+                        <TextBlock Text="Productos solicitados:" FontWeight="Bold" Margin="0,5,0,2" Foreground="White"/>
+                        <ListView ItemsSource="{Binding Productos}" Width="600" Background="Transparent" BorderThickness="0" Foreground="White" MouseDoubleClick="ProductosListView_MouseDoubleClick">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="250"/>
+                                    <GridViewColumn Header="Cantidad" DisplayMemberBinding="{Binding Cantidad}" Width="150"/>
+                                    <GridViewColumn Header="Total" DisplayMemberBinding="{Binding Total, StringFormat='${0:F2}'}" Width="150"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                        <CheckBox x:Name="ChkPedidoEntregado"
+                            Content="Marcar como entregado"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Margin="0,20,0,10"
+                            FontSize="16"/>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" >
+                            <!-- Botón Guardar -->
+                            <Button Content="Guardar"
+                                Width="120" Height="35"
+                                Margin="0,0,10,0"
+                                Background="#27ae60"
+                                Foreground="White"
+                                FontWeight="Bold"
+                                Cursor="Hand"
+                                Click="BtnGuardar_Click"/>
+
+                            <Button Content="Cerrar"
+                                Width="120" Height="35"
+                                Background="#e74c3c"
+                                Foreground="White"
+                                FontWeight="Bold"
+                                Cursor="Hand"
+                                Click="BtnCerrar_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

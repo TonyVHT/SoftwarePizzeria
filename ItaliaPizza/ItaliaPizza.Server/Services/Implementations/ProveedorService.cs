@@ -38,6 +38,7 @@ namespace ItaliaPizza.Server.Services.Implementations
             proveedorExistente.Calle = proveedor.Calle;
             proveedorExistente.NumeroDomicilio = proveedor.NumeroDomicilio;
             proveedorExistente.CodigoPostal = proveedor.CodigoPostal;
+            proveedorExistente.Estatus = proveedor.Estatus;
 
             await _proveedorRepository.GuardarCambiosAsync();
             return true;
@@ -47,5 +48,14 @@ namespace ItaliaPizza.Server.Services.Implementations
             return await _proveedorRepository.ObtenerNombresProductosPorProveedorAsync(idProveedor);
         }
 
+        public async Task<List<Producto>> ObtenerProductosCompletosDeProveedorAsync(int idProveedor)
+        {
+            return await _proveedorRepository.ObtenerProductosPorProveedorAsync(idProveedor);
+        }
+
+        public async Task<bool> ExisteProveedorPorCorreoAsync(string correo)
+        {
+            return await _proveedorRepository.ExisteProveedorPorCorreoAsync(correo);
+        }
     }
 }

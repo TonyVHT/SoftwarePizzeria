@@ -6,5 +6,7 @@ namespace ItaliaPizza.Server.Services.Interfaces
     {
         Task RegistrarRelacionAsync(ProductoProveedor relacion);
         Task<IEnumerable<ProductoProveedor>> ObtenerRelacionesAsync();
+        Task EliminarRelacionAsync(ProductoProveedor relacion);
+
     }
 }

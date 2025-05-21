@@ -22,5 +22,10 @@ namespace ItaliaPizza.Server.Services.Implementations
         {
             return await _repo.ObtenerRelacionesAsync();
         }
+
+        public async Task EliminarRelacionAsync(ProductoProveedor relacion)
+        {
+            await _repo.EliminarRelacion(relacion);
+        }
     }
 }

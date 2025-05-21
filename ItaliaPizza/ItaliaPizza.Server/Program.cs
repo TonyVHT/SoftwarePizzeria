@@ -47,6 +47,8 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ICredencialUsuarioService, CredencialUsuarioService>();
 builder.Services.AddScoped<ICredencialUsuarioRepository,  CredencialUsuarioRepository>();
+builder.Services.AddScoped<IPedidoProveedorService, PedidoProveedorService>();
+builder.Services.AddScoped<IPedidoProveedorRepository, PedidoProveedorRepository>();
 builder.Services.AddScoped<IPedidoService, PedidoService>();
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<IPedidoDomicilioRepository, PedidoDomicilioRepository>();
