@@ -1,0 +1,143 @@
+﻿<Page x:Class="ItaliaPizza.Cliente.PlatillosModulo.Screens.AgregarCategoria"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Agregar Categoría"
+        >
+
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#E6F4EA" Offset="0"/>
+                <GradientStop Color="#F0F4F8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1">
+            <Grid Margin="30">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- Título -->
+                    <RowDefinition Height="*"/>
+                    <!-- Formulario -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Botones -->
+                </Grid.RowDefinitions>
+
+                <!-- Título -->
+                <TextBlock Text="Agregar Categoría de Producto"
+                   FontSize="32"
+                   FontWeight="Bold"
+                   Foreground="#32d483"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"/>
+
+                <!-- Contenedor con borde -->
+                <Border Grid.Row="1"
+                Background="White"
+                CornerRadius="10"
+                BorderBrush="#32d483"
+                BorderThickness="2"
+                Padding="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <!-- Nombre -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- Estado -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- Tipo de uso -->
+                        </Grid.RowDefinitions>
+
+                        <!-- Nombre -->
+                        <TextBlock Text="Nombre:"
+                           Grid.Row="0" Grid.Column="0"
+                           Margin="10"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="#333"/>
+                        <TextBox Name="txtNombre"
+                         Grid.Row="0" Grid.Column="1"
+                         Margin="10"
+                         Style="{StaticResource textboxStyle}"
+                         Height="35"
+                         FontSize="16"
+                         Padding="5"
+                         BorderBrush="#ddd"
+                         BorderThickness="1"/>
+
+                        <!-- Estado -->
+                        <TextBlock Text="Estado:"
+                           Grid.Row="1" Grid.Column="0"
+                           Margin="10"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="#333"/>
+                        <ComboBox Name="cmbEstatus"
+                          Style="{StaticResource comboBoxStyle}"
+                          Grid.Row="1" Grid.Column="1"
+                          Margin="10"
+                          Height="35"
+                          FontSize="16"
+                          Padding="5"
+                          BorderBrush="#ddd"
+                          BorderThickness="1">
+                            <ComboBoxItem Content="Activo" Tag="true"/>
+                            <ComboBoxItem Content="Inactivo" Tag="false"/>
+                        </ComboBox>
+
+                        <!-- Tipo de uso -->
+                        <TextBlock Text="Tipo de uso:" Grid.Row="2" Grid.Column="0"
+                      Margin="10" FontSize="18" FontWeight="Bold" Foreground="#333"/>
+                        <ComboBox Name="cmbTipoDeUso"
+                          Style="{StaticResource comboBoxStyle}"
+                    Grid.Row="2" Grid.Column="1"
+                    Margin="10" Height="35" FontSize="16"
+                    BorderBrush="#ddd" BorderThickness="1">
+                            <ComboBoxItem Content="Producto"    Tag="0"/>
+                            <ComboBoxItem Content="Platillo"    Tag="1"/>
+                            <ComboBoxItem Content="Producto y Platillo"       Tag="2"/>
+                            <ComboBoxItem Content="Ingrediente" Tag="3"/>
+                        </ComboBox>
+
+
+                    </Grid>
+                </Border>
+
+                <!-- Botones -->
+                <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,30,0,0">
+                    <Button Content="Agregar"
+                    Width="150"
+                    Height="45"
+                    Margin="15"
+                    Style="{StaticResource buttonsStyle}"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Click="btnAgregar_Click"/>
+                    <Button Content="Cancelar"
+                    Width="150"
+                    Height="45"
+                    Margin="15"
+                    Style="{StaticResource cancelbuttonsStyle}"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Click="btnCancelar_Click"/>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -65,8 +65,48 @@ namespace ItaliaPizza.Server.Controllers
         }
 
 
+        [HttpGet("repartidores")]
+        public async Task<IActionResult> GetRepartidores()
+        {
+            var repartidores = await _usuarioService.ObtenerPorRolAsync("Repartidor");
+            return Ok(repartidores);
+        }
+
+        [HttpGet("telefono-existe")]
+        public async Task<IActionResult> TelefonoExiste([FromQuery] string telefono)
+        {
+            bool existe = await _usuarioService.TelefonoExisteAsync(telefono);
+            return Ok(existe);
+        }
+
+        [HttpGet("email-existe")]
+        public async Task<IActionResult> EmailExiste([FromQuery] string email)
+        {
+            bool existe = await _usuarioService.EmailExisteAsync(email);
+            return Ok(existe);
+        }
+
+        [HttpGet("curp-existe")]
+        public async Task<IActionResult> CurpExiste([FromQuery] string curp)
+        {
+            bool existe = await _usuarioService.CurpExisteAsync(curp);
+            return Ok(existe);
+        }
+
+        [HttpGet("nombre-usuario-existe")]
+        public async Task<IActionResult> NombreUsuarioExiste([FromQuery] string nombreUsuario)
+        {
+            bool existe = await _usuarioService.NombreUsuarioExisteAsync(nombreUsuario);
+            return Ok(existe);
+        }
 
 
+        [HttpGet("meseros")]
+        public async Task<IActionResult> GetMeseros()
+        {
+            var meseros = await _usuarioService.ObtenerPorRolAsync("Mesero");
+            return Ok(meseros);
+        }
 
 
         [HttpGet("ping")]

@@ -13,6 +13,12 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
         Task<int> SaveChangesAsync();
         Task<IEnumerable<UsuarioConsultaDTO>> BuscarUsuariosAsync(string? nombre, string? nombreUsuario, string? rol);
         Task<UsuarioEdicionDTO?> GetUsuarioConCredencialByIdAsync(int id);
+        Task<List<UsuarioConsultaDTO>> ObtenerRepartidoresAsync();
+        Task<bool> ExisteTelefonoAsync(string telefono);
+        Task<bool> ExisteEmailAsync(string email);
+        Task<bool> ExisteCurpAsync(string curp);
+        Task<bool> ExisteNombreUsuarioAsync(string nombreUsuario);
+        Task<List<UsuarioConsultaDTO>> ObtenerMeserosAsync();
 
 
 

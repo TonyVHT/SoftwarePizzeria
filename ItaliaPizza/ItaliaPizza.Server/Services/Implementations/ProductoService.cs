@@ -122,5 +122,29 @@ namespace ItaliaPizza.Server.Services.Implementations
         {
             return await _productoRepository.GetProductosActivosAsync();
         }
+
+        public async Task<IEnumerable<Producto>> GetProductosPorEsIngredienteAsync(bool? esIngrediente)
+        {
+            var productos = await _productoRepository.GetProductosActivosAsync();
+
+            if (esIngrediente.HasValue)
+                productos = productos.Where(p => p.EsIngrediente == esIngrediente.Value);
+
+            return productos;
+        }
+
+        public async Task<IEnumerable<Producto>> GetPorNombreCategoriaAsync(string nombreCategoria)
+        {
+            var productos = await _productoRepository.GetProductosConCategoriaAsync();
+
+            return productos
+                .Where(p => p.Categoria != null &&
+                            p.Categoria.Nombre.ToLower().Contains(nombreCategoria.ToLower()) &&
+                            p.Estatus &&
+                            !p.EsIngrediente) 
+                .ToList();
+        }
+
+
     }
 }

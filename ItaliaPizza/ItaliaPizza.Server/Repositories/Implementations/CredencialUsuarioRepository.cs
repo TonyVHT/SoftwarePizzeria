@@ -44,6 +44,9 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             return await _context.SaveChangesAsync();
         }
 
-
+        public Task<bool> ExisteNombreUsuario(string nombreUsuario)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
