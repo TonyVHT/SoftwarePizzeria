@@ -54,10 +54,27 @@ namespace ItaliaPizza.Server.Controllers
         {
             var productos = await _proveedorService.ObtenerProductosDeProveedorAsync(id);
 
-            if (productos == null || productos.Count == 0)
-                return NotFound("Este proveedor no tiene productos asociados.");
+            productos = productos ?? new List<string>();
 
             return Ok(productos);
+        }
+
+        [HttpGet("{id}/productoscompletos")]
+        public async Task<IActionResult> ObtenerProductosCompletosDeProveedor(int id)
+        {
+            var productos = await _proveedorService.ObtenerProductosCompletosDeProveedorAsync(id);
+
+            return Ok(productos ?? new List<Producto>());
+        }
+
+        [HttpGet("existe")]
+        public async Task<IActionResult> ExisteProveedorPorCorreo([FromQuery] string correo)
+        {
+            if (string.IsNullOrWhiteSpace(correo))
+                return BadRequest("Se requiere el correo.");
+
+            bool existe = await _proveedorService.ExisteProveedorPorCorreoAsync(correo);
+            return Ok(new { existe });
         }
 
     }

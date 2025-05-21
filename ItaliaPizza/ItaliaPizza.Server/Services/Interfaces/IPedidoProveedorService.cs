@@ -1,16 +1,15 @@
 ﻿using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.JPDtos;
 
-namespace ItaliaPizza.Server.Repositories.Interfaces
+namespace ItaliaPizza.Server.Services.Interfaces
 {
-    public interface IPedidoProveedorRepository : IRepository<PedidoProveedor>
+    public interface IPedidoProveedorService
     {
-        Task<IEnumerable<PedidoProveedor>> GetPedidosPendientesAsync();
-        Task<IEnumerable<PedidoProveedor>> GetPedidosPorProveedorAsync(int proveedorId);
-        Task AddPedidoProveedorAsync(PedidoProveedor proveedor);
-        Task<List<PedidoProveedor>> ObtenerTodosPedidosAsync();
+        Task CrearPedidoAProveedorAsync(PedidoProveedor pedido);
+        Task<List<PedidoProveedorGrupoDto>> ObtenerPedidosAgrupadosAsync();
         Task CambiarEstadoDePedidoAsync(DateTime fechaPedido, int proveedorId, string usuarioSolicita, string nuevoEstado, DateTime? fechaLlegada, string usuarioRecibe, List<ProductoPedidoDto> productos);
         Task EditarProductoDePedidoAsync(ProductoPedidoDto productoDto, PedidoProveedorGrupoDto grupoDto);
         Task EliminarPedidoAsync(PedidoAProveedorEliminadoDto dto);
+
     }
 }

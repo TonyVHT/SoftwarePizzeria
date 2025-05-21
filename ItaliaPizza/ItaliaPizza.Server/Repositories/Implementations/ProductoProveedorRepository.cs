@@ -27,5 +27,20 @@ namespace ItaliaPizza.Server.Repositories.Implementations
                 .Include(pp => pp.Proveedor)
                 .ToListAsync();
         }
+
+        public async Task EliminarRelacion(ProductoProveedor relacion)
+        {
+            var existente = await _context.ProductoProveedores
+                .FirstOrDefaultAsync(pp =>
+                    pp.ProductoId == relacion.ProductoId &&
+                    pp.ProveedorId == relacion.ProveedorId);
+
+            if (existente != null)
+            {
+                _context.ProductoProveedores.Remove(existente);
+                await _context.SaveChangesAsync();
+            }
+        }
+
     }
 }

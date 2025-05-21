@@ -55,10 +55,38 @@ namespace ItaliaPizza.Cliente.Screens
             var modificarProveedor = new EditProvider(this.proveedor);
             modificarProveedor.ShowDialog();
         }
-        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        private async void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            try
+            {
+                if (MessageBox.Show("¿Estás seguro de que deseas eliminar este proveedor?", "Confirmar eliminación", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        proveedor.Estatus = false;
+                        var response = await _http.PutAsJsonAsync($"api/proveedor/{proveedor.Id}", proveedor);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("Proveedor eliminado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al eliminar proveedor.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error de conexión: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error grave", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();

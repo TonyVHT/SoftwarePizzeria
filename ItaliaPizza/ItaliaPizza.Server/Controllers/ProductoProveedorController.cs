@@ -39,5 +39,22 @@ namespace ItaliaPizza.Server.Controllers
             var relaciones = await _service.ObtenerRelacionesAsync();
             return Ok(relaciones);
         }
+
+        [HttpDelete("eliminar")]
+        public async Task<IActionResult> EliminarRelaciones([FromBody] List<ProductoProveedorRegistroDto> relacionesDto)
+        {
+            foreach (var relacionDto in relacionesDto)
+            {
+                var productoProveedor = new ProductoProveedor
+                {
+                    ProductoId = relacionDto.ProductoId,
+                    ProveedorId = relacionDto.ProveedorId
+                };
+
+                await _service.EliminarRelacionAsync(productoProveedor);
+            }
+
+            return Ok("Relaciones eliminadas con éxito.");
+        }
     }
 }

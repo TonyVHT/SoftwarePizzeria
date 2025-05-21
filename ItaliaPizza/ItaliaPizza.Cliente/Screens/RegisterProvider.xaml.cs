@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +26,34 @@ namespace ItaliaPizza.Cliente.Screens
         private readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
         private List<Producto> productosDisponibles = new List<Producto>();
         private List<Producto> productosSeleccionados = new List<Producto>();
+        private ValidadorReglas validador;
 
 
         public RegisterProvider()
         {
             InitializeComponent();
+            validador = new ValidadorReglas();
+            validador.AñadirLimiteACamposDeTexto(txtNombre,30);
+            validador.AñadirLimiteACamposDeTexto(txtApellidoPaterno, 30);
+            validador.AñadirLimiteACamposDeTexto(txtApellidoMaterno, 30);
+            validador.AñadirLimiteACamposDeTexto(txtCalle, 30);
+            validador.AñadirLimiteACamposDeTexto(txtCiudad, 30);
+            validador.AñadirLimiteACamposDeTexto(txtCodigoPostal, 30);
+            validador.AñadirLimiteACamposDeTexto(txtCorreo, 30);
+            validador.AñadirLimiteACamposDeTexto(txtTelefono, 10);
+            validador.AñadirLimiteACamposDeTexto(txtProductoProveido, 40);
+            validador.AñadirLimiteACamposDeTexto(txtNumeroCasa, 30);
+            validador.EvitarCaracteresPeligrosos(txtNombre);
+            validador.EvitarCaracteresPeligrosos(txtApellidoPaterno);
+            validador.EvitarCaracteresPeligrosos(txtApellidoMaterno);
+            validador.EvitarCaracteresPeligrosos(txtCalle);
+            validador.EvitarCaracteresPeligrosos(txtCiudad);
+            validador.EvitarCaracteresPeligrosos(txtCodigoPostal);
+            validador.EvitarCaracteresPeligrosos(txtCorreo);
+            validador.EvitarCaracteresPeligrosos(txtTelefono);
+            validador.EvitarCaracteresPeligrosos(txtProductoProveido);
+            validador.EvitarCaracteresPeligrosos(txtNumeroCasa);
+
             Loaded += RegisterProvider_Loaded;
         }
 
@@ -42,13 +66,58 @@ namespace ItaliaPizza.Cliente.Screens
         {
             try
             {
+                var camposVacios = new List<string>();
+
+                if (string.IsNullOrWhiteSpace(txtNombre.Text)) camposVacios.Add("Nombre");
+                if (string.IsNullOrWhiteSpace(txtApellidoPaterno.Text)) camposVacios.Add("Apellido Paterno");
+                if (string.IsNullOrWhiteSpace(txtApellidoMaterno.Text)) camposVacios.Add("Apellido Materno");
+                if (string.IsNullOrWhiteSpace(txtProductoProveido.Text)) camposVacios.Add("Producto Proveído");
+                if (string.IsNullOrWhiteSpace(txtCorreo.Text)) camposVacios.Add("Correo");
+                if (string.IsNullOrWhiteSpace(txtTelefono.Text)) camposVacios.Add("Teléfono");
+                if (string.IsNullOrWhiteSpace(txtCiudad.Text)) camposVacios.Add("Ciudad");
+                if (string.IsNullOrWhiteSpace(txtCalle.Text)) camposVacios.Add("Calle");
+                if (string.IsNullOrWhiteSpace(txtNumeroCasa.Text)) camposVacios.Add("Número de Casa");
+                if (string.IsNullOrWhiteSpace(txtCodigoPostal.Text)) camposVacios.Add("Código Postal");
+
+                if (camposVacios.Any())
+                {
+                    MessageBox.Show("Por favor completa los siguientes campos:\n- " + string.Join("\n- ", camposVacios));
+                    return;
+                }
+
+                if (!productosSeleccionados.Any())
+                {
+                    MessageBox.Show("Debes seleccionar al menos un producto para registrar al proveedor.");
+                    return;
+                }
+
+                string correo = txtCorreo.Text.Trim();
+
+                var existeResponse = await _http.GetAsync($"api/proveedor/existe?correo={Uri.EscapeDataString(correo)}");
+
+                if (existeResponse.IsSuccessStatusCode)
+                {
+                    var resultado = await existeResponse.Content.ReadFromJsonAsync<ExisteProveedorRespuesta>();
+
+                    if (resultado?.existe == true)
+                    {
+                        MessageBox.Show("Ya existe un proveedor registrado con ese correo.");
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error al validar si el correo ya existe.");
+                    return;
+                }
+
                 var proveedor = new Proveedor
                 {
                     Nombre = txtNombre.Text,
                     ApellidoPaterno = txtApellidoPaterno.Text,
                     ApellidoMaterno = txtApellidoMaterno.Text,
                     TipoArticulo = txtProductoProveido.Text,
-                    Email = txtCorreo.Text,
+                    Email = correo,
                     Telefono = txtTelefono.Text,
                     Ciudad = txtCiudad.Text,
                     Calle = txtCalle.Text,
@@ -57,22 +126,17 @@ namespace ItaliaPizza.Cliente.Screens
                     Estatus = true
                 };
 
-                // Insertamos el proveedor y esperamos la respuesta
                 var response = await _http.PostAsJsonAsync("api/proveedor", proveedor);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // Si la respuesta fue exitosa, obtenemos el proveedor con su Id asignado
                     proveedor = await response.Content.ReadFromJsonAsync<Proveedor>();
-
-                    // Ahora que tenemos el proveedor con su Id asignado, podemos registrar las relaciones
                     var relaciones = productosSeleccionados.Select(p => new ProductoProveedor
                     {
                         ProductoId = p.Id,
-                        ProveedorId = proveedor.Id // Usamos el Id del proveedor recién insertado
+                        ProveedorId = proveedor.Id
                     }).ToList();
 
-                    // Registramos la relación ProductoProveedor
                     var respuesta = await _http.PostAsJsonAsync("api/productoproveedor", relaciones);
 
                     if (respuesta.IsSuccessStatusCode)
@@ -97,6 +161,8 @@ namespace ItaliaPizza.Cliente.Screens
                 MessageBox.Show($"Error inesperado: {ex.Message}");
             }
         }
+
+
 
         private async void BtnCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -140,7 +206,7 @@ namespace ItaliaPizza.Cliente.Screens
         {
             try
             {
-                var response = await _http.GetAsync("api/producto");
+                var response = await _http.GetAsync("api/producto/all");
                 if (response.IsSuccessStatusCode)
                 {
                     var productos = await response.Content.ReadFromJsonAsync<List<Producto>>();
