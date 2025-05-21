@@ -7,32 +7,32 @@ namespace ItaliaPizza.Server.Domain
     public class DireccionCliente
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
-        public int ClienteId { get; set; }
+        public int ClienteId { get; set; }  
 
-        [ForeignKey("ClienteId")]
-        public Cliente Cliente { get; set; } = null!;
+        [ForeignKey("ClienteId")]  
+        public Cliente Cliente { get; set; }
 
         [Required]
         [MaxLength(255)]
-        public string Direccion { get; set; } = string.Empty;
+        public string Direccion { get; set; }
 
         [MaxLength(255)]
         public string? Referencias { get; set; }
 
         [Required]
         [MaxLength(10)]
-        public string CodigoPostal { get; set; } = string.Empty;
+        public string CodigoPostal { get; set; }
 
         [Required]
         [MaxLength(50)]
-        public string Ciudad { get; set; } = string.Empty;
+        public string Ciudad { get; set; }
 
         public bool Estatus { get; set; } = true;
 
         public bool EsPrincipal { get; set; } = false;
     }
+
 }

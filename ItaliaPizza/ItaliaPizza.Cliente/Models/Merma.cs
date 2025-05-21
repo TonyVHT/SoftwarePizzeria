@@ -10,8 +10,7 @@ namespace ItaliaPizza.Cliente.Models
     {
         public int ProductoId { get; set; }
         public decimal CantidadPerdida { get; set; }
-        public int MotivoMermaId { get; set; }
         public int UsuarioId { get; set; }
-        public string Descripcion { get; set; } = string.Empty;
+        public string MotivoMerma { get; set; } = string.Empty;
     }
 }

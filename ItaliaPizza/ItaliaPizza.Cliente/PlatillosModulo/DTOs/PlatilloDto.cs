@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ItaliaPizza.Cliente.Platillos.DTOs
+namespace ItaliaPizza.Cliente.PlatillosModulo.DTOs
 {
     public class PlatilloDto
     {
@@ -17,7 +17,12 @@ namespace ItaliaPizza.Cliente.Platillos.DTOs
         public int? Restriccion { get; set; }
         public bool Estatus { get; set; }
         public string? Instrucciones { get; set; }
+
+        public int CategoriaId { get; set; }
         public string CategoriaNombre { get; set; } = string.Empty;
+
+        public System.Windows.Media.Imaging.BitmapImage Imagen { get; set; }
     }
+
 
 }

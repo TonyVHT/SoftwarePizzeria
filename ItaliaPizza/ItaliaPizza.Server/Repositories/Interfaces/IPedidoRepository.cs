@@ -1,4 +1,6 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.Dto;
+using ItaliaPizza.Server.View;
 
 namespace ItaliaPizza.Server.Repositories.Interfaces
 {

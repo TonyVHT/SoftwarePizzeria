@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ItaliaPizza.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class FixDireccionClienteModel_v3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -167,13 +167,19 @@ namespace ItaliaPizza.Server.Migrations
                     CodigoPostal = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Ciudad = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Estatus = table.Column<bool>(type: "bit", nullable: false),
-                    EsPrincipal = table.Column<bool>(type: "bit", nullable: false)
+                    EsPrincipal = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    ClienteId1 = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DireccionesClientes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_DireccionesClientes_Clientes_ClienteId",
+                        name: "FK_DireccionesClientes_Clientes_ClienteId1",
+                        column: x => x.ClienteId1,
+                        principalTable: "Clientes",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "fk_cliente_direccion",
                         column: x => x.ClienteId,
                         principalTable: "Clientes",
                         principalColumn: "Id",
@@ -642,6 +648,11 @@ namespace ItaliaPizza.Server.Migrations
                 name: "IX_DireccionesClientes_ClienteId",
                 table: "DireccionesClientes",
                 column: "ClienteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DireccionesClientes_ClienteId1",
+                table: "DireccionesClientes",
+                column: "ClienteId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Finanzas_UsuarioId",

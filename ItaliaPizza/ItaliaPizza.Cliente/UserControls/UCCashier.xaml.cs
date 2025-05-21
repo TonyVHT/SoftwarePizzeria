@@ -1,5 +1,7 @@
-﻿using ItaliaPizza.Cliente.Screens.Admin;
+﻿using ItaliaPizza.Cliente.Screens;
+using ItaliaPizza.Cliente.Screens.Admin;
 using ItaliaPizza.Cliente.Screens.Cashier;
+using ItaliaPizza.Cliente.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,8 @@ namespace ItaliaPizza.Cliente.UserControls
     /// </summary>
     public partial class UCCashier : UserControl
     {
+        private NavigationService? Navigation => NavigationService.GetNavigationService(this);
+
         public UCCashier()
         {
             InitializeComponent();
@@ -29,8 +33,33 @@ namespace ItaliaPizza.Cliente.UserControls
 
         private void buttonSettings_Click(object sender, RoutedEventArgs e)
         {
-            var closeSessionWindow = new LogOutCashier();
-            closeSessionWindow.Show();
+            SessionManagerHelper.CerrarSesionUniversal();
+
+
+        }
+
+        private void GoToCustomerOptions(object sender, RoutedEventArgs e)
+        {
+            var customerOptions = new CustomerOptiones();
+            Navigation?.Navigate(customerOptions);
+        }
+
+        private void GoToOrdersOptions(object sender, RoutedEventArgs e)
+        {
+            var orderOptions = new OrderOptiones();
+            Navigation?.Navigate(orderOptions);
+        }
+
+        private void GoToHomePage(object sender, RoutedEventArgs e)
+        {
+            var homePage = new HomePageAdmin();
+            Navigation?.Navigate(homePage);
+        }
+
+        private void GoToProductsOptions(object sender, RoutedEventArgs e)
+        {
+            var productOptions = new SearchProduct();
+            Navigation.Navigate(productOptions);
         }
     }
 }

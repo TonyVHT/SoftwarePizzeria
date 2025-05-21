@@ -1,10 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Screens;
 using ItaliaPizza.Cliente.Singleton;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace ItaliaPizza.Cliente.Utils
@@ -18,13 +14,11 @@ namespace ItaliaPizza.Cliente.Utils
             var login = new LogIn();
             login.Show();
 
-            // Cierra cualquier ventana que no sea LogIn
-            foreach (Window win in Application.Current.Windows)
+            foreach (Window win in Application.Current.Windows.OfType<Window>().ToList())
             {
-                if (win is not LogIn)
+                if (win != login) 
                 {
                     win.Close();
-                    break;
                 }
             }
         }

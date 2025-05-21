@@ -1,5 +1,7 @@
-﻿using ItaliaPizza.Cliente.Screens.Admin;
+﻿using ItaliaPizza.Cliente.Screens;
+using ItaliaPizza.Cliente.Screens.Admin;
 using ItaliaPizza.Cliente.Screens.Cook;
+using ItaliaPizza.Cliente.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,8 @@ namespace ItaliaPizza.Cliente.UserControls
     /// </summary>
     public partial class UCCook : UserControl
     {
+        private NavigationService? Navigation => NavigationService.GetNavigationService(this);
+
         public UCCook()
         {
             InitializeComponent();
@@ -29,8 +33,30 @@ namespace ItaliaPizza.Cliente.UserControls
 
         private void buttonSettings_Click(object sender, RoutedEventArgs e)
         {
-            var closeSessionWindow = new LogOutCook();
-            closeSessionWindow.Show();
+            SessionManagerHelper.CerrarSesionUniversal();
+
+
+        }
+
+
+
+        private void GoToRecipeOptions(object sender, RoutedEventArgs e)
+        {
+            var recipeOptions = new RecipeOptions();
+            Navigation.Navigate(recipeOptions);
+        }
+
+
+        private void GoToHomePage(object sender, RoutedEventArgs e)
+        {
+            var homePage = new HomePageAdmin();
+            Navigation.Navigate(homePage);
+        }
+
+        private void GoToProductsOptions(object sender, RoutedEventArgs e)
+        {
+            var productOptions = new SearchProduct();
+            Navigation.Navigate(productOptions);
         }
     }
 }

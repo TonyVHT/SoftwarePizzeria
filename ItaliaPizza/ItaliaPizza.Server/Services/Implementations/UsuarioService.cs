@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.DTOs;
+using ItaliaPizza.Server.Repositories.Implementations;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using ItaliaPizza.Server.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -54,6 +55,26 @@ namespace ItaliaPizza.Server.Services.Implementations
             return await _usuarioRepository.GetUsuarioConCredencialByIdAsync(id);
         }
 
+        public async Task<List<UsuarioConsultaDTO>> ObtenerPorRolAsync(string rol)
+        {
+            if (rol == "Repartidor")
+                return await _usuarioRepository.ObtenerRepartidoresAsync();
+            if (rol == "Mesero")
+                return await _usuarioRepository.ObtenerMeserosAsync();
+
+
+            return new List<UsuarioConsultaDTO>();
+        }
+
+        public Task<bool> TelefonoExisteAsync(string telefono) =>
+        _usuarioRepository.ExisteTelefonoAsync(telefono);
+        public Task<bool> EmailExisteAsync(string email) =>
+            _usuarioRepository.ExisteEmailAsync(email);
+        public Task<bool> CurpExisteAsync(string curp) =>
+            _usuarioRepository.ExisteCurpAsync(curp);
+
+        public Task<bool> NombreUsuarioExisteAsync(string nombreUsuario) =>
+            _usuarioRepository.ExisteNombreUsuarioAsync(nombreUsuario);
 
 
 

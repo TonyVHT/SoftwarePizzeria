@@ -106,6 +106,50 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             return await query.FirstOrDefaultAsync();
         }
 
-        
+        public async Task<List<UsuarioConsultaDTO>> ObtenerRepartidoresAsync()
+        {
+            return await _context.Usuarios
+                .Where(u => u.Rol == "Repartidor" && u.Estatus)
+                .Select(u => new UsuarioConsultaDTO
+                {
+                    Id = u.Id,
+                    NombreCompleto = u.Nombre + " " + u.Apellidos,
+                })
+                .ToListAsync();
+        }
+
+        public async Task<bool> ExisteTelefonoAsync(string telefono)
+        {
+            return await _context.Usuarios.AnyAsync(u => u.Telefono == telefono);
+        }
+
+        public async Task<bool> ExisteEmailAsync(string email)
+        {
+            return await _context.Usuarios.AnyAsync(u => u.Email == email);
+        }
+
+        public async Task<bool> ExisteCurpAsync(string curp)
+        {
+            return await _context.Usuarios.AnyAsync(u => u.Curp == curp);
+        }
+
+        public async Task<bool> ExisteNombreUsuarioAsync(string nombreUsuario)
+        {
+            return await _context.CredencialesUsuarios.AnyAsync(c => c.NombreUsuario == nombreUsuario);
+        }
+
+
+
+        public async Task<List<UsuarioConsultaDTO>> ObtenerMeserosAsync()
+        {
+            return await _context.Usuarios
+                .Where(u => u.Rol == "Mesero" && u.Estatus)
+                .Select(u => new UsuarioConsultaDTO
+                {
+                    Id = u.Id,
+                    NombreCompleto = u.Nombre + " " + u.Apellidos,
+                })
+                .ToListAsync();
+        }
     }
 }
