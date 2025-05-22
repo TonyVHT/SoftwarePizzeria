@@ -872,6 +872,7 @@ C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cli
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\Receta.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\VerPlatillo.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\PlatillosModulo\Screens\VerReceta.baml
+C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Resources\estilos.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Controls\CustomDialog.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\EditProductModal.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\LocalOrder\SelectMeseroPage.baml
@@ -883,6 +884,7 @@ C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cli
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Orders\ConsultarPedidos.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Orders\PedidosEnCocina.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterMermaModal.baml
+C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrderToProvider.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProduct.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\SearchProduct.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\UserControls\UCManager.baml
@@ -909,6 +911,7 @@ C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cli
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\EditCustomer.g.cs
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\HomePageCashier.g.cs
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\LogOutCashier.g.cs
+C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultOrderProvider.g.cs
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultOrdersProvider.g.cs
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultProvider.g.cs
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultProviders.g.cs
@@ -916,6 +919,7 @@ C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cli
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cook\HomePageCook.g.cs
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cook\LogOutCook.g.cs
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\CustomerOptiones.g.cs
+C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\EditarProductoOrden.g.cs
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\EditProductModal.g.cs
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\EditProvider.g.cs
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\LocalOrder\LocalOrder.g.cs
@@ -973,12 +977,14 @@ C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cli
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\EditCustomer.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\HomePageCashier.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cashier\LogOutCashier.baml
+C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultOrderProvider.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultOrdersProvider.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultProvider.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\ConsultProviders.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cook\HomePageCook.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Cook\LogOutCook.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\CustomerOptiones.baml
+C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\EditarProductoOrden.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\EditProvider.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\LocalOrder\LocalOrder.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Manager\FinancesReporter.baml
@@ -991,7 +997,6 @@ C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cli
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RecipeOptions.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterHomeDeliveryOrder.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrder.baml
-C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterOrderToProvider.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\RegisterProvider.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\UserOptions.baml
 C:\Users\juant\Desktop\ItaliaPizza3\SoftwarePizzeria\ItaliaPizza\ItaliaPizza.Cliente\obj\Debug\net9.0-windows\Screens\Waiter\HomePageWaiter.baml

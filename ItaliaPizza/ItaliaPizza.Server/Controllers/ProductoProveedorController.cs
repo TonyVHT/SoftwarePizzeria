@@ -21,7 +21,7 @@ namespace ItaliaPizza.Server.Controllers
         {
             foreach (var relacionDto in relacionesDto)
             {
-                var productoProveedor = new ProductoProveedor
+                var productoProveedor = new ProductosProveedores
                 {
                     ProductoId = relacionDto.ProductoId,
                     ProveedorId = relacionDto.ProveedorId
@@ -45,7 +45,7 @@ namespace ItaliaPizza.Server.Controllers
         {
             foreach (var relacionDto in relacionesDto)
             {
-                var productoProveedor = new ProductoProveedor
+                var productoProveedor = new ProductosProveedores
                 {
                     ProductoId = relacionDto.ProductoId,
                     ProveedorId = relacionDto.ProveedorId

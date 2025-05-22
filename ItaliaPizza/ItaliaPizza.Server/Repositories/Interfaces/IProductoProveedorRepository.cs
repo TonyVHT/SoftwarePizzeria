@@ -4,8 +4,8 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
 {
     public interface IProductoProveedorRepository
     {
-        Task RegistrarRelacionAsync(ProductoProveedor relacion);
-        Task<IEnumerable<ProductoProveedor>> ObtenerRelacionesAsync();
-        Task EliminarRelacion(ProductoProveedor relacion);
+        Task RegistrarRelacionAsync(ProductosProveedores relacion);
+        Task<IEnumerable<ProductosProveedores>> ObtenerRelacionesAsync();
+        Task EliminarRelacion(ProductosProveedores relacion);
     }
 }

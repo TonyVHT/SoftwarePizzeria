@@ -9,13 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <None Remove="Resources\Images\fondoPizzas.jpg" />
     <None Remove="Resources\Images\pizza.png" />
     <None Remove="Resources\Images\proveedorfondo.png" />
-=======
     <None Remove="Resources\Images\logo.jpeg" />
->>>>>>> main
   </ItemGroup>
 
   <ItemGroup>

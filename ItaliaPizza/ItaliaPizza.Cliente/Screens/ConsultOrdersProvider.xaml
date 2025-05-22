@@ -10,14 +10,13 @@
     <Window.Resources>
         <ResourceDictionary>
             <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/estilos.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid>
+    <Border Background="#F0F0F0">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Grid Margin="40">
                 <Grid.ColumnDefinitions>
@@ -26,14 +25,14 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Border Grid.Column="1" CornerRadius="20" Padding="30" Style="{StaticResource RoosterClubBorderStyle}">
+                <Border Grid.Column="1" CornerRadius="20" Padding="30" Background="White">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
 
                         <!-- Título -->
                         <TextBlock Text="Pedidos realizados al proveedor"
                                    FontSize="36"
                                    FontWeight="Bold"
-                                   Foreground="White"
+                                   Foreground="#199D54"
                                    Margin="0,0,0,20"
                                    HorizontalAlignment="Center"
                                    FontFamily="Segoe UI"/>
@@ -58,19 +57,19 @@
                                             Background="White">
 
                                         <StackPanel>
-                                            <TextBlock FontWeight="Bold" FontSize="16"
+                                            <TextBlock FontWeight="Bold" FontSize="16" Foreground="Black"
                                                        Text="{Binding FechaPedido, StringFormat='Fecha: {0:dd/MM/yyyy HH:mm}'}"/>
-                                            <TextBlock Text="{Binding UsuarioSolicita, StringFormat='Solicitado por: {0}'}" Margin="0,2,0,0"/>
-                                            <TextBlock Text="{Binding ProveedorNombre, StringFormat='Proveedor: {0}'}" Margin="0,2,0,5"/>
+                                            <TextBlock Text="{Binding UsuarioSolicita, StringFormat='Solicitado por: {0}'}" Margin="0,2,0,0" Foreground="Black"/>
+                                            <TextBlock Text="{Binding ProveedorNombre, StringFormat='Proveedor: {0}'}" Margin="0,2,0,5" Foreground="Black"/>
 
-                                            <TextBlock Text="Productos:" FontWeight="Bold" Margin="0,5,0,2"/>
+                                            <TextBlock Text="Productos:" FontWeight="Bold" Margin="0,5,0,2" Foreground="Black"/>
                                             <ItemsControl ItemsSource="{Binding Productos}">
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate>
                                                         <DockPanel Margin="5,2">
-                                                            <TextBlock Text="{Binding Nombre}" Width="200"/>
-                                                            <TextBlock Text="{Binding Cantidad, StringFormat='Cantidad: {0}'}" Width="150"/>
-                                                            <TextBlock Text="{Binding Total, StringFormat='Total: ${0:F2}'}" Width="150"/>
+                                                            <TextBlock Text="{Binding Nombre}" Width="200" Foreground="Black"/>
+                                                            <TextBlock Text="{Binding Cantidad, StringFormat='Cantidad: {0}'}" Width="150" Foreground="Black"/>
+                                                            <TextBlock Text="{Binding Total, StringFormat='Total: ${0:F2}'}" Width="150" Foreground="Black"/>
                                                         </DockPanel>
                                                     </DataTemplate>
                                                 </ItemsControl.ItemTemplate>
@@ -83,17 +82,19 @@
                         </ListView>
 
                         <!-- Botones -->
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,0">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                             <Button Content="Agregar Pedido" Width="180" Height="35" Margin="10"
-                                    Background="#27ae60" Foreground="White" FontWeight="Bold" Cursor="Hand"
+                                    Background="#199D54" Foreground="White" FontWeight="Bold"
+                                    Style="{StaticResource buttonsStyle}" Cursor="Hand"
                                     Click="BtnAgregarPedido_Click"/>
                             <Button Content="Cerrar" Width="120" Height="35" Margin="10"
-                                    Background="#e74c3c" Foreground="White" FontWeight="Bold" Cursor="Hand"
+                                    Background="Gray" Foreground="White" FontWeight="Bold"
+                                    Style="{StaticResource buttonsStyle}" Cursor="Hand"
                                     Click="BtnCerrar_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
             </Grid>
         </ScrollViewer>
-    </Grid>
+    </Border>
 </Window>

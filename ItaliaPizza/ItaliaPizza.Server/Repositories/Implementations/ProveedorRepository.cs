@@ -49,7 +49,7 @@ namespace ItaliaPizza.Server.Repositories.Implementations
         }
         public async Task<List<string>> ObtenerNombresProductosPorProveedorAsync(int idProveedor)
         {
-            return await _context.ProductoProveedores
+            return await _context.ProductosProveedores
                 .Where(pp => pp.ProveedorId == idProveedor && pp.Producto != null)
                 .Include(pp => pp.Producto)
                 .Select(pp => pp.Producto.Nombre)
@@ -58,7 +58,7 @@ namespace ItaliaPizza.Server.Repositories.Implementations
 
         public async Task<List<Producto>> ObtenerProductosPorProveedorAsync(int idProveedor)
         {
-            return await _context.ProductoProveedores
+            return await _context.ProductosProveedores
                 .Where(pp => pp.ProveedorId == idProveedor && pp.Producto != null)
                 .Include(pp => pp.Producto)
                 .Select(pp => pp.Producto)

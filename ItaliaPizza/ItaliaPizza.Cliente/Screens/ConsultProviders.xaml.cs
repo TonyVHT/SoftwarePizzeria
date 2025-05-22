@@ -24,7 +24,7 @@ namespace ItaliaPizza.Cliente.Screens
     /// <summary>
     /// Lógica de interacción para ConsultProviders.xaml
     /// </summary>
-    public partial class ConsultProviders : Window
+    public partial class ConsultProviders : Page
     {
         private readonly HttpClient _httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7264/") };
         private List<Proveedor> _proveedores = new();
@@ -56,7 +56,8 @@ namespace ItaliaPizza.Cliente.Screens
         }
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            var providerOptions = new ProviderOptions();
+            NavigationService.Navigate(providerOptions);
         }
 
         private async void CargarProveedores()

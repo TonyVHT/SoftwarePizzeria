@@ -14,30 +14,30 @@ namespace ItaliaPizza.Server.Repositories.Implementations
             _context = context;
         }
 
-        public async Task RegistrarRelacionAsync(ProductoProveedor relacion)
+        public async Task RegistrarRelacionAsync(ProductosProveedores relacion)
         {
-            _context.ProductoProveedores.Add(relacion);
+            _context.ProductosProveedores.Add(relacion);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<ProductoProveedor>> ObtenerRelacionesAsync()
+        public async Task<IEnumerable<ProductosProveedores>> ObtenerRelacionesAsync()
         {
-            return await _context.ProductoProveedores
+            return await _context.ProductosProveedores
                 .Include(pp => pp.Producto)
                 .Include(pp => pp.Proveedor)
                 .ToListAsync();
         }
 
-        public async Task EliminarRelacion(ProductoProveedor relacion)
+        public async Task EliminarRelacion(ProductosProveedores relacion)
         {
-            var existente = await _context.ProductoProveedores
+            var existente = await _context.ProductosProveedores
                 .FirstOrDefaultAsync(pp =>
                     pp.ProductoId == relacion.ProductoId &&
                     pp.ProveedorId == relacion.ProveedorId);
 
             if (existente != null)
             {
-                _context.ProductoProveedores.Remove(existente);
+                _context.ProductosProveedores.Remove(existente);
                 await _context.SaveChangesAsync();
             }
         }

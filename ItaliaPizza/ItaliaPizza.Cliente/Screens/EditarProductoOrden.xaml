@@ -18,53 +18,61 @@
         </ResourceDictionary>
     </Window.Resources>
 
-
     <Grid>
         <Grid Background="Transparent">
-            <Border CornerRadius="20" Padding="30" Style="{StaticResource RoosterClubBorderStyle}">
+            <Border CornerRadius="20" Padding="30" Background="White">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="450">
 
                     <TextBlock Text="Editar Producto"
                                FontSize="28"
                                FontWeight="Bold"
-                               Foreground="White"
+                               Foreground="#199D54"
                                Margin="0,0,0,20"
                                HorizontalAlignment="Center"
                                FontFamily="Segoe UI"/>
 
-                    <TextBlock Text="Nombre:" Foreground="White" FontWeight="Bold" />
-                    <TextBox Text="{Binding Nombre}" Margin="0,5,0,15" IsEnabled="False" />
+                    <TextBlock Text="Nombre:" Foreground="Black" FontWeight="Bold" />
+                    <TextBox Text="{Binding Nombre}" Margin="0,5,0,15" IsEnabled="False"/>
 
-                    <TextBlock Name="txtCantidad" Text="Cantidad:" Foreground="White" FontWeight="Bold" />
-                    <TextBox Name="textboxCantidad" Text="{Binding Cantidad}" Margin="0,5,0,20" TextChanged="CantidadTextBox_TextChanged" />
+                    <TextBlock Name="txtCantidad" Text="Cantidad:" Foreground="Black" FontWeight="Bold" />
+                    <TextBox Name="textboxCantidad"
+                             Text="{Binding Cantidad}"
+                             Margin="0,5,0,20"
+                             TextChanged="CantidadTextBox_TextChanged"/>
 
-                    <TextBlock Name="txtTotal" Text="Total:" Foreground="White" FontWeight="Bold"/>
-                    <TextBox Name="textboxTotal" Text="{Binding Total}" IsReadOnly="True"/>
+                    <TextBlock Name="txtTotal" Text="Total:" Foreground="Black" FontWeight="Bold"/>
+                    <TextBox Name="textboxTotal"
+                             Text="{Binding Total}"
+                             IsReadOnly="True"/>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                         <Button Content="Guardar"
                                 Width="100" Height="35"
-                                Margin="0,0,10,0"
-                                Background="#27ae60"
+                                Margin="5"
+                                Background="#199D54"
                                 Foreground="White"
                                 FontWeight="Bold"
+                                Style="{StaticResource buttonsStyle}"
                                 Cursor="Hand"
                                 Click="Guardar_Click"/>
 
                         <Button Content="Eliminar"
                                 Width="100" Height="35"
-                                Margin="0,0,10,0"
-                                Background="#c0392b"
+                                Margin="5"
+                                Background="#e74c3c"
                                 Foreground="White"
                                 FontWeight="Bold"
+                                Style="{StaticResource buttonsStyle}"
                                 Cursor="Hand"
                                 Click="Eliminar_Click"/>
 
                         <Button Content="Cancelar"
                                 Width="100" Height="35"
-                                Background="#7f8c8d"
+                                Margin="5"
+                                Background="Gray"
                                 Foreground="White"
                                 FontWeight="Bold"
+                                Style="{StaticResource buttonsStyle}"
                                 Cursor="Hand"
                                 Click="Cancelar_Click"/>
                     </StackPanel>

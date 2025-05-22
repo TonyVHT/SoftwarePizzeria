@@ -27,7 +27,7 @@ namespace ItaliaPizza.Server.Settings
         public DbSet<ReporteInventario> ReportesInventario { get; set; }
         public DbSet<DireccionCliente> direccionClientes { get; set; }
         public DbSet<Producto> Producto { get; set; }
-        public DbSet<ProductoProveedor> ProductoProveedores { get; set; }
+        public DbSet<ProductosProveedores> ProductosProveedores { get; set; }
         public DbSet<PedidoDomicilio> PedidosDomicilio { get; set; }
         public DbSet<PedidoLocal> PedidosLocales { get; set; }
 
@@ -43,6 +43,8 @@ namespace ItaliaPizza.Server.Settings
             .HasForeignKey(d => d.ClienteId).
             HasConstraintName("fk_cliente_direccion")  // La clave foránea es ClienteId
             .OnDelete(DeleteBehavior.Cascade);  // Comportamiento de eliminación en cascada
+
+            modelBuilder.Entity<ProductosProveedores>().ToTable("ProductosProveedores");
 
         }
     }
