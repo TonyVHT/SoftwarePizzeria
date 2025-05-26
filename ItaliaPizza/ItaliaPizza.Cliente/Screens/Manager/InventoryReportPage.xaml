@@ -1,0 +1,112 @@
+﻿<Page x:Class="ItaliaPizza.Cliente.Screens.Manager.InventoryReportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:ItaliaPizza.Cliente.Screens.Manager"
+      xmlns:controls="clr-namespace:ItaliaPizza.Cliente.UserControls"
+      mc:Ignorable="d"
+      Title="InventoryReportPage">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#E6F4EA" Offset="0"/>
+                <GradientStop Color="#F0F4F8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ContentControl x:Name="MenuLateral" Grid.Column="0"/>
+
+            <Grid Grid.Column="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Botones + búsqueda -->
+                <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left">
+                    <Button x:Name="CancelarButton" Content="Cancelar" Width="120" Margin="5"
+                            Click="CancelarButton_Click" Style="{StaticResource cancelbuttonsStyle}"/>
+
+                    <Button x:Name="ExportarCSVButton" Content="Exportar CSV" Width="120" Margin="5"
+                            Click="ExportarCSVButton_Click" Style="{StaticResource downloadbuttonsStyle}"/>
+                    <Button x:Name="ExportarPDFButton" Content="Exportar PDF" Width="120" Margin="5"
+                            Click="ExportarPDFButton_Click" Style="{StaticResource downloadbuttonsStyle}"/>
+
+                    <Border Background="White" CornerRadius="10" Padding="5" Margin="10 0 0 0" Width="250">
+                        <Grid>
+                            <TextBox x:Name="TxtFiltroNombre"
+                                     VerticalContentAlignment="Center"
+                                     Style="{StaticResource textboxStyle}"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     TextChanged="TxtFiltroNombre_TextChanged"/>
+                            <TextBlock Text="Buscar por nombre..."
+                                       Foreground="Gray"
+                                       Margin="5,0,0,0"
+                                       VerticalAlignment="Center"
+                                       IsHitTestVisible="False"
+                                       Visibility="{Binding Text.IsEmpty, ElementName=TxtFiltroNombre, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+
+                <!-- Tabla de productos -->
+                <Border Grid.Row="1" Margin="10" Background="White" CornerRadius="10" Padding="10" BorderBrush="LightGray" BorderThickness="1">
+                    <DataGrid x:Name="ProductosDataGrid"
+                              Style="{StaticResource WorkingModernDataGridStyle}"
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column"
+                              CanUserAddRows="False"
+                              IsReadOnly="True"
+                              AlternatingRowBackground="#F9F9F9"
+                              Margin="5"
+                              MouseDoubleClick="ProductosDataGrid_MouseDoubleClick">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="ToolTip" Value="Doble clic para registrar un reporte de inventario."/>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                            <DataGridTextColumn Header="Categoría" Binding="{Binding Categoria}" />
+                            <DataGridTextColumn Header="Unidad" Binding="{Binding UnidadMedida}" />
+                            <DataGridTextColumn Header="Cantidad Actual" Binding="{Binding CantidadActualFormateada}" />
+                            <DataGridTextColumn Header="Cantidad Mínima" Binding="{Binding CantidadMinimaFormateada}" />
+                            <DataGridTextColumn Header="Precio" Binding="{Binding Precio, StringFormat=C}" />
+                            <DataGridTextColumn Header="Observaciones" Binding="{Binding ObservacionesInventario}" />
+                            <DataGridCheckBoxColumn Header="Ingrediente" Binding="{Binding EsIngrediente}" />
+                            <DataGridCheckBoxColumn Header="Activo" Binding="{Binding Estatus}" />
+                        </DataGrid.Columns>
+                   
+                    </DataGrid>
+                </Border>
+
+                <!-- Modal de registro -->
+                <Border x:Name="ModalOverlay"
+                        Grid.RowSpan="2"
+                        Background="#80000000"
+                        Visibility="Collapsed"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Panel.ZIndex="99">
+                    <controls:RegisterInventoryReportModal  x:Name="ModalControl"/>
+                </Border>
+            </Grid>
+        </Grid>
+        <Border x:Name="LoadingOverlay" Background="#AAFFFFFF" Visibility="Collapsed" Grid.RowSpan="2" Grid.ColumnSpan="2" Panel.ZIndex="100">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Generando reporte..." FontSize="16" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                <ProgressBar Width="200" Height="20" IsIndeterminate="True"/>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Page>

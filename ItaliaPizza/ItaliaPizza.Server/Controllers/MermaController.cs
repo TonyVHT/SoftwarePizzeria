@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.Dto;
+using ItaliaPizza.Server.DTOs;
 using ItaliaPizza.Server.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,7 @@ namespace ItaliaPizza.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegistrarMerma([FromBody] MermaDto mermaDto)
+        public async Task<IActionResult> RegistrarMerma([FromBody] Dto.MermaDto mermaDto)
         {
             var (success, message) = await _mermaService.RegistrarMermaAsync(mermaDto);
 
@@ -26,5 +27,13 @@ namespace ItaliaPizza.Server.Controllers
 
             return Ok(new { message = "Merma registrada correctamente." });
         }
+
+        [HttpGet("reporte")]
+        public async Task<ActionResult<List<DTOs.MermaDto>>> ObtenerReporteMermas()
+        {
+            var reporte = await _mermaService.ObtenerReporteMermasAsync();
+            return Ok(reporte);
+        }
+
     }
 }

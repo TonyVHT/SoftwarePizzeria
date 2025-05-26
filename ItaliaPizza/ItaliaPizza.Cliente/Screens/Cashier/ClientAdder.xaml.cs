@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.Models;
+using ItaliaPizza.Cliente.Screens.Controls;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
 using Newtonsoft.Json;
@@ -150,7 +151,8 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
             if (erroresDuplicados.Any())
             {
-                MessageBox.Show(string.Join("\\n• ", erroresDuplicados), "Datos duplicados", MessageBoxButton.OK, MessageBoxImage.Warning);
+                var dialogoRojo = new CustomDialog(string.Join("\\n• ", erroresDuplicados), 3000, true);
+                dialogoRojo.ShowDialog();
                 return;
             }
 
@@ -163,7 +165,6 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
                 {
                     var result = await response.Content.ReadFromJsonAsync<Dictionary<string, int>>();
                     int clienteId = result["clienteId"];
-                    MessageBox.Show($"Cliente registrado con éxito. ID: {clienteId}");
 
                     direccionDTO.ClienteId = clienteId;
 
@@ -171,7 +172,8 @@ namespace ItaliaPizza.Cliente.Screens.Cashier
 
                     if (responseDireccion.IsSuccessStatusCode)
                     {
-                        MessageBox.Show("Dirección registrada con éxito.");
+                        var dialog= new CustomDialog("Cliente registrado", 3000);
+                        dialog.ShowDialog();
                         NavigationService?.GoBack(); 
                     }
                     else

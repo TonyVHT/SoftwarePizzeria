@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.Screens.Controls;
 using ItaliaPizza.Cliente.Screens.Orders;
 using ItaliaPizza.Cliente.Singleton;
 using ItaliaPizza.Cliente.UserControls;
@@ -112,7 +113,10 @@ namespace ItaliaPizza.Cliente.Screens.Orders
                                       $"Fecha: {pedidoReparto.Fecha:dd/MM/yyyy}\n" +
                                       $"Repartidor: {pedidoReparto.Repartidor}";
 
-                    MessageBox.Show(detalles, $"📦 Detalles del Pedido #{pedidoReparto.Id}", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var dialog= new CustomDialog(detalles, false);
+                    dialog.ShowDialog();
+
+                    //MessageBox.Show(detalles, $"📦 Detalles del Pedido #{pedidoReparto.Id}", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else if (item is PedidoLocalConsultaDTO pedidoLocal)
                 {
@@ -132,11 +136,17 @@ namespace ItaliaPizza.Cliente.Screens.Orders
             {
                 if (btn.Tag is PedidoRepartidorConsultaDTO pedidoReparto)
                 {
+                    var dialog = new CustomDialog($"¿Deseas marcar el pedido #{pedidoReparto.Id} como 'En cocina'?", true);
+                    dialog.ShowDialog();
+
+                    /*
                     var confirmar = MessageBox.Show(
                         $"¿Deseas marcar el pedido #{pedidoReparto.Id} como 'En cocina'?",
                         "Confirmar estado",
                         MessageBoxButton.YesNo,
                         MessageBoxImage.Question);
+                    */
+                    var confirmar = dialog.DialogResult == true ? MessageBoxResult.Yes : MessageBoxResult.No;
 
                     if (confirmar == MessageBoxResult.Yes)
                     {
@@ -173,7 +183,8 @@ namespace ItaliaPizza.Cliente.Screens.Orders
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Pedido actualizado a 'En cocina'.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var dialogo = new CustomDialog("Pedido actualizado", 3000);
+                    dialogo.ShowDialog();
                     await CargarPedidosAsync();
                 }
                 else
