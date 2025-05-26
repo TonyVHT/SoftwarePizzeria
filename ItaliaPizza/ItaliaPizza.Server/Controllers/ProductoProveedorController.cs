@@ -21,7 +21,7 @@ namespace ItaliaPizza.Server.Controllers
         {
             foreach (var relacionDto in relacionesDto)
             {
-                var productoProveedor = new ProductoProveedor
+                var productoProveedor = new ProductosProveedores
                 {
                     ProductoId = relacionDto.ProductoId,
                     ProveedorId = relacionDto.ProveedorId
@@ -38,6 +38,23 @@ namespace ItaliaPizza.Server.Controllers
         {
             var relaciones = await _service.ObtenerRelacionesAsync();
             return Ok(relaciones);
+        }
+
+        [HttpDelete("eliminar")]
+        public async Task<IActionResult> EliminarRelaciones([FromBody] List<ProductoProveedorRegistroDto> relacionesDto)
+        {
+            foreach (var relacionDto in relacionesDto)
+            {
+                var productoProveedor = new ProductosProveedores
+                {
+                    ProductoId = relacionDto.ProductoId,
+                    ProveedorId = relacionDto.ProveedorId
+                };
+
+                await _service.EliminarRelacionAsync(productoProveedor);
+            }
+
+            return Ok("Relaciones eliminadas con éxito.");
         }
     }
 }

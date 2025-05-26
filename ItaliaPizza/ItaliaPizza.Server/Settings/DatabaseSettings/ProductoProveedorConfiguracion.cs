@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ItaliaPizza.Server.Settings.DatabaseSettings
 {
-    public class ProductoProveedorConfiguracion : IEntityTypeConfiguration<ProductoProveedor>
+    public class ProductoProveedorConfiguracion : IEntityTypeConfiguration<ProductosProveedores>
     {
-        public void Configure(EntityTypeBuilder<ProductoProveedor> builder)
+        public void Configure(EntityTypeBuilder<ProductosProveedores> builder)
         {
             builder.ToTable("ProductosProveedores");
 

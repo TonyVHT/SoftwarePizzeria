@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ItaliaPizza.Server.Domain
 {
     [Table("ProductoProveedor")]
-    public class ProductoProveedor
+    public class ProductosProveedores
     {
         [Key]
         public int ProductoId { get; set; }

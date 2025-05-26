@@ -6007,23 +6007,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\neco3\\.nuget\\packages\\": {},
+    "C:\\Users\\gearh\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\neco3\\Desktop\\Proyecto software\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\ItaliaPizza.Server.csproj",
+      "projectUniqueName": "C:\\Users\\gearh\\Desktop\\Pizzeria\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\ItaliaPizza.Server.csproj",
       "projectName": "ItaliaPizza.Server",
-      "projectPath": "C:\\Users\\neco3\\Desktop\\Proyecto software\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\ItaliaPizza.Server.csproj",
-      "packagesPath": "C:\\Users\\neco3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\neco3\\Desktop\\Proyecto software\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\obj\\",
+      "projectPath": "C:\\Users\\gearh\\Desktop\\Pizzeria\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\ItaliaPizza.Server.csproj",
+      "packagesPath": "C:\\Users\\gearh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gearh\\Desktop\\Pizzeria\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\neco3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gearh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6120,7 +6120,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -6129,7 +6129,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"OxyPlot.Wpf 2.2.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net9.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'OxyPlot.Wpf 2.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
       "libraryId": "OxyPlot.Wpf",
       "targetGraphs": [
         "net9.0"
@@ -6139,7 +6139,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"OxyPlot.Wpf.Shared 2.2.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net9.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'OxyPlot.Wpf.Shared 2.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
       "libraryId": "OxyPlot.Wpf.Shared",
       "targetGraphs": [
         "net9.0"

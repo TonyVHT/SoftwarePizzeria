@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ItaliaPizza.Cliente.Screens;
 
 namespace ItaliaPizza.Cliente.Screens
 {
@@ -47,22 +48,12 @@ namespace ItaliaPizza.Cliente.Screens
 
             if (rol == "administrador")
             {
-                AgregarBoton("Registrar proveedor", AbrirRegistrarProveedor);
                 AgregarBoton("Consultar y Modificar Proveedores", AbrirModificarProveedor);
-                AgregarBoton("Registrar Pedido a Proveedor", AbrirRegistrarPedidoProveedor);
             }
             else if (rol == "gerente")
             {
-                AgregarBoton("Registrar proveedor", AbrirRegistrarProveedor);
                 AgregarBoton("Consultar y Modificar Proveedores", AbrirModificarProveedor);
-                AgregarBoton("Registrar Pedido a Proveedor", AbrirRegistrarPedidoProveedor);
             }
-        }
-
-        private void AbrirRegistrarProveedor(object sender, RoutedEventArgs e)
-        {
-            var registrarProveedorWindow = new RegisterProvider();
-            NavigationService.Navigate(registrarProveedorWindow);
         }
 
         private void AbrirModificarProveedor(object sender, RoutedEventArgs e)
@@ -70,13 +61,6 @@ namespace ItaliaPizza.Cliente.Screens
             var modificarProveedorWindow = new ConsultProviders();
             NavigationService.Navigate(modificarProveedorWindow);
         }
-
-        private void AbrirRegistrarPedidoProveedor(object sender, RoutedEventArgs e)
-        {
-            var registrarPedidoProveedorWindow = new RegisterOrderToProvider();
-            NavigationService.Navigate(registrarPedidoProveedorWindow);
-        }
-
         
         private void CambiarBotonSeleccionado(UserControl menuControl, string botonSeleccionado)
         {

@@ -13,14 +13,19 @@ namespace ItaliaPizza.Server.Services.Implementations
             _repo = repo;
         }
 
-        public async Task RegistrarRelacionAsync(ProductoProveedor relacion)
+        public async Task RegistrarRelacionAsync(ProductosProveedores relacion)
         {
             await _repo.RegistrarRelacionAsync(relacion);
         }
 
-        public async Task<IEnumerable<ProductoProveedor>> ObtenerRelacionesAsync()
+        public async Task<IEnumerable<ProductosProveedores>> ObtenerRelacionesAsync()
         {
             return await _repo.ObtenerRelacionesAsync();
+        }
+
+        public async Task EliminarRelacionAsync(ProductosProveedores relacion)
+        {
+            await _repo.EliminarRelacion(relacion);
         }
     }
 }

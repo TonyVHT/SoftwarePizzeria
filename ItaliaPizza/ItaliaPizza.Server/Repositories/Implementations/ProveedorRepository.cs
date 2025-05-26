@@ -32,8 +32,11 @@ namespace ItaliaPizza.Server.Repositories.Implementations
 
         public async Task<IEnumerable<Proveedor>> GetAllProveedoresAsync()
         {
-            return await _dbSet.ToListAsync();
+            return await _dbSet
+                .Where(p => p.Estatus == true)
+                .ToListAsync();
         }
+
 
         public async Task<Proveedor?> ObtenerPorIdAsync(int id)
         {
@@ -46,12 +49,25 @@ namespace ItaliaPizza.Server.Repositories.Implementations
         }
         public async Task<List<string>> ObtenerNombresProductosPorProveedorAsync(int idProveedor)
         {
-            return await _context.ProductoProveedores
-                .Where(pp => pp.ProveedorId == idProveedor)
-                .Include(pp => pp.Producto) // Asegúrate de tener navegación configurada
+            return await _context.ProductosProveedores
+                .Where(pp => pp.ProveedorId == idProveedor && pp.Producto != null)
+                .Include(pp => pp.Producto)
                 .Select(pp => pp.Producto.Nombre)
                 .ToListAsync();
         }
 
+        public async Task<List<Producto>> ObtenerProductosPorProveedorAsync(int idProveedor)
+        {
+            return await _context.ProductosProveedores
+                .Where(pp => pp.ProveedorId == idProveedor && pp.Producto != null)
+                .Include(pp => pp.Producto)
+                .Select(pp => pp.Producto)
+                .ToListAsync();
+        }
+
+        public async Task<bool> ExisteProveedorPorCorreoAsync(string correo)
+        {
+            return await _dbSet.AnyAsync(p => p.Email == correo && p.Estatus == true);
+        }
     }
 }

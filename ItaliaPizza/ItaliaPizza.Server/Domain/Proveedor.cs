@@ -48,7 +48,7 @@ namespace ItaliaPizza.Server.Domain
         public string TipoArticulo { get; set; } = string.Empty;
 
         public bool Estatus { get; set; } = true;
-        public ICollection<ProductoProveedor> Productos { get; set; } = new List<ProductoProveedor>();
+        public ICollection<ProductosProveedores> Productos { get; set; } = new List<ProductosProveedores>();
 
     }
 }

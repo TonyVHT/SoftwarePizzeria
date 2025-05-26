@@ -12,6 +12,8 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
         Task<Proveedor?> ObtenerPorIdAsync(int id);
         Task GuardarCambiosAsync();
         Task<List<string>> ObtenerNombresProductosPorProveedorAsync(int idProveedor);
+        Task<List<Producto>> ObtenerProductosPorProveedorAsync(int idProveedor);
+        Task<bool> ExisteProveedorPorCorreoAsync(string correo);
 
     }
 }
