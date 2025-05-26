@@ -16,6 +16,17 @@
                           ShadowDepth="8"
                           Direction="270"/>
         <!-- 270: sombra abajo -->
+
+        <Storyboard x:Key="FadeOutStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                             To="0" Duration="0:0:1"/>
+        </Storyboard>
+
+        <Storyboard x:Key="FadeInStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                     From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+
     </Window.Resources>
     <Border Background="#fff"
             CornerRadius="15"

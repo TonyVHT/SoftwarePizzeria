@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.DTOs;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using ItaliaPizza.Server.Services.Interfaces;
 
@@ -144,6 +145,12 @@ namespace ItaliaPizza.Server.Services.Implementations
                             !p.EsIngrediente) 
                 .ToList();
         }
+
+        public async Task<IEnumerable<ProductoInventarioDTO>> ObtenerInventarioParaReporteAsync()
+        {
+            return await _productoRepository.ObtenerProductosConNombreCategoriaAsync();
+        }
+
 
 
     }

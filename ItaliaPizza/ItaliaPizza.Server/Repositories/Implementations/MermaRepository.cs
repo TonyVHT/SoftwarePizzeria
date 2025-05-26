@@ -2,6 +2,7 @@
 using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ItaliaPizza.Server.DTOs;
 
 namespace ItaliaPizza.Server.Repositories.Implementations
 {
@@ -61,6 +62,25 @@ namespace ItaliaPizza.Server.Repositories.Implementations
                 return false;
             }
         }
+
+        public async Task<List<MermaDto>> ObtenerReporteMermasAsync()
+        {
+            return await _dbSet
+                .Include(m => m.Producto)
+                .Include(m => m.Usuario)
+                .Include(m => m.MotivoMerma)
+                .Select(m => new MermaDto
+                {
+                    Producto = m.Producto.Nombre,
+                    CantidadPerdida = m.CantidadPerdida,
+                    Usuario = m.Usuario.Nombre + " " + m.Usuario.Apellidos,
+                    Fecha = m.Fecha,
+                    MotivoMerma = m.MotivoMerma.Descripcion
+                })
+                .OrderByDescending(m => m.Fecha)
+                .ToListAsync();
+        }
+
 
     }
 }

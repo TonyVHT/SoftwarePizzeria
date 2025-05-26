@@ -2,6 +2,7 @@
 using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Screens.Cashier;
+using ItaliaPizza.Cliente.Screens.Controls;
 using ItaliaPizza.Cliente.Screens.OrderClient;
 using System;
 using System.Collections.Generic;
@@ -269,7 +270,8 @@ namespace ItaliaPizza.Cliente.Screens
                 var response = await _httpClient.PostAsJsonAsync("https://localhost:7264/api/pedido/domicilio", pedidoDto);
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("¡Pedido registrado exitosamente!", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var dialog = new CustomDialog("¡Pedido registrado exitosamente!", 2000);
+                    dialog.ShowDialog();
                     LimpiarFormulario();
                 }
                 else

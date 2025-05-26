@@ -86,7 +86,13 @@
     <Compile Update="Screens\Manager\HomePageManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Screens\Manager\InventoryReportPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Screens\Manager\LogOutManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Screens\Manager\WasteReportPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Screens\OrderClient\AddAddressModal.xaml.cs">
@@ -122,7 +128,13 @@
     <Compile Update="Screens\Waiter\LogOutWaiter.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\RegisterInventoryReportModal.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\UCManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControls\ViewWasteReasonModal.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

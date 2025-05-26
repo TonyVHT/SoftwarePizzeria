@@ -47,11 +47,18 @@ namespace ItaliaPizza.Cliente.Screens
 
             if (rol == "administrador")
             {
-                AgregarBoton("Agregar Usuarios", AbrirBalanceDiario);
+                AgregarBoton("Abrir balance", AbrirBalanceDiario);
+                AgregarBoton("Abrir reporte de inventario", AbrirReporteInventario);
+                AgregarBoton("Abrir reporte de merma", AbrirReporteMerma);
+
             }
             else if (rol == "gerente")
             {
-                AgregarBoton("Agregar Usuarios", AbrirBalanceDiario);
+                AgregarBoton("Abrir balance", AbrirBalanceDiario);
+                AgregarBoton("Abrir reporte de inventario", AbrirReporteInventario);
+                AgregarBoton("Abrir reporte de merma", AbrirReporteMerma);
+
+
             }
         }
 
@@ -82,6 +89,16 @@ namespace ItaliaPizza.Cliente.Screens
         private void AbrirBalanceDiario(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new FinancesReporter());
+        }
+
+        private void AbrirReporteInventario(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new InventoryReportPage());
+        }
+
+        private void AbrirReporteMerma(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new WasteReportPage());
         }
     }
 }
