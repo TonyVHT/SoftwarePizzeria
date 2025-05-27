@@ -118,6 +118,14 @@ namespace ItaliaPizza.Server.Controllers
             return Ok(productos);
         }
 
+        [HttpGet("reporte-inventario")]
+        public async Task<IActionResult> ObtenerInventarioParaReporte()
+        {
+            var productos = await _productoService.ObtenerInventarioParaReporteAsync();
+            return Ok(productos);
+        }
+
+
 
 
 

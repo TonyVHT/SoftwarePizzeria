@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.DTOs;
 
 namespace ItaliaPizza.Server.Services.Interfaces
 {
@@ -12,8 +13,7 @@ namespace ItaliaPizza.Server.Services.Interfaces
         Task<IEnumerable<Producto>> GetAllProductosAsync();
         Task<IEnumerable<Producto>> GetProductosPorEsIngredienteAsync(bool? esIngrediente);
         Task<IEnumerable<Producto>> GetPorNombreCategoriaAsync(string nombreCategoria);
-
-
+        Task<IEnumerable<ProductoInventarioDTO>> ObtenerInventarioParaReporteAsync();
 
     }
 }

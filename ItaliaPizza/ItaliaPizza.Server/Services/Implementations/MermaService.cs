@@ -1,7 +1,9 @@
 ﻿using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.Dto;
+using ItaliaPizza.Server.DTOs;
 using ItaliaPizza.Server.Repositories.Interfaces;
 using ItaliaPizza.Server.Services.Interfaces;
+using MermaDto = ItaliaPizza.Server.DTOs.MermaDto;
 
 namespace ItaliaPizza.Server.Services.Implementations
 {
@@ -21,7 +23,7 @@ namespace ItaliaPizza.Server.Services.Implementations
             _productoRepo = productoRepo;
         }
 
-        public async Task<(bool success, string? message)> RegistrarMermaAsync(MermaDto merma)
+        public async Task<(bool success, string? message)> RegistrarMermaAsync(Dto.MermaDto merma)
         {
             if (merma.CantidadPerdida <= 0 || string.IsNullOrWhiteSpace(merma.MotivoMerma))
                 return (false, "Datos inválidos para registrar merma.");
@@ -52,5 +54,13 @@ namespace ItaliaPizza.Server.Services.Implementations
 
             return (true, null);
         }
+
+        public async Task<List<MermaDto>> ObtenerReporteMermasAsync()
+        {
+            return await _mermaRepo.ObtenerReporteMermasAsync();
+        }
+
+
+
     }
 }

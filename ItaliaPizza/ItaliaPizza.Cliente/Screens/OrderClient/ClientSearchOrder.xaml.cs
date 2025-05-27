@@ -2,6 +2,7 @@
 using ItaliaPizza.Cliente.Helpers;
 using ItaliaPizza.Cliente.Models;
 using ItaliaPizza.Cliente.Screens.Cashier;
+using ItaliaPizza.Cliente.Screens.Controls;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -34,7 +35,6 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
                     var repartidor = AppState.RepartidorSeleccionado;
                     AppState.RepartidorSeleccionado = null;
 
-                    MessageBox.Show($"Repartidor seleccionado: {repartidor.NombreCompleto}", "Listo", MessageBoxButton.OK);
                 }
             };
 
@@ -46,7 +46,8 @@ namespace ItaliaPizza.Cliente.Screens.OrderClient
 
             if (string.IsNullOrWhiteSpace(textoBusqueda))
             {
-                MessageBox.Show("Por favor ingresa un nombre de cliente.", "Búsqueda vacía", MessageBoxButton.OK, MessageBoxImage.Warning);
+                var dialogoRojo = new CustomDialog("Por favor ingresa un nombre de cliente", 3000, true);
+                dialogoRojo.ShowDialog();
                 return;
             }
 

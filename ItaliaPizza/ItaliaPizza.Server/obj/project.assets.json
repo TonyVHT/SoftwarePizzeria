@@ -6007,26 +6007,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\juant\\.nuget\\packages\\": {},
-    "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages": {},
+    "C:\\Users\\gearh\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juant\\Desktop\\ItaliaPizza3\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\ItaliaPizza.Server.csproj",
+      "projectUniqueName": "C:\\Users\\gearh\\Desktop\\Pizzeria\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\ItaliaPizza.Server.csproj",
       "projectName": "ItaliaPizza.Server",
-      "projectPath": "C:\\Users\\juant\\Desktop\\ItaliaPizza3\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\ItaliaPizza.Server.csproj",
-      "packagesPath": "C:\\Users\\juant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juant\\Desktop\\ItaliaPizza3\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\obj\\",
+      "projectPath": "C:\\Users\\gearh\\Desktop\\Pizzeria\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\ItaliaPizza.Server.csproj",
+      "packagesPath": "C:\\Users\\gearh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gearh\\Desktop\\Pizzeria\\SoftwarePizzeria\\ItaliaPizza\\ItaliaPizza.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\juant\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
+        "C:\\Users\\gearh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6035,7 +6032,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6054,7 +6050,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -6124,7 +6120,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -6133,7 +6129,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"OxyPlot.Wpf 2.2.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net9.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'OxyPlot.Wpf 2.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
       "libraryId": "OxyPlot.Wpf",
       "targetGraphs": [
         "net9.0"
@@ -6143,7 +6139,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"OxyPlot.Wpf.Shared 2.2.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net9.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'OxyPlot.Wpf.Shared 2.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
       "libraryId": "OxyPlot.Wpf.Shared",
       "targetGraphs": [
         "net9.0"

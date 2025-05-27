@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Server.Domain;
+using ItaliaPizza.Server.DTOs;
 
 namespace ItaliaPizza.Server.Repositories.Interfaces
 {
@@ -8,5 +9,7 @@ namespace ItaliaPizza.Server.Repositories.Interfaces
         Task<IEnumerable<Merma>> GetByProductoIdAsync(int productoId);
         Task<IEnumerable<Merma>> GetByMotivoIdAsync(int motivoMermaId);
         Task<bool> RegistrarConMotivoAsync(Merma merma, string motivoDescripcion);
+        Task<List<MermaDto>> ObtenerReporteMermasAsync();
+
     }
 }

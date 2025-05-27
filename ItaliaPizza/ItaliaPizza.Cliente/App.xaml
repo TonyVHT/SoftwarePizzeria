@@ -5,6 +5,7 @@
              StartupUri="Screens/logIn.xaml">
     
     <Application.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <Style x:Key="buttonMenus" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="Transparent"/>
