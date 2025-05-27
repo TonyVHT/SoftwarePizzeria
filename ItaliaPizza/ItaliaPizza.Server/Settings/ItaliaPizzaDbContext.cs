@@ -31,7 +31,6 @@ namespace ItaliaPizza.Server.Settings
         public DbSet<PedidoDomicilio> PedidosDomicilio { get; set; }
         public DbSet<PedidoLocal> PedidosLocales { get; set; }
         public DbSet<CategoriaProducto> CategoriasProductos { get; set; }
-
         public DbSet<CredencialUsuario> CredencialesUsuarios { get; set; } = null!;
         public DbSet<Cliente> Clientes { get; set; }
 
