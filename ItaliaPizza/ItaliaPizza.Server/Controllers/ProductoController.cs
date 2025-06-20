@@ -128,6 +128,14 @@ namespace ItaliaPizza.Server.Controllers
 
 
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> ObtenerProductoPorId(int id)
+        {
+            var producto = await _productoService.GetProductoPorIdAsync(id);
+            if (producto == null)
+                return NotFound(new { message = "Producto no encontrado." });
 
+            return Ok(producto);
+        }
     }
 }

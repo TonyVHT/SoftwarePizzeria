@@ -126,5 +126,27 @@ namespace ItaliaPizza.Server.Services.Implementations
             }
         }
 
+        public async Task<PlatilloDto?> ObtenerPlatilloPorIdAsync(int id)
+        {
+            var platillo = await _platilloRepository.GetByIdAsync(id);
+            if (platillo == null) return null;
+
+            return new PlatilloDto
+            {
+                Id = platillo.Id,
+                Nombre = platillo.Nombre,
+                CodigoPlatillo = platillo.CodigoPlatillo,
+                Descripcion = platillo.Descripcion,
+                Precio = platillo.Precio,
+                Foto = platillo.Foto,
+                Restriccion = platillo.Restriccion,
+                Estatus = platillo.Estatus,
+                Instrucciones = platillo.Instrucciones,
+                CategoriaId = platillo.CategoriaId,
+                CategoriaNombre = platillo.Categoria?.Nombre ?? string.Empty
+            };
+        }
+
+
     }
 }

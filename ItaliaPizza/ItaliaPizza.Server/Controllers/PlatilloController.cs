@@ -64,6 +64,15 @@ namespace ItaliaPizza.Server.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PlatilloDto>> ObtenerPlatilloPorId(int id)
+        {
+            var platillo = await _platilloService.ObtenerPlatilloPorIdAsync(id);
+            if (platillo == null)
+                return NotFound(new { message = "Platillo no encontrado." });
+
+            return Ok(platillo);
+        }
 
     }
 }

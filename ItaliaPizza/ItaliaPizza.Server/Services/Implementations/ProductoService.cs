@@ -151,6 +151,10 @@ namespace ItaliaPizza.Server.Services.Implementations
             return await _productoRepository.ObtenerProductosConNombreCategoriaAsync();
         }
 
+        public async Task<Producto?> GetProductoPorIdAsync(int id)
+        {
+            return await _productoRepository.GetByIdAsync(id);
+        }
 
 
     }

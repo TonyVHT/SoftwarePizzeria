@@ -26,16 +26,12 @@ namespace ItaliaPizza.Cliente.Screens
         {
             try
             {
-                var categorias = new List<CategoriaProducto>
-                {
-                    new CategoriaProducto { Id = 1, Nombre = "Verduras frescas" },
-                    new CategoriaProducto { Id = 2, Nombre = "Carnes frías" },
-                    new CategoriaProducto { Id = 3, Nombre = "Quesos" },
-                    new CategoriaProducto { Id = 4, Nombre = "Salsas y bases" },
-                    new CategoriaProducto { Id = 5, Nombre = "Ingredientes gourmet" }
-                };
+                var categorias = await _http.GetFromJsonAsync<List<CategoriaProductoDto>>("api/categorias") ?? new();
+                categorias.Insert(0, new CategoriaProductoDto { Id = -1, Nombre = "Selecciona una categoría" });
 
                 cmbCategoria.ItemsSource = categorias;
+                cmbCategoria.DisplayMemberPath = "Nombre";
+                cmbCategoria.SelectedValuePath = "Id";
                 cmbCategoria.SelectedIndex = 0;
             }
             catch (Exception ex)

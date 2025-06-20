@@ -1,5 +1,6 @@
 ﻿using ItaliaPizza.Server.Domain;
 using ItaliaPizza.Server.Dto;
+using ItaliaPizza.Server.DTOs;
 using ItaliaPizza.Server.View;
 
 namespace ItaliaPizza.Server.Services.Interfaces
@@ -12,5 +13,7 @@ namespace ItaliaPizza.Server.Services.Interfaces
         Task<List<PedidoConsultaDTO>> ObtenerPedidosDomicilioConsultaAsync();
         Task<List<PedidoRepartidorConsultaDTO>> ObtenerPedidosPorRepartidorAsync();
         Task<List<PedidoLocalDto>> ObtenerPedidosLocalConsultaAsync();
+        Task<IEnumerable<DetallePedidoDTO>> ObtenerDetallesPedidoAsync(int pedidoId);
+
     }
 }

@@ -137,5 +137,17 @@ namespace ItaliaPizza.Server.Controllers
             return Ok(pedidos);
         }
 
+        [HttpGet("detalles/{pedidoId}")]
+        public async Task<IActionResult> ObtenerDetallesPedido(int pedidoId)
+        {
+            var detalles = await _pedidoService.ObtenerDetallesPedidoAsync(pedidoId);
+
+            if (!detalles.Any())
+                return NotFound("No se encontraron detalles para el pedido.");
+
+            return Ok(detalles);
+        }
+
+
     }
 }
