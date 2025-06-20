@@ -117,7 +117,7 @@ namespace ItaliaPizza.Cliente.PlatillosModulo.Screens
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo cargar la receta del platillo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    
                 }
             }
             catch (Exception ex)
