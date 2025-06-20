@@ -88,9 +88,9 @@ namespace ItaliaPizza.Cliente.Screens
 
         private void AbrirRegistrarPedido(object sender, RoutedEventArgs e)
         {
-            var registrarPedido = new RegisterOrder();
-            NavigationService.Navigate(registrarPedido);
-            Window.GetWindow(this)?.Close();
+            var ventanaPedido = new ItaliaPizza.Cliente.Screens.LocalOrder.LocalOrder();
+            ventanaPedido.ShowDialog();  // Espera hasta que se cierre
+
         }
 
         private void AbrirRegistrarPedidoDomicilio(object sender, RoutedEventArgs e)

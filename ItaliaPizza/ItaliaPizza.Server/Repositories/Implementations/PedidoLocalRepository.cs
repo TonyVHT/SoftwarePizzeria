@@ -31,18 +31,22 @@ namespace ItaliaPizza.Server.Repositories.Implementations
         public async Task<List<PedidoLocalDto>> ObtenerPedidosConsultaAsync()
         {
             return await _context.PedidosLocales
-      .Where(p => p.Estatus == "En proceso")
-      .OrderByDescending(p => p.FechaPedido)
-      .Select(p => new PedidoLocalDto
-      {
-          Id = p.Id,
-          NumeroMesa = p.NumeroMesa, // 👈 este campo
-          Total = p.Total,
-          Fecha = p.FechaPedido,
-          MeseroNombre = p.Mesero != null ? p.Mesero.Nombre + " " + p.Mesero.Apellidos : "Sin asignar"
-
-      })
-      .ToListAsync();
+                .Where(p => p.Estatus == "En proceso")
+                .OrderByDescending(p => p.FechaPedido)
+                .Select(p => new PedidoLocalDto
+                {
+                    Id = p.Id,
+                    NumeroMesa = p.NumeroMesa,
+                    Total = p.Total,
+                    Fecha = p.FechaPedido,
+                    Estatus = p.Estatus, 
+                    Tipo = "Local",
+                    MeseroNombre = p.Mesero != null
+                        ? p.Mesero.Nombre + " " + p.Mesero.Apellidos
+                        : "Sin asignar"
+                })
+                .ToListAsync();
         }
+
     }
 }

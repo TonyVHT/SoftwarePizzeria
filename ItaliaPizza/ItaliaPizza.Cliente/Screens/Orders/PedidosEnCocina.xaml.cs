@@ -57,6 +57,8 @@ namespace ItaliaPizza.Cliente.Screens.Orders
 
         private async Task CargarPedidosAsync()
         {
+            MessageBox.Show("Cargando pedidos...");
+
             try
             {
                 PedidosItemsControl.ItemsSource = null;

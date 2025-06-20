@@ -138,7 +138,7 @@ namespace ItaliaPizza.Cliente.Screens.LocalOrder
 
             var pedidoDto = new PedidoLocalCreateDto
             {
-                CajeroId = 4, // Cambia esto por el ID del cajero actual
+                CajeroId = 1, // Cambia esto por el ID del cajero actual
                 NumeroMesa = _mesaSeleccionada.Value,
                 MeseroId = _repartidorSeleccionado.Id,
                 MetodoPago = "Efectivo",
