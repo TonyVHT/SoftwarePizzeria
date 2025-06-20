@@ -279,12 +279,29 @@ namespace ItaliaPizza.Cliente.Screens.Orders
                     }
                     else if (estado == "En camino")
                     {
-                        var dialog = new CustomDialog("¿Desea cambiar el estado a entregado?");
+                        var dialog = new CustomDialogOpciones("¿Qué deseas hacer con este pedido?");
                         dialog.Owner = Window.GetWindow(this);
-                        var res = dialog.ShowDialog();
-                        result = (res == true) ? MessageBoxResult.Yes : MessageBoxResult.No;
-                        nuevoEstado = "Entregado";
+                        var resultDialog = dialog.ShowDialog();
+
+                        if (resultDialog == true)
+                        {
+                            if (dialog.Resultado == "Entregado")
+                            {
+                                nuevoEstado = "Entregado";
+                                result = MessageBoxResult.Yes;
+                            }
+                            else if (dialog.Resultado == "Merma")
+                            {
+                                nuevoEstado = "Merma";
+                                result = MessageBoxResult.Yes;
+                            }
+                        }
+                        else
+                        {
+                            return; // cancelado
+                        }
                     }
+
 
                     if (result == MessageBoxResult.Yes)
                     {

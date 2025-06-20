@@ -7,5 +7,7 @@ namespace ItaliaPizza.Server.Services.Interfaces
         Task<bool> CrearPlatilloAsync(PlatilloDto dto);
         Task<List<PlatilloDto>> ObtenerPlatillosAsync(int? categoriaId = null);
         Task<bool> ActualizarPlatilloAsync(PlatilloDto dto);
+        Task<PlatilloDto?> ObtenerPlatilloPorIdAsync(int id);
+
     }
 }

@@ -1,0 +1,65 @@
+﻿<Window x:Class="ItaliaPizza.Cliente.Screens.Controls.CustomDialogOpciones"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        Topmost="True">
+
+    <Window.Resources>
+        <DropShadowEffect x:Key="DialogShadow"
+                          Color="#55000000"
+                          BlurRadius="32"
+                          ShadowDepth="8"
+                          Direction="270"/>
+
+        <Storyboard x:Key="FadeInStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+    </Window.Resources>
+
+    <Border Background="#fff"
+            CornerRadius="15"
+            Padding="32"
+            Margin="30"
+            BorderBrush="#32d483"
+            BorderThickness="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Effect="{StaticResource DialogShadow}">
+        <StackPanel>
+            <TextBlock x:Name="TextoMensaje"
+                       Text="¿Qué deseas hacer con este pedido?"
+                       Foreground="#32d483"
+                       FontWeight="Bold"
+                       FontSize="18"
+                       Margin="0 0 0 10"
+                       TextAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 0">
+                <Button x:Name="BtnEntregado"
+                        Content="Entregado"
+                        Width="100"
+                        Margin="10 0"
+                        Style="{StaticResource buttonsStyle}"
+                        Click="BtnEntregado_Click"/>
+                <Button x:Name="BtnMerma"
+                        Content="Merma"
+                        Width="100"
+                        Margin="10 0"
+                        Style="{StaticResource cancelbuttonsStyle}"
+                        Click="BtnMerma_Click"/>
+                <Button x:Name="BtnCancelar"
+                        Content="Cancelar"
+                        Width="100"
+                        Margin="10 0"
+                        Style="{StaticResource cancelbuttonsStyle}"
+                        Click="BtnCancelar_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

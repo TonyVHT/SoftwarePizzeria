@@ -1,4 +1,5 @@
 ﻿using ItaliaPizza.Cliente.Helpers;
+using ItaliaPizza.Cliente.PlatillosModulo.DTOs;
 using ItaliaPizza.Cliente.Screens.Controls;
 using ItaliaPizza.Cliente.Screens.Orders;
 using ItaliaPizza.Cliente.Singleton;
@@ -56,79 +57,141 @@ namespace ItaliaPizza.Cliente.Screens.Orders
 
         private async Task CargarPedidosAsync()
         {
+            MessageBox.Show("Cargando pedidos...");
+
             try
             {
                 PedidosItemsControl.ItemsSource = null;
                 var listaFinal = new List<object>();
 
-                // Obtener pedidos de repartidor
                 var pedidosRepartidor = await _httpClient.GetFromJsonAsync<List<PedidoRepartidorConsultaDTO>>("api/pedido/repartidor/consulta");
                 if (pedidosRepartidor != null)
                 {
-                    var enProceso = pedidosRepartidor.Where(p => p.Estatus.Equals("En proceso", StringComparison.OrdinalIgnoreCase));
-
-                    listaFinal.AddRange(enProceso.Select(p => new
+                    foreach (var pedido in pedidosRepartidor.Where(p => p.Estatus.Equals("En proceso", StringComparison.OrdinalIgnoreCase)))
                     {
-                        Tipo = "Domicilio",
-                        Repartidor = p.Repartidor,
-                        Fecha = p.Fecha,
-                        Total = p.Total,
-                        Original = p
-                    }));
+                        var detalles = new List<DetallePedidoItemDTO>();
+
+                        foreach (var detalle in pedido.Detalles)
+                        {
+                            string nombre = detalle.ProductoId.HasValue
+                                ? await ObtenerNombreProducto(detalle.ProductoId.Value)
+                                : await ObtenerNombrePlatillo(detalle.PlatilloId.Value);
+
+                            detalles.Add(new DetallePedidoItemDTO
+                            {
+                                Nombre = nombre,
+                                Cantidad = detalle.Cantidad
+                            });
+                        }
+
+                        listaFinal.Add(new
+                        {
+                            Tipo = "Domicilio",
+                            Cliente = pedido.Cliente,
+                            Fecha = pedido.Fecha,
+                            Total = pedido.Total,
+                            Original = pedido,
+                            Detalles = detalles
+                        });
+                    }
                 }
 
-                // Obtener pedidos locales
                 var pedidosLocales = await _httpClient.GetFromJsonAsync<List<PedidoLocalConsultaDTO>>("api/pedido/local/consulta");
                 if (pedidosLocales != null)
                 {
-                    listaFinal.AddRange(pedidosLocales.Select(p => new
+                    foreach (var pedido in pedidosLocales)
                     {
-                        Tipo = "Local",
-                        Repartidor = p.Mesero, // Lo mismo que 'Repartidor' por simplicidad de UI
-                        Fecha = p.Fecha,
-                        Total = p.Total,
-                        Original = p
-                    }));
+                        var detalles = new List<DetallePedidoItemDTO>();
+
+                        foreach (var detalle in pedido.Detalles)
+                        {
+                            string nombre = detalle.ProductoId.HasValue
+                                ? await ObtenerNombreProducto(detalle.ProductoId.Value)
+                                : await ObtenerNombrePlatillo(detalle.PlatilloId.Value);
+
+                            detalles.Add(new DetallePedidoItemDTO
+                            {
+                                Nombre = nombre,
+                                Cantidad = detalle.Cantidad
+                            });
+                        }
+
+                        listaFinal.Add(new
+                        {
+                            Tipo = "Local",
+                            NumeroMesa = pedido.NumeroMesa,
+                            Fecha = pedido.Fecha,
+                            Total = pedido.Total,
+                            Original = pedido,
+                            Detalles = detalles
+                        });
+                    }
                 }
 
                 PedidosItemsControl.ItemsSource = listaFinal;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar pedidos: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
 
-        private void VerDetalles_Click(object sender, RoutedEventArgs e)
+
+        private async void VerDetalles_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button btn && btn.Tag != null)
             {
-                var item = btn.Tag;
+                int pedidoId = 0;
+                string tipo = string.Empty;
+                string encargado = string.Empty;
+                DateTime fecha = DateTime.Now;
+                decimal total = 0;
+                int numeroMesa = 0;
 
-                if (item is PedidoRepartidorConsultaDTO pedidoReparto)
+                if (btn.Tag is PedidoRepartidorConsultaDTO pedidoReparto)
                 {
-                    string detalles = $"🛵 Pedido ID: {pedidoReparto.Id}\n" +
-                                      $"Total: ${pedidoReparto.Total:F2}\n" +
-                                      $"Fecha: {pedidoReparto.Fecha:dd/MM/yyyy}\n" +
-                                      $"Repartidor: {pedidoReparto.Repartidor}";
-
-                    var dialog= new CustomDialog(detalles, false);
-                    dialog.ShowDialog();
-
-                    //MessageBox.Show(detalles, $"📦 Detalles del Pedido #{pedidoReparto.Id}", MessageBoxButton.OK, MessageBoxImage.Information);
+                    pedidoId = pedidoReparto.Id;
+                    tipo = "Domicilio";
+                    encargado = pedidoReparto.Cliente;
+                    fecha = pedidoReparto.Fecha;
+                    total = pedidoReparto.Total;
                 }
-                else if (item is PedidoLocalConsultaDTO pedidoLocal)
+                else if (btn.Tag is PedidoLocalConsultaDTO pedidoLocal)
                 {
-                    string detalles = $"🍽️ Pedido ID: {pedidoLocal.Id}\n" +
-                                      $"Total: ${pedidoLocal.Total:F2}\n" +
-                                      $"Fecha: {pedidoLocal.Fecha:dd/MM/yyyy}\n" +
-                                      $"Mesero: {pedidoLocal.Mesero}";
+                    pedidoId = pedidoLocal.Id;
+                    tipo = "Local";
+                    numeroMesa = pedidoLocal.NumeroMesa;
+                    fecha = pedidoLocal.Fecha;
+                    total = pedidoLocal.Total;
+                }
 
-                    MessageBox.Show(detalles, $"🪑 Detalles del Pedido #{pedidoLocal.Id}", MessageBoxButton.OK, MessageBoxImage.Information);
+                try
+                {
+                    var detalles = await _httpClient.GetFromJsonAsync<List<DetallePedidoItemDTO>>($"api/pedido/detalles/{pedidoId}");
+
+                    if (detalles == null || detalles.Count == 0)
+                    {
+                        MessageBox.Show("No se encontraron detalles para este pedido.");
+                        return;
+                    }
+
+                    string detalleTexto = string.Join("\n", detalles.Select(d => $"- {d.Nombre} x{d.Cantidad}"));
+
+                    string texto = (tipo == "Domicilio"
+                        ? $"🛵 Pedido ID: {pedidoId}\nCliente: {encargado}"
+                        : $"🪑 Pedido ID: {pedidoId}\nMesa: {encargado}") +
+                        $"\nFecha: {fecha:dd/MM/yyyy}\nTotal: ${total:F2}\n\n🍕 Detalles:\n{detalleTexto}";
+
+                    var dialog = new CustomDialog(texto, false);
+                    dialog.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al obtener los detalles del pedido: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
+
 
         private async void CompletarPedido_Click(object sender, RoutedEventArgs e)
         {
@@ -199,6 +262,33 @@ namespace ItaliaPizza.Cliente.Screens.Orders
             }
         }
 
+        private async Task<string> ObtenerNombreProducto(int id)
+        {
+            try
+            {
+                var producto = await _httpClient.GetFromJsonAsync<ProductoDto>($"api/producto/{id}");
+                return producto?.Nombre ?? "Producto desconocido";
+            }
+            catch
+            {
+                return "Producto no encontrado";
+            }
+        }
+
+        private async Task<string> ObtenerNombrePlatillo(int id)
+        {
+            try
+            {
+                var platillo = await _httpClient.GetFromJsonAsync<PlatilloDto>($"api/platillo/{id}");
+                return platillo?.Nombre ?? "Platillo desconocido";
+            }
+            catch
+            {
+                return "Platillo no encontrado";
+            }
+        }
+
+
 
 
     }
@@ -206,26 +296,39 @@ namespace ItaliaPizza.Cliente.Screens.Orders
     public class PedidoRepartidorConsultaDTO
     {
         public int Id { get; set; }
-        public string Repartidor { get; set; } = "";
+        public string Cliente { get; set; } = "";
         public decimal Total { get; set; }
         public string Estatus { get; set; } = "";
         public DateTime Fecha { get; set; }
         public string Tipo { get; set; } = "Domicilio";
+        public List<DetallePedidoItemDTO> Detalles { get; set; } = new(); // 👈 aquí
+
     }
 
     public class PedidoLocalConsultaDTO
     {
         public int Id { get; set; }
         public string Tipo { get; set; } = "Pedido Local"; // Literal
-        public string Mesero { get; set; } = ""; // Nombre del mesero
+        public int NumeroMesa { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Total { get; set; }
+        public List<DetallePedidoItemDTO> Detalles { get; set; } = new(); // 👈 aquí
+
     }
 
     internal class CambiarEstadoPedidoDto
     {
         public int PedidoId { get; set; }
         public string NuevoEstado { get; set; } = string.Empty;
+    }
+
+    public class DetallePedidoItemDTO
+    {
+        public int? ProductoId { get; set; }
+        public int? PlatilloId { get; set; }
+        public string Nombre { get; set; } = string.Empty;
+        public int Cantidad { get; set; }
+
     }
 
 }

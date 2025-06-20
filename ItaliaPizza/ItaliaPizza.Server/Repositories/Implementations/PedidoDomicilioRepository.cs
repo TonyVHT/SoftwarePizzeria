@@ -49,19 +49,19 @@ namespace ItaliaPizza.Server.Repositories.Implementations
 
         public async Task<List<PedidoRepartidorConsultaDTO>> ObtenerPedidosConsultaConRepartidorAsync()
         {
-            var query = from p in _context.Set<PedidoDomicilio>()
-                        join c in _context.Usuarios on p.RepartidorId equals c.Id
-                        select new PedidoRepartidorConsultaDTO
-                        {
-                            Id = p.Id,
-                            Repartidor = c.Nombre + " " + c.Apellidos,
-                            Total = p.Total,
-                            Estatus = p.Estatus,
-                            Fecha = p.FechaPedido,
-                            Tipo = "Domicilio"
-                        };
-
-            return await query.OrderByDescending(p => p.Fecha).ToListAsync();
+            return await _context.PedidosDomicilio
+       .Include(p => p.Cliente)
+       .Where(p => p.Estatus == "En proceso")
+       .OrderByDescending(p => p.FechaPedido)
+       .Select(p => new PedidoRepartidorConsultaDTO
+       {
+           Id = p.Id,
+           Cliente = p.Cliente.Nombre + " " + p.Cliente.Apellidos, // 👈 aquí
+           Total = p.Total,
+           Estatus = p.Estatus,
+           Fecha = p.FechaPedido
+       })
+       .ToListAsync();
         }
     }
 }

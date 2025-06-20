@@ -59,6 +59,7 @@
                                 <ComboBoxItem Content="En cocina"/>
                                 <ComboBoxItem Content="En camino"/>
                                 <ComboBoxItem Content="Entregado"/>
+                                <ComboBoxItem Content="Merma"/>
                             </ComboBox>
 
                         </StackPanel>
